@@ -1,0 +1,16 @@
+{
+  "id": "TASK-001",
+  "title": "Auditoria de SO, Hardware e Ferramentas",
+  "stage": "setup",
+  "command": null,
+  "dependencies": [],
+  "status": "completed",
+  "evidence_files": [
+    "docs/operations/environment-audit.md"
+  ],
+  "created_at": "2026-10-15T18:42:26.607912",
+  "updated_at": "2026-10-15T18:42:26.607934",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

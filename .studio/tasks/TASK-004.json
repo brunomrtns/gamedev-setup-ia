@@ -1,0 +1,18 @@
+{
+  "id": "TASK-004",
+  "title": "Instalação do Unity 6.3 LTS e Módulos Android",
+  "stage": "engine",
+  "command": null,
+  "dependencies": [
+    "TASK-001"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "C:\\Program Files\\Unity\\Hub\\Editor\\6000.3.26f1\\Editor\\Unity.exe"
+  ],
+  "created_at": "2026-10-15T18:42:26.690264",
+  "updated_at": "2026-10-15T18:43:40.461989",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

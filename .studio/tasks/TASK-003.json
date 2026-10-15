@@ -1,0 +1,18 @@
+{
+  "id": "TASK-003",
+  "title": "Instalação do BMad Game Dev Studio e Módulos",
+  "stage": "agents",
+  "command": null,
+  "dependencies": [
+    "TASK-001"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "_bmad/"
+  ],
+  "created_at": "2026-10-15T18:42:26.657128",
+  "updated_at": "2026-10-15T18:42:26.657135",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

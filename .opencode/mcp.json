@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "unity": {
+      "command": "C:\\WINDOWS\\system32\\unity.exe",
+      "args": [
+        "mcp",
+        "--project-path",
+        "C:\\Users\\Bruno\\.gemini\\antigravity\\scratch\\gamedev-setup-ia\\unity"
+      ]
+    }
+  }
+}

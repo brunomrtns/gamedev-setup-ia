@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="unity" tests="4" failures="0" errors="0" skipped="0" time="0.026">
+  <testsuite name="Studio.Tests.EditMode.CoreValidationTests" tests="4" failures="0" errors="0" skipped="0" time="0.026">
+    <testcase name="Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" classname="Studio.Tests.EditMode.CoreValidationTests" time="0.021" />
+    <testcase name="MobileBudget_DrawCallThreshold_IsConfiguredProperly" classname="Studio.Tests.EditMode.CoreValidationTests" time="0.004" />
+    <testcase name="MobileBudget_TriangleBudget_IsWithinLimits" classname="Studio.Tests.EditMode.CoreValidationTests" time="0.000" />
+    <testcase name="Project_QualitySettings_TargetFrameRate_IsValid" classname="Studio.Tests.EditMode.CoreValidationTests" time="0.001">
+      <system-out>Saving results to: C:/Users/Bruno/AppData/LocalLow/DefaultCompany/unity\TestResults.xml</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

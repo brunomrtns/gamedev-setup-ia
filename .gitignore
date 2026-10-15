@@ -1,0 +1,67 @@
+# ---------- Unity (project lives in unity/) ----------
+unity/[Ll]ibrary/
+unity/[Tt]emp/
+unity/[Oo]bj/
+unity/[Bb]uild/
+unity/[Bb]uilds/
+unity/[Ll]ogs/
+unity/[Uu]ser[Ss]ettings/
+unity/[Mm]emoryCaptures/
+unity/[Rr]ecordings/
+unity/.vs/
+unity/.vscode/
+unity/.idea/
+unity/*.csproj
+unity/*.sln
+unity/*.slnx
+unity/*.user
+unity/*.pidb
+unity/*.booproj
+unity/*.svd
+unity/*.pdb
+unity/*.mdb
+unity/*.opendb
+unity/*.VC.db
+unity/sysinfo.txt
+unity/crashlytics-build.properties
+unity/Assets/Plugins/Editor/JetBrains*
+unity/Assets/StreamingAssets/aa*
+unity/Assets/AddressableAssetsData/*/*.bin*
+# Throwaway Unity projects used by validations / worktrees
+.studio/worktrees/
+.studio/tmp/
+sandbox/
+
+# ---------- Build outputs ----------
+builds/
+*.apk
+*.aab
+*.symbols.zip
+
+# ---------- Studio runtime (state is versioned; locks/logs are not) ----------
+.studio/*.lock
+.studio/runs/*/raw/
+.studio/logs/
+
+# ---------- Evidence: keep reports, drop huge raw logs ----------
+evidence/**/editor-full.log
+
+# ---------- Node / Python / tooling ----------
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# ---------- OS / editors ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Secrets ----------
+.env
+.env.*
+!.env.example
+*.ulf
+*.alf

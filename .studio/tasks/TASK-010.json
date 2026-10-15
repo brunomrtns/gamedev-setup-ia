@@ -1,0 +1,19 @@
+{
+  "id": "TASK-010",
+  "title": "Teste Ponta a Ponta E2E: Briefing -> GDD -> Unity -> Testes -> APK",
+  "stage": "e2e",
+  "command": null,
+  "dependencies": [
+    "TASK-008",
+    "TASK-009"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "evidence/qa-report.md"
+  ],
+  "created_at": "2026-10-15T18:42:26.842610",
+  "updated_at": "2026-10-15T19:13:26.238017",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

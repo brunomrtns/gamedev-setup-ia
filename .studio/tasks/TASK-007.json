@@ -1,0 +1,18 @@
+{
+  "id": "TASK-007",
+  "title": "Cena de Calibração e Testes Automatizados UTF",
+  "stage": "qa",
+  "command": "unity test unity/ --format json",
+  "dependencies": [
+    "TASK-006"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "evidence/test-reports/junit-results.xml"
+  ],
+  "created_at": "2026-10-15T18:42:26.778715",
+  "updated_at": "2026-10-15T18:57:16.323296",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

@@ -1,0 +1,41 @@
+version: "1.0"
+style: "stylized_clean_pbr"
+target_platform: "mobile_android"
+
+geometry_budgets:
+  player_character:
+    max_triangles: 4500
+    materials_count: 1
+    rig_type: "humanoid"
+  enemy_character:
+    max_triangles: 2500
+    materials_count: 1
+    rig_type: "generic_or_humanoid"
+  large_prop_building:
+    max_triangles: 3000
+    materials_count: 2
+    has_lods: true
+  small_prop_item:
+    max_triangles: 600
+    materials_count: 1
+    has_lods: false
+
+texture_specifications:
+  main_characters:
+    max_resolution: 1024
+    compression_android: "ASTC_4x4"
+    generate_mipmaps: true
+  props_and_environment:
+    max_resolution: 512
+    compression_android: "ASTC_6x6"
+    generate_mipmaps: true
+  ui_icons:
+    max_resolution: 256
+    compression_android: "ASTC_4x4"
+    generate_mipmaps: false
+
+lighting:
+  pipeline: "URP"
+  shadows: "soft_shadows"
+  shadow_distance: 35.0
+  color_space: "linear"

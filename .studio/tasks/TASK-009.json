@@ -1,0 +1,18 @@
+{
+  "id": "TASK-009",
+  "title": "Pipeline de Build Android Local (APK)",
+  "stage": "build",
+  "command": "python tools/android/build_apk.py",
+  "dependencies": [
+    "TASK-007"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "builds/game_development_20261015_185856.apk"
+  ],
+  "created_at": "2026-10-15T18:42:26.820651",
+  "updated_at": "2026-10-15T19:13:09.489072",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

@@ -1,0 +1,18 @@
+{
+  "id": "TASK-008",
+  "title": "Conexão de Agente Autônomo via Unity MCP / CLI",
+  "stage": "agents",
+  "command": null,
+  "dependencies": [
+    "TASK-006"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "C:\\Users\\Bruno\\.gemini\\config\\mcp_config.json"
+  ],
+  "created_at": "2026-10-15T18:42:26.799082",
+  "updated_at": "2026-10-15T19:05:36.132816",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}
