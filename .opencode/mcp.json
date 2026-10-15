@@ -5,7 +5,7 @@
       "args": [
         "mcp",
         "--project-path",
-        "C:\\Users\\Bruno\\.gemini\\antigravity\\scratch\\gamedev-setup-ia\\unity"
+        "unity"
       ]
     }
   }
