@@ -32,6 +32,11 @@ namespace Studio.Gameplay
         private static readonly int AnimHashJump = Animator.StringToHash("Jump");
         private static readonly int AnimHashSlide = Animator.StringToHash("Slide");
 
+        private PlayerMovement _movement;
+        private float _previousX = 0f;
+        private bool _wasJumping = false;
+        private bool _wasSliding = false;
+
         private void Awake()
         {
             if (_visualRoot != null)
@@ -43,6 +48,35 @@ namespace Studio.Gameplay
             {
                 _animator = GetComponentInChildren<Animator>();
             }
+            _movement = GetComponent<PlayerMovement>();
+            _previousX = transform.position.x;
+        }
+
+        private void Start()
+        {
+            if (_movement == null)
+            {
+                _movement = GetComponent<PlayerMovement>();
+                if (_movement == null) _movement = GetComponentInParent<PlayerMovement>();
+            }
+            if (_animator == null)
+            {
+                _animator = GetComponentInChildren<Animator>();
+            }
+            _previousX = transform.position.x;
+        }
+
+        private void Update()
+        {
+            float dt = Time.deltaTime;
+            float currentX = transform.position.x;
+            float lateralDelta = currentX - _previousX;
+            _previousX = currentX;
+
+            bool isJumping = _movement != null && _movement.IsJumping;
+            bool isSliding = _movement != null && _movement.IsSliding;
+
+            Animate(lateralDelta, isJumping, isSliding, dt);
         }
 
         public void Initialize(Transform visualRoot, Animator animator = null, bool isHoverDrone = false, float baseY = 0.0f)
@@ -57,10 +91,15 @@ namespace Studio.Gameplay
                 _originalRootScale = _visualRoot.localScale;
                 _targetScale = _originalRootScale;
             }
+            if (_animator == null)
+            {
+                _animator = GetComponentInChildren<Animator>();
+            }
+            if (_movement == null)
+            {
+                _movement = GetComponent<PlayerMovement>();
+            }
         }
-
-        private bool _wasJumping = false;
-        private bool _wasSliding = false;
 
         public void Animate(float lateralDelta, bool isJumping, bool isSliding, float dt)
         {

@@ -3,14 +3,16 @@
 tools/art/auto_rig.py
 Script de Auto-Rigging Headless para Blender 5.0+.
 
-Cura o Problema A (Modelo estático sem ossos e sem animação):
+Pipeline de Rigging e Skinning Robusto para Malhas 3D de IA:
 1. Importa a malha 3D normalizada (.obj).
 2. Constrói automaticamente um esqueleto bípede padronizado (Humanoid Rig).
-3. Calcula pesos de deformação de vértices via Automatic Skinning (ARMATURE_AUTO).
+3. Calcula pesos reais de deformação via Proximity Skinning Geométrico Vetorizado
+   (imune a malhas não-manifólio do TripoSR/NeRF, garantindo 100% dos vértices vinculados).
 4. Gera e baka ações de animação essenciais para runner mobile:
-   - 'RunCycle' (Loop de corrida com passadas de pernas e balanço de braços)
-   - 'Jump' (Salto com flexão, propulsão aérea e amortecimento)
-   - 'Slide' (Deslize com corpo rebaixado e pernas estendidas à frente)
+   - 'RunCycle' (Loop contínuo de corrida com passadas expressivas e balanço de braços)
+   - 'Jump' (Salto com contração pré-pulo, encolhimento no ar e amortecimento)
+   - 'Slide' (Deslize rasteiro com corpo rebaixado e perna frontal estendida)
+   - 'Idle' (Postura de prontidão com respiração suave)
 5. Exporta para .fbx com SkinnedMeshRenderer, esqueleto e animações embutidas, pronto para Unity Mecanim.
 """
 
@@ -21,8 +23,9 @@ import math
 try:
     import bpy
     import mathutils
-except ImportError:
-    print("[Error] Este script deve ser executado pelo Blender: blender -b -P auto_rig.py -- [args]")
+    import numpy as np
+except ImportError as e:
+    print(f"[Error] Dependência ausente no Blender Python: {e}")
     sys.exit(1)
 
 def parse_args():
@@ -49,7 +52,6 @@ def clean_scene():
         bpy.data.meshes.remove(block)
 
 def create_humanoid_rig(mesh_obj, height=1.4):
-    # Calcular dimensões
     verts = [v.co for v in mesh_obj.data.vertices]
     xs = [v.x for v in verts]
     ys = [v.y for v in verts]
@@ -63,7 +65,6 @@ def create_humanoid_rig(mesh_obj, height=1.4):
     y_max = max(ys)
     z_mid = (max(zs) + min(zs)) * 0.5
     
-    # Criar armadura
     armature_data = bpy.data.armatures.new(name="Humanoid_Armature")
     armature_obj = bpy.data.objects.new("Armature", armature_data)
     bpy.context.collection.objects.link(armature_obj)
@@ -73,10 +74,10 @@ def create_humanoid_rig(mesh_obj, height=1.4):
     edit_bones = armature_data.edit_bones
     
     # Proporções anatômicas estilizadas para droide/robô
-    y_hips = y_min + h_mesh * 0.50
-    y_spine = y_min + h_mesh * 0.65
-    y_chest = y_min + h_mesh * 0.78
-    y_neck = y_min + h_mesh * 0.88
+    y_hips = y_min + h_mesh * 0.48
+    y_spine = y_min + h_mesh * 0.62
+    y_chest = y_min + h_mesh * 0.74
+    y_neck = y_min + h_mesh * 0.86
     y_head = y_min + h_mesh * 0.98
     
     x_leg = width * 0.22
@@ -88,125 +89,146 @@ def create_humanoid_rig(mesh_obj, height=1.4):
     y_elbow = y_min + h_mesh * 0.56
     y_hand = y_min + h_mesh * 0.38
     
-    # 1. Coluna Central
-    b_root = edit_bones.new("Root")
-    b_root.head = (0, y_min, z_mid)
-    b_root.tail = (0, y_min + 0.1, z_mid)
+    bones_spec = [
+        ("Root", None, (0, y_min, z_mid), (0, y_min + 0.1, z_mid)),
+        ("Hips", "Root", (0, y_hips, z_mid), (0, y_spine, z_mid)),
+        ("Spine", "Hips", (0, y_spine, z_mid), (0, y_chest, z_mid)),
+        ("Chest", "Spine", (0, y_chest, z_mid), (0, y_neck, z_mid)),
+        ("Neck", "Chest", (0, y_neck, z_mid), (0, y_head, z_mid)),
+        ("Head", "Neck", (0, y_head, z_mid), (0, y_max, z_mid)),
+        
+        # Perna Esquerda
+        ("UpperLeg.L", "Hips", (-x_leg, y_hips, z_mid), (-x_leg, y_knee, z_mid + 0.03)),
+        ("LowerLeg.L", "UpperLeg.L", (-x_leg, y_knee, z_mid + 0.03), (-x_leg, y_foot, z_mid)),
+        ("Foot.L", "LowerLeg.L", (-x_leg, y_foot, z_mid), (-x_leg, y_min, z_mid + depth * 0.3)),
+        
+        # Perna Direita
+        ("UpperLeg.R", "Hips", (x_leg, y_hips, z_mid), (x_leg, y_knee, z_mid + 0.03)),
+        ("LowerLeg.R", "UpperLeg.R", (x_leg, y_knee, z_mid + 0.03), (x_leg, y_foot, z_mid)),
+        ("Foot.R", "LowerLeg.R", (x_leg, y_foot, z_mid), (x_leg, y_min, z_mid + depth * 0.3)),
+        
+        # Braço Esquerdo
+        ("UpperArm.L", "Chest", (-x_leg * 1.3, y_shoulder, z_mid), (-x_arm, y_elbow, z_mid - 0.02)),
+        ("LowerArm.L", "UpperArm.L", (-x_arm, y_elbow, z_mid - 0.02), (-x_arm, y_hand, z_mid)),
+        ("Hand.L", "LowerArm.L", (-x_arm, y_hand, z_mid), (-x_arm, y_hand - 0.08, z_mid + 0.03)),
+        
+        # Braço Direito
+        ("UpperArm.R", "Chest", (x_leg * 1.3, y_shoulder, z_mid), (x_arm, y_elbow, z_mid - 0.02)),
+        ("LowerArm.R", "UpperArm.R", (x_arm, y_elbow, z_mid - 0.02), (x_arm, y_hand, z_mid)),
+        ("Hand.R", "LowerArm.R", (x_arm, y_hand, z_mid), (x_arm, y_hand - 0.08, z_mid + 0.03)),
+    ]
     
-    b_hips = edit_bones.new("Hips")
-    b_hips.parent = b_root
-    b_hips.head = (0, y_hips, z_mid)
-    b_hips.tail = (0, y_spine, z_mid)
-    
-    b_spine = edit_bones.new("Spine")
-    b_spine.parent = b_hips
-    b_spine.head = (0, y_spine, z_mid)
-    b_spine.tail = (0, y_chest, z_mid)
-    
-    b_chest = edit_bones.new("Chest")
-    b_chest.parent = b_spine
-    b_chest.head = (0, y_chest, z_mid)
-    b_chest.tail = (0, y_neck, z_mid)
-    
-    b_neck = edit_bones.new("Neck")
-    b_neck.parent = b_chest
-    b_neck.head = (0, y_neck, z_mid)
-    b_neck.tail = (0, y_head, z_mid)
-    
-    b_head = edit_bones.new("Head")
-    b_head.parent = b_neck
-    b_head.head = (0, y_head, z_mid)
-    b_head.tail = (0, y_max, z_mid)
-    
-    # 2. Pernas (Left / Right)
-    # Perna Esquerda
-    b_upleg_l = edit_bones.new("UpperLeg.L")
-    b_upleg_l.parent = b_hips
-    b_upleg_l.head = (-x_leg, y_hips, z_mid)
-    b_upleg_l.tail = (-x_leg, y_knee, z_mid + 0.03)
-    
-    b_lowleg_l = edit_bones.new("LowerLeg.L")
-    b_lowleg_l.parent = b_upleg_l
-    b_lowleg_l.head = (-x_leg, y_knee, z_mid + 0.03)
-    b_lowleg_l.tail = (-x_leg, y_foot, z_mid)
-    
-    b_foot_l = edit_bones.new("Foot.L")
-    b_foot_l.parent = b_lowleg_l
-    b_foot_l.head = (-x_leg, y_foot, z_mid)
-    b_foot_l.tail = (-x_leg, y_min, z_mid + depth * 0.3)
-    
-    # Perna Direita
-    b_upleg_r = edit_bones.new("UpperLeg.R")
-    b_upleg_r.parent = b_hips
-    b_upleg_r.head = (x_leg, y_hips, z_mid)
-    b_upleg_r.tail = (x_leg, y_knee, z_mid + 0.03)
-    
-    b_lowleg_r = edit_bones.new("LowerLeg.R")
-    b_lowleg_r.parent = b_upleg_r
-    b_lowleg_r.head = (x_leg, y_knee, z_mid + 0.03)
-    b_lowleg_r.tail = (x_leg, y_foot, z_mid)
-    
-    b_foot_r = edit_bones.new("Foot.R")
-    b_foot_r.parent = b_lowleg_r
-    b_foot_r.head = (x_leg, y_foot, z_mid)
-    b_foot_r.tail = (x_leg, y_min, z_mid + depth * 0.3)
-    
-    # 3. Braços (Left / Right)
-    # Braço Esquerdo
-    b_arm_l = edit_bones.new("UpperArm.L")
-    b_arm_l.parent = b_chest
-    b_arm_l.head = (-x_leg * 1.3, y_shoulder, z_mid)
-    b_arm_l.tail = (-x_arm, y_elbow, z_mid - 0.02)
-    
-    b_forearm_l = edit_bones.new("LowerArm.L")
-    b_forearm_l.parent = b_arm_l
-    b_forearm_l.head = (-x_arm, y_elbow, z_mid - 0.02)
-    b_forearm_l.tail = (-x_arm, y_hand, z_mid)
-    
-    b_hand_l = edit_bones.new("Hand.L")
-    b_hand_l.parent = b_forearm_l
-    b_hand_l.head = (-x_arm, y_hand, z_mid)
-    b_hand_l.tail = (-x_arm, y_hand - 0.08, z_mid + 0.03)
-    
-    # Braço Direito
-    b_arm_r = edit_bones.new("UpperArm.R")
-    b_arm_r.parent = b_chest
-    b_arm_r.head = (x_leg * 1.3, y_shoulder, z_mid)
-    b_arm_r.tail = (x_arm, y_elbow, z_mid - 0.02)
-    
-    b_forearm_r = edit_bones.new("LowerArm.R")
-    b_forearm_r.parent = b_arm_r
-    b_forearm_r.head = (x_arm, y_elbow, z_mid - 0.02)
-    b_forearm_r.tail = (x_arm, y_hand, z_mid)
-    
-    b_hand_r = edit_bones.new("Hand.R")
-    b_hand_r.parent = b_forearm_r
-    b_hand_r.head = (x_arm, y_hand, z_mid)
-    b_hand_r.tail = (x_arm, y_hand - 0.08, z_mid + 0.03)
-    
+    created_bones = {}
+    for name, parent, head, tail in bones_spec:
+        b = edit_bones.new(name)
+        b.head = head
+        b.tail = tail
+        if parent and parent in created_bones:
+            b.parent = created_bones[parent]
+        created_bones[name] = b
+        
     bpy.ops.object.mode_set(mode='OBJECT')
-    return armature_obj
+    return armature_obj, bones_spec
 
-def bind_skin(mesh_obj, armature_obj):
-    bpy.ops.object.select_all(action='DESELECT')
-    mesh_obj.select_set(True)
-    armature_obj.select_set(True)
-    bpy.context.view_layer.objects.active = armature_obj
+def bind_skin_robust(mesh_obj, armature_obj, bones_spec):
+    """
+    Skinning geométrico por proximidade segmentar com filtragem anatômica.
+    Garante que 100% dos vértices recebam pesos de deformação válidos,
+    superando a limitação do ARMATURE_AUTO em malhas NeRF/AI não-manifólio.
+    """
+    print("[auto_rig] Iniciando Skinning Geométrico Robusto...")
     
-    # Vinculação com Pesos Automáticos
-    try:
-        bpy.ops.object.parent_set(type='ARMATURE_AUTO')
-        print("[auto_rig] Deformação de malha vinculada com pesos automáticos (ARMATURE_AUTO).")
-    except Exception as e:
-        print(f"[auto_rig] Aviso em ARMATURE_AUTO ({e}), tentando ARMATURE_ENVELOPE...")
-        bpy.ops.object.parent_set(type='ARMATURE_ENVELOPE')
+    # 1. Vincular objeto ao esqueleto com modificador Armature
+    mesh_obj.parent = armature_obj
+    arm_mod = mesh_obj.modifiers.new(name="Armature", type='ARMATURE')
+    arm_mod.object = armature_obj
+    arm_mod.use_vertex_groups = True
+    
+    verts = np.array([v.co for v in mesh_obj.data.vertices])
+    n_verts = len(verts)
+    
+    vx = verts[:, 0]
+    vy = verts[:, 1]
+    vz = verts[:, 2]
+    
+    width = vx.max() - vx.min()
+    
+    # Lista de ossos deformadores (Root é omitido de deformações para evitar rigidez global)
+    deform_bones = [b[0] for b in bones_spec if b[0] != "Root"]
+    
+    bone_segments = []
+    for name in deform_bones:
+        b = armature_obj.data.bones[name]
+        head = np.array(b.head_local)
+        tail = np.array(b.tail_local)
+        bone_segments.append((name, head, tail))
+        
+    n_bones = len(bone_segments)
+    distances = np.zeros((n_verts, n_bones), dtype=np.float32)
+    
+    for j, (name, A, B) in enumerate(bone_segments):
+        AB = B - A
+        AB_len_sq = float(np.dot(AB, AB))
+        AP = verts - A
+        t = np.clip(np.sum(AP * AB, axis=1) / AB_len_sq, 0.0, 1.0)
+        closest = A + t[:, np.newaxis] * AB
+        d = np.linalg.norm(verts - closest, axis=1)
+        
+        # Filtragem Anatômica e Isolamento Lateral
+        if ".L" in name:
+            d = np.where(vx > 0.015, d + 2.5, d)
+        elif ".R" in name:
+            d = np.where(vx < -0.015, d + 2.5, d)
+        elif name in ["Hips", "Spine", "Chest", "Neck", "Head"]:
+            d = np.where(np.abs(vx) > width * 0.35, d + 0.6, d)
+            
+        distances[:, j] = d
+        
+    # Peso inversamente proporcional ao cubo da distância
+    eps = 0.02
+    raw_weights = 1.0 / (distances + eps)**3
+    
+    # Selecionar os 4 ossos com maior influência para cada vértice (Padrão de Game Engines)
+    top_indices = np.argsort(-raw_weights, axis=1)[:, :4]
+    top_weights = np.take_along_axis(raw_weights, top_indices, axis=1)
+    
+    # Normalizar para somar exatamente 1.0
+    sum_weights = np.sum(top_weights, axis=1, keepdims=True)
+    top_weights = top_weights / sum_weights
+    
+    # Criar grupos de vértices no Blender
+    bone_to_vg = {}
+    for name in deform_bones:
+        bone_to_vg[name] = mesh_obj.vertex_groups.new(name=name)
+        
+    # Atribuição eficiente em lotes quantizados
+    for k in range(4):
+        bone_idx_col = top_indices[:, k]
+        w_col = top_weights[:, k]
+        
+        for b_idx, (name, _, _) in enumerate(bone_segments):
+            mask = (bone_idx_col == b_idx) & (w_col > 0.01)
+            if not np.any(mask):
+                continue
+            v_indices = np.where(mask)[0]
+            v_weights = w_col[mask]
+            
+            # Agrupar em fatias de 0.05
+            unique_bins = np.round(v_weights * 20.0) / 20.0
+            for bin_w in np.unique(unique_bins):
+                if bin_w <= 0.01: continue
+                bin_mask = (unique_bins == bin_w)
+                sub_indices = v_indices[bin_mask].tolist()
+                bone_to_vg[name].add(sub_indices, float(bin_w), 'ADD')
+                
+    weighted_verts = sum(1 for v in mesh_obj.data.vertices if len(v.groups) > 0)
+    print(f"[auto_rig] Skinning concluído com sucesso: {weighted_verts}/{n_verts} vértices vinculados a ossos.")
 
 def create_animation_actions(armature_obj):
     bpy.context.view_layer.objects.active = armature_obj
     bpy.ops.object.mode_set(mode='POSE')
     pose = armature_obj.pose
     
-    # Helper para rotacionar ossos no eixo local X (pitch/flexão)
     def key_bone_rot(action, bone_name, frame, rx_deg, ry_deg=0, rz_deg=0):
         if bone_name not in pose.bones: return
         pb = pose.bones[bone_name]
@@ -220,74 +242,101 @@ def create_animation_actions(armature_obj):
         pb.location = loc
         pb.keyframe_insert(data_path="location", frame=frame)
 
-    # 1. RunCycle (24 frames, loop perfeito)
-    act_run = bpy.data.actions.new(name="RunCycle")
+    # 1. Idle (30 frames, loop suave de respiração)
+    act_idle = bpy.data.actions.new(name="Idle")
     armature_obj.animation_data_create()
+    armature_obj.animation_data.action = act_idle
+    for f in [0, 30]:
+        key_bone_loc(act_idle, "Hips", f, (0, 0, 0))
+        key_bone_rot(act_idle, "Chest", f, 0, 0, 0)
+        key_bone_rot(act_idle, "UpperArm.L", f, -5, 0, 8)
+        key_bone_rot(act_idle, "UpperArm.R", f, -5, 0, -8)
+    key_bone_loc(act_idle, "Hips", 15, (0, -0.02, 0))
+    key_bone_rot(act_idle, "Chest", 15, 3, 0, 0)
+    key_bone_rot(act_idle, "UpperArm.L", 15, -2, 0, 10)
+    key_bone_rot(act_idle, "UpperArm.R", 15, -2, 0, -10)
+
+    # 2. RunCycle (24 frames, loop perfeito de corrida expressiva)
+    act_run = bpy.data.actions.new(name="RunCycle")
     armature_obj.animation_data.action = act_run
     
     # Frame 0 & 24: Perna Esquerda na frente, Direita atrás
     for f in [0, 24]:
-        key_bone_rot(act_run, "UpperLeg.L", f, -32)
-        key_bone_rot(act_run, "LowerLeg.L", f, 18)
-        key_bone_rot(act_run, "UpperLeg.R", f, 28)
-        key_bone_rot(act_run, "LowerLeg.R", f, 40)
-        key_bone_rot(act_run, "UpperArm.L", f, 25)
-        key_bone_rot(act_run, "UpperArm.R", f, -25)
-        key_bone_rot(act_run, "Chest", f, 0, 0, -4)
-        key_bone_loc(act_run, "Hips", f, (0, 0, 0))
+        key_bone_rot(act_run, "UpperLeg.L", f, 35)
+        key_bone_rot(act_run, "LowerLeg.L", f, 20)
+        key_bone_rot(act_run, "UpperLeg.R", f, -30)
+        key_bone_rot(act_run, "LowerLeg.R", f, 45)
+        key_bone_rot(act_run, "UpperArm.L", f, -32)
+        key_bone_rot(act_run, "LowerArm.L", f, 25)
+        key_bone_rot(act_run, "UpperArm.R", f, 32)
+        key_bone_rot(act_run, "LowerArm.R", f, 25)
+        key_bone_rot(act_run, "Chest", f, 0, 0, -5)
+        key_bone_loc(act_run, "Hips", f, (0, -0.03, 0))
         
-    # Frame 6: Passing pose 1
-    key_bone_rot(act_run, "UpperLeg.L", 6, -5)
-    key_bone_rot(act_run, "LowerLeg.L", 6, 35)
-    key_bone_rot(act_run, "UpperLeg.R", 6, 5)
-    key_bone_rot(act_run, "LowerLeg.R", 6, 15)
+    # Frame 6: Passing pose 1 (Perna direita avança)
+    key_bone_rot(act_run, "UpperLeg.L", 6, 0)
+    key_bone_rot(act_run, "LowerLeg.L", 6, 15)
+    key_bone_rot(act_run, "UpperLeg.R", 6, 10)
+    key_bone_rot(act_run, "LowerLeg.R", 6, 65)
     key_bone_rot(act_run, "UpperArm.L", 6, 0)
+    key_bone_rot(act_run, "LowerArm.L", 6, 15)
     key_bone_rot(act_run, "UpperArm.R", 6, 0)
+    key_bone_rot(act_run, "LowerArm.R", 6, 15)
+    key_bone_rot(act_run, "Chest", 6, 0, 0, 0)
     key_bone_loc(act_run, "Hips", 6, (0, 0.04, 0))
     
     # Frame 12: Perna Direita na frente, Esquerda atrás
-    key_bone_rot(act_run, "UpperLeg.L", 12, 28)
-    key_bone_rot(act_run, "LowerLeg.L", 12, 40)
-    key_bone_rot(act_run, "UpperLeg.R", 12, -32)
-    key_bone_rot(act_run, "LowerLeg.R", 12, 18)
-    key_bone_rot(act_run, "UpperArm.L", 12, -25)
-    key_bone_rot(act_run, "UpperArm.R", 12, 25)
-    key_bone_rot(act_run, "Chest", 12, 0, 0, 4)
-    key_bone_loc(act_run, "Hips", 12, (0, 0, 0))
+    key_bone_rot(act_run, "UpperLeg.L", 12, -30)
+    key_bone_rot(act_run, "LowerLeg.L", 12, 45)
+    key_bone_rot(act_run, "UpperLeg.R", 12, 35)
+    key_bone_rot(act_run, "LowerLeg.R", 12, 20)
+    key_bone_rot(act_run, "UpperArm.L", 12, 32)
+    key_bone_rot(act_run, "LowerArm.L", 12, 25)
+    key_bone_rot(act_run, "UpperArm.R", 12, -32)
+    key_bone_rot(act_run, "LowerArm.R", 12, 25)
+    key_bone_rot(act_run, "Chest", 12, 0, 0, 5)
+    key_bone_loc(act_run, "Hips", 12, (0, -0.03, 0))
     
-    # Frame 18: Passing pose 2
-    key_bone_rot(act_run, "UpperLeg.L", 18, 5)
-    key_bone_rot(act_run, "LowerLeg.L", 18, 15)
-    key_bone_rot(act_run, "UpperLeg.R", 18, -5)
-    key_bone_rot(act_run, "LowerLeg.R", 18, 35)
+    # Frame 18: Passing pose 2 (Perna esquerda avança)
+    key_bone_rot(act_run, "UpperLeg.L", 18, 10)
+    key_bone_rot(act_run, "LowerLeg.L", 18, 65)
+    key_bone_rot(act_run, "UpperLeg.R", 18, 0)
+    key_bone_rot(act_run, "LowerLeg.R", 18, 15)
     key_bone_rot(act_run, "UpperArm.L", 18, 0)
+    key_bone_rot(act_run, "LowerArm.L", 18, 15)
     key_bone_rot(act_run, "UpperArm.R", 18, 0)
+    key_bone_rot(act_run, "LowerArm.R", 18, 15)
+    key_bone_rot(act_run, "Chest", 18, 0, 0, 0)
     key_bone_loc(act_run, "Hips", 18, (0, 0.04, 0))
-    
-    # 2. Jump (24 frames)
+
+    # 3. Jump (24 frames)
     act_jump = bpy.data.actions.new(name="Jump")
     armature_obj.animation_data.action = act_jump
-    # 0: Crouch
-    key_bone_rot(act_jump, "UpperLeg.L", 0, -40)
-    key_bone_rot(act_jump, "LowerLeg.L", 0, 60)
-    key_bone_rot(act_jump, "UpperLeg.R", 0, -40)
-    key_bone_rot(act_jump, "LowerLeg.R", 0, 60)
-    key_bone_loc(act_jump, "Hips", 0, (0, -0.15, 0))
-    # 8: Apex / Air
-    key_bone_rot(act_jump, "UpperLeg.L", 8, -10)
-    key_bone_rot(act_jump, "LowerLeg.L", 8, 20)
-    key_bone_rot(act_jump, "UpperLeg.R", 8, -10)
-    key_bone_rot(act_jump, "LowerLeg.R", 8, 20)
-    key_bone_rot(act_jump, "UpperArm.L", 8, -50)
-    key_bone_rot(act_jump, "UpperArm.R", 8, -50)
-    key_bone_loc(act_jump, "Hips", 8, (0, 0.25, 0))
-    # 18: Landing
-    key_bone_rot(act_jump, "UpperLeg.L", 18, -35)
-    key_bone_rot(act_jump, "LowerLeg.L", 18, 55)
-    key_bone_rot(act_jump, "UpperLeg.R", 18, -35)
-    key_bone_rot(act_jump, "LowerLeg.R", 18, 55)
-    key_bone_loc(act_jump, "Hips", 18, (0, -0.12, 0))
-    # 24: Recovery
+    # Frame 0: Agachamento de impulso
+    key_bone_rot(act_jump, "UpperLeg.L", 0, -45)
+    key_bone_rot(act_jump, "LowerLeg.L", 0, 70)
+    key_bone_rot(act_jump, "UpperLeg.R", 0, -45)
+    key_bone_rot(act_jump, "LowerLeg.R", 0, 70)
+    key_bone_rot(act_jump, "UpperArm.L", 0, 30)
+    key_bone_rot(act_jump, "UpperArm.R", 0, 30)
+    key_bone_loc(act_jump, "Hips", 0, (0, -0.18, 0))
+    # Frame 8: Ápice no ar (joelhos recolhidos e braços abertos)
+    key_bone_rot(act_jump, "UpperLeg.L", 8, 45)
+    key_bone_rot(act_jump, "LowerLeg.L", 8, 60)
+    key_bone_rot(act_jump, "UpperLeg.R", 8, 45)
+    key_bone_rot(act_jump, "LowerLeg.R", 8, 60)
+    key_bone_rot(act_jump, "UpperArm.L", 8, -60)
+    key_bone_rot(act_jump, "UpperArm.R", 8, -60)
+    key_bone_loc(act_jump, "Hips", 8, (0, 0.28, 0))
+    # Frame 16: Pouso com amortecimento
+    key_bone_rot(act_jump, "UpperLeg.L", 16, -40)
+    key_bone_rot(act_jump, "LowerLeg.L", 16, 65)
+    key_bone_rot(act_jump, "UpperLeg.R", 16, -40)
+    key_bone_rot(act_jump, "LowerLeg.R", 16, 65)
+    key_bone_rot(act_jump, "UpperArm.L", 16, 20)
+    key_bone_rot(act_jump, "UpperArm.R", 16, 20)
+    key_bone_loc(act_jump, "Hips", 16, (0, -0.15, 0))
+    # Frame 24: Recuperação de postura
     key_bone_rot(act_jump, "UpperLeg.L", 24, 0)
     key_bone_rot(act_jump, "LowerLeg.L", 24, 0)
     key_bone_rot(act_jump, "UpperLeg.R", 24, 0)
@@ -295,22 +344,22 @@ def create_animation_actions(armature_obj):
     key_bone_rot(act_jump, "UpperArm.L", 24, 0)
     key_bone_rot(act_jump, "UpperArm.R", 24, 0)
     key_bone_loc(act_jump, "Hips", 24, (0, 0, 0))
-    
-    # 3. Slide (16 frames)
+
+    # 4. Slide (16 frames, deslizamento rasante)
     act_slide = bpy.data.actions.new(name="Slide")
     armature_obj.animation_data.action = act_slide
     for f in [0, 8, 16]:
-        key_bone_rot(act_slide, "Hips", f, 20, 0, 0)
-        key_bone_rot(act_slide, "UpperLeg.L", f, -70)
-        key_bone_rot(act_slide, "LowerLeg.L", f, 15)
-        key_bone_rot(act_slide, "UpperLeg.R", f, -55)
-        key_bone_rot(act_slide, "LowerLeg.R", f, 30)
-        key_bone_rot(act_slide, "Chest", f, -25)
+        key_bone_rot(act_slide, "Hips", f, 25, 0, 0)
+        key_bone_rot(act_slide, "Chest", f, -30, 0, 0)
+        key_bone_rot(act_slide, "UpperLeg.L", f, 65)
+        key_bone_rot(act_slide, "LowerLeg.L", f, 10)
+        key_bone_rot(act_slide, "UpperLeg.R", f, -45)
+        key_bone_rot(act_slide, "LowerLeg.R", f, 80)
         key_bone_rot(act_slide, "UpperArm.L", f, 40)
         key_bone_rot(act_slide, "UpperArm.R", f, 40)
-        key_bone_loc(act_slide, "Hips", f, (0, -0.28, 0.1))
+        key_bone_loc(act_slide, "Hips", f, (0, -0.32, 0.1))
 
-    # Deixar RunCycle como ativa por padrão
+    # Ativar RunCycle como ação padrão
     armature_obj.animation_data.action = act_run
     bpy.ops.object.mode_set(mode='OBJECT')
 
@@ -323,7 +372,6 @@ def main():
     print(f"[auto_rig] Iniciando Auto-Rigging de: {cfg['input_obj']}")
     clean_scene()
     
-    # Importar OBJ
     bpy.ops.wm.obj_import(filepath=cfg["input_obj"])
     mesh_objs = [obj for obj in bpy.context.selected_objects if obj.type == 'MESH']
     if not mesh_objs:
@@ -334,21 +382,16 @@ def main():
     mesh_obj.name = "Character_Mesh"
     print(f"[auto_rig] Malha carregada: {mesh_obj.name} com {len(mesh_obj.data.vertices)} vértices.")
     
-    # Criar esqueleto
-    armature = create_humanoid_rig(mesh_obj, height=cfg["target_height"])
+    armature, bones_spec = create_humanoid_rig(mesh_obj, height=cfg["target_height"])
     print("[auto_rig] Esqueleto bípede criado com hierarquia Humanoid padrão.")
     
-    # Fazer skinning (pesos automáticos)
-    bind_skin(mesh_obj, armature)
+    bind_skin_robust(mesh_obj, armature, bones_spec)
     
-    # Gerar animações essenciais
     create_animation_actions(armature)
-    print("[auto_rig] Animações 'RunCycle', 'Jump' e 'Slide' criadas e bakeadas.")
+    print("[auto_rig] Animações 'Idle', 'RunCycle', 'Jump' e 'Slide' criadas e bakeadas.")
     
-    # Exportar FBX para Unity
     os.makedirs(os.path.dirname(os.path.abspath(cfg["output_fbx"])), exist_ok=True)
     
-    # Selecionar malha e esqueleto
     bpy.ops.object.select_all(action='DESELECT')
     mesh_obj.select_set(True)
     armature.select_set(True)
