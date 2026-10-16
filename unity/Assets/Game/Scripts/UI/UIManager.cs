@@ -37,6 +37,14 @@ namespace Studio.UI
         [SerializeField] private Button _btnJump;
         [SerializeField] private Button _btnSlide;
 
+        private bool _isBoundToGameManager = false;
+        private GameManager _boundManager;
+
+        private void OnEnable()
+        {
+            EnsureGameManagerBound();
+        }
+
         private void Start()
         {
             if (_startButton != null)
@@ -61,25 +69,53 @@ namespace Studio.UI
             if (_btnSlide != null)
                 _btnSlide.onClick.AddListener(() => NeonInputAdapter.Instance?.TriggerSlide());
 
-            if (GameManager.Instance != null)
+            EnsureGameManagerBound();
+        }
+
+        private void EnsureGameManagerBound()
+        {
+            var gm = GameManager.Instance;
+            if (gm == null) return;
+            if (_isBoundToGameManager && _boundManager == gm) return;
+
+            UnbindGameManager();
+
+            gm.OnStateChanged += HandleStateChanged;
+            gm.OnScoreUpdated += HandleScoreUpdated;
+            _boundManager = gm;
+            _isBoundToGameManager = true;
+
+            HandleStateChanged(gm.CurrentState);
+        }
+
+        private void UnbindGameManager()
+        {
+            if (_boundManager != null)
             {
-                GameManager.Instance.OnStateChanged += HandleStateChanged;
-                GameManager.Instance.OnScoreUpdated += HandleScoreUpdated;
-                HandleStateChanged(GameManager.Instance.CurrentState);
+                _boundManager.OnStateChanged -= HandleStateChanged;
+                _boundManager.OnScoreUpdated -= HandleScoreUpdated;
             }
+            _boundManager = null;
+            _isBoundToGameManager = false;
+        }
+
+        private void OnDisable()
+        {
+            UnbindGameManager();
         }
 
         private void OnDestroy()
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.OnStateChanged -= HandleStateChanged;
-                GameManager.Instance.OnScoreUpdated -= HandleScoreUpdated;
-            }
+            UnbindGameManager();
         }
 
         private void Update()
         {
+            if (!_isBoundToGameManager)
+            {
+                EnsureGameManagerBound();
+            }
+
             if (GameManager.Instance == null) return;
 
             var kb = UnityEngine.InputSystem.Keyboard.current;
@@ -87,7 +123,11 @@ namespace Studio.UI
             {
                 if (GameManager.Instance.CurrentState == GameState.StartMenu)
                 {
-                    if (kb.spaceKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)
+                    if (kb.spaceKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame ||
+                        kb.wKey.wasPressedThisFrame || kb.aKey.wasPressedThisFrame ||
+                        kb.sKey.wasPressedThisFrame || kb.dKey.wasPressedThisFrame ||
+                        kb.upArrowKey.wasPressedThisFrame || kb.downArrowKey.wasPressedThisFrame ||
+                        kb.leftArrowKey.wasPressedThisFrame || kb.rightArrowKey.wasPressedThisFrame)
                     {
                         OnStartClicked();
                     }

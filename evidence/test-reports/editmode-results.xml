@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="18" result="Passed" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0,8415913">
-  <test-suite type="TestSuite" id="1000" name="NeonRush" fullname="NeonRush" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.841591" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="23" result="Passed" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0,2769514">
+  <test-suite type="TestSuite" id="1000" name="NeonRush" fullname="NeonRush" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.276951" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1022" name="Studio.Tests.EditMode.dll" fullname="C:/Users/Bruno/workspace/gamedev-setup-ia/unity/Library/ScriptAssemblies/Studio.Tests.EditMode.dll" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.828491" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1027" name="Studio.Tests.EditMode.dll" fullname="C:/Users/Bruno/workspace/gamedev-setup-ia/unity/Library/ScriptAssemblies/Studio.Tests.EditMode.dll" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.268553" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="24304" />
+        <property name="_PID" value="7596" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestSuite" id="1023" name="Studio" fullname="Studio" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.826848" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestSuite" id="1028" name="Studio" fullname="Studio" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.268074" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-suite type="TestSuite" id="1024" name="Tests" fullname="Studio.Tests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.826637" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="TestSuite" id="1029" name="Tests" fullname="Studio.Tests" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.267917" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-suite type="TestSuite" id="1025" name="EditMode" fullname="Studio.Tests.EditMode" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.826386" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <test-suite type="TestSuite" id="1030" name="EditMode" fullname="Studio.Tests.EditMode" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.267690" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
             <properties />
-            <test-suite type="TestFixture" id="1001" name="CharacterAnimationTests" fullname="Studio.Tests.EditMode.CharacterAnimationTests" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.807078" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1001" name="CharacterAnimationTests" fullname="Studio.Tests.EditMode.CharacterAnimationTests" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.236299" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1003" name="Character_AnimatorController_IsConfiguredWithRunCycle" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_AnimatorController_IsConfiguredWithRunCycle" methodname="Character_AnimatorController_IsConfiguredWithRunCycle" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="365641524" result="Passed" start-time="2026-10-16 03:46:49Z" end-time="2026-10-16 03:46:50Z" duration="0.737532" asserts="0">
+              <test-case id="1003" name="Character_AnimatorController_IsConfiguredWithRunCycle" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_AnimatorController_IsConfiguredWithRunCycle" methodname="Character_AnimatorController_IsConfiguredWithRunCycle" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="1310006355" result="Passed" start-time="2026-10-16 04:23:59Z" end-time="2026-10-16 04:24:00Z" duration="0.190360" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
@@ -27,109 +27,139 @@
                 <output><![CDATA[[CharacterPipelineEditorHelper] Clips detectados no FBX - Run: Armature|RunCycle, Jump: Armature|Jump, Slide: Armature|Slide
 ]]></output>
               </test-case>
-              <test-case id="1004" name="Character_Material_HasDedicatedEmissionMapAndPBR" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_Material_HasDedicatedEmissionMapAndPBR" methodname="Character_Material_HasDedicatedEmissionMapAndPBR" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="1239089763" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.040106" asserts="0">
+              <test-case id="1004" name="Character_Material_HasDedicatedEmissionMapAndPBR" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_Material_HasDedicatedEmissionMapAndPBR" methodname="Character_Material_HasDedicatedEmissionMapAndPBR" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="367193560" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.023456" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1005" name="Character_Posture_StandsUprightAndAnimatesLegsInAllStates" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_Posture_StandsUprightAndAnimatesLegsInAllStates" methodname="Character_Posture_StandsUprightAndAnimatesLegsInAllStates" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="584689711" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.004339" asserts="0">
+              <test-case id="1005" name="Character_Posture_StandsUprightAndAnimatesLegsInAllStates" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_Posture_StandsUprightAndAnimatesLegsInAllStates" methodname="Character_Posture_StandsUprightAndAnimatesLegsInAllStates" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="542278350" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.003884" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1002" name="Character_RiggedFBX_ExistsAndHasHumanoidBones" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_RiggedFBX_ExistsAndHasHumanoidBones" methodname="Character_RiggedFBX_ExistsAndHasHumanoidBones" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="1324211928" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.001465" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-            </test-suite>
-            <test-suite type="TestFixture" id="1006" name="CoreValidationTests" fullname="Studio.Tests.EditMode.CoreValidationTests" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.008780" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
-              <properties />
-              <test-case id="1010" name="Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" fullname="Studio.Tests.EditMode.CoreValidationTests.Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" methodname="Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="676818642" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.001732" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1008" name="MobileBudget_DrawCallThreshold_IsConfiguredProperly" fullname="Studio.Tests.EditMode.CoreValidationTests.MobileBudget_DrawCallThreshold_IsConfiguredProperly" methodname="MobileBudget_DrawCallThreshold_IsConfiguredProperly" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="1118997166" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000803" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1009" name="MobileBudget_TriangleBudget_IsWithinLimits" fullname="Studio.Tests.EditMode.CoreValidationTests.MobileBudget_TriangleBudget_IsWithinLimits" methodname="MobileBudget_TriangleBudget_IsWithinLimits" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="1288272161" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000122" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1007" name="Project_QualitySettings_TargetFrameRate_IsValid" fullname="Studio.Tests.EditMode.CoreValidationTests.Project_QualitySettings_TargetFrameRate_IsValid" methodname="Project_QualitySettings_TargetFrameRate_IsValid" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="926995233" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000441" asserts="0">
+              <test-case id="1002" name="Character_RiggedFBX_ExistsAndHasHumanoidBones" fullname="Studio.Tests.EditMode.CharacterAnimationTests.Character_RiggedFBX_ExistsAndHasHumanoidBones" methodname="Character_RiggedFBX_ExistsAndHasHumanoidBones" classname="Studio.Tests.EditMode.CharacterAnimationTests" runstate="Runnable" seed="1306422579" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.001670" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
             </test-suite>
-            <test-suite type="TestFixture" id="1011" name="NeonRushGameplayTests" fullname="Studio.Tests.EditMode.NeonRushGameplayTests" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.007955" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1006" name="CoreValidationTests" fullname="Studio.Tests.EditMode.CoreValidationTests" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.007821" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1019" name="JumpTrajectory_AtHalfDuration_ReachesApexHeight" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.JumpTrajectory_AtHalfDuration_ReachesApexHeight" methodname="JumpTrajectory_AtHalfDuration_ReachesApexHeight" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1755132761" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.002172" asserts="0">
+              <test-case id="1010" name="Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" fullname="Studio.Tests.EditMode.CoreValidationTests.Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" methodname="Coordinates_Transformation_FollowsRightHandRuleOrUnityConvention" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="934000325" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.001735" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1020" name="JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" methodname="JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1699377579" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000292" asserts="0">
+              <test-case id="1008" name="MobileBudget_DrawCallThreshold_IsConfiguredProperly" fullname="Studio.Tests.EditMode.CoreValidationTests.MobileBudget_DrawCallThreshold_IsConfiguredProperly" methodname="MobileBudget_DrawCallThreshold_IsConfiguredProperly" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="1227438320" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000840" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1012" name="LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" methodname="LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="949205909" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000213" asserts="0">
+              <test-case id="1009" name="MobileBudget_TriangleBudget_IsWithinLimits" fullname="Studio.Tests.EditMode.CoreValidationTests.MobileBudget_TriangleBudget_IsWithinLimits" methodname="MobileBudget_TriangleBudget_IsWithinLimits" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="698217724" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000117" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1013" name="LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" methodname="LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1979662656" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000520" asserts="0">
+              <test-case id="1007" name="Project_QualitySettings_TargetFrameRate_IsValid" fullname="Studio.Tests.EditMode.CoreValidationTests.Project_QualitySettings_TargetFrameRate_IsValid" methodname="Project_QualitySettings_TargetFrameRate_IsValid" classname="Studio.Tests.EditMode.CoreValidationTests" runstate="Runnable" seed="279558318" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000422" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1014" name="LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" methodname="LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="755301664" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000156" asserts="0">
+            </test-suite>
+            <test-suite type="TestFixture" id="1011" name="NeonRushGameplayTests" fullname="Studio.Tests.EditMode.NeonRushGameplayTests" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" testcasecount="15" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.022081" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1026" name="Gameplay_FirstMovementCommandOnStartMenu_AutomaticallyStartsGameAndExecutesMove" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.Gameplay_FirstMovementCommandOnStartMenu_AutomaticallyStartsGameAndExecutesMove" methodname="Gameplay_FirstMovementCommandOnStartMenu_AutomaticallyStartsGameAndExecutesMove" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1535954150" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.005539" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1015" name="LaneCalculator_ClampRightmost_ClampsToRightLane" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ClampRightmost_ClampsToRightLane" methodname="LaneCalculator_ClampRightmost_ClampsToRightLane" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1979200254" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000172" asserts="0">
+              <test-case id="1022" name="Gameplay_InputAdapterSubscribedEvenWhenPlayerCreatedBeforeSystems" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.Gameplay_InputAdapterSubscribedEvenWhenPlayerCreatedBeforeSystems" methodname="Gameplay_InputAdapterSubscribedEvenWhenPlayerCreatedBeforeSystems" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="919902956" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.002253" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1021" name="ProgressRatio_ClampsToZeroAndOne" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ProgressRatio_ClampsToZeroAndOne" methodname="ProgressRatio_ClampsToZeroAndOne" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1607857425" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000337" asserts="0">
+              <test-case id="1024" name="Gameplay_JumpCommand_ElevatesPlayerOverLowLaserAndLandsCleanly" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.Gameplay_JumpCommand_ElevatesPlayerOverLowLaserAndLandsCleanly" methodname="Gameplay_JumpCommand_ElevatesPlayerOverLowLaserAndLandsCleanly" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1550977551" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.003272" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1016" name="ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" methodname="ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="135595122" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000828" asserts="0">
+              <test-case id="1023" name="Gameplay_MoveLeftAndRightCommands_ShiftLanesAndBankCharacter" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.Gameplay_MoveLeftAndRightCommands_ShiftLanesAndBankCharacter" methodname="Gameplay_MoveLeftAndRightCommands_ShiftLanesAndBankCharacter" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="46173794" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.005233" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1018" name="ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" methodname="ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1261353698" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000327" asserts="0">
+              <test-case id="1025" name="Gameplay_SlideCommand_ShrinksColliderUnderHighBeamAndRestoresAfterDuration" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.Gameplay_SlideCommand_ShrinksColliderUnderHighBeamAndRestoresAfterDuration" methodname="Gameplay_SlideCommand_ShrinksColliderUnderHighBeamAndRestoresAfterDuration" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1762296805" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.001823" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1017" name="ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" methodname="ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="529219267" result="Passed" start-time="2026-10-16 03:46:50Z" end-time="2026-10-16 03:46:50Z" duration="0.000132" asserts="0">
+              <test-case id="1019" name="JumpTrajectory_AtHalfDuration_ReachesApexHeight" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.JumpTrajectory_AtHalfDuration_ReachesApexHeight" methodname="JumpTrajectory_AtHalfDuration_ReachesApexHeight" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="843091931" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000221" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" methodname="JumpTrajectory_AtStartAndLanding_ReturnsZeroHeight" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1207053594" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000120" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" methodname="LaneCalculator_ChangeLeftFromCenter_ReturnsLeftLanePosition" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="777641098" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000105" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" methodname="LaneCalculator_ChangeLeftFromLeftmost_ClampsToLeftLane" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1917009176" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000127" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" methodname="LaneCalculator_ChangeRightFromCenter_ReturnsRightLanePosition" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="8584425" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000092" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="LaneCalculator_ClampRightmost_ClampsToRightLane" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.LaneCalculator_ClampRightmost_ClampsToRightLane" methodname="LaneCalculator_ClampRightmost_ClampsToRightLane" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="2105652615" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000111" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="ProgressRatio_ClampsToZeroAndOne" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ProgressRatio_ClampsToZeroAndOne" methodname="ProgressRatio_ClampsToZeroAndOne" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1385029879" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000180" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1016" name="ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" methodname="ScoreCalculator_AddEnergyCell_IncreasesScoreByHundred" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="823417039" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000258" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" methodname="ScoreCalculator_CombinedDistanceAndCells_ReturnsCorrectTotal" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1367759185" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000155" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" fullname="Studio.Tests.EditMode.NeonRushGameplayTests.ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" methodname="ScoreCalculator_DistanceTraveled_ComputesTenPointsPerMeter" classname="Studio.Tests.EditMode.NeonRushGameplayTests" runstate="Runnable" seed="1020432926" result="Passed" start-time="2026-10-16 04:24:00Z" end-time="2026-10-16 04:24:00Z" duration="0.000120" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />

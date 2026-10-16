@@ -33,12 +33,22 @@ namespace Studio.Gameplay
         private static readonly int AnimHashSlide = Animator.StringToHash("Slide");
 
         private PlayerMovement _movement;
+        private PlayerController _controller;
         private float _previousX = 0f;
         private bool _wasJumping = false;
         private bool _wasSliding = false;
 
+        public float CurrentBankAngle => _currentBankAngle;
+        public Animator AnimatorComponent => _animator != null ? _animator : (_animator = GetComponentInChildren<Animator>());
+        public Transform VisualRoot => _visualRoot;
+
         private void Awake()
         {
+            if (_visualRoot == null)
+            {
+                var found = transform.Find("VisualRoot");
+                if (found != null) _visualRoot = found;
+            }
             if (_visualRoot != null)
             {
                 _originalRootScale = _visualRoot.localScale;
@@ -49,6 +59,7 @@ namespace Studio.Gameplay
                 _animator = GetComponentInChildren<Animator>();
             }
             _movement = GetComponent<PlayerMovement>();
+            _controller = GetComponent<PlayerController>();
             _previousX = transform.position.x;
         }
 
@@ -56,8 +67,11 @@ namespace Studio.Gameplay
         {
             if (_movement == null)
             {
-                _movement = GetComponent<PlayerMovement>();
-                if (_movement == null) _movement = GetComponentInParent<PlayerMovement>();
+                _movement = GetComponent<PlayerMovement>() ?? GetComponentInParent<PlayerMovement>();
+            }
+            if (_controller == null)
+            {
+                _controller = GetComponent<PlayerController>() ?? GetComponentInParent<PlayerController>();
             }
             if (_animator == null)
             {
@@ -68,6 +82,10 @@ namespace Studio.Gameplay
 
         private void Update()
         {
+            // Se houver PlayerController ativo, ele orquestra Animate() no LateUpdate/StepController
+            // após o movimento do frame, evitando chamada dupla no mesmo frame.
+            if (_controller != null && _controller.enabled) return;
+
             float dt = Time.deltaTime;
             float currentX = transform.position.x;
             float lateralDelta = currentX - _previousX;
@@ -99,13 +117,27 @@ namespace Studio.Gameplay
             {
                 _movement = GetComponent<PlayerMovement>();
             }
+            if (_controller == null)
+            {
+                _controller = GetComponent<PlayerController>();
+            }
         }
 
         public void Animate(float lateralDelta, bool isJumping, bool isSliding, float dt)
         {
-            if (_visualRoot == null) return;
+            if (_visualRoot == null)
+            {
+                var found = transform.Find("VisualRoot");
+                if (found != null) _visualRoot = found;
+                else return;
+            }
 
             // 1. Controle do Animator Esquelético (Mecanim)
+            if (_animator == null)
+            {
+                _animator = GetComponentInChildren<Animator>();
+            }
+
             if (_animator != null)
             {
                 _animator.SetBool("IsJumping", isJumping);
@@ -113,15 +145,15 @@ namespace Studio.Gameplay
 
                 if (isJumping && !_wasJumping)
                 {
-                    _animator.CrossFade(AnimHashJump, 0.08f);
+                    _animator.CrossFadeInFixedTime(AnimHashJump, 0.06f);
                 }
                 else if (isSliding && !_wasSliding)
                 {
-                    _animator.CrossFade(AnimHashSlide, 0.08f);
+                    _animator.CrossFadeInFixedTime(AnimHashSlide, 0.06f);
                 }
                 else if (!isJumping && !isSliding && (_wasJumping || _wasSliding))
                 {
-                    _animator.CrossFade(AnimHashRun, 0.12f);
+                    _animator.CrossFadeInFixedTime(AnimHashRun, 0.10f);
                 }
 
                 _wasJumping = isJumping;

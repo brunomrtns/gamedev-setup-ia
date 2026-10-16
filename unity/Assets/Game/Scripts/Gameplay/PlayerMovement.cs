@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Studio.Gameplay
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, ICharacterMotor
     {
         [Header("Speed Settings")]
         [SerializeField] private float _forwardSpeed = GameConstants.DEFAULT_FORWARD_SPEED;
@@ -39,6 +39,7 @@ namespace Studio.Gameplay
         public bool IsSliding => _isSliding;
         public float ForwardSpeed => _forwardSpeed;
         public bool CanMove => _canMove;
+        public BoxCollider Hitbox => _boxCollider != null ? _boxCollider : (_boxCollider = GetComponent<BoxCollider>());
 
         public event Action OnLaneChanged;
         public event Action OnJumpStarted;
@@ -47,12 +48,17 @@ namespace Studio.Gameplay
 
         private void Awake()
         {
+            InitializeColliderCache();
+        }
+
+        public void InitializeColliderCache()
+        {
             if (_boxCollider == null)
             {
                 _boxCollider = GetComponent<BoxCollider>();
             }
 
-            if (_boxCollider != null)
+            if (_boxCollider != null && _originalColliderSize == Vector3.zero)
             {
                 _originalColliderCenter = _boxCollider.center;
                 _originalColliderSize = _boxCollider.size;
@@ -61,6 +67,7 @@ namespace Studio.Gameplay
 
         public void SetMovementActive(bool active)
         {
+            InitializeColliderCache();
             _canMove = active;
         }
 
@@ -97,6 +104,8 @@ namespace Studio.Gameplay
         {
             if (!_canMove || _isSliding) return;
 
+            InitializeColliderCache();
+
             // Se estiver no ar, antecipa a queda rápido
             if (_isJumping)
             {
@@ -121,7 +130,7 @@ namespace Studio.Gameplay
             _isSliding = false;
             _slideTimer = 0f;
 
-            if (_boxCollider != null)
+            if (_boxCollider != null && _originalColliderSize != Vector3.zero)
             {
                 _boxCollider.size = _originalColliderSize;
                 _boxCollider.center = _originalColliderCenter;
@@ -132,9 +141,12 @@ namespace Studio.Gameplay
 
         private void Update()
         {
-            if (!_canMove) return;
+            StepSimulation(Time.deltaTime);
+        }
 
-            float dt = Time.deltaTime;
+        public void StepSimulation(float dt)
+        {
+            if (!_canMove) return;
 
             // 1. Aceleração progressiva ao longo do percurso
             _forwardSpeed = Mathf.Min(_forwardSpeed + _accelerationRate * dt, _maxForwardSpeed);
@@ -180,6 +192,8 @@ namespace Studio.Gameplay
 
         public void ResetPosition()
         {
+            InitializeColliderCache();
+
             _currentLane = 0;
             _targetX = 0f;
             _forwardSpeed = GameConstants.DEFAULT_FORWARD_SPEED;
@@ -188,7 +202,7 @@ namespace Studio.Gameplay
             _jumpTimer = 0f;
             _slideTimer = 0f;
 
-            if (_boxCollider != null)
+            if (_boxCollider != null && _originalColliderSize != Vector3.zero)
             {
                 _boxCollider.size = _originalColliderSize;
                 _boxCollider.center = _originalColliderCenter;

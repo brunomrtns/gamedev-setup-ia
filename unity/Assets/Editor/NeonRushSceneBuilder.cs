@@ -264,11 +264,22 @@ namespace Studio.Editor
             // 7. Criar Portal de Extração em Z = 350m
             CreateExtractionPortalObject(gameplayElementsRoot.transform, 350f, matPortal, matLaneCyan);
 
-            // 8. Criar o Droide N3-0N (Player)
+            // 8. Criar Singletons de Sistema PRIMEIRO na hierarquia (_GameSystems: Input, Audio, GameManager)
+            // Garante que NeonInputAdapter.Awake() e GameManager.Awake() rodem antes do PlayerController.OnEnable()
+            var systemObj = new GameObject("_GameSystems");
+            var inputAdapter = systemObj.AddComponent<NeonInputAdapter>();
+            systemObj.AddComponent<ProceduralAudioService>();
+            var gameMgr = systemObj.AddComponent<GameManager>();
+
+            // 9. Criar o Droide N3-0N (Player)
             var playerObj = CreatePlayerRobot(matRobotBody, matRobotVisor, matRobotThruster);
             var playerMovement = playerObj.GetComponent<PlayerMovement>();
+            gameMgr.SetPlayer(playerMovement);
+            var gmSo = new SerializedObject(gameMgr);
+            gmSo.FindProperty("_playerMovement").objectReferenceValue = playerMovement;
+            gmSo.ApplyModifiedProperties();
 
-            // 9. Criar Câmera de Acompanhamento
+            // 10. Criar Câmera de Acompanhamento
             var camObj = new GameObject("Main Camera");
             camObj.tag = "MainCamera";
             var cam = camObj.AddComponent<Camera>();
@@ -283,6 +294,9 @@ namespace Studio.Editor
 
             var followCam = camObj.AddComponent<SmoothFollowCamera>();
             followCam.SetTarget(playerObj.transform);
+            var camSo = new SerializedObject(followCam);
+            camSo.FindProperty("_target").objectReferenceValue = playerObj.transform;
+            camSo.ApplyModifiedProperties();
             camObj.transform.position = new Vector3(0f, 3.2f, -6.5f);
             camObj.transform.rotation = Quaternion.Euler(18f, 0f, 0f);
 
@@ -306,13 +320,6 @@ namespace Studio.Editor
             var vignette = profile.Add<UnityEngine.Rendering.Universal.Vignette>(true);
             vignette.intensity.Override(0.32f);
             vignette.smoothness.Override(0.45f);
-
-            // 10. Criar Singletons de Sistema (_Game, Input, Audio)
-            var systemObj = new GameObject("_GameSystems");
-            var gameMgr = systemObj.AddComponent<GameManager>();
-            gameMgr.SetPlayer(playerMovement);
-            systemObj.AddComponent<ProceduralAudioService>();
-            systemObj.AddComponent<NeonInputAdapter>();
 
             // 11. Criar UI Canvas & Telas
             CreateUICanvas(systemObj, gameMgr);
@@ -712,6 +719,15 @@ namespace Studio.Editor
             if (thrusterR != null) so.FindProperty("_rightThruster").objectReferenceValue = thrusterR.transform;
             if (visorObj != null) so.FindProperty("_sensorVisor").objectReferenceValue = visorObj.transform;
             so.ApplyModifiedProperties();
+
+            var movSo = new SerializedObject(movement);
+            movSo.FindProperty("_boxCollider").objectReferenceValue = col;
+            movSo.ApplyModifiedProperties();
+
+            var ctrlSo = new SerializedObject(controller);
+            ctrlSo.FindProperty("_movement").objectReferenceValue = movement;
+            ctrlSo.FindProperty("_animator").objectReferenceValue = anim;
+            ctrlSo.ApplyModifiedProperties();
 
             return player;
         }

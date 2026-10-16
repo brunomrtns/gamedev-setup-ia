@@ -3,7 +3,9 @@
     "rootNamespace": "Studio.Tests.EditMode",
     "references": [
         "Studio.Foundation",
+        "Studio.Input",
         "Studio.Gameplay",
+        "Studio.UI",
         "Studio.Editor",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"

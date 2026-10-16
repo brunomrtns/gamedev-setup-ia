@@ -15,7 +15,17 @@ namespace Studio.Gameplay
     public class GameManager : MonoBehaviour
     {
         private static GameManager _instance;
-        public static GameManager Instance => _instance;
+        public static GameManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindAnyObjectByType<GameManager>();
+                }
+                return _instance;
+            }
+        }
 
         [Header("References")]
         [SerializeField] private PlayerMovement _playerMovement;
@@ -44,10 +54,28 @@ namespace Studio.Gameplay
                 return;
             }
             _instance = this;
+            EnsurePlayerReference();
+        }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
+
+        private void EnsurePlayerReference()
+        {
+            if (_playerMovement == null)
+            {
+                _playerMovement = FindAnyObjectByType<PlayerMovement>();
+            }
         }
 
         private void Start()
         {
+            EnsurePlayerReference();
             SetState(GameState.StartMenu);
             if (_playerMovement != null)
             {
@@ -57,6 +85,12 @@ namespace Studio.Gameplay
 
         private void Update()
         {
+            StepGameLoop();
+        }
+
+        public void StepGameLoop()
+        {
+            EnsurePlayerReference();
             if (_currentState == GameState.Playing && _playerMovement != null)
             {
                 _distanceCovered = _playerMovement.transform.position.z;
@@ -69,6 +103,7 @@ namespace Studio.Gameplay
 
         public void StartGame()
         {
+            EnsurePlayerReference();
             SetState(GameState.Playing);
             if (_playerMovement != null)
             {

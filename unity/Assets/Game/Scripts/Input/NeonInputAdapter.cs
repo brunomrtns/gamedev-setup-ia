@@ -1,19 +1,31 @@
 using System;
+using Studio.Foundation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Studio.Input
 {
-    public class NeonInputAdapter : MonoBehaviour
+    public class NeonInputAdapter : MonoBehaviour, IGameInputAdapter
     {
         private static NeonInputAdapter _instance;
-        public static NeonInputAdapter Instance => _instance;
+        public static NeonInputAdapter Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindAnyObjectByType<NeonInputAdapter>();
+                }
+                return _instance;
+            }
+        }
 
         public event Action OnMoveLeft;
         public event Action OnMoveRight;
         public event Action OnJump;
         public event Action OnSlide;
         public event Action OnRestart;
+        public event Action<string> OnActionTriggered;
 
         [Header("Swipe Tuning")]
         [SerializeField] private float _minSwipeDistancePixels = 40.0f;
@@ -31,6 +43,14 @@ namespace Studio.Input
                 return;
             }
             _instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
         }
 
         private void Update()
@@ -68,6 +88,19 @@ namespace Studio.Input
                     TriggerRestart();
                 }
             }
+            else
+            {
+                // 3. Fallback seguro para legado APENAS quando Keyboard.current for nulo,
+                // evitando disparo duplo no mesmo frame quando activeInputHandler = 2 (Both).
+                try
+                {
+                    PollLegacyInput();
+                }
+                catch (InvalidOperationException)
+                {
+                    // Silenciosamente ignorado quando modo legado estiver inativo
+                }
+            }
 
             // 2. New Input System Touchscreen
             var touch = Touchscreen.current;
@@ -103,16 +136,6 @@ namespace Studio.Input
                     }
                 }
             }
-
-            // 3. Fallback seguro para legado
-            try
-            {
-                PollLegacyInput();
-            }
-            catch (InvalidOperationException)
-            {
-                // Silenciosamente ignorado quando modo legado estiver inativo
-            }
         }
 
         private void PollLegacyInput()
@@ -142,10 +165,48 @@ namespace Studio.Input
             }
         }
 
-        public void TriggerMoveLeft() => OnMoveLeft?.Invoke();
-        public void TriggerMoveRight() => OnMoveRight?.Invoke();
-        public void TriggerJump() => OnJump?.Invoke();
-        public void TriggerSlide() => OnSlide?.Invoke();
-        public void TriggerRestart() => OnRestart?.Invoke();
+        public void TriggerMoveLeft()
+        {
+            OnMoveLeft?.Invoke();
+            OnActionTriggered?.Invoke("MoveLeft");
+        }
+
+        public void TriggerMoveRight()
+        {
+            OnMoveRight?.Invoke();
+            OnActionTriggered?.Invoke("MoveRight");
+        }
+
+        public void TriggerJump()
+        {
+            OnJump?.Invoke();
+            OnActionTriggered?.Invoke("Jump");
+        }
+
+        public void TriggerSlide()
+        {
+            OnSlide?.Invoke();
+            OnActionTriggered?.Invoke("Slide");
+        }
+
+        public void TriggerRestart()
+        {
+            OnRestart?.Invoke();
+            OnActionTriggered?.Invoke("Restart");
+        }
+
+        public void TriggerAction(string actionId)
+        {
+            if (string.IsNullOrEmpty(actionId)) return;
+            switch (actionId)
+            {
+                case "MoveLeft": TriggerMoveLeft(); break;
+                case "MoveRight": TriggerMoveRight(); break;
+                case "Jump": TriggerJump(); break;
+                case "Slide": TriggerSlide(); break;
+                case "Restart": TriggerRestart(); break;
+                default: OnActionTriggered?.Invoke(actionId); break;
+            }
+        }
     }
 }

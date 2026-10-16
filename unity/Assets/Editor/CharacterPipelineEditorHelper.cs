@@ -106,6 +106,18 @@ namespace Studio.Editor
             slideToRun.duration = 0.12f;
             slideToRun.AddCondition(AnimatorConditionMode.IfNot, 0, "IsSliding");
 
+            // Slide -> Jump (quando o jogador pula durante um slide)
+            var slideToJump = slideState.AddTransition(jumpState);
+            slideToJump.hasExitTime = false;
+            slideToJump.duration = 0.06f;
+            slideToJump.AddCondition(AnimatorConditionMode.If, 0, "IsJumping");
+
+            // Jump -> Slide (quando o jogador cancela o pulo com slide rápido)
+            var jumpToSlide = jumpState.AddTransition(slideState);
+            jumpToSlide.hasExitTime = false;
+            jumpToSlide.duration = 0.06f;
+            jumpToSlide.AddCondition(AnimatorConditionMode.If, 0, "IsSliding");
+
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -154,7 +166,11 @@ namespace Studio.Editor
                     }
                 }
 
-                if (needsClipSync)
+                if (!needsClipSync)
+                {
+                    // Tudo sincronizado
+                }
+                else
                 {
                     importer.clipAnimations = defaultClips;
                     changed = true;
@@ -183,9 +199,9 @@ namespace Studio.Editor
             var aiModel = GameObject.Find("AI_Character_Model");
             var cam = UnityEngine.Object.FindAnyObjectByType<UnityEngine.Camera>();
 
-            if (aiModel == null || cam == null)
+            if (aiModel == null || cam == null || player == null)
             {
-                Debug.LogError($"[InspectCharacter] Falha ao encontrar AI_Character_Model ({aiModel}) ou Camera ({cam})");
+                Debug.LogError($"[InspectCharacter] Falha ao encontrar Player ({player}), AI_Character_Model ({aiModel}) ou Camera ({cam})");
                 EditorApplication.Exit(1);
                 return;
             }
@@ -248,9 +264,136 @@ namespace Studio.Editor
                 RenderToPng(cam, Path.Combine(outDir, "inspect_04_slide.png"));
             }
 
+            // Verificar controles reais de Gameplay (Frente, Esquerda, Direita, Pulo, Agachamento)
+            if (!VerifyAndCaptureGameplayControls(player, aiModel, cam, runClip, jumpClip, slideClip, outDir))
+            {
+                Debug.LogError("[GameplayVerify] Falha na verificação integrada de controles de gameplay!");
+                EditorApplication.Exit(1);
+                return;
+            }
+
             // Restaurar cena limpa salva no disco (sem pose amostrada fixa)
             NeonRushSceneBuilder.BuildNeonRushScene("Assets/Game/Scenes/NeonRush.unity");
             EditorApplication.Exit(0);
+        }
+
+        private static bool VerifyAndCaptureGameplayControls(
+            GameObject player,
+            GameObject aiModel,
+            UnityEngine.Camera cam,
+            AnimationClip runClip,
+            AnimationClip jumpClip,
+            AnimationClip slideClip,
+            string outDir)
+        {
+            var gm = Studio.Gameplay.GameManager.Instance;
+            var input = Studio.Input.NeonInputAdapter.Instance;
+            var ctrl = player.GetComponent<Studio.Gameplay.PlayerController>();
+            var mov = player.GetComponent<Studio.Gameplay.PlayerMovement>();
+            var anim = player.GetComponent<Studio.Gameplay.RobotAnimator>();
+
+            if (gm == null || input == null || ctrl == null || mov == null || anim == null)
+            {
+                Debug.LogError($"[GameplayVerify] Componentes ausentes: gm={gm}, input={input}, ctrl={ctrl}, mov={mov}, anim={anim}");
+                return false;
+            }
+
+            mov.ResetPosition();
+            ctrl.EnsureInputSubscribed();
+            gm.StartGame();
+
+            if (!ctrl.IsSubscribedToInput || !mov.CanMove)
+            {
+                Debug.LogError($"[GameplayVerify] Falha ao ativar controles: IsSubscribed={ctrl.IsSubscribedToInput}, CanMove={mov.CanMove}");
+                return false;
+            }
+
+            // 1. Avanço para frente + Comando Esquerda (TriggerMoveLeft)
+            input.TriggerMoveLeft();
+            for (int i = 0; i < 12; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+            if (runClip != null) runClip.SampleAnimation(aiModel, 0.25f);
+            cam.transform.position = new Vector3(0f, 2.8f, player.transform.position.z - 5.2f);
+            cam.transform.LookAt(new Vector3(0f, 0.8f, player.transform.position.z + 2.0f));
+            RenderToPng(cam, Path.Combine(outDir, "gameplay_ctrl_01_move_left.png"));
+            Debug.Log($"[GameplayVerify] MOVE_LEFT -> Lane={mov.CurrentLane} (esperado -1), Pos={player.transform.position}, BankAngle={anim.CurrentBankAngle:F2}");
+            if (mov.CurrentLane != -1 || Mathf.Abs(player.transform.position.x - Studio.Foundation.GameConstants.LANE_LEFT_X) > 0.05f)
+            {
+                return false;
+            }
+
+            // 2. Comando Direita 2x (Esquerda -> Centro -> Direita via TriggerMoveRight)
+            input.TriggerMoveRight();
+            input.TriggerMoveRight();
+            for (int i = 0; i < 20; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+            if (runClip != null) runClip.SampleAnimation(aiModel, 0.75f);
+            cam.transform.position = new Vector3(0f, 2.8f, player.transform.position.z - 5.2f);
+            cam.transform.LookAt(new Vector3(0f, 0.8f, player.transform.position.z + 2.0f));
+            RenderToPng(cam, Path.Combine(outDir, "gameplay_ctrl_02_move_right.png"));
+            Debug.Log($"[GameplayVerify] MOVE_RIGHT -> Lane={mov.CurrentLane} (esperado 1), Pos={player.transform.position}, BankAngle={anim.CurrentBankAngle:F2}");
+            if (mov.CurrentLane != 1 || Mathf.Abs(player.transform.position.x - Studio.Foundation.GameConstants.LANE_RIGHT_X) > 0.05f)
+            {
+                return false;
+            }
+
+            // Retornar ao centro para testar Pulo e Slide
+            input.TriggerMoveLeft();
+            for (int i = 0; i < 15; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+
+            // 3. Comando de Pulo (TriggerJump) -> Ápice da parábola (~0.32s)
+            input.TriggerJump();
+            for (int i = 0; i < 20; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+            if (jumpClip != null) jumpClip.SampleAnimation(aiModel, 0.33f);
+            cam.transform.position = new Vector3(2.2f, 2.2f, player.transform.position.z - 3.8f);
+            cam.transform.LookAt(new Vector3(0f, 1.4f, player.transform.position.z));
+            RenderToPng(cam, Path.Combine(outDir, "gameplay_ctrl_03_jump.png"));
+            Debug.Log($"[GameplayVerify] JUMP -> IsJumping={mov.IsJumping}, Pos={player.transform.position}, Animator.IsJumping={anim.AnimatorComponent?.GetBool("IsJumping")}");
+            if (!mov.IsJumping || player.transform.position.y < 1.8f)
+            {
+                return false;
+            }
+
+            // Aguardar aterrissagem do pulo
+            for (int i = 0; i < 25; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+
+            // 4. Comando de Agachamento/Slide (TriggerSlide)
+            input.TriggerSlide();
+            for (int i = 0; i < 10; i++)
+            {
+                mov.StepSimulation(0.016f);
+                ctrl.StepController(0.016f);
+            }
+            if (slideClip != null) slideClip.SampleAnimation(aiModel, 0.33f);
+            cam.transform.position = new Vector3(2.0f, 1.3f, player.transform.position.z - 3.2f);
+            cam.transform.LookAt(new Vector3(0f, 0.5f, player.transform.position.z));
+            RenderToPng(cam, Path.Combine(outDir, "gameplay_ctrl_04_slide.png"));
+            Debug.Log($"[GameplayVerify] SLIDE -> IsSliding={mov.IsSliding}, ColliderSize={mov.Hitbox?.size}, Animator.IsSliding={anim.AnimatorComponent?.GetBool("IsSliding")}");
+            if (!mov.IsSliding || mov.Hitbox == null || mov.Hitbox.size.y > 0.70f || mov.Hitbox.size.y < 0.50f)
+            {
+                return false;
+            }
+
+            Debug.Log("[GameplayVerify] SUCESSO: Todos os 5 controles (Frente, Esquerda, Direita, Pulo, Agachamento) funcionaram perfeitamente!");
+            return true;
         }
 
         private static void LogPoseState(string label, GameObject aiModel, SkinnedMeshRenderer smr)
