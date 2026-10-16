@@ -20,7 +20,21 @@ namespace Studio.Editor
         public static void BuildWindowsCommandLine()
         {
             Debug.Log("[StudioBuild] Compilando executável Windows (.exe)...");
-            string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
+            string buildPath = null;
+            string[] args = Environment.GetCommandLineArgs();
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i].StartsWith("-customBuildPath="))
+                {
+                    buildPath = args[i].Substring("-customBuildPath=".Length);
+                }
+            }
+
+            if (string.IsNullOrEmpty(buildPath))
+            {
+                buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
+            }
+
             bool success = BuildWindows(buildPath);
             EditorApplication.Exit(success ? 0 : 1);
         }
