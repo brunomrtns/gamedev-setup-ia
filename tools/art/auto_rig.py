@@ -39,13 +39,13 @@ def parse_args():
     }
 
 def clean_scene():
-    bpy.ops.object.select_all(action='SELECT')
-    bpy.ops.object.delete(use_global=False)
-    for block in bpy.data.actions:
+    for obj in list(bpy.data.objects):
+        bpy.data.objects.remove(obj, do_unlink=True)
+    for block in list(bpy.data.actions):
         bpy.data.actions.remove(block)
-    for block in bpy.data.armatures:
+    for block in list(bpy.data.armatures):
         bpy.data.armatures.remove(block)
-    for block in bpy.data.meshes:
+    for block in list(bpy.data.meshes):
         bpy.data.meshes.remove(block)
 
 def create_humanoid_rig(mesh_obj, height=1.4):

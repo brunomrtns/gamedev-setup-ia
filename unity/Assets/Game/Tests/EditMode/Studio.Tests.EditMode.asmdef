@@ -4,6 +4,7 @@
     "references": [
         "Studio.Foundation",
         "Studio.Gameplay",
+        "Studio.Editor",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

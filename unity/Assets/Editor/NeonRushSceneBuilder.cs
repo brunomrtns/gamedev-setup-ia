@@ -612,6 +612,17 @@ namespace Studio.Editor
                 aiRobot.transform.localScale = Vector3.one;
 
                 characterAnimator = aiRobot.GetComponentInChildren<Animator>();
+                if (characterAnimator == null)
+                {
+                    characterAnimator = aiRobot.AddComponent<Animator>();
+                }
+                var animController = CharacterPipelineEditorHelper.SetupRobotAnimatorController();
+                if (characterAnimator != null && animController != null)
+                {
+                    characterAnimator.runtimeAnimatorController = animController;
+                    characterAnimator.applyRootMotion = false;
+                    characterAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                }
 
                 // Configurar Material URP Lit PBR com Máscara de Emissão
                 // Cura o Problema D: Sem emissão global descontrolada; emissão aplicada apenas onde o mapa dita
@@ -627,16 +638,20 @@ namespace Studio.Editor
                 if (aiEmission != null)
                 {
                     matAI.EnableKeyword("_EMISSION");
+                    matAI.SetKeyword(new UnityEngine.Rendering.LocalKeyword(shader, "_EMISSION"), true);
                     matAI.SetTexture("_EmissionMap", aiEmission);
                     matAI.SetColor("_EmissionColor", Color.white * 2.0f);
+                    matAI.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
                 }
                 else
                 {
                     matAI.DisableKeyword("_EMISSION");
+                    matAI.SetKeyword(new UnityEngine.Rendering.LocalKeyword(shader, "_EMISSION"), false);
                     matAI.SetColor("_EmissionColor", Color.black);
                 }
 
                 AssetDatabase.CreateAsset(matAI, matPath);
+                EditorUtility.SetDirty(matAI);
 
                 foreach (var r in aiRobot.GetComponentsInChildren<Renderer>())
                 {

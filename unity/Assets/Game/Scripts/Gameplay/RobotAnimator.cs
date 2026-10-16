@@ -59,25 +59,34 @@ namespace Studio.Gameplay
             }
         }
 
+        private bool _wasJumping = false;
+        private bool _wasSliding = false;
+
         public void Animate(float lateralDelta, bool isJumping, bool isSliding, float dt)
         {
             if (_visualRoot == null) return;
 
-            // 1. Controle do Animator Esquelético (Mecanim Humanoid/Generic)
+            // 1. Controle do Animator Esquelético (Mecanim)
             if (_animator != null)
             {
-                if (isJumping)
+                _animator.SetBool("IsJumping", isJumping);
+                _animator.SetBool("IsSliding", isSliding);
+
+                if (isJumping && !_wasJumping)
                 {
-                    _animator.CrossFade(AnimHashJump, 0.1f);
+                    _animator.CrossFade(AnimHashJump, 0.08f);
                 }
-                else if (isSliding)
+                else if (isSliding && !_wasSliding)
                 {
-                    _animator.CrossFade(AnimHashSlide, 0.15f);
+                    _animator.CrossFade(AnimHashSlide, 0.08f);
                 }
-                else
+                else if (!isJumping && !isSliding && (_wasJumping || _wasSliding))
                 {
-                    _animator.CrossFade(AnimHashRun, 0.2f);
+                    _animator.CrossFade(AnimHashRun, 0.12f);
                 }
+
+                _wasJumping = isJumping;
+                _wasSliding = isSliding;
             }
 
             // 2. Flutuação (apenas para droide hover; bípedes mantêm pés no chão)
