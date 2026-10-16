@@ -1,0 +1,188 @@
+{
+  "vault_name": "Studio Asset Vault (AI Game Studio)",
+  "total_packages": 5,
+  "packages": {
+    "fps_rifle_system": {
+      "id": "fps_rifle_system",
+      "name": "First-Person Shooter Rifle System",
+      "category": "weapons/firearms",
+      "path": "weapons/firearms/fps_rifle_system",
+      "engine_source": "Unreal Engine 5.5 - 5.6",
+      "genres": [
+        "ActionShooter",
+        "RpgSurvival",
+        "AdventureExploration"
+      ],
+      "tags": [
+        "rifle",
+        "assault_rifle",
+        "fps",
+        "animations",
+        "mannequin",
+        "aiming",
+        "shooting",
+        "weapons",
+        "ue5"
+      ],
+      "description": "Sistema completo de rifle em primeira pessoa com mesh de rifle de assalto, esqueleto, animações em primeira pessoa (Manny/Quinn), Blueprints de mira, disparo e lógica de combate.",
+      "archive_file": "First-Person Shooter Rifle System UE5.5 - 5.6.rar",
+      "archive_size_mb": 307.31,
+      "stats": {
+        "total_files": 96,
+        "uassets": 90,
+        "maps": 1,
+        "configs": 4,
+        "textures": 58,
+        "meshes": 2,
+        "materials": 11,
+        "blueprints": 7
+      }
+    },
+    "medieval_swords": {
+      "id": "medieval_swords",
+      "name": "Medieval Swords Pack",
+      "category": "weapons/melee",
+      "path": "weapons/melee/swords",
+      "engine_source": "Unreal Engine 5.6",
+      "genres": [
+        "Fighting",
+        "ActionShooter",
+        "RpgSurvival",
+        "AdventureExploration"
+      ],
+      "tags": [
+        "sword",
+        "blade",
+        "melee",
+        "combat",
+        "medieval",
+        "weapons",
+        "slashing",
+        "ue5"
+      ],
+      "description": "Coleção de 13 espadas medievais detalhadas, com StaticMeshes, SkeletalMeshes, Física, Materiais PBR e texturas 2K/4K.",
+      "archive_file": "Sword 5.6.zip",
+      "archive_size_mb": 221.17,
+      "stats": {
+        "total_files": 152,
+        "uassets": 151,
+        "maps": 1,
+        "configs": 0,
+        "textures": 83,
+        "meshes": 27,
+        "materials": 15,
+        "blueprints": 0
+      }
+    },
+    "medieval_knives_daggers": {
+      "id": "medieval_knives_daggers",
+      "name": "Medieval Knives and Daggers Pack",
+      "category": "weapons/melee",
+      "path": "weapons/melee/knives_daggers",
+      "engine_source": "Unreal Engine 5.6",
+      "genres": [
+        "Fighting",
+        "RpgSurvival",
+        "AdventureExploration",
+        "ActionShooter"
+      ],
+      "tags": [
+        "knife",
+        "dagger",
+        "melee",
+        "stealth",
+        "medieval",
+        "weapons",
+        "survival",
+        "ue5"
+      ],
+      "description": "Conjunto de facas e adagas medievais de combate e sobrevivência com variações de malhas estáticas/esqueléticas, materiais e texturas PBR.",
+      "archive_file": "Knife Dagger 5.6.zip",
+      "archive_size_mb": 232.88,
+      "stats": {
+        "total_files": 97,
+        "uassets": 96,
+        "maps": 1,
+        "configs": 0,
+        "textures": 52,
+        "meshes": 17,
+        "materials": 10,
+        "blueprints": 0
+      }
+    },
+    "scifi_skyboxes": {
+      "id": "scifi_skyboxes",
+      "name": "Matte Painting Skybox Pack - Sci-Fi Skies",
+      "category": "environments/skies",
+      "path": "environments/sci_fi_skyboxes",
+      "engine_source": "Unreal Engine 5.6",
+      "genres": [
+        "RunnerPlatformer",
+        "VehicleRacing",
+        "ActionShooter",
+        "AdventureExploration",
+        "RpgSurvival"
+      ],
+      "tags": [
+        "skybox",
+        "hdri",
+        "sci-fi",
+        "space",
+        "planets",
+        "skydome",
+        "matte_painting",
+        "environment",
+        "ue5"
+      ],
+      "description": "Pacote de skyboxes e panoramas cósmicos e futuristas (Sci-Fi, planetas, nebulosas) de alta resolução para cenários espaciais e cyberpunk.",
+      "archive_file": "Matte Painting Skybox Pack Sci Fi Skies 5.6.zip",
+      "archive_size_mb": 2411.86,
+      "stats": {
+        "total_files": 75,
+        "uassets": 63,
+        "maps": 12,
+        "configs": 0,
+        "textures": 54,
+        "meshes": 0,
+        "materials": 2,
+        "blueprints": 0
+      }
+    },
+    "underwater_coral": {
+      "id": "underwater_coral",
+      "name": "Underwater Coral Pack 01",
+      "category": "environments/underwater",
+      "path": "environments/underwater_coral",
+      "engine_source": "Unreal Engine 5.6",
+      "genres": [
+        "AdventureExploration",
+        "RpgSurvival"
+      ],
+      "tags": [
+        "underwater",
+        "coral",
+        "ocean",
+        "sea",
+        "reef",
+        "flora",
+        "environment",
+        "props",
+        "nature",
+        "ue5"
+      ],
+      "description": "Pacote massivo de ambiente submarino contendo recifes de corais, flora aquática, fundos oceânicos e texturas subaquáticas.",
+      "archive_file": "Underwater Coral Pack 01 5.6.zip",
+      "archive_size_mb": 2792.05,
+      "stats": {
+        "total_files": 700,
+        "uassets": 694,
+        "maps": 1,
+        "configs": 4,
+        "textures": 463,
+        "meshes": 77,
+        "materials": 77,
+        "blueprints": 77
+      }
+    }
+  }
+}

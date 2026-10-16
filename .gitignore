@@ -33,6 +33,11 @@ unity/Assets/AddressableAssetsData/*/*.bin*
 .studio/tmp/
 sandbox/
 
+# ---------- Assets Vault (large raw packages and uncompressed caches) ----------
+assets_vault/**
+!assets_vault/README.md
+!assets_vault/catalog.json
+
 # ---------- Build outputs ----------
 builds/
 *.apk
