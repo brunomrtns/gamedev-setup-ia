@@ -2,6 +2,8 @@
     "name": "Studio.Tests.EditMode",
     "rootNamespace": "Studio.Tests.EditMode",
     "references": [
+        "Studio.Foundation",
+        "Studio.Gameplay",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

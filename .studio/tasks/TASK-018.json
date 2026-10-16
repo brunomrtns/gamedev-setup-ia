@@ -1,0 +1,23 @@
+{
+  "id": "TASK-018",
+  "title": "Neon Rush - Scene Assembly & Visual Capture Validation",
+  "stage": "qa",
+  "command": null,
+  "dependencies": [
+    "TASK-017"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "evidence/captures/neon_rush_01_start_screen.png",
+    "evidence/captures/neon_rush_02_gameplay.png",
+    "evidence/captures/neon_rush_03_obstacles_hurdles.png",
+    "evidence/captures/neon_rush_04_extraction_portal.png",
+    "evidence/captures/neon_rush_05_game_over.png",
+    "evidence/captures/neon_rush_06_victory.png"
+  ],
+  "created_at": "2026-10-15T19:34:29.733674",
+  "updated_at": "2026-10-15T19:49:52.429919",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

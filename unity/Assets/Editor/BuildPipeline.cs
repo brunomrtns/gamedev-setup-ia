@@ -10,6 +10,43 @@ namespace Studio.Editor
 {
     public static class BuildPipelineHelper
     {
+        [MenuItem("Studio/Build/Windows Standalone (.exe)")]
+        public static void BuildWindowsMenu()
+        {
+            string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
+            BuildWindows(buildPath);
+        }
+
+        public static void BuildWindowsCommandLine()
+        {
+            Debug.Log("[StudioBuild] Compilando executável Windows (.exe)...");
+            string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
+            bool success = BuildWindows(buildPath);
+            EditorApplication.Exit(success ? 0 : 1);
+        }
+
+        public static bool BuildWindows(string outputPath)
+        {
+            string dir = Path.GetDirectoryName(outputPath);
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+            PlayerSettings.companyName = "StudioAI";
+            PlayerSettings.productName = "NeonRush";
+
+            string[] scenes = new[] { "Assets/Game/Scenes/NeonRush.unity" };
+
+            BuildPlayerOptions buildOptions = new BuildPlayerOptions
+            {
+                scenes = scenes,
+                locationPathName = outputPath,
+                target = BuildTarget.StandaloneWindows64,
+                options = BuildOptions.None
+            };
+
+            BuildReport report = BuildPipeline.BuildPlayer(buildOptions);
+            return report.summary.result == BuildResult.Succeeded;
+        }
+
         [MenuItem("Studio/Build/Android Development APK")]
         public static void BuildAndroidDevMenu()
         {
@@ -72,8 +109,8 @@ namespace Studio.Editor
             EditorUserBuildSettings.connectProfiler = isDevelopment;
 
             PlayerSettings.companyName = "StudioAI";
-            PlayerSettings.productName = "StudioPrototype";
-            PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "com.studio.prototype");
+            PlayerSettings.productName = "NeonRush";
+            PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "com.studio.neonrush");
             
             // Requisitos Android modernos
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;

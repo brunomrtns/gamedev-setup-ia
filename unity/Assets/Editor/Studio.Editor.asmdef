@@ -2,8 +2,14 @@
     "name": "Studio.Editor",
     "rootNamespace": "Studio.Editor",
     "references": [
+        "Studio.Foundation",
+        "Studio.Input",
+        "Studio.Gameplay",
+        "Studio.Cameras",
+        "Studio.UI",
         "Unity.RenderPipelines.Universal.Runtime",
         "Unity.RenderPipelines.Universal.Editor",
+        "Unity.RenderPipelines.Core.Runtime",
         "Unity.InputSystem"
     ],
     "includePlatforms": [

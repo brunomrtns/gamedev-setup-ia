@@ -1,61 +1,27 @@
-VBCSCompilerServerWatchdog: watching VBCSCompiler (PID 26752)
+VBCSCompilerServerWatchdog: watching VBCSCompiler (PID 22020)
 [Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-Bruno doesn't exist
 Built from '6000.3/staging' branch; Version is '6000.3.26f1 (de8167e7440c) revision 14582119'; Using compiler version '194234433'; Build Type 'Release'
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Bruno" at "2026-10-15T22:14:12.9813709Z"
 OS: 'Windows 11  (10.0.26200) Professional' Language: 'pt' Physical Memory: 65458 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
 System  architecture: x64
 Process architecture: x64
-Date: 2026-10-15T22:14:12Z
-[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 17668, path: "C:/Program Files/WindowsApps/UnityTechnologies.UnityHub_3.22.3.65535_x64__2vrhnee42bhxm/app/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
-[Licensing::Module] LicensingClient has failed validation; ignoring
-[Licensing::Client] Handshaking with LicensingClient:
-  Version:                 1.18.3+d7ffd15
-  Session Id:              8ec5a8536e064404b8f1393619665d11
-  Correlation Id:          8be5311604415eb308bb02f246ee0574
-  External correlation Id: 4790276332816224312
-  Machine Id:              Q8EH4SCE1lpxsP2wKeIBuhfS738=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Bruno" (connect: 0.00s, validation: 0.00s, handshake: 0.04s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Bruno-notifications" at "2026-10-15T22:14:13.0240153Z"
-[Licensing::Module] Error: Access token is unavailable; failed to update
-[Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] License group:
-  Id: F4-2786-9BUB-VANF-RDWX-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
-[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
-[Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] License group:
-  Id: F4-2786-9BUB-VANF-RDWX-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
-[Licensing::Module] Licensing Background thread has ended after 0.05s
+Date: 2026-10-16T01:04:31Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 2580)
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Unity.exe
 -batchmode
 -quit
 -projectPath
-C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity
+C:\Users\Bruno\workspace\gamedev-setup-ia\unity
 -executeMethod
 Studio.Editor.StudioAutomation.CaptureScreenshotBatch
--screenshotPath=C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\evidence\captures\calibration_view.png
+-screenshotPath=C:\Users\Bruno\workspace\gamedev-setup-ia\evidence\captures\neon_rush_ai_robot.png
 -logFile
-C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\evidence\captures\capture.log
-Successfully changed project path to: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity
-C:/Users/Bruno/.gemini/antigravity/scratch/gamedev-setup-ia/unity
+C:\Users\Bruno\workspace\gamedev-setup-ia\evidence\captures\capture.log
+Successfully changed project path to: C:\Users\Bruno\workspace\gamedev-setup-ia\unity
+C:/Users/Bruno/workspace/gamedev-setup-ia/unity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
     "memorysetup-temp-allocator-size-audio-worker=65536"
@@ -92,29 +58,47 @@ C:/Users/Bruno/.gemini/antigravity/scratch/gamedev-setup-ia/unity
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
-Player connection [23472]  Target information:
+Player connection [24056]  Target information:
 
-Player connection [23472]  * "[IP] 192.168.1.186 [Port] 55504 [Flags] 2 [Guid] 1816618675 [EditorId] 1816618675 [Version] 1048832 [Id] WindowsEditor(7,Bruno) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [24056]  * "[IP] 192.168.1.186 [Port] 55504 [Flags] 2 [Guid] 3083748110 [EditorId] 3083748110 [Version] 1048832 [Id] WindowsEditor(7,Bruno) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [23472]  * "[IP] 100.86.251.107 [Port] 55504 [Flags] 2 [Guid] 1816618675 [EditorId] 1816618675 [Version] 1048832 [Id] WindowsEditor(7,Bruno) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [24056]  * "[IP] 172.23.224.1 [Port] 55504 [Flags] 2 [Guid] 3083748110 [EditorId] 3083748110 [Version] 1048832 [Id] WindowsEditor(7,Bruno) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [23472] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [23472] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [24056]  * "[IP] 100.86.251.107 [Port] 55504 [Flags] 2 [Guid] 3083748110 [EditorId] 3083748110 [Version] 1048832 [Id] WindowsEditor(7,Bruno) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Unable to join player connection multicast group (err: 10013).
+Player connection [24056] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
-[Package Manager] Connected to IPC stream "Upm-14572" after 0.3 seconds.
+Starting IPC server.
+Waiting for clients to connect on \\.\pipe\Unity-LicenseClient-Bruno, press Ctrl-C to exit.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Bruno" at "2026-10-16T01:04:31.4653098Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 2580, path: "C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Package Manager] Connected to IPC stream "Upm-8348" after 0.3 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              f7c23c563d874081adb722d308c1bbf3
+  Correlation Id:          429ddb532099a1e8a2251e1afc0045c4
+  External correlation Id: 5824162577137678259
+  Machine Id:              Q8EH4SCE1lpxsP2wKeIBuhfS738=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Bruno" (connect: 0.37s, validation: 0.14s, handshake: 0.04s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Bruno-notifications" at "2026-10-16T01:04:31.6420514Z"
+[Licensing::Module] Connected to LicensingClient (PId: 2580, launch time: 0.01, total connection time: 0.55s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
   Id: F4-2786-9BUB-VANF-RDWX-XXXX
   Product: Unity Personal
   Type: ULF
   Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.61s
+[Licensing::Module] Licensing is initialized (took 0.09s).
+[Licensing::Client] Successfully resolved entitlement details
 Library Redirect Path: Library/
 [Physics::Module] Selected backend.
 [Physics::Module] Name: PhysX
@@ -122,22 +106,12 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-[Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] License group:
-  Id: F4-2786-9BUB-VANF-RDWX-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
-Refreshing native plugins compatible for Editor in 0.71 ms, found 0 plugins.
+Artifact Garbage Collection - Removed 2 unused hashed content files
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.3.26f1 (de8167e7440c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Bruno/.gemini/antigravity/scratch/gamedev-setup-ia/unity/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 d3d12: failed to query info queue interface (0x80004002).
 Direct3D:
@@ -151,7 +125,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56572
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56348
 Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
 Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
 ImportWorker Server TCP listen port: 0
@@ -159,142 +133,121 @@ AcceleratorClientConnectionCallback - disconnected - :0
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.26f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.003274 seconds.
-- Loaded All Assemblies, in  0.500 seconds
+Registered in 0.005801 seconds.
+- Loaded All Assemblies, in  0.523 seconds
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
-ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:False
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.496 seconds
-Domain Reload Profiling: 993ms
-	BeginReloadAssembly (150ms)
+- Finished resetting the current domain, in  0.479 seconds
+Domain Reload Profiling: 998ms
+	BeginReloadAssembly (165ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (8ms)
-	RebuildCommonClasses (45ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (48ms)
 	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (58ms)
-	LoadAllAssembliesAndSetupDomain (229ms)
-		LoadAssemblies (139ms)
+	initialDomainReloadingComplete (68ms)
+	LoadAllAssembliesAndSetupDomain (223ms)
+		LoadAssemblies (136ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (224ms)
-			TypeCache.Refresh (222ms)
-				TypeCache.ScanAssembly (205ms)
+		AnalyzeDomain (219ms)
+			TypeCache.Refresh (216ms)
+				TypeCache.ScanAssembly (199ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (497ms)
+	FinalizeReload (480ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (445ms)
+		SetupLoadedEditorAssemblies (431ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (72ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (102ms)
-			ProcessInitializeOnLoadAttributes (167ms)
-			ProcessInitializeOnLoadMethodAttributes (99ms)
+			InitializePlatformSupportModulesInManaged (66ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (158ms)
+			ProcessInitializeOnLoadMethodAttributes (101ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 [Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] License group:
-  Id: F4-2786-9BUB-VANF-RDWX-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
-[Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] License group:
-  Id: F4-2786-9BUB-VANF-RDWX-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
-  Id: 4674268579879-UnityPersXXXX
-  Product: Unity Personal
-  Type: Assigned
-  Expiration: Unlimited
 Application.AssetDatabase Initial Refresh Start
 [Package Manager] Restoring resolved packages state from cache
 [Licensing::Client] Successfully resolved entitlement details
 [Package Manager] Registered 62 packages:
   Packages from [https://packages.unity.com]:
-    com.unity.ai.navigation@2.0.15 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ai.navigation@a9c5744fc1de)
-    com.unity.collab-proxy@2.13.6 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
-    com.unity.ide.rider@3.0.40 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
-    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
-    com.unity.cinemachine@3.1.4 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.cinemachine@b66fdb7cd1f2)
-    com.unity.inputsystem@1.20.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.inputsystem@7a4e1a2a8194)
-    com.unity.timeline@1.8.13 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.timeline@3a22918286f5)
-    com.unity.visualscripting@1.9.12 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
-    com.unity.pipeline@0.8.0-exp.1 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.pipeline@62c08c808737)
-    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
-    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
-    com.unity.splines@2.9.1 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.splines@edbe9aefec91)
-    com.unity.searcher@4.9.5 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.searcher@a463122f2c00)
-    com.unity.burst@1.8.30 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.burst@2f3d916873ea)
-    com.unity.mathematics@1.3.3 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
-    com.unity.collections@2.6.8 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
-    com.unity.settings-manager@2.1.1 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.settings-manager@0b8638c5ce86)
-    com.unity.test-framework.performance@3.5.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+    com.unity.ai.navigation@2.0.15 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ai.navigation@a9c5744fc1de)
+    com.unity.collab-proxy@2.13.6 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
+    com.unity.ide.rider@3.0.40 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
+    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.cinemachine@3.1.4 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.cinemachine@b66fdb7cd1f2)
+    com.unity.inputsystem@1.20.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.inputsystem@7a4e1a2a8194)
+    com.unity.timeline@1.8.13 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.timeline@3a22918286f5)
+    com.unity.visualscripting@1.9.12 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
+    com.unity.pipeline@0.8.0-exp.1 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.pipeline@62c08c808737)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.splines@2.9.1 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.splines@edbe9aefec91)
+    com.unity.searcher@4.9.5 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.30 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.6.8 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.settings-manager@2.1.1 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.settings-manager@0b8638c5ce86)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
   Built-in packages:
-    com.unity.multiplayer.center@1.0.1 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
-    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.universal@746735fb06f2)
-    com.unity.test-framework@1.6.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
-    com.unity.ugui@2.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ugui@0e6b3c20b946)
-    com.unity.modules.accessibility@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.accessibility)
-    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.adaptiveperformance)
-    com.unity.modules.ai@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.ai)
-    com.unity.modules.androidjni@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.androidjni)
-    com.unity.modules.animation@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.animation)
-    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.assetbundle)
-    com.unity.modules.audio@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.audio)
-    com.unity.modules.cloth@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.cloth)
-    com.unity.modules.director@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.director)
-    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.imageconversion)
-    com.unity.modules.imgui@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.imgui)
-    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.jsonserialize)
-    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.particlesystem)
-    com.unity.modules.physics@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.physics)
-    com.unity.modules.physics2d@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.physics2d)
-    com.unity.modules.screencapture@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.screencapture)
-    com.unity.modules.terrain@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.terrain)
-    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.terrainphysics)
-    com.unity.modules.tilemap@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.tilemap)
-    com.unity.modules.ui@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.ui)
-    com.unity.modules.uielements@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.uielements)
-    com.unity.modules.umbra@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.umbra)
-    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unityanalytics)
-    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequest)
-    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
-    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
-    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
-    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestwww)
-    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vectorgraphics)
-    com.unity.modules.vehicles@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vehicles)
-    com.unity.modules.video@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.video)
-    com.unity.modules.vr@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vr)
-    com.unity.modules.wind@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.wind)
-    com.unity.modules.xr@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.xr)
-    com.unity.modules.subsystems@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.subsystems)
-    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.hierarchycore)
-    com.unity.ext.nunit@2.0.5 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
-    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.core@9e589b64c45d)
-    com.unity.shadergraph@17.3.0 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.shadergraph@9b839d46559e)
-    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.universal@746735fb06f2)
+    com.unity.test-framework@1.6.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ugui@0e6b3c20b946)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.core@9e589b64c45d)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.shadergraph@9b839d46559e)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
 [Subsystems] No new subsystems found in resolved package list.
-[Package Manager] Done registering packages in 0.04 seconds
+[Package Manager] Done registering packages in 0.03 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
-[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: http://localhost:80
 info: Microsoft.Hosting.Lifetime[0]
@@ -302,7 +255,7 @@ info: Microsoft.Hosting.Lifetime[0]
 info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Production
 info: Microsoft.Hosting.Lifetime[0]
-      Content root path: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\unity\
+      Content root path: C:\Users\Bruno\workspace\gamedev-setup-ia\unity\
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
       Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
@@ -310,9 +263,9 @@ info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
       Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
 info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 40.2510ms
-Starting: C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1300b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
-WorkingDir: C:/Users/Bruno/.gemini/antigravity/scratch/gamedev-setup-ia/unity
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 38.5209ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/Bruno/workspace/gamedev-setup-ia/unity
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
       Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
@@ -329,213 +282,116 @@ info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
       Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
 info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 67.2471ms
-info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
-      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
-      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
-      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      Processing assembly Library/Bee/artifacts/1300b0aE.dag/Assembly-CSharp.dll, with 149 defines and 328 references
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      Processing assembly Library/Bee/artifacts/1300b0aE.dag/Assembly-CSharp-Editor.dll, with 147 defines and 354 references
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      Processing assembly Library/Bee/artifacts/1300b0aE.dag/Studio.Editor.dll, with 147 defines and 294 references
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Jobs.CodeGen.JobsILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Jobs.CodeGen.JobsILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Jobs.CodeGen.JobsILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
-      Resolved Unity.Collections, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with Library\Bee\artifacts\1300b0aE.dag\Unity.Collections.dll
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
-      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 15.0970ms
-info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
-      Resolved UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll
-info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
-      Resolved UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingPipeline[0]
-      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
-      Resolved Unity.Burst.Cecil.Rocks, Version=0.11.6.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst@2f3d916873ea\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
-      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 429.6505ms
-info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
-      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
-info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 430.2466ms
-ExitCode: 0 Duration: 2s378ms
-[ 791/1014  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
-[1002/1014  1s] Csc Library/Bee/artifacts/1300b0aE.dag/Studio.Editor.dll (+2 others)
-[1005/1014  0s] ILPostProcess Library/Bee/artifacts/1300b0aE.dag/post-processed/Studio.Editor.dll (+pdb)
-Processing assembly Library/Bee/artifacts/1300b0aE.dag/Studio.Editor.dll, with 147 defines and 294 references
-
-processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-
-running Unity.Jobs.CodeGen.JobsILPostProcessor
-
-running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-
-running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-[1006/1014  0s] CopyFiles Library/ScriptAssemblies/Studio.Editor.pdb
-[1007/1014  0s] CopyFiles Library/ScriptAssemblies/Studio.Editor.dll
-[1008/1014  0s] ILPostProcess Library/Bee/artifacts/1300b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
-Processing assembly Library/Bee/artifacts/1300b0aE.dag/Assembly-CSharp-Editor.dll, with 147 defines and 354 references
-
-processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-
-running Unity.Jobs.CodeGen.JobsILPostProcessor
-
-running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-
-running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-[1009/1014  0s] ILPostProcess Library/Bee/artifacts/1300b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
-Processing assembly Library/Bee/artifacts/1300b0aE.dag/Assembly-CSharp.dll, with 149 defines and 328 references
-
-processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
-
-running Unity.Jobs.CodeGen.JobsILPostProcessor
-
-running Unity.Pipeline.CodeGen.CodeReloadInPlaceILPostProcessor
-
-running zzzUnity.Burst.CodeGen.BurstILPostProcessor
-*** Tundra build success (2.34 seconds), 7 items updated, 1014 evaluated
-AssetDatabase: script compilation time: 2.907131s
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 56.3901ms
+ExitCode: 0 Duration: 0s398ms
+[ 372/1064  0s] WriteResponseFile Library/Bee/artifacts/rsp/4747638433968585886.rsp
+[ 829/1064  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.36 seconds), 2 items updated, 1064 evaluated
+AssetDatabase: script compilation time: 0.949271s
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  1.476 seconds
+- Loaded All Assemblies, in  1.237 seconds
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 2.38 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 2.13 ms, found 4 plugins.
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
-Refreshing native plugins compatible for Editor in 2.54 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.76 ms, found 4 plugins.
 Start HTTP server: port:7800
 ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  4.688 seconds
-Domain Reload Profiling: 6156ms
-	BeginReloadAssembly (393ms)
+- Finished resetting the current domain, in  4.298 seconds
+Domain Reload Profiling: 5527ms
+	BeginReloadAssembly (322ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (31ms)
+		DisableScriptedObjects (28ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (161ms)
-	RebuildCommonClasses (53ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (74ms)
-	LoadAllAssembliesAndSetupDomain (930ms)
-		LoadAssemblies (582ms)
+		CreateAndSetChildDomain (142ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (776ms)
+		LoadAssemblies (455ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (482ms)
-			TypeCache.Refresh (355ms)
-				TypeCache.ScanAssembly (333ms)
-			BuildScriptInfoCaches (103ms)
-			ResolveRequiredComponents (17ms)
-	FinalizeReload (4688ms)
+		AnalyzeDomain (432ms)
+			TypeCache.Refresh (321ms)
+				TypeCache.ScanAssembly (302ms)
+			BuildScriptInfoCaches (90ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (4299ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (4374ms)
+		SetupLoadedEditorAssemblies (3906ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (36ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (247ms)
-			ProcessInitializeOnLoadAttributes (3969ms)
-			ProcessInitializeOnLoadMethodAttributes (110ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (1ms)
+			InitializePlatformSupportModulesInManaged (35ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (211ms)
+			ProcessInitializeOnLoadAttributes (3535ms)
+			ProcessInitializeOnLoadMethodAttributes (109ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (2ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (22ms)
-Refreshing native plugins compatible for Editor in 2.35 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Asset Pipeline Refresh (id=885f86d2b2038114db75e9d2bedf6aa7): Total: 10.199 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+		AwakeInstancesAfterBackupRestoration (30ms)
+Asset Pipeline Refresh (id=1555feade8538b646931d24c77d6bbfc): Total: 7.479 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
 	Summary:
 		Imports: total=0 (actual=0, local cache=0, cache server=0)
-		Asset DB Process Time: managed=0 ms, native=5376 ms
-		Asset DB Callback time: managed=308 ms, native=51 ms
-		Scripting: domain reloads=1, domain reload time=1476 ms, compile time=2910 ms, other=76 ms
-		Project Asset Count: scripts=1459, non-scripts=2511
-		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Asset DB Process Time: managed=0 ms, native=5148 ms
+		Asset DB Callback time: managed=32 ms, native=29 ms
+		Scripting: domain reloads=1, domain reload time=1237 ms, compile time=951 ms, other=78 ms
+		Project Asset Count: scripts=1472, non-scripts=2529
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
 		Scan Filter Count: 0
 	InvokeCustomDependenciesCallbacks: 0.002ms
-	InvokePackagesCallback: 42.723ms
-	ApplyChangesToAssetFolders: 0.980ms
-	Scan: 186.202ms
-	OnSourceAssetsModified: 1.009ms
-	CategorizeAssetsWithTransientArtifact: 81.952ms
-	ProcessAssetsWithTransientArtifactChanges: 113.683ms
-	CategorizeAssets: 67.578ms
-	ImportOutOfDateAssets: 4704.131ms (1790.338ms without children)
-		CompileScripts: 2909.670ms
-		ReloadNativeAssets: 0.046ms
-		UnloadImportedAssets: 2.720ms
-		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.922ms
+	InvokePackagesCallback: 32.483ms
+	ApplyChangesToAssetFolders: 1.038ms
+	Scan: 210.479ms
+	OnSourceAssetsModified: 0.005ms
+	CategorizeAssetsWithTransientArtifact: 80.263ms
+	ProcessAssetsWithTransientArtifactChanges: 103.212ms
+	CategorizeAssets: 64.516ms
+	ImportOutOfDateAssets: 4314.286ms (3359.929ms without children)
+		CompileScripts: 951.288ms
+		ReloadNativeAssets: 0.034ms
+		UnloadImportedAssets: 1.903ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.660ms
 		InitializingProgressBar: 0.001ms
-		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
-		OnDemandSchedulerStart: 0.435ms
-	PostProcessAllAssets: 309.286ms
-	Hotreload: 9.341ms
-	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
-	UnloadStreamsBegin: 2.829ms
-	PersistCurrentRevisions: 0.107ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.472ms
+	PostProcessAllAssets: 32.871ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.003ms
+	UnloadStreamsBegin: 3.557ms
+	PersistCurrentRevisions: 0.130ms
 	UnloadStreamsEnd: 0.002ms
-	GenerateScriptTypeHashes: 3.159ms
-	Untracked: 4678.843ms
+	GenerateScriptTypeHashes: 3.575ms
+	Untracked: 2636.583ms
 
 Application.AssetDatabase Initial Refresh End
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Scanning for USB devices : 7.197ms
+Scanning for USB devices : 12.005ms
 Initializing Unity extensions:
 [MODES] ModeService[none].Initialize
 [MODES] ModeService[none].LoadModes
-[MODES] Loading mode Default (0) for mode-current-id-StudioPrototype
+[MODES] Loading mode Default (0) for mode-current-id-NeonRush
 Unloading 34 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7267 unused Assets / (8.3 MB). Loaded Objects now: 8078.
-Memory consumption went from 217.8 MB to 209.6 MB.
-Total: 22.252100 ms (FindLiveObjects: 1.598600 ms CreateObjectMapping: 1.564400 ms MarkObjects: 11.441500 ms  DeleteObjects: 7.644900 ms)
+Unloading 7282 unused Assets / (7.8 MB). Loaded Objects now: 8094.
+Memory consumption went from 214.8 MB to 207.0 MB.
+Total: 16.264600 ms (FindLiveObjects: 1.078300 ms CreateObjectMapping: 0.622400 ms MarkObjects: 8.818000 ms  DeleteObjects: 5.743900 ms)
 
 Opening scene 'Assets/Game/Scenes/Calibration.unity'
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 Loaded scene 'Assets/Game/Scenes/Calibration.unity'
-	Deserialize:            5.600 ms
-	Integration:            575.498 ms
-	Integration of assets:  0.005 ms
-	Thread Wait Time:       0.024 ms
-	Total Operation Time:   581.127 ms
-Unloading 2 unused Assets / (Unknown). Loaded Objects now: 8107.
-Memory consumption went from 196.8 MB to 198.7 MB.
-Total: 13.054900 ms (FindLiveObjects: 0.944000 ms CreateObjectMapping: 0.480900 ms MarkObjects: 11.582200 ms  DeleteObjects: 0.045800 ms)
+	Deserialize:            13.148 ms
+	Integration:            299.123 ms
+	Integration of assets:  0.007 ms
+	Thread Wait Time:       0.018 ms
+	Total Operation Time:   312.296 ms
+Unloading 2 unused Assets / (1.0 KB). Loaded Objects now: 8123.
+Memory consumption went from 193.9 MB to 193.9 MB.
+Total: 9.853600 ms (FindLiveObjects: 0.839200 ms CreateObjectMapping: 0.481100 ms MarkObjects: 8.494300 ms  DeleteObjects: 0.037200 ms)
 
-[StudioAutomation] Screenshot salvo com sucesso em: C:\Users\Bruno\.gemini\antigravity\scratch\gamedev-setup-ia\evidence\captures\calibration_view.png
+[StudioAutomation] Screenshot salvo com sucesso em: C:\Users\Bruno\workspace\gamedev-setup-ia\evidence\captures\neon_rush_ai_robot.png
 UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
@@ -547,7 +403,7 @@ Studio.Editor.StudioAutomation:CaptureScreenshotBatch () (at Assets/Editor/Studi
 (Filename: Assets/Editor/StudioAutomation.cs Line: 195)
 
 Pipeline Server stopped
-Killing ADB server in 2,0738574 seconds.
+Killing ADB server in 2,0831193 seconds.
 [Physics::Module] Cleanup current backend.
 [Physics::Module] Id: 0xf2b8ea05
 Input System module state changed to: ShutdownInProgress.
@@ -556,18 +412,19 @@ Input System module state changed to: Shutdown.
 [Licensing::IpcConnector] LicenseClient-Bruno-notifications channel disconnected successfully.
 [Licensing::IpcConnector] LicenseClient-Bruno channel disconnected successfully.
 AcceleratorClientConnectionCallback - disconnected - :0
+Shut down.
 Cleanup mono
-abort_threads: Failed aborting id: 0000000000002ADC, mono_thread_manage will ignore it
+abort_threads: Failed aborting id: 000000000000116C, mono_thread_manage will ignore it
 
-abort_threads: Failed aborting id: 00000000000051C0, mono_thread_manage will ignore it
+abort_threads: Failed aborting id: 0000000000000DC8, mono_thread_manage will ignore it
 
-abort_threads: Failed aborting id: 0000000000002ADC, mono_thread_manage will ignore it
+abort_threads: Failed aborting id: 000000000000116C, mono_thread_manage will ignore it
 
-abort_threads: Failed aborting id: 00000000000051C0, mono_thread_manage will ignore it
+abort_threads: Failed aborting id: 0000000000000DC8, mono_thread_manage will ignore it
 
-debugger-agent: Unable to listen on 4536
+debugger-agent: Unable to listen on 4556
 Checking for leaked weakptr:
   Found no leaked weakptrs.
 [Package Manager] Server process was shutdown
-##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792102475303,"processId":14572,"allocatedMemory":15399524,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":68715},{"Thread":4238000},{"Manager":819485},{"VertexData":8},{"Geometry":816},{"Texture":160},{"Shader":79381},{"Material":24},{"GfxDevice":58528},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":592},{"Input":14984},{"JobScheduler":33024},{"TextLib":280},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1620272},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":3941},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":16231},{"DynamicArray":126889},{"HashMap":80136},{"Utility":2660278},{"Curl":2579},{"PoolAlloc":2248},{"AI":80},{"TypeTree":13861},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":7912},{"WebRequest":23452},{"VR":47994},{"SceneManager":504},{"Video":64},{"LazyScriptCache":32},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":640},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":96},{"EditorUtility":108063},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4696559},{"EditorGi":328},{"UnityConnect":29208},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":260},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3498},{"Licensing":12757},{"AssetReference":32},{"IPCStream":32}]}
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792112687814,"processId":8348,"allocatedMemory":15356617,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":68715},{"Thread":4237960},{"Manager":819709},{"VertexData":8},{"Geometry":816},{"Texture":160},{"Shader":80533},{"Material":24},{"GfxDevice":58528},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":592},{"Input":14984},{"JobScheduler":33024},{"TextLib":280},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1620272},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":3941},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":16160},{"DynamicArray":126971},{"HashMap":79020},{"Utility":2660278},{"Curl":2579},{"PoolAlloc":2248},{"AI":80},{"TypeTree":5341},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":7912},{"WebRequest":552},{"VR":47994},{"SceneManager":504},{"Video":64},{"LazyScriptCache":32},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":464},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":96},{"EditorUtility":108063},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4696559},{"EditorGi":328},{"UnityConnect":29208},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3498},{"Licensing":1264},{"AssetReference":32},{"IPCStream":32}]}
 ~StackAllocator(ALLOC_TEMP_MAIN) m_LastAlloc not NULL. Did you forget to call FreeAllStackAllocations()? To get more information, run app with -diag-temp-memory-leak-validation cmd line argument

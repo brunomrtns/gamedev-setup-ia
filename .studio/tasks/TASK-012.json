@@ -1,0 +1,18 @@
+{
+  "id": "TASK-012",
+  "title": "Neon Rush - Input System & Touch/Keyboard Swipe Adapter",
+  "stage": "engineering",
+  "command": null,
+  "dependencies": [
+    "TASK-011"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "unity/Assets/Game/Scripts/Input/NeonInputAdapter.cs"
+  ],
+  "created_at": "2026-10-15T19:34:29.733658",
+  "updated_at": "2026-10-15T19:49:52.253975",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

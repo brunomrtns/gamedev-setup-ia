@@ -1,0 +1,16 @@
+{
+  "id": "TASK-019",
+  "title": "Neon Rush - Android Build (APK) & Final Verification",
+  "stage": "build",
+  "command": null,
+  "dependencies": [
+    "TASK-018"
+  ],
+  "status": "pending",
+  "evidence_files": [],
+  "created_at": "2026-10-15T19:34:29.733676",
+  "updated_at": "2026-10-15T19:34:29.733677",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

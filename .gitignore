@@ -8,6 +8,7 @@ unity/[Ll]ogs/
 unity/[Uu]ser[Ss]ettings/
 unity/[Mm]emoryCaptures/
 unity/[Rr]ecordings/
+unity/.utmp/
 unity/.vs/
 unity/.vscode/
 unity/.idea/
@@ -53,6 +54,8 @@ __pycache__/
 .venv/
 .pytest_cache/
 .ruff_cache/
+tools/art/TripoSR/
+*.log
 
 # ---------- OS / editors ----------
 .DS_Store
