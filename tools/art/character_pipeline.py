@@ -125,8 +125,22 @@ def main():
             print("[Error] Falha no auto-rigging com Blender.")
             sys.exit(1)
 
+    # Etapa 5: Portão de Qualidade (Quality Gate) dos Artefatos Gerados
+    print("\n=== ETAPA 5: Validação Automática de Geometria, Rigging e Animações ===")
+    val_script = project_root / "tools/validation/validate_character.py"
+    val_cmd = [
+        sys.executable,
+        str(val_script),
+        "--dir", str(output_dir),
+        "--target-height", str(args.target_height),
+        "--rig-type", args.rig_type
+    ]
+    if not run_command(val_cmd):
+        print("[Error] O personagem gerado reprovou no Quality Gate.")
+        sys.exit(1)
+
     print("\n=======================================================")
-    print("[OK] PIPELINE DE PERSONAGEM CONCLUIDO COM SUCESSO!")
+    print("[OK] PIPELINE DE PERSONAGEM CONCLUIDO E VALIDADO COM SUCESSO!")
     print(f"Diretorio de Entrega: {output_dir}")
     print("Arquivos gerados:")
     for f in output_dir.glob("*"):
