@@ -1,0 +1,28 @@
+{
+  "id": "TASK-022",
+  "title": "Abyssal Breach - Core Gameplay, 6-DoF Motor, Submarine Weapons & Oxygen System",
+  "stage": "engineering",
+  "command": null,
+  "dependencies": [
+    "TASK-021"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "unity/Assets/Game/Scripts/Foundation/AbyssalMath.cs",
+    "unity/Assets/Game/Scripts/Foundation/ProceduralAudioService.cs",
+    "unity/Assets/Game/Scripts/Input/AbyssalInputAdapter.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalFirstPersonMotor.cs",
+    "unity/Assets/Game/Scripts/Gameplay/OxygenSurvivalSystem.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalWeaponController.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalThreatDrone.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalCollectible.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalExtractionPod.cs",
+    "unity/Assets/Game/Scripts/Gameplay/AbyssalGameManager.cs",
+    "unity/Assets/Game/Scripts/UI/AbyssalHUDManager.cs"
+  ],
+  "created_at": "2026-10-16T10:50:00.000000",
+  "updated_at": "2026-10-16T11:15:00.000000",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

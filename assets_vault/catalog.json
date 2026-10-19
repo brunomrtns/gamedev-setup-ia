@@ -1,6 +1,6 @@
 {
   "vault_name": "Studio Asset Vault (AI Game Studio)",
-  "total_packages": 5,
+  "total_packages": 8,
   "packages": {
     "fps_rifle_system": {
       "id": "fps_rifle_system",
@@ -182,6 +182,110 @@
         "meshes": 77,
         "materials": 77,
         "blueprints": 77
+      }
+    },
+    "barramundi_fish": {
+      "id": "barramundi_fish",
+      "name": "Barramundi Fish PBR Marine Creature",
+      "category": "characters/marine_life",
+      "path": "characters/marine_life/barramundi_fish",
+      "engine_source": "Khronos glTF Sample Assets (CC0 / PBR)",
+      "genres": [
+        "AdventureExploration",
+        "RpgSurvival",
+        "ActionShooter"
+      ],
+      "tags": [
+        "fish",
+        "marine",
+        "ocean",
+        "underwater",
+        "creature",
+        "fauna",
+        "pbr",
+        "albedo",
+        "normal",
+        "roughness"
+      ],
+      "description": "Modelo 3D detalhado de peixe marinho (Barramundi) com mapas de textura PBR 2048x2048 (Albedo, Normal e Roughness/Metallic) e malha UV-unwrapped pronta para Unity.",
+      "archive_file": "BarramundiFish.fbx",
+      "archive_size_mb": 12.8,
+      "stats": {
+        "total_files": 4,
+        "uassets": 0,
+        "maps": 0,
+        "configs": 0,
+        "textures": 3,
+        "meshes": 1,
+        "materials": 1,
+        "blueprints": 0
+      }
+    },
+    "scifi_repeater_rifle": {
+      "id": "scifi_repeater_rifle",
+      "name": "Sci-Fi Blaster Repeater Assault Rifle",
+      "category": "weapons/firearms",
+      "path": "weapons/firearms/scifi_repeater_rifle",
+      "engine_source": "Kenney CC0 FPS Kit (Native FBX / UV Atlas)",
+      "genres": [
+        "ActionShooter",
+        "RpgSurvival"
+      ],
+      "tags": [
+        "rifle",
+        "blaster",
+        "repeater",
+        "fps",
+        "sci-fi",
+        "weapon",
+        "textured",
+        "uv_mapped"
+      ],
+      "description": "Rifle de assalto / plasma repetidor futurista completo para FPS em primeira pessoa, com miras telescópicas, cano estriado, empunhadura e atlas de texturas UV.",
+      "archive_file": "SM_SciFi_Repeater_Rifle.fbx",
+      "archive_size_mb": 0.1,
+      "stats": {
+        "total_files": 2,
+        "uassets": 0,
+        "maps": 0,
+        "configs": 0,
+        "textures": 1,
+        "meshes": 1,
+        "materials": 1,
+        "blueprints": 0
+      }
+    },
+    "sentinel_drone": {
+      "id": "sentinel_drone",
+      "name": "Subaquatic Sentinel Threat Drone",
+      "category": "characters/drones",
+      "path": "characters/drones/sentinel_drone",
+      "engine_source": "Kenney CC0 FPS Kit (Native FBX / UV Atlas)",
+      "genres": [
+        "ActionShooter",
+        "RpgSurvival"
+      ],
+      "tags": [
+        "drone",
+        "enemy",
+        "sentinel",
+        "flying",
+        "subaquatic",
+        "anomaly",
+        "textured"
+      ],
+      "description": "Drone sentinela subaquático hostil com canhões laterais de plasma, antena sensorial e fuselagem blindada texturizada.",
+      "archive_file": "SM_Sentinel_Drone.fbx",
+      "archive_size_mb": 0.1,
+      "stats": {
+        "total_files": 2,
+        "uassets": 0,
+        "maps": 0,
+        "configs": 0,
+        "textures": 1,
+        "meshes": 1,
+        "materials": 1,
+        "blueprints": 0
       }
     }
   }

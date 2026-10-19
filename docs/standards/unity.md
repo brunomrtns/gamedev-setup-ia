@@ -60,3 +60,15 @@
 - **Cinemachine:**
   - Versão: Cinemachine 3.x.
   - Câmeras virtuais (`CinemachineCamera`) controladas via estados de gameplay, com damping suave adequado a telas touch.
+
+---
+
+## 5. Colisores Canônicos (ColliderFitter)
+
+- **NUNCA gerar BoxCollider pelo AABB inteiro do prefab.** Bounds incluem partes altas/laterais que o player pode passar por baixo (copo de árvore, braço de poste) — colisor gigante = gameplay quebrado.
+- **Sempre usar `ColliderFitter`** (`Assets/Editor/ColliderFitter.cs`) nos scene builders:
+  - `FitProp(go, prefabName, parent)` — resolve perfil por arquétipo: hastes (`lamp_pole*`, `pole*`, `traffic_light`) = coluna fina no pivô, altura cheia; árvores (`tree*`) = só tronco (30% XZ, 55% altura); barreiras (hedge/bench/bloco/fence) = AABB completo.
+  - `FitVehicleBody(go)` — colisor de carroceria no próprio rigidbody (80% X/Z, topo ~84% da altura — sem spoiler/teto).
+  - `FitVehicle(go, parent)` — versão em root separado para veículo estático.
+- **Colisor de prop NUNCA é filho do prefab escalado** (escala herda e dobra o tamanho). Sempre em root world-aligned.
+- **Extender a tabela:** novo arquétipo = nova regra em `ProfileFor` — não crie colisor na mão.

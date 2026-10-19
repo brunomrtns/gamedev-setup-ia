@@ -13,7 +13,7 @@ from datetime import datetime
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 UNITY_PROJECT = ROOT_DIR / "unity"
-BUILDS_DIR = ROOT_DIR / "builds" / "NeonRush_Windows"
+BUILDS_DIR = ROOT_DIR / "builds" / "AbyssalBreach_Windows"
 EVIDENCE_DIR = ROOT_DIR / "evidence" / "builds"
 
 def find_unity_exe():
@@ -44,14 +44,14 @@ def find_unity_exe():
 
     return "unity"
 
-def build_windows(output_exe=None):
-    BUILDS_DIR.mkdir(parents=True, exist_ok=True)
-    EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
-
+def build_windows(output_exe=None, scene=None):
     if not output_exe:
-        output_exe = BUILDS_DIR / "NeonRush.exe"
+        output_exe = BUILDS_DIR / "AbyssalBreach.exe"
     else:
         output_exe = Path(output_exe)
+
+    output_exe.parent.mkdir(parents=True, exist_ok=True)
+    EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
 
     unity_exe = find_unity_exe()
     log_file = EVIDENCE_DIR / f"build_windows_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
@@ -69,8 +69,10 @@ def build_windows(output_exe=None):
         "-buildTarget", "Win64",
         "-executeMethod", "Studio.Editor.BuildPipelineHelper.BuildWindowsCommandLine",
         f"-customBuildPath={str(output_exe.resolve())}",
-        "-logFile", str(log_file.resolve())
     ]
+    if scene:
+        cmd.append(f"-scenePath={scene}")
+    cmd += ["-logFile", str(log_file.resolve())]
 
     print("[*] Executando compilação Windows em batchmode...")
     start_time = datetime.now()
@@ -95,9 +97,10 @@ def build_windows(output_exe=None):
 def main():
     parser = argparse.ArgumentParser(description="Build Windows Standalone (.exe)")
     parser.add_argument("--out", help="Caminho de saída do executável")
+    parser.add_argument("--scene", help="Cena .unity a compilar (ex: Assets/Game/Scenes/NeonDistrict.unity)")
     args = parser.parse_args()
 
-    success, exe, log = build_windows(output_exe=args.out)
+    success, exe, log = build_windows(output_exe=args.out, scene=args.scene)
     if not success:
         sys.exit(1)
     sys.exit(0)

@@ -1,0 +1,21 @@
+{
+  "id": "TASK-021",
+  "title": "Abyssal Breach - Asset Pipeline & 3D Model/Texture Conversions",
+  "stage": "art",
+  "command": null,
+  "dependencies": [
+    "TASK-020"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "tools/art/convert_abyssal_assets.py",
+    "tools/art/generate_abyssal_meshes.py",
+    "unity/Assets/Game/Art/AbyssalBreach/Models",
+    "unity/Assets/Game/Art/AbyssalBreach/Textures"
+  ],
+  "created_at": "2026-10-16T10:30:00.000000",
+  "updated_at": "2026-10-16T10:50:00.000000",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

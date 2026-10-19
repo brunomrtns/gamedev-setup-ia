@@ -1,0 +1,17 @@
+{
+    "sessionId": "20261018_193406_4b5e",
+    "seed": 20261017,
+    "scene": "NeonDistrict",
+    "startedUtc": "2026-10-18T19:41:59.4831622Z",
+    "duration": 210.0066375732422,
+    "visitedSectors": 0,
+    "teleports": 0,
+    "collisions": 125,
+    "fpsAvg": 0.0,
+    "worstDtMs": 0.0,
+    "exceptions": 0,
+    "perfSpikes": [],
+    "scenarios": [],
+    "findings": [],
+    "notes": []
+}

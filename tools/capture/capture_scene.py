@@ -44,6 +44,7 @@ def capture_scene(scene_path, output_png=None):
         "-quit",
         "-projectPath", str(UNITY_PROJECT),
         "-executeMethod", "Studio.Editor.StudioAutomation.CaptureScreenshotBatch",
+        f"-scenePath={scene_path}",
         f"-screenshotPath={str(output_png.resolve())}",
         "-logFile", str(log_file.resolve())
     ]

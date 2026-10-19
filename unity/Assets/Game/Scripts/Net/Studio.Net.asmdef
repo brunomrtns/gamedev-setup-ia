@@ -1,0 +1,22 @@
+{
+    "name": "Studio.Net",
+    "rootNamespace": "Studio.Net",
+    "references": [
+        "Studio.Foundation",
+        "Studio.Input",
+        "Studio.Gameplay",
+        "Studio.Cameras",
+        "Unity.Netcode.Runtime",
+        "Unity.Networking.Transport",
+        "Unity.RenderPipelines.Universal.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

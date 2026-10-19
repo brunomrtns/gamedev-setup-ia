@@ -67,6 +67,9 @@ def build_android_apk(target="development", output_apk=None):
     print(f"[*] Destino APK: {output_apk}")
     print(f"[*] Arquivo de Log: {log_file}")
 
+    # Nome do produto derivado do arquivo de saída (neon_district.apk -> NeonDistrict)
+    product_name = output_apk.stem.replace("_", " ").title().replace(" ", "")
+
     cmd = [
         str(unity_exe),
         "-batchmode",
@@ -76,6 +79,7 @@ def build_android_apk(target="development", output_apk=None):
         "-executeMethod", "Studio.Editor.BuildPipelineHelper.BuildAndroidCommandLine",
         f"-customBuildPath={str(output_apk.resolve())}",
         f"-customBuildTarget={target}",
+        f"-productName={product_name}",
         "-logFile", str(log_file.resolve())
     ]
 

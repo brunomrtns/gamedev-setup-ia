@@ -42,8 +42,8 @@ namespace Studio.Editor
 
         public static void CaptureNeonRushAnglesBatch()
         {
-            Debug.Log("[NeonRushSceneBuilder] Iniciando captura de ângulos e telas de Neon Rush...");
-            EditorSceneManager.OpenScene(SCENE_PATH, OpenSceneMode.Single);
+            Debug.Log("[NeonRushSceneBuilder] Reconstruindo cena com texturas PBR e capturando telas de Neon Rush...");
+            BuildNeonRushScene(SCENE_PATH);
 
             var cam = UnityEngine.Object.FindAnyObjectByType<UnityEngine.Camera>();
             if (cam == null)
@@ -136,19 +136,26 @@ namespace Studio.Editor
             if (!Directory.Exists(sceneDir)) Directory.CreateDirectory(sceneDir);
             if (!Directory.Exists(MAT_DIR)) Directory.CreateDirectory(MAT_DIR);
 
-            // 2. Criar ou carregar Materiais URP
-            var matTrack = GetOrCreateMaterial("Mat_Track", new Color(0.05f, 0.05f, 0.08f), Color.black);
+            // 1.5 Carregar Texturas PBR Reais
+            var texTrackD = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/Art/NeonRush/Textures/T_Neon_Track_D.png");
+            var texTrackN = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/Art/NeonRush/Textures/T_Neon_Track_N.png");
+            var texBuildingD = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/Art/NeonRush/Textures/T_Neon_Building_D.png");
+            var texObstacleD = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/Art/NeonRush/Textures/T_Neon_Obstacle_D.png");
+            var texPortalD = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/Art/NeonRush/Textures/T_Neon_Portal_D.png");
+
+            // 2. Criar ou carregar Materiais URP com Texturas Reais
+            var matTrack = GetOrCreateMaterial("Mat_Track", Color.white, Color.black, texTrackD, texTrackN, new Vector2(4f, 120f));
             var matLaneCyan = GetOrCreateMaterial("Mat_Lane_Cyan", new Color(0f, 0.8f, 1f), new Color(0f, 1.2f, 2.0f));
             var matLaneMagenta = GetOrCreateMaterial("Mat_Lane_Magenta", new Color(1f, 0.1f, 0.6f), new Color(2f, 0.2f, 1.2f));
-            var matLaserHurdle = GetOrCreateMaterial("Mat_Laser_Hurdle", new Color(1f, 0.05f, 0.2f), new Color(2.5f, 0.1f, 0.5f));
-            var matHighBeam = GetOrCreateMaterial("Mat_High_Beam", new Color(1f, 0.6f, 0.05f), new Color(2.2f, 1.3f, 0.1f));
-            var matBlocker = GetOrCreateMaterial("Mat_Blocker", new Color(0.12f, 0.12f, 0.18f), new Color(0.3f, 0.1f, 0.4f));
+            var matLaserHurdle = GetOrCreateMaterial("Mat_Laser_Hurdle", Color.white, new Color(2.5f, 0.1f, 0.5f), texObstacleD);
+            var matHighBeam = GetOrCreateMaterial("Mat_High_Beam", Color.white, new Color(2.2f, 1.3f, 0.1f), texObstacleD);
+            var matBlocker = GetOrCreateMaterial("Mat_Blocker", Color.white, Color.black, texObstacleD, null, new Vector2(2f, 2f));
             var matCell = GetOrCreateMaterial("Mat_EnergyCell", new Color(0f, 1f, 0.9f), new Color(0f, 2.5f, 2.2f));
             var matRobotBody = GetOrCreateMaterial("Mat_RobotBody", new Color(0.12f, 0.16f, 0.24f), Color.black);
             var matRobotVisor = GetOrCreateMaterial("Mat_RobotVisor", new Color(0f, 0.9f, 1f), new Color(0f, 2f, 2.5f));
             var matRobotThruster = GetOrCreateMaterial("Mat_RobotThruster", new Color(0.08f, 0.08f, 0.12f), new Color(0f, 1.5f, 2.2f));
-            var matPortal = GetOrCreateMaterial("Mat_Portal", new Color(0.9f, 0.1f, 0.7f), new Color(2.5f, 0.2f, 1.8f));
-            var matBuilding = GetOrCreateMaterial("Mat_Building", new Color(0.04f, 0.04f, 0.07f), new Color(0.1f, 0.05f, 0.2f));
+            var matPortal = GetOrCreateMaterial("Mat_Portal", Color.white, new Color(1.8f, 0.2f, 1.4f), texPortalD);
+            var matBuilding = GetOrCreateMaterial("Mat_Building", Color.white, Color.black, texBuildingD, null, new Vector2(2f, 6f));
             var matWindowStrip = GetOrCreateMaterial("Mat_WindowStrip", new Color(0.0f, 0.7f, 0.9f), new Color(0f, 1.2f, 1.6f));
 
             // 3. Criar nova cena limpa
@@ -175,13 +182,16 @@ namespace Studio.Editor
             // 5. Construir Pista e Cenário
             var environmentRoot = new GameObject("Environment");
 
-            // Asfalto da Pista principal
-            var road = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            road.name = "Track_Road";
-            road.transform.SetParent(environmentRoot.transform);
-            road.transform.position = new Vector3(0f, -0.25f, 175f);
-            road.transform.localScale = new Vector3(7.5f, 0.5f, 360f);
-            road.GetComponent<Renderer>().sharedMaterial = matTrack;
+            // Asfalto da Pista principal (malha procedural do pipeline V2 — sem primitivas nativas)
+            var road = ProceduralMeshLibrary.CreatePart(
+                "Track_Road",
+                ProceduralMeshLibrary.Box,
+                environmentRoot.transform,
+                new Vector3(0f, -0.25f, 175f),
+                Quaternion.identity,
+                new Vector3(7.5f, 0.5f, 360f),
+                matTrack);
+            road.AddComponent<BoxCollider>();
 
             // Linhas de Demarcação de Faixas (Neon Strips)
             CreateLaneStrip("Lane_Divider_Left", -1.1f, matLaneCyan, environmentRoot.transform);
@@ -341,85 +351,137 @@ namespace Studio.Editor
 
         #region Helpers de Construção de Objetos
 
-        private static Material GetOrCreateMaterial(string name, Color baseColor, Color emissionColor)
+        private static Material GetOrCreateMaterial(
+            string name,
+            Color baseColor,
+            Color emissionColor,
+            Texture2D baseMap = null,
+            Texture2D normalMap = null,
+            Vector2 tiling = default)
         {
             string path = $"{MAT_DIR}/{name}.mat";
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            var shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
             if (mat == null)
             {
-                var shader = Shader.Find("Universal Render Pipeline/Lit");
-                if (shader == null) shader = Shader.Find("Standard");
                 mat = new Material(shader);
-                mat.SetColor("_BaseColor", baseColor);
-
-                if (emissionColor != Color.black)
-                {
-                    mat.EnableKeyword("_EMISSION");
-                    mat.SetColor("_EmissionColor", emissionColor);
-                }
-
                 AssetDatabase.CreateAsset(mat, path);
             }
+            else
+            {
+                mat.shader = shader;
+            }
+
+            mat.SetColor("_BaseColor", baseColor);
+            if (baseMap != null)
+            {
+                mat.SetTexture("_BaseMap", baseMap);
+                mat.SetTextureScale("_BaseMap", tiling != Vector2.zero ? tiling : Vector2.one);
+            }
+            if (normalMap != null)
+            {
+                mat.SetTexture("_BumpMap", normalMap);
+                mat.EnableKeyword("_NORMALMAP");
+                if (tiling != Vector2.zero) mat.SetTextureScale("_BumpMap", tiling);
+            }
+
+            if (emissionColor != Color.black)
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", emissionColor);
+            }
+            else
+            {
+                mat.DisableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.black);
+            }
+
+            EditorUtility.SetDirty(mat);
             return mat;
         }
 
         private static void CreateLaneStrip(string name, float x, Material mat, Transform parent, float height = 0.05f)
         {
-            var strip = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            strip.name = name;
-            strip.transform.SetParent(parent);
-            strip.transform.position = new Vector3(x, height * 0.5f, 175f);
-            strip.transform.localScale = new Vector3(0.08f, height, 360f);
-            strip.GetComponent<Renderer>().sharedMaterial = mat;
-            UnityEngine.Object.DestroyImmediate(strip.GetComponent<Collider>());
+            ProceduralMeshLibrary.CreatePart(
+                name,
+                ProceduralMeshLibrary.Box,
+                parent,
+                new Vector3(x, height * 0.5f, 175f),
+                Quaternion.identity,
+                new Vector3(0.08f, height, 360f),
+                mat);
         }
+
+        // Pool determinístico de edifícios do CityKit (Quality Gate V2 — kitbash modular)
+        private static readonly string[] BUILDING_POOL =
+        {
+            "building-skyscraper-a", "building-skyscraper-b", "building-skyscraper-c",
+            "building-skyscraper-d", "building-skyscraper-e",
+            "building-a", "building-c", "building-e",
+            "low-detail-building-wide-a", "low-detail-building-wide-b",
+        };
 
         private static void CreateBuilding(Transform parent, Vector3 pos, Vector3 scale, Material matBuilding, Material matWindow)
         {
-            var bldg = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            bldg.name = "Building";
-            bldg.transform.SetParent(parent);
-            bldg.transform.position = pos;
-            bldg.transform.localScale = scale;
-            bldg.GetComponent<Renderer>().sharedMaterial = matBuilding;
-            UnityEngine.Object.DestroyImmediate(bldg.GetComponent<Collider>());
+            int seed = (int)pos.z * 2 + (pos.x < 0f ? 0 : 1);
+            var prefabName = BUILDING_POOL[seed % BUILDING_POOL.Length];
+            float yaw = (seed * 37 % 4) * 90f;
 
-            // Faixa de janela luminosa
-            var strip = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            strip.name = "Window_Band";
-            strip.transform.SetParent(bldg.transform);
-            strip.transform.localPosition = new Vector3(0f, 0.2f, 0f);
-            strip.transform.localScale = new Vector3(1.02f, 0.05f, 1.02f);
-            strip.GetComponent<Renderer>().sharedMaterial = matWindow;
-            UnityEngine.Object.DestroyImmediate(strip.GetComponent<Collider>());
+            var bldg = ProceduralMeshLibrary.CreateKitInstance(
+                prefabName, $"Building_{(int)pos.z}_{(int)pos.x}", parent,
+                new Vector3(pos.x, 0f, pos.z), yaw);
+
+            Bounds bounds;
+            if (bldg != null)
+            {
+                bounds = ProceduralMeshLibrary.ScaleToHeight(bldg, scale.y, baseY: -0.25f);
+            }
+            else
+            {
+                // Fallback: malha procedural própria (nunca primitiva nativa)
+                var fb = ProceduralMeshLibrary.CreatePart(
+                    $"Building_{(int)pos.z}_{(int)pos.x}", ProceduralMeshLibrary.Box, parent,
+                    pos, Quaternion.identity, scale, matBuilding);
+                bounds = ProceduralMeshLibrary.ComputeBounds(fb);
+            }
+
+            // Faixa de janela luminosa a ~70% da altura do edifício
+            ProceduralMeshLibrary.CreatePart(
+                "Window_Band",
+                ProceduralMeshLibrary.Box,
+                parent,
+                new Vector3(pos.x, bounds.min.y + bounds.size.y * 0.7f, pos.z),
+                Quaternion.identity,
+                new Vector3(bounds.size.x * 1.02f, bounds.size.y * 0.05f, bounds.size.z * 1.02f),
+                matWindow);
         }
 
         private static void CreateNeoArch(Transform parent, float z, Material matStructure, Material matNeon)
         {
-            var arch = new GameObject($"NeoArch_{z}");
-            arch.transform.SetParent(parent);
-            arch.transform.position = new Vector3(0f, 0f, z);
+            // Portal de kit modular (SpaceKit gate) no lugar de pilares/vigas primitivos
+            var gateName = ((int)z % 100 == 0) ? "gate_complex" : "gate_simple";
+            var arch = ProceduralMeshLibrary.CreateKitInstance(
+                gateName, $"NeoArch_{z}", parent, new Vector3(0f, 0f, z));
 
-            // Pilar Esquerdo
-            var pLeft = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            pLeft.transform.SetParent(arch.transform);
-            pLeft.transform.localPosition = new Vector3(-4.5f, 4f, 0f);
-            pLeft.transform.localScale = new Vector3(0.8f, 8f, 0.8f);
-            pLeft.GetComponent<Renderer>().sharedMaterial = matStructure;
+            if (arch != null)
+            {
+                ProceduralMeshLibrary.ScaleToHeight(arch, 8.8f, baseY: 0f);
+            }
+            else
+            {
+                // Fallback estrutural com malhas próprias (pilares + lintel)
+                ProceduralMeshLibrary.CreatePart(
+                    $"NeoArch_{z}_PillarL", ProceduralMeshLibrary.Box, parent,
+                    new Vector3(-4.5f, 4f, z), Quaternion.identity, new Vector3(0.8f, 8f, 0.8f), matStructure);
+                ProceduralMeshLibrary.CreatePart(
+                    $"NeoArch_{z}_PillarR", ProceduralMeshLibrary.Box, parent,
+                    new Vector3(4.5f, 4f, z), Quaternion.identity, new Vector3(0.8f, 8f, 0.8f), matStructure);
+            }
 
-            // Pilar Direito
-            var pRight = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            pRight.transform.SetParent(arch.transform);
-            pRight.transform.localPosition = new Vector3(4.5f, 4f, 0f);
-            pRight.transform.localScale = new Vector3(0.8f, 8f, 0.8f);
-            pRight.GetComponent<Renderer>().sharedMaterial = matStructure;
-
-            // Viga Superior
-            var topBeam = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            topBeam.transform.SetParent(arch.transform);
-            topBeam.transform.localPosition = new Vector3(0f, 8f, 0f);
-            topBeam.transform.localScale = new Vector3(9.8f, 0.8f, 0.8f);
-            topBeam.GetComponent<Renderer>().sharedMaterial = matNeon;
+            // Faixa neon sob o lintel do portal (acento luminoso atravessando a pista)
+            ProceduralMeshLibrary.CreatePart(
+                $"NeoArch_{z}_NeonBeam", ProceduralMeshLibrary.Box, parent,
+                new Vector3(0f, 7.4f, z), Quaternion.identity, new Vector3(9.0f, 0.45f, 0.6f), matNeon);
         }
 
         private static void CreateLowLaserHurdle(Transform parent, float x, float z, Material mat)
@@ -428,12 +490,15 @@ namespace Studio.Editor
             hurdle.transform.SetParent(parent);
             hurdle.transform.position = new Vector3(x, 0.35f, z);
 
-            var beam = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            beam.transform.SetParent(hurdle.transform);
-            beam.transform.localPosition = Vector3.zero;
-            beam.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-            beam.transform.localScale = new Vector3(0.2f, 1.0f, 0.2f);
-            beam.GetComponent<Renderer>().sharedMaterial = mat;
+            var beam = ProceduralMeshLibrary.CreatePart(
+                "LaserBeam_Visual",
+                ProceduralMeshLibrary.Cylinder,
+                hurdle.transform,
+                Vector3.zero,
+                Quaternion.Euler(0f, 0f, 90f),
+                new Vector3(0.2f, 1.0f, 0.2f),
+                mat);
+            beam.AddComponent<CapsuleCollider>(); // paridade com o colisor do cilindro nativo
 
             // Colisor de gatilho
             var col = hurdle.AddComponent<BoxCollider>();
@@ -452,11 +517,15 @@ namespace Studio.Editor
             highHazard.transform.SetParent(parent);
             highHazard.transform.position = new Vector3(x, 1.8f, z);
 
-            var beam = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            beam.transform.SetParent(highHazard.transform);
-            beam.transform.localPosition = Vector3.zero;
-            beam.transform.localScale = new Vector3(2.1f, 0.4f, 0.4f);
-            beam.GetComponent<Renderer>().sharedMaterial = mat;
+            var beam = ProceduralMeshLibrary.CreatePart(
+                "HighBeam_Visual",
+                ProceduralMeshLibrary.Box,
+                highHazard.transform,
+                Vector3.zero,
+                Quaternion.identity,
+                new Vector3(2.1f, 0.4f, 0.4f),
+                mat);
+            beam.AddComponent<BoxCollider>(); // paridade com o cubo nativo
 
             var col = highHazard.AddComponent<BoxCollider>();
             col.isTrigger = true;
@@ -469,22 +538,26 @@ namespace Studio.Editor
 
         private static void CreateFullBlockHazard(Transform parent, float x, float z, Material matBlock, Material matGlow)
         {
-            var block = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            block.name = $"FullBlock_{z}_{x}";
-            block.transform.SetParent(parent);
-            block.transform.position = new Vector3(x, 1.25f, z);
-            block.transform.localScale = new Vector3(2.0f, 2.5f, 1.0f);
-            block.GetComponent<Renderer>().sharedMaterial = matBlock;
+            var block = ProceduralMeshLibrary.CreatePart(
+                $"FullBlock_{z}_{x}",
+                ProceduralMeshLibrary.Box,
+                parent,
+                new Vector3(x, 1.25f, z),
+                Quaternion.identity,
+                new Vector3(2.0f, 2.5f, 1.0f),
+                matBlock);
 
             // Faixa luminosa no topo
-            var stripe = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            stripe.transform.SetParent(block.transform);
-            stripe.transform.localPosition = new Vector3(0f, 0.45f, 0f);
-            stripe.transform.localScale = new Vector3(1.05f, 0.15f, 1.05f);
-            stripe.GetComponent<Renderer>().sharedMaterial = matGlow;
-            UnityEngine.Object.DestroyImmediate(stripe.GetComponent<Collider>());
+            ProceduralMeshLibrary.CreatePart(
+                "Glow_Stripe",
+                ProceduralMeshLibrary.Box,
+                block.transform,
+                new Vector3(0f, 0.45f, 0f),
+                Quaternion.identity,
+                new Vector3(1.05f, 0.15f, 1.05f),
+                matGlow);
 
-            var col = block.GetComponent<BoxCollider>();
+            var col = block.AddComponent<BoxCollider>();
             col.isTrigger = true;
 
             var hazard = block.AddComponent<ObstacleHazard>();
@@ -498,14 +571,15 @@ namespace Studio.Editor
             cell.transform.SetParent(parent);
             cell.transform.position = pos;
 
-            // Octaedro estilizado usando duas pirâmides ou cubo rotacionado
-            var core = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            core.transform.SetParent(cell.transform);
-            core.transform.localPosition = Vector3.zero;
-            core.transform.localRotation = Quaternion.Euler(45f, 45f, 45f);
-            core.transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
-            core.GetComponent<Renderer>().sharedMaterial = mat;
-            UnityEngine.Object.DestroyImmediate(core.GetComponent<Collider>());
+            // Octaedro estilizado — malha procedural própria do pipeline V2
+            ProceduralMeshLibrary.CreatePart(
+                "Cell_Octahedron",
+                ProceduralMeshLibrary.Octahedron,
+                cell.transform,
+                Vector3.zero,
+                Quaternion.identity,
+                new Vector3(0.85f, 1.1f, 0.85f),
+                mat);
 
             // Trigger
             var col = cell.AddComponent<SphereCollider>();
@@ -532,25 +606,25 @@ namespace Studio.Editor
             portalObj.transform.position = new Vector3(0f, 3.5f, z);
             portalObj.tag = GameConstants.TAG_PORTAL;
 
-            // Anel Externo Hexagonal/Circular
-            var outer = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            outer.name = "Portal_OuterRing";
-            outer.transform.SetParent(portalObj.transform);
-            outer.transform.localPosition = Vector3.zero;
-            outer.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-            outer.transform.localScale = new Vector3(8.5f, 0.3f, 8.5f);
-            outer.GetComponent<Renderer>().sharedMaterial = matPortal;
-            UnityEngine.Object.DestroyImmediate(outer.GetComponent<Collider>());
+            // Anel Externo — toro procedural do pipeline V2
+            ProceduralMeshLibrary.CreatePart(
+                "Portal_OuterRing",
+                ProceduralMeshLibrary.Torus,
+                portalObj.transform,
+                Vector3.zero,
+                Quaternion.identity,
+                new Vector3(8.5f, 8.5f, 8.5f),
+                matPortal);
 
-            // Vórtice Central
-            var inner = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            inner.name = "Portal_Vortex";
-            inner.transform.SetParent(portalObj.transform);
-            inner.transform.localPosition = Vector3.zero;
-            inner.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-            inner.transform.localScale = new Vector3(6.5f, 0.1f, 6.5f);
-            inner.GetComponent<Renderer>().sharedMaterial = matVortex;
-            UnityEngine.Object.DestroyImmediate(inner.GetComponent<Collider>());
+            // Vórtice Central — disco fino procedural
+            ProceduralMeshLibrary.CreatePart(
+                "Portal_Vortex",
+                ProceduralMeshLibrary.Cylinder,
+                portalObj.transform,
+                Vector3.zero,
+                Quaternion.Euler(90f, 0f, 0f),
+                new Vector3(6.5f, 0.1f, 6.5f),
+                matVortex);
 
             // Trigger de Conclusão
             var col = portalObj.AddComponent<BoxCollider>();
@@ -675,38 +749,42 @@ namespace Studio.Editor
             }
             else
             {
-                // Fallback para geometria básica procedural
-                var chassis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                chassis.name = "Chassis";
-                chassis.transform.SetParent(visualRoot.transform);
-                chassis.transform.localPosition = new Vector3(0f, 0.5f, 0f);
-                chassis.transform.localScale = new Vector3(1.0f, 0.85f, 0.95f);
-                chassis.GetComponent<Renderer>().sharedMaterial = matBody;
-                UnityEngine.Object.DestroyImmediate(chassis.GetComponent<Collider>());
+                // Fallback para geometria básica procedural (malhas próprias — Quality Gate V2)
+                ProceduralMeshLibrary.CreatePart(
+                    "Chassis",
+                    ProceduralMeshLibrary.Sphere,
+                    visualRoot.transform,
+                    new Vector3(0f, 0.5f, 0f),
+                    Quaternion.identity,
+                    new Vector3(1.0f, 0.85f, 0.95f),
+                    matBody);
 
-                visorObj = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                visorObj.name = "Sensor_Visor";
-                visorObj.transform.SetParent(visualRoot.transform);
-                visorObj.transform.localPosition = new Vector3(0f, 0.65f, 0.42f);
-                visorObj.transform.localScale = new Vector3(0.55f, 0.2f, 0.2f);
-                visorObj.GetComponent<Renderer>().sharedMaterial = matVisor;
-                UnityEngine.Object.DestroyImmediate(visorObj.GetComponent<Collider>());
+                visorObj = ProceduralMeshLibrary.CreatePart(
+                    "Sensor_Visor",
+                    ProceduralMeshLibrary.Box,
+                    visualRoot.transform,
+                    new Vector3(0f, 0.65f, 0.42f),
+                    Quaternion.identity,
+                    new Vector3(0.55f, 0.2f, 0.2f),
+                    matVisor);
 
-                thrusterL = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                thrusterL.name = "Thruster_Left";
-                thrusterL.transform.SetParent(visualRoot.transform);
-                thrusterL.transform.localPosition = new Vector3(-0.55f, 0.25f, -0.1f);
-                thrusterL.transform.localScale = new Vector3(0.28f, 0.35f, 0.28f);
-                thrusterL.GetComponent<Renderer>().sharedMaterial = matThruster;
-                UnityEngine.Object.DestroyImmediate(thrusterL.GetComponent<Collider>());
+                thrusterL = ProceduralMeshLibrary.CreatePart(
+                    "Thruster_Left",
+                    ProceduralMeshLibrary.Cylinder,
+                    visualRoot.transform,
+                    new Vector3(-0.55f, 0.25f, -0.1f),
+                    Quaternion.identity,
+                    new Vector3(0.28f, 0.35f, 0.28f),
+                    matThruster);
 
-                thrusterR = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                thrusterR.name = "Thruster_Right";
-                thrusterR.transform.SetParent(visualRoot.transform);
-                thrusterR.transform.localPosition = new Vector3(0.55f, 0.25f, -0.1f);
-                thrusterR.transform.localScale = new Vector3(0.28f, 0.35f, 0.28f);
-                thrusterR.GetComponent<Renderer>().sharedMaterial = matThruster;
-                UnityEngine.Object.DestroyImmediate(thrusterR.GetComponent<Collider>());
+                thrusterR = ProceduralMeshLibrary.CreatePart(
+                    "Thruster_Right",
+                    ProceduralMeshLibrary.Cylinder,
+                    visualRoot.transform,
+                    new Vector3(0.55f, 0.25f, -0.1f),
+                    Quaternion.identity,
+                    new Vector3(0.28f, 0.35f, 0.28f),
+                    matThruster);
             }
 
             // Animador

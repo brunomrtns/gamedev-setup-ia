@@ -1,0 +1,260 @@
+{
+  "version": "2.0",
+  "generated_at": "2026-10-16T19:43:13.910563",
+  "licenses": "CC0 (Kenney + Poly Haven) — livres de royalties",
+  "kenney_kits": [
+    {
+      "kit": "SpaceKit",
+      "slug": "space-kit",
+      "description": "Kitbashing sci-fi modular (paredes, painéis, estruturas de estação espacial)",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/space-kit",
+      "zip_url": "https://kenney.nl/media/pages/assets/space-kit/20874c75ac-1677698978/kenney_space-kit.zip",
+      "zip_sha256": "d5d7cdf2635ed5a43a9187deaf409b6f47484e402321128341d3c3698e9ef4d9",
+      "model_format": ".fbx",
+      "model_count": 153,
+      "models_copied": 0,
+      "texture_count": 770,
+      "textures_copied": 0,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/SpaceKit/Models"
+    },
+    {
+      "kit": "CityKitCommercial",
+      "slug": "city-kit-commercial",
+      "description": "Edifícios urbanos modulares comerciais (skyline Neon Rush)",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/city-kit-commercial",
+      "zip_url": "https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip",
+      "zip_sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+      "model_format": ".fbx",
+      "model_count": 41,
+      "models_copied": 0,
+      "texture_count": 46,
+      "textures_copied": 0,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/CityKitCommercial/Models"
+    },
+    {
+      "kit": "FantasyTownKit",
+      "slug": "fantasy-town-kit",
+      "description": "Construções medievais modulares (pedra/madeira)",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/fantasy-town-kit",
+      "zip_url": "https://kenney.nl/media/pages/assets/fantasy-town-kit/efe948d309-1754222374/kenney_fantasy-town-kit_2.0.zip",
+      "zip_sha256": "1a7530c09f4d2fa2cdee259876f089334f8b1f27fa86a0c4f54ef86cdd8676ef",
+      "model_format": ".fbx",
+      "model_count": 167,
+      "models_copied": 1,
+      "texture_count": 171,
+      "textures_copied": 0,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/FantasyTownKit/Models"
+    },
+    {
+      "kit": "RacingKit",
+      "slug": "racing-kit",
+      "description": "Pistas modulares, cones, sinalização e props de corrida",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/racing-kit",
+      "zip_url": "https://kenney.nl/media/pages/assets/racing-kit/933b8fd9fd-1677580949/kenney_racing-kit.zip",
+      "zip_sha256": "8a71ea16219315a01d00d5a90c4f6b5c090faddbc56d80ecf727e2b3b853c6c0",
+      "model_format": ".fbx",
+      "model_count": 112,
+      "models_copied": 112,
+      "texture_count": 585,
+      "textures_copied": 579,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/RacingKit/Models"
+    },
+    {
+      "kit": "CarKit",
+      "slug": "car-kit",
+      "description": "Veículos/carros low-poly estilizados para jogos de corrida",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/car-kit",
+      "zip_url": "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip",
+      "zip_sha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+      "model_format": ".fbx",
+      "model_count": 50,
+      "models_copied": 50,
+      "texture_count": 53,
+      "textures_copied": 51,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/CarKit/Models"
+    },
+    {
+      "kit": "NatureKit",
+      "slug": "nature-kit",
+      "description": "Árvores, rochas e vegetação para cenários de aventura",
+      "license": "CC0",
+      "source_url": "https://kenney.nl/assets/nature-kit",
+      "zip_url": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+      "zip_sha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+      "model_format": ".fbx",
+      "model_count": 329,
+      "models_copied": 329,
+      "texture_count": 1638,
+      "textures_copied": 1638,
+      "dest": "unity/Assets/Game/Art/Environment/Modular/NatureKit/Models"
+    }
+  ],
+  "polyhaven_textures": [
+    {
+      "family": "MetalPlate",
+      "asset_id": "metal_plate",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/metal_plate",
+      "use": "Metal escovado",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/MetalPlate/MetalPlate_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/MetalPlate/MetalPlate_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/MetalPlate/MetalPlate_R.jpg",
+        "M": "unity/Assets/Game/Art/Common/Textures/MetalPlate/MetalPlate_M.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/MetalPlate/MetalPlate_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/MetalPlate_512/MetalPlate_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/MetalPlate_512/MetalPlate_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/MetalPlate_512/MetalPlate_R_512.jpg",
+        "M512": "unity/Assets/Game/Art/Common/Textures/MetalPlate_512/MetalPlate_M_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/MetalPlate_512/MetalPlate_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "c6b6739eac2c75ccc898e753d7833df24eafbdb9aa92fb6eabfb92abd1a680a5"
+    },
+    {
+      "family": "MetalProfile",
+      "asset_id": "box_profile_metal_sheet",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/box_profile_metal_sheet",
+      "use": "Chapa metálica perfilada",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/MetalProfile/MetalProfile_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/MetalProfile/MetalProfile_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/MetalProfile/MetalProfile_R.jpg",
+        "M": "unity/Assets/Game/Art/Common/Textures/MetalProfile/MetalProfile_M.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/MetalProfile/MetalProfile_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/MetalProfile_512/MetalProfile_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/MetalProfile_512/MetalProfile_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/MetalProfile_512/MetalProfile_R_512.jpg",
+        "M512": "unity/Assets/Game/Art/Common/Textures/MetalProfile_512/MetalProfile_M_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/MetalProfile_512/MetalProfile_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "c2c3643bb2e07554f805f56525ec2ffbc23117be95e324af46ac98f56fa7961f"
+    },
+    {
+      "family": "MetalRust",
+      "asset_id": "green_metal_rust",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/green_metal_rust",
+      "use": "Metal enferrujado",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/MetalRust/MetalRust_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/MetalRust/MetalRust_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/MetalRust/MetalRust_R.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/MetalRust/MetalRust_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/MetalRust_512/MetalRust_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/MetalRust_512/MetalRust_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/MetalRust_512/MetalRust_R_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/MetalRust_512/MetalRust_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "4509ab0cb1cf6bf9b9f970450a41f83ebd9bff178006deae568ff34b404856fc"
+    },
+    {
+      "family": "ConcretePanel",
+      "asset_id": "concrete_panels",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/concrete_panels",
+      "use": "Painéis de concreto industrial",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/ConcretePanel/ConcretePanel_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/ConcretePanel/ConcretePanel_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/ConcretePanel/ConcretePanel_R.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/ConcretePanel/ConcretePanel_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/ConcretePanel_512/ConcretePanel_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/ConcretePanel_512/ConcretePanel_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/ConcretePanel_512/ConcretePanel_R_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/ConcretePanel_512/ConcretePanel_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "f7f9d5102b2daa199b42cae7d67d0b7a2977d98d80f45c302f93454224ebd140"
+    },
+    {
+      "family": "ConcreteWorn",
+      "asset_id": "chipped_concrete",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/chipped_concrete",
+      "use": "Concreto desgastado",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn/ConcreteWorn_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn/ConcreteWorn_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn/ConcreteWorn_R.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn/ConcreteWorn_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn_512/ConcreteWorn_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn_512/ConcreteWorn_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn_512/ConcreteWorn_R_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/ConcreteWorn_512/ConcreteWorn_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "2adf65fe5b702c8882480b04f1802b81d1e8868a03e7047504f5a77a726fd6ff"
+    },
+    {
+      "family": "Asphalt",
+      "asset_id": "asphalt_01",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/asphalt_01",
+      "use": "Asfalto de pista",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/Asphalt/Asphalt_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/Asphalt/Asphalt_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/Asphalt/Asphalt_R.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/Asphalt/Asphalt_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/Asphalt_512/Asphalt_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/Asphalt_512/Asphalt_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/Asphalt_512/Asphalt_R_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/Asphalt_512/Asphalt_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "99b6f6bdfbd09279f3f550ac9593336df541aa2319537566eeb3e737d8512010"
+    },
+    {
+      "family": "RockAbyssal",
+      "asset_id": "aerial_rocks_01",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/aerial_rocks_01",
+      "use": "Rocha natural (fenda oceânica)",
+      "maps": {
+        "D": "unity/Assets/Game/Art/Common/Textures/RockAbyssal/RockAbyssal_D.jpg",
+        "N": "unity/Assets/Game/Art/Common/Textures/RockAbyssal/RockAbyssal_N.jpg",
+        "R": "unity/Assets/Game/Art/Common/Textures/RockAbyssal/RockAbyssal_R.jpg",
+        "MS": "unity/Assets/Game/Art/Common/Textures/RockAbyssal/RockAbyssal_MS.png",
+        "D512": "unity/Assets/Game/Art/Common/Textures/RockAbyssal_512/RockAbyssal_D_512.jpg",
+        "N512": "unity/Assets/Game/Art/Common/Textures/RockAbyssal_512/RockAbyssal_N_512.jpg",
+        "R512": "unity/Assets/Game/Art/Common/Textures/RockAbyssal_512/RockAbyssal_R_512.jpg",
+        "MS512": "unity/Assets/Game/Art/Common/Textures/RockAbyssal_512/RockAbyssal_MS_512.png"
+      },
+      "resolutions": [
+        "1024",
+        "512"
+      ],
+      "sha256_albedo": "0f184f4a1da57342d240086b5abfb804bb129bc649024c9546b054bb918264b7"
+    }
+  ],
+  "blender_normalization": {
+    "normalized": 258
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TASK-024",
+  "title": "Abyssal Breach - UTF EditMode Automated Tests (19 unit/integration tests)",
+  "stage": "qa",
+  "command": null,
+  "dependencies": [
+    "TASK-023"
+  ],
+  "status": "completed",
+  "evidence_files": [
+    "unity/Assets/Game/Tests/EditMode/AbyssalBreachGameplayTests.cs",
+    "evidence/test-reports/abyssal-editmode-results.xml"
+  ],
+  "created_at": "2026-10-16T11:25:00.000000",
+  "updated_at": "2026-10-16T11:30:00.000000",
+  "error_message": null,
+  "retries": 0,
+  "max_retries": 3
+}

@@ -73,3 +73,40 @@ desktop.ini
 !.env.example
 *.ulf
 *.alf
+
+# Third-party raw packs (vaulted under assets_vault/)
+unity/Assets/Package/
+unity/free-world-city-game/
+
+# Junk do Unity dentro de Assets (nunca versionar)
+unity/Assets/Temp*
+unity/Assets/_Recovery/
+unity/evidence/
+unity/*.xml
+nul
+%TEMP%*
+
+# Pacote Quaternius baixado (regenerável via tools/art/import_quaternius_pack.py)
+unity/Assets/Game/Art/Characters/Quaternius/Models/
+unity/Assets/Game/Art/Characters/Quaternius/Animations/
+unity/Assets/Game/Art/Characters/Quaternius/Textures/
+unity/Assets/Versatile Studio Assets/Demo City By Versatile Studio/Scenes/demo_city_night/LightingData.asset
+**/LightingData.asset
+
+# ---------- Vendor packs (nunca versionar — reinstaláveis) ----------
+unity/Assets/#NVJOB Dynamic Sky/
+unity/Assets/POLYGON city pack/
+unity/Assets/JMO Assets/
+unity/Assets/Mirza Beig/
+unity/Assets/Awbmecreations/
+unity/Assets/Versatile Studio Assets/
+unity/Assets/Zacxophone/
+unity/Assets/npc_casual_set_00/
+unity/Assets/Fantasy Forest Environment Free Sample/
+unity/Assets/SportCar/
+unity/Assets/Weapons_ChamferZone/
+unity/Assets/VirtualButtonsForUnity/
+unity/Assets/TutorialInfo/
+unity/Assets/_TerrainAutoUpgrade/
+unity/Assets/Game/Art/Characters/Quaternius/
+unity/Assets/Resources/

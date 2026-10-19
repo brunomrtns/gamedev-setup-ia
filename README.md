@@ -145,8 +145,9 @@ Basta enviar o briefing no prompt:
 - **Sistema Operacional:** Windows 10/11 (x64)
 - **Unity:** Unity 6.3 LTS (`6000.3.26f1`) com módulos Android (OpenJDK 17, NDK r27c, Android SDK Tools)
 - **Unity CLI:** Instalado globalmente via Unity Hub (`unity`)
+- **WSL2 (Ubuntu):** **Obrigatório para o pipeline de arte** — Blender 5.0.1 (`wsl blender -b -P ...`) e venv Python científico `/home/bruno/.venvs/game-ai3d` (PIL, numpy, trimesh, requests) residem exclusivamente no WSL. Não há Blender nem essas libs no Windows.
 - **Node.js:** v24+ LTS (ou Bun 1.4+)
-- **Python:** 3.12+ com PyYAML
+- **Python:** 3.12+ com PyYAML (orquestração no Windows; processamento de arte delegado ao WSL)
 - **Git:** Git LFS habilitado
 
 ---

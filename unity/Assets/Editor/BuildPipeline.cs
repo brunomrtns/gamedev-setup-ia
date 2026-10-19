@@ -10,17 +10,25 @@ namespace Studio.Editor
 {
     public static class BuildPipelineHelper
     {
-        [MenuItem("Studio/Build/Windows Standalone (.exe)")]
+        [MenuItem("Studio/Build/Windows Standalone - Neon Rush (.exe)")]
         public static void BuildWindowsMenu()
         {
             string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
-            BuildWindows(buildPath);
+            BuildWindows(buildPath, "Assets/Game/Scenes/NeonRush.unity");
+        }
+
+        [MenuItem("Studio/Build/Windows Standalone - Abyssal Breach (.exe)")]
+        public static void BuildAbyssalBreachWindowsMenu()
+        {
+            string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "AbyssalBreach_Windows", "AbyssalBreach.exe");
+            BuildWindows(buildPath, "Assets/Game/Scenes/AbyssalBreach.unity");
         }
 
         public static void BuildWindowsCommandLine()
         {
             Debug.Log("[StudioBuild] Compilando executável Windows (.exe)...");
             string buildPath = null;
+            string scenePath = null;
             string[] args = Environment.GetCommandLineArgs();
             for (int i = 0; i < args.Length; i++)
             {
@@ -28,26 +36,51 @@ namespace Studio.Editor
                 {
                     buildPath = args[i].Substring("-customBuildPath=".Length);
                 }
+                else if (args[i].StartsWith("-scenePath="))
+                {
+                    scenePath = args[i].Substring("-scenePath=".Length);
+                }
             }
 
             if (string.IsNullOrEmpty(buildPath))
             {
-                buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "NeonRush_Windows", "NeonRush.exe");
+                buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "builds", "AbyssalBreach_Windows", "AbyssalBreach.exe");
             }
 
-            bool success = BuildWindows(buildPath);
+            bool success = BuildWindows(buildPath, scenePath);
             EditorApplication.Exit(success ? 0 : 1);
         }
 
-        public static bool BuildWindows(string outputPath)
+        public static bool BuildWindows(string outputPath, string explicitScene = null)
         {
             string dir = Path.GetDirectoryName(outputPath);
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
-            PlayerSettings.companyName = "StudioAI";
-            PlayerSettings.productName = "NeonRush";
+            string probe = (outputPath ?? "") + "|" + (explicitScene ?? "");
+            string product, defaultScene;
+            if (probe.IndexOf("Abyssal", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                product = "AbyssalBreach";
+                defaultScene = "Assets/Game/Scenes/AbyssalBreach.unity";
+            }
+            else if (probe.IndexOf("NeonDistrict", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                product = "NeonDistrict";
+                defaultScene = "Assets/Game/Scenes/NeonDistrict.unity";
+            }
+            else
+            {
+                product = "NeonRush";
+                defaultScene = "Assets/Game/Scenes/NeonRush.unity";
+            }
 
-            string[] scenes = new[] { "Assets/Game/Scenes/NeonRush.unity" };
+            PlayerSettings.companyName = "StudioAI";
+            PlayerSettings.productName = product;
+
+            string targetScene = string.IsNullOrEmpty(explicitScene) ? defaultScene : explicitScene;
+
+            string[] scenes = new[] { targetScene };
+            Debug.Log($"[StudioBuild] Compilando Windows64: Produto={PlayerSettings.productName}, Cena={targetScene}, Destino={outputPath}");
 
             BuildPlayerOptions buildOptions = new BuildPlayerOptions
             {
@@ -59,6 +92,41 @@ namespace Studio.Editor
 
             BuildReport report = BuildPipeline.BuildPlayer(buildOptions);
             return report.summary.result == BuildResult.Succeeded;
+        }
+
+        /// <summary>Build headless Linux Dedicated Server (VPS neon-district).</summary>
+        public static void BuildLinuxServerCommandLine()
+        {
+            string buildPath = null;
+            foreach (var a in Environment.GetCommandLineArgs())
+                if (a.StartsWith("-customBuildPath="))
+                    buildPath = a.Substring("-customBuildPath=".Length);
+            if (string.IsNullOrEmpty(buildPath))
+                buildPath = Path.Combine(Directory.GetCurrentDirectory(), "..",
+                    "builds", "NeonDistrict_Server", "NeonDistrictServer");
+
+            string dir = Path.GetDirectoryName(buildPath);
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+            PlayerSettings.companyName = "StudioAI";
+            PlayerSettings.productName = "NeonDistrictServer";
+            EditorUserBuildSettings.standaloneBuildSubtarget =
+                StandaloneBuildSubtarget.Server; // headless dedicado
+
+            var opts = new BuildPlayerOptions
+            {
+                scenes = new[] { "Assets/Game/Scenes/NeonDistrict.unity" },
+                locationPathName = buildPath,
+                target = BuildTarget.StandaloneLinux64,
+                subtarget = (int)StandaloneBuildSubtarget.Server,
+                options = BuildOptions.None
+            };
+            Debug.Log($"[StudioBuild] Linux Dedicated Server → {buildPath}");
+            var report = BuildPipeline.BuildPlayer(opts);
+            EditorUserBuildSettings.standaloneBuildSubtarget =
+                StandaloneBuildSubtarget.Player;
+            EditorApplication.Exit(
+                report.summary.result == BuildResult.Succeeded ? 0 : 1);
         }
 
         [MenuItem("Studio/Build/Android Development APK")]
@@ -73,6 +141,7 @@ namespace Studio.Editor
             Debug.Log("[StudioBuild] Iniciando compilação Android via linha de comando...");
 
             string customPath = null;
+            string productName = null;
             bool isDevelopment = true;
 
             string[] args = Environment.GetCommandLineArgs();
@@ -87,6 +156,10 @@ namespace Studio.Editor
                     string target = args[i].Substring("-customBuildTarget=".Length);
                     isDevelopment = !string.Equals(target, "release", StringComparison.OrdinalIgnoreCase);
                 }
+                else if (args[i].StartsWith("-productName="))
+                {
+                    productName = args[i].Substring("-productName=".Length);
+                }
             }
 
             if (string.IsNullOrEmpty(customPath))
@@ -100,7 +173,7 @@ namespace Studio.Editor
                 Directory.CreateDirectory(dir);
             }
 
-            bool success = BuildAndroid(customPath, isDevelopment);
+            bool success = BuildAndroid(customPath, isDevelopment, productName);
             if (!success)
             {
                 EditorApplication.Exit(1);
@@ -111,7 +184,7 @@ namespace Studio.Editor
             }
         }
 
-        public static bool BuildAndroid(string outputPath, bool isDevelopment)
+        public static bool BuildAndroid(string outputPath, bool isDevelopment, string productName = null)
         {
             Debug.Log($"[StudioBuild] Destino do APK: {outputPath}");
             Debug.Log($"[StudioBuild] Modo de desenvolvimento: {isDevelopment}");
@@ -123,8 +196,9 @@ namespace Studio.Editor
             EditorUserBuildSettings.connectProfiler = isDevelopment;
 
             PlayerSettings.companyName = "StudioAI";
-            PlayerSettings.productName = "NeonRush";
-            PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "com.studio.neonrush");
+            PlayerSettings.productName = string.IsNullOrEmpty(productName) ? "NeonRush" : productName;
+            PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android,
+                string.IsNullOrEmpty(productName) ? "com.studio.neonrush" : $"com.studio.{productName.Replace(" ", "").ToLowerInvariant()}");
             
             // Requisitos Android modernos
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;

@@ -76,22 +76,40 @@ namespace Studio.Editor
             var lightData = lightObj.AddComponent<UniversalAdditionalLightData>();
             lightObj.transform.rotation = Quaternion.Euler(50, -30, 0);
 
-            // 4. Criar Chão (Ground)
-            var ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            ground.name = "Ground";
-            ground.transform.position = Vector3.zero;
-            ground.transform.localScale = new Vector3(5, 1, 5);
+            var matCalib = AssetDatabase.LoadAssetAtPath<Material>("Assets/Game/Materials/Modular/Mat_PBR_ConcretePanel.mat");
+
+            // 4. Criar Chão (Ground) — malha procedural V2 (sem primitivas nativas)
+            var ground = ProceduralMeshLibrary.CreatePart(
+                "Ground",
+                ProceduralMeshLibrary.Plane,
+                null,
+                Vector3.zero,
+                Quaternion.identity,
+                new Vector3(5f, 1f, 5f),
+                matCalib);
+            ground.AddComponent<MeshCollider>();
 
             // 5. Criar Esfera de Calibração (Calibration Target)
-            var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.name = "Calibration_Sphere";
-            sphere.transform.position = new Vector3(0, 1.0f, 0);
-            sphere.transform.localScale = Vector3.one * 1.5f;
+            var sphere = ProceduralMeshLibrary.CreatePart(
+                "Calibration_Sphere",
+                ProceduralMeshLibrary.Sphere,
+                null,
+                new Vector3(0f, 1.0f, 0f),
+                Quaternion.identity,
+                Vector3.one * 1.5f,
+                matCalib);
+            sphere.AddComponent<SphereCollider>();
 
             // 6. Criar Cubo de Referência
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.name = "Reference_Cube";
-            cube.transform.position = new Vector3(2.5f, 0.5f, 0);
+            var cube = ProceduralMeshLibrary.CreatePart(
+                "Reference_Cube",
+                ProceduralMeshLibrary.Box,
+                null,
+                new Vector3(2.5f, 0.5f, 0f),
+                Quaternion.identity,
+                Vector3.one,
+                matCalib);
+            cube.AddComponent<BoxCollider>();
 
             // 7. Salvar Cena
             bool saved = EditorSceneManager.SaveScene(scene, scenePath);
@@ -173,6 +191,17 @@ namespace Studio.Editor
 
             if (cam != null)
             {
+                // Warm-up: força compilação de shaders/variantes URP antes da captura
+                // real (sem isso o primeiro frame batchmode renderiza em magenta).
+                for (int w = 0; w < 3; w++)
+                {
+                    var wrt = RenderTexture.GetTemporary(256, 144, 24);
+                    cam.targetTexture = wrt;
+                    cam.Render();
+                    cam.targetTexture = null;
+                    RenderTexture.ReleaseTemporary(wrt);
+                }
+
                 int width = 1280;
                 int height = 720;
                 var rt = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);

@@ -1,0 +1,401 @@
+{
+    "sessionId": "20261018_191915_e856",
+    "seed": 20261017,
+    "scene": "NeonDistrict",
+    "startedUtc": "2026-10-18T19:22:45.2382166Z",
+    "duration": 210.0083770751953,
+    "visitedSectors": 14,
+    "teleports": 6,
+    "collisions": 83,
+    "fpsAvg": 58.73501968383789,
+    "worstDtMs": 383.8647155761719,
+    "exceptions": 1,
+    "perfSpikes": [
+        "384ms@41s roam_drive",
+        "355ms@94s RunOver",
+        "354ms@162s roam_drive"
+    ],
+    "scenarios": [
+        {
+            "name": "PhysicsSimGuard",
+            "result": "Pass",
+            "detail": "simulationMode=FixedUpdate",
+            "duration": 0.3333333432674408,
+            "prepTime": 0.3333333432674408
+        },
+        {
+            "name": "DriveAccel",
+            "result": "Fail",
+            "detail": "gas 4s → dist=0,0m fwd=0,3m/s (esperado >12m e >8m/s)",
+            "duration": 4.004164695739746,
+            "prepTime": 0.01975340209901333
+        },
+        {
+            "name": "DriveSteer",
+            "result": "Fail",
+            "detail": "steer+gas 2.5s → yaw Δ=0° (esperado >15°)",
+            "duration": 2.502333641052246,
+            "prepTime": 0.00891449861228466
+        },
+        {
+            "name": "DriveBrake",
+            "result": "Pass",
+            "detail": "parou: fwd=0,0m/s",
+            "duration": 3.001518726348877,
+            "prepTime": 0.022797895595431329
+        },
+        {
+            "name": "ExitEnter",
+            "result": "Pass",
+            "detail": "ciclo sair→andar→entrar OK",
+            "duration": 2.274900197982788,
+            "prepTime": 0.4010554850101471
+        },
+        {
+            "name": "ShotPanic",
+            "result": "Pass",
+            "detail": "1/1 peds fugiram após tiro real (ammo 30→29)",
+            "duration": 0.5337432026863098,
+            "prepTime": 10.941245079040528
+        },
+        {
+            "name": "ScarePanic",
+            "result": "Pass",
+            "detail": "1/1 peds fugiram após ScareAt",
+            "duration": 0.28438228368759158,
+            "prepTime": 9.116189956665039
+        },
+        {
+            "name": "RunOver",
+            "result": "Inconclusive",
+            "detail": "não alcançou o pedestre em 28s",
+            "duration": 28.00080108642578,
+            "prepTime": 2.8677444458007814
+        }
+    ],
+    "findings": [
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 6.101320266723633,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01m_03_baked(Clone)",
+            "pos": {
+                "x": 17.799999237060548,
+                "y": 0.0,
+                "z": 36.53639602661133
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 9.488046646118164,
+            "detail": "bonesMin−ground=1,06m npc_csl_00_character_02f_01_baked(Clone)",
+            "pos": {
+                "x": 34.20000076293945,
+                "y": 1.1432862281799317,
+                "z": 63.59800338745117
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 10.512619018554688,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01m_02_baked(Clone)",
+            "pos": {
+                "x": 138.1999969482422,
+                "y": 0.0,
+                "z": -85.76611328125
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 10.843338966369629,
+            "detail": "bonesMin−ground=0,89m npc_csl_00_character_02f_02_baked(Clone)",
+            "pos": {
+                "x": 138.1999969482422,
+                "y": 0.8968021273612976,
+                "z": 100.80718994140625
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 11.995617866516114,
+            "detail": "-20,8 #1",
+            "pos": {
+                "x": -19.892044067382814,
+                "y": 0.05258540064096451,
+                "z": 8.145990371704102
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 19.483783721923829,
+            "detail": "-20,8 #2",
+            "pos": {
+                "x": -19.892044067382814,
+                "y": 0.052585385739803317,
+                "z": 8.145990371704102
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 20.31449317932129,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01f_02_baked(Clone)",
+            "pos": {
+                "x": -84.02825164794922,
+                "y": 0.0,
+                "z": 69.80000305175781
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 28.452329635620118,
+            "detail": "-55,-123 #1",
+            "pos": {
+                "x": -55.262271881103519,
+                "y": 0.05258219689130783,
+                "z": -122.79850006103516
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 31.3975772857666,
+            "detail": "bonesMin−ground=0,63m npc_csl_00_character_02m_02_baked(Clone)",
+            "pos": {
+                "x": 0.10510089993476868,
+                "y": 0.7415928840637207,
+                "z": -17.799999237060548
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 31.73476791381836,
+            "detail": "bonesMin−ground=1,42m npc_csl_00_character_02m_02_baked(Clone)",
+            "pos": {
+                "x": 0.5848878622055054,
+                "y": 1.4276995658874512,
+                "z": -17.799999237060548
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 39.91579818725586,
+            "detail": "-55,-123 #2",
+            "pos": {
+                "x": -55.39734649658203,
+                "y": 0.05258716642856598,
+                "z": -122.76251220703125
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 73.80375671386719,
+            "detail": "bonesMin−ground=1,04m npc_csl_00_character_01m_03_baked(Clone)",
+            "pos": {
+                "x": -101.09751892089844,
+                "y": 0.8250138759613037,
+                "z": 94.46627044677735
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 125.73178100585938,
+            "detail": "-60,49 #1",
+            "pos": {
+                "x": -60.34381866455078,
+                "y": 0.05258559435606003,
+                "z": 48.87499237060547
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 130.74574279785157,
+            "detail": "-60,49 #2",
+            "pos": {
+                "x": -60.34381866455078,
+                "y": 0.052585504949092868,
+                "z": 48.87499237060547
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 136.85626220703126,
+            "detail": "-20,13 #1",
+            "pos": {
+                "x": -19.894018173217775,
+                "y": 0.05258537083864212,
+                "z": 13.292442321777344
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 141.85667419433595,
+            "detail": "-20,13 #2",
+            "pos": {
+                "x": -19.894018173217775,
+                "y": 0.05258537083864212,
+                "z": 13.292442321777344
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 144.2384796142578,
+            "detail": "bonesMin−ground=0,66m npc_csl_00_character_01f_01_baked(Clone)",
+            "pos": {
+                "x": -121.80000305175781,
+                "y": 0.7415928244590759,
+                "z": -98.71979522705078
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 149.68917846679688,
+            "detail": "19,95 #1",
+            "pos": {
+                "x": 19.084274291992189,
+                "y": 0.052585702389478686,
+                "z": 95.41632080078125
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 154.6929931640625,
+            "detail": "19,96 #2",
+            "pos": {
+                "x": 19.08421516418457,
+                "y": 0.052585721015930179,
+                "z": 96.05184173583985
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 161.29185485839845,
+            "detail": "-121,46 #1",
+            "pos": {
+                "x": -120.51201629638672,
+                "y": 0.052585575729608539,
+                "z": 46.246334075927737
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 166.2924041748047,
+            "detail": "-121,46 #2",
+            "pos": {
+                "x": -120.51202392578125,
+                "y": 0.052585914731025699,
+                "z": 46.246337890625
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "EXCEPTION",
+            "category": "Stability",
+            "severity": "Critical",
+            "time": 170.1894073486328,
+            "detail": "NullReferenceException: Object reference not set to an instance of an object",
+            "pos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 176.8162841796875,
+            "detail": "bonesMin−ground=0,59m npc_csl_00_character_01f_01_baked(Clone)",
+            "pos": {
+                "x": 17.799999237060548,
+                "y": 0.6031258702278137,
+                "z": 48.96328353881836
+            },
+            "status": "suspect",
+            "scenario": ""
+        }
+    ],
+    "notes": []
+}

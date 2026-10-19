@@ -4,6 +4,7 @@
     "references": [
         "Studio.Foundation",
         "Studio.Input",
+        "Studio.QA",
         "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [],

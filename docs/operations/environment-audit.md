@@ -12,7 +12,7 @@ Executada pela sessão Antigravity #1. Reexecutar com `tools/setup/audit.ps1` (g
 | GPU | NVIDIA GeForce RTX 3060 (driver 32.0.16.1742) |
 | Disco C: | ~489 GB livres |
 | Shell | Windows PowerShell 5.1 (não elevado). ExecutionPolicy CurrentUser → `RemoteSigned` (ajustado) |
-| WSL | WSL2, distro `Ubuntu` (parada). **Não usada** no caminho crítico: Unity/Android são nativos no Windows |
+| WSL | WSL2, distro `Ubuntu`. **Usada no caminho crítico de arte** (atualizado V2, ver seção abaixo): Blender headless e venv Python científico residem exclusivamente no WSL |
 
 ## Ferramentas encontradas antes da intervenção
 
@@ -42,3 +42,26 @@ Executada pela sessão Antigravity #1. Reexecutar com `tools/setup/audit.ps1` (g
 2. **Unity** precisa de Unity Hub (admin, UAC) e **login + licença Personal** (credencial do usuário).
 3. **Android**: SDK/NDK/OpenJDK serão instalados como módulos do Unity (não há Android Studio).
 4. GPU dedicada permite renderização real em batchmode para capturas (sem `-nographics`).
+
+## Atualização V2 (2026-10-16) — Toolchain WSL obrigatória para arte
+
+Correção de registro: a linha original desta auditoria afirmava que o WSL "não era usado no caminho crítico".
+**Isso estava desatualizado** — o pipeline de arte depende exclusivamente do WSL. Verificado em 2026-10-16:
+
+| Item | Valor (WSL2 Ubuntu) |
+|---|---|
+| Blender | **5.0.1** (`/usr/bin/blender`, apenas WSL — inexistente no Windows) |
+| venv Python | `/home/bruno/.venvs/game-ai3d/bin/python` |
+| PIL/Pillow | 12.3.0 |
+| numpy | 2.4.6 |
+| requests | 2.34.2 |
+| trimesh | 5.1.1 |
+| Rede | Poly Haven API e kenney.nl alcançáveis (HTTP 200) |
+| Disco C: | ~391 GB livres |
+
+Padrão de invocação (já implementado em `tools/art/convert_abyssal_assets.py` e `tools/art/character_pipeline.py`):
+- Malhas: `wsl blender -b -P <script_bpy>.py -- <output_dir>`
+- Texturas/processamento: `wsl /home/bruno/.venvs/game-ai3d/bin/python <script.py>`
+- Caminhos Windows→WSL: `C:\foo` → `/mnt/c/foo`
+
+Regra vinculante formalizada no [AGENTS.md §3](../../AGENTS.md): Unity/builds/testes no Windows; Blender + libs científicas no WSL.

@@ -1,0 +1,415 @@
+{
+    "sessionId": "20261018_192622_c48a",
+    "seed": 20261017,
+    "scene": "NeonDistrict",
+    "startedUtc": "2026-10-18T19:29:52.2686192Z",
+    "duration": 210.0097198486328,
+    "visitedSectors": 19,
+    "teleports": 8,
+    "collisions": 130,
+    "fpsAvg": 58.65330123901367,
+    "worstDtMs": 382.7362060546875,
+    "exceptions": 0,
+    "perfSpikes": [
+        "383ms@33s roam_drive",
+        "367ms@163s roam_drive",
+        "352ms@96s roam_drive"
+    ],
+    "scenarios": [
+        {
+            "name": "PhysicsSimGuard",
+            "result": "Pass",
+            "detail": "simulationMode=FixedUpdate",
+            "duration": 0.3333333432674408,
+            "prepTime": 0.3333333432674408
+        },
+        {
+            "name": "DriveAccel",
+            "result": "Fail",
+            "detail": "gas 4s → dist=7,2m fwd=0,3m/s (esperado >12m e >8m/s)",
+            "duration": 4.015340328216553,
+            "prepTime": 0.06225930154323578
+        },
+        {
+            "name": "DriveSteer",
+            "result": "Fail",
+            "detail": "steer+gas 2.5s → yaw Δ=0° (esperado >15°)",
+            "duration": 2.5130250453948976,
+            "prepTime": 0.039740100502967837
+        },
+        {
+            "name": "DriveBrake",
+            "result": "Pass",
+            "detail": "parou: fwd=0,0m/s",
+            "duration": 3.000732898712158,
+            "prepTime": 0.017493296414613725
+        },
+        {
+            "name": "ExitEnter",
+            "result": "Blocked",
+            "detail": "",
+            "duration": 0.0,
+            "prepTime": 25.001052856445314
+        },
+        {
+            "name": "ShotPanic",
+            "result": "Pass",
+            "detail": "1/1 peds fugiram após tiro real (ammo 30→29)",
+            "duration": 0.5190719366073608,
+            "prepTime": 6.697782039642334
+        },
+        {
+            "name": "ScarePanic",
+            "result": "Pass",
+            "detail": "1/1 peds fugiram após ScareAt",
+            "duration": 0.23344990611076356,
+            "prepTime": 2.678868532180786
+        },
+        {
+            "name": "RunOver",
+            "result": "Pass",
+            "detail": "ped atingido e caiu (npc_csl_00_character_01m_03_baked(Clone))",
+            "duration": 1.4064358472824097,
+            "prepTime": 0.03008260205388069
+        }
+    ],
+    "findings": [
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 4.763466835021973,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01m_03_baked(Clone)",
+            "pos": {
+                "x": 17.799999237060548,
+                "y": 0.0,
+                "z": 49.04526138305664
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 11.110820770263672,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01m_02_baked(Clone)",
+            "pos": {
+                "x": 138.1999969482422,
+                "y": 0.0,
+                "z": -106.08901977539063
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "FOOT_SLIDING",
+            "category": "Ai",
+            "severity": "Major",
+            "time": 13.444199562072754,
+            "detail": "ped move sem malha animar: npc_csl_00_character_01f_02_baked(Clone)",
+            "pos": {
+                "x": -103.60670471191406,
+                "y": 0.0,
+                "z": 69.80000305175781
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 15.36124324798584,
+            "detail": "-100,33 #1",
+            "pos": {
+                "x": -100.0,
+                "y": 0.052585408091545108,
+                "z": 33.23750686645508
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 22.85103988647461,
+            "detail": "-100,33 #2",
+            "pos": {
+                "x": -100.0,
+                "y": 0.05258536338806152,
+                "z": 33.23750686645508
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 23.45400619506836,
+            "detail": "bonesMin−ground=0,50m npc_csl_00_character_01f_01_baked(Clone)",
+            "pos": {
+                "x": 17.799999237060548,
+                "y": 0.6031259298324585,
+                "z": 47.336448669433597
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 32.143959045410159,
+            "detail": "bonesMin−ground=0,60m npc_csl_00_character_01f_01_baked(Clone)",
+            "pos": {
+                "x": 17.799999237060548,
+                "y": 0.6031258702278137,
+                "z": 48.897525787353519
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 70.75933074951172,
+            "detail": "bonesMin−ground=0,85m npc_csl_00_character_02f_02_baked(Clone)",
+            "pos": {
+                "x": 138.1999969482422,
+                "y": 0.8968020677566528,
+                "z": 100.94207000732422
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "PED_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 74.83499908447266,
+            "detail": "bonesMin−ground=1,26m npc_csl_00_character_01m_03_baked(Clone)",
+            "pos": {
+                "x": 88.43838500976563,
+                "y": 1.0219738483428956,
+                "z": -81.81321716308594
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "CORPSE_FLOATING",
+            "category": "Physics",
+            "severity": "Major",
+            "time": 88.5994873046875,
+            "detail": "npc_csl_00_character_01m_03_baked(Clone)",
+            "pos": {
+                "x": 76.52391052246094,
+                "y": 0.0,
+                "z": -108.33795928955078
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 96.14989471435547,
+            "detail": "68,-111 #1",
+            "pos": {
+                "x": 67.87499237060547,
+                "y": 0.0525854155421257,
+                "z": -110.96640014648438
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 101.16300201416016,
+            "detail": "68,-111 #2",
+            "pos": {
+                "x": 67.87499237060547,
+                "y": 0.05258543789386749,
+                "z": -110.96640014648438
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 107.313720703125,
+            "detail": "-19,96 #1",
+            "pos": {
+                "x": -18.96873664855957,
+                "y": 0.052585259079933169,
+                "z": 96.42240905761719
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 112.33517456054688,
+            "detail": "-19,96 #2",
+            "pos": {
+                "x": -18.96873664855957,
+                "y": 0.05258529633283615,
+                "z": 96.42240905761719
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 123.32821655273438,
+            "detail": "-40,1 #1",
+            "pos": {
+                "x": -39.987884521484378,
+                "y": 0.05258544534444809,
+                "z": 0.9587358236312866
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 128.33160400390626,
+            "detail": "-40,1 #2",
+            "pos": {
+                "x": -39.987884521484378,
+                "y": 0.05258543789386749,
+                "z": 0.958735466003418
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 134.3175048828125,
+            "detail": "-83,12 #1",
+            "pos": {
+                "x": -82.76885986328125,
+                "y": 0.052586983889341357,
+                "z": 12.409271240234375
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 168.8389892578125,
+            "detail": "-83,12 #2",
+            "pos": {
+                "x": -82.76885986328125,
+                "y": 0.052587032318115237,
+                "z": 12.409292221069336
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 178.85292053222657,
+            "detail": "-19,-32 #1",
+            "pos": {
+                "x": -18.849685668945314,
+                "y": 0.05259507894515991,
+                "z": -32.2882080078125
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 183.8704071044922,
+            "detail": "-19,-32 #2",
+            "pos": {
+                "x": -18.74746322631836,
+                "y": 0.052601635456085208,
+                "z": -32.23151397705078
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 190.72364807128907,
+            "detail": "-37,85 #1",
+            "pos": {
+                "x": -36.55021286010742,
+                "y": 0.05260816216468811,
+                "z": 85.20036315917969
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 195.73770141601563,
+            "detail": "-37,85 #2",
+            "pos": {
+                "x": -36.55021286010742,
+                "y": 0.052608124911785129,
+                "z": 85.20037078857422
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 202.00216674804688,
+            "detail": "121,36 #1",
+            "pos": {
+                "x": 121.48339080810547,
+                "y": 0.05255676805973053,
+                "z": 36.10091781616211
+            },
+            "status": "suspect",
+            "scenario": ""
+        },
+        {
+            "id": "STUCK",
+            "category": "Navigation",
+            "severity": "Major",
+            "time": 207.00296020507813,
+            "detail": "121,36 #2",
+            "pos": {
+                "x": 121.4833984375,
+                "y": 0.052556902170181277,
+                "z": 36.10279846191406
+            },
+            "status": "suspect",
+            "scenario": ""
+        }
+    ],
+    "notes": []
+}
