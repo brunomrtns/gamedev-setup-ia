@@ -1989,6 +1989,79 @@ namespace Studio.Editor
             Debug.Log($"[A4] retinted={retinted} | faixas avenida={marks} | patches=4");
         }
 
+        /// <summary>FASE B: boulevard curvo pro leste + rotatória + diagonal.
+        /// Grid atual INTACTO — só adiciona. Sem tráfego IA (TrafficNetwork é grid-only).</summary>
+        public static void BuildCurvedBoulevard()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            const string MEGA = "Assets/Game/Prefabs/Modular/DowntownMegaKit";
+            if (GameObject.Find("CurvedBoulevard") != null) { Debug.Log("[B] já existe"); return; }
+            var root = new GameObject("CurvedBoulevard");
+
+            GameObject Place(string prefab, Vector3 pos, float yaw, string nm)
+            {
+                var p = AssetDatabase.LoadAssetAtPath<GameObject>($"{MEGA}/{prefab}.prefab");
+                if (p == null) { Debug.LogWarning($"[B] falta {prefab}"); return null; }
+                var g = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                g.name = nm;
+                g.transform.SetPositionAndRotation(pos, Quaternion.Euler(0f, yaw, 0f));
+                g.transform.SetParent(root.transform);
+                return g;
+            }
+
+            int n = 0;
+            // 1) Rotatória na ponta leste da avenida (x≈290, z=26): anel de curvas + miolo
+            var rCenter = new Vector3(292f, 0f, StreetLine(AVENUE_J));
+            for (int k = 0; k < 4; k++)
+            {
+                float yaw = k * 90f;
+                var rad = yaw * Mathf.Deg2Rad;
+                Place("Street_Curve_2Lane",
+                      rCenter + new Vector3(Mathf.Cos(rad) * 10f, 0.01f, Mathf.Sin(rad) * 10f),
+                      yaw, $"Roundabout_Ring_{k}");
+            }
+            Place("Street_Asphalt_9x9", rCenter + Vector3.up * 0.015f, 0f, "Roundabout_Center");
+            Place("Street_Asphalt_9x9", rCenter + new Vector3(0f, 0.015f, 0f), 0f, "Roundabout_Pad");
+
+            // 2) Boulevard curvo: arco saindo da rotatória pro nordeste (rumo ao Green Hills)
+            //    Segmentos Street_2Lane tangenciais a um arco — lê como curva, dirigível.
+            float R = 55f;
+            var c = new Vector3(292f, 0f, 26f + R); // centro do arco ao norte da rotatória
+            for (float a = 200f; a >= 115f; a -= 9f)
+            {
+                var rad = a * Mathf.Deg2Rad;
+                var pos = new Vector3(c.x + Mathf.Cos(rad) * R, 0.01f, c.z + Mathf.Sin(rad) * R);
+                float tangent = Mathf.Atan2(-Mathf.Cos(rad), -Mathf.Sin(rad)) * Mathf.Rad2Deg;
+                Place("Street_2Lane", pos, tangent + 90f, $"Blvd_Arc_{(int)a}");
+                n++;
+            }
+
+            // 3) Conexão diagonal: (284,78) → rotatória norte, chord reto inclinado
+            for (int k = 0; k <= 6; k++)
+            {
+                float t = k / 6f;
+                var pos = Vector3.Lerp(new Vector3(284f, 0.01f, 78f),
+                                       new Vector3(300f, 0.01f, 40f), t);
+                Place("Street_2Lane", pos, 24f, $"Diagonal_A_{k}");
+            }
+
+            // 4) Decals: double-yellow nas curvas + crosswalk onde encontra a calçada do OBD
+            for (float a = 195f; a >= 120f; a -= 18f)
+            {
+                var rad = a * Mathf.Deg2Rad;
+                var pos = new Vector3(c.x + Mathf.Cos(rad) * R, 0.03f, c.z + Mathf.Sin(rad) * R);
+                float tangent = Mathf.Atan2(-Mathf.Cos(rad), -Mathf.Sin(rad)) * Mathf.Rad2Deg;
+                Place("Decal_Curve_2Lane_Stripe", pos, tangent + 90f, $"Decal_Arc_{(int)a}");
+            }
+            Place("Decal_Crosswalk", new Vector3(284f, 0.03f, 26f), 90f, "XWalk_BlvdEntry");
+            Place("Decal_Stop", new Vector3(280f, 0.03f, 26f), 90f, "Stop_BlvdEntry");
+            Place("Decal_Curve_4LaneShort_DoubleYellow",
+                  new Vector3(292f, 0.03f, 14f), 0f, "Roundabout_Yellow_S");
+
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[B] boulevard: arco={n} segs + rotatória + diagonal — sem IA (grid-only)");
+        }
+
         /// <summary>A3 prova: aérea do centro no dusk + street-level poste aceso.</summary>
         public static void CaptureLitCity()
         {
