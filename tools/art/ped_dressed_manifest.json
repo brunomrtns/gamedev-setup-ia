@@ -1,0 +1,102 @@
+{
+ "variants": [
+  {
+   "name": "ped_dressed_01f_01",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_c_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_01.fbx"
+  },
+  {
+   "name": "ped_dressed_01f_02",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_c_02.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_02.fbx"
+  },
+  {
+   "name": "ped_dressed_01f_03",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_a_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_03.fbx"
+  },
+  {
+   "name": "ped_dressed_01m_01",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_a_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_01.fbx"
+  },
+  {
+   "name": "ped_dressed_01m_02",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_hairfacial_b_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_02.fbx"
+  },
+  {
+   "name": "ped_dressed_01m_03",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_e_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_03.fbx"
+  },
+  {
+   "name": "ped_dressed_02f_01",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_c_03.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_01.fbx"
+  },
+  {
+   "name": "ped_dressed_02f_02",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_d_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_02.fbx"
+  },
+  {
+   "name": "ped_dressed_02f_03",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02f.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_e_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_03.fbx"
+  },
+  {
+   "name": "ped_dressed_02m_01",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_a_02.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_hairfacial_a_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_01.fbx"
+  },
+  {
+   "name": "ped_dressed_02m_02",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_hairfacial_c_01.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_02.fbx"
+  },
+  {
+   "name": "ped_dressed_02m_03",
+   "parts": [
+    "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_02m.fbx",
+    "unity/Assets/npc_casual_set_00/Mesh/npc_haircut_a_03.fbx"
+   ],
+   "out": "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_03.fbx"
+  }
+ ],
+ "verify_dir": "evidence/art"
+}

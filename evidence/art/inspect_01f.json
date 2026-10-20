@@ -1,0 +1,1981 @@
+[
+ {
+  "file": "unity/Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01f.fbx",
+  "objects": [
+   {
+    "name": "b_npc_hmn_01f_arms2_lod0",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_arms2_lod1",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_arms2_lod2",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_arms2_lod3",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_arms2_lod4",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_head2_lod0",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_head2_lod1",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_head2_lod2",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_head2_lod3",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_head2_lod4",
+    "type": "EMPTY",
+    "parent": "b_npc_hmn_01f_parts"
+   },
+   {
+    "name": "b_npc_hmn_01f_parts",
+    "type": "EMPTY",
+    "parent": "npc_hmn_01f_parts"
+   },
+   {
+    "name": "npc_hmn_01f_parts",
+    "type": "EMPTY",
+    "parent": "body"
+   },
+   {
+    "name": "body",
+    "type": "EMPTY",
+    "parent": null
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f_lod0",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_tshirt_00f"
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f_lod1",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_tshirt_00f"
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f_lod2",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_tshirt_00f"
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f_lod3",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_tshirt_00f"
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f_lod4",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_tshirt_00f"
+   },
+   {
+    "name": "b_npc_csl_tshirt_00f",
+    "type": "EMPTY",
+    "parent": "npc_csl_tshirt_00f"
+   },
+   {
+    "name": "npc_csl_tshirt_00f",
+    "type": "EMPTY",
+    "parent": "upper_cloth"
+   },
+   {
+    "name": "upper_cloth",
+    "type": "EMPTY",
+    "parent": null
+   },
+   {
+    "name": "b_npc_csl_pants_00f_lod0",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_pants_00f"
+   },
+   {
+    "name": "b_npc_csl_pants_00f_lod1",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_pants_00f"
+   },
+   {
+    "name": "b_npc_csl_pants_00f_lod2",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_pants_00f"
+   },
+   {
+    "name": "b_npc_csl_pants_00f_lod3",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_pants_00f"
+   },
+   {
+    "name": "b_npc_csl_pants_00f_lod4",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_pants_00f"
+   },
+   {
+    "name": "b_npc_csl_pants_00f",
+    "type": "EMPTY",
+    "parent": "npc_csl_pants_00f"
+   },
+   {
+    "name": "npc_csl_pants_00f",
+    "type": "EMPTY",
+    "parent": "lower_cloth"
+   },
+   {
+    "name": "lower_cloth",
+    "type": "EMPTY",
+    "parent": null
+   },
+   {
+    "name": "b_npc_csl_shoe_01_lod0",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_shoe_01"
+   },
+   {
+    "name": "b_npc_csl_shoe_01_lod1",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_shoe_01"
+   },
+   {
+    "name": "b_npc_csl_shoe_01_lod2",
+    "type": "EMPTY",
+    "parent": "b_npc_csl_shoe_01"
+   },
+   {
+    "name": "b_npc_csl_shoe_01",
+    "type": "EMPTY",
+    "parent": "npc_csl_shoe_01"
+   },
+   {
+    "name": "npc_csl_shoe_01",
+    "type": "EMPTY",
+    "parent": "footwear"
+   },
+   {
+    "name": "footwear",
+    "type": "EMPTY",
+    "parent": null
+   },
+   {
+    "name": "Armature",
+    "type": "ARMATURE",
+    "parent": null
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod2",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod1",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod1",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_pants_00f_lod0",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_pants_00f_lod4",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_shoe_01_lod1",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod3",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod2",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod2",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_pants_00f_lod1",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_shoe_01_lod2",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod0",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod4",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod3",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod3",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_pants_00f_lod2",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_shoe_01_lod3",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod1",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod4",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod0",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod4",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod0",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_pants_00f_lod3",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_shoe_01_lod0",
+    "type": "MESH",
+    "parent": "Armature"
+   },
+   {
+    "name": "npc_csl_shoe_01_lod4",
+    "type": "MESH",
+    "parent": "Armature"
+   }
+  ],
+  "armatures": {
+   "Armature": {
+    "bone_count": 54,
+    "bones": [
+     "Head",
+     "Hips",
+     "LeftArm",
+     "LeftFoot",
+     "LeftForeArm",
+     "LeftHand",
+     "LeftHandIndex1",
+     "LeftHandIndex2",
+     "LeftHandIndex3",
+     "LeftHandMiddle1",
+     "LeftHandMiddle2",
+     "LeftHandMiddle3",
+     "LeftHandPinky1",
+     "LeftHandPinky2",
+     "LeftHandPinky3",
+     "LeftHandProp",
+     "LeftHandRing1",
+     "LeftHandRing2",
+     "LeftHandRing3",
+     "LeftHandThumb1",
+     "LeftHandThumb2",
+     "LeftHandThumb3",
+     "LeftLeg",
+     "LeftShoulder",
+     "LeftToeBase",
+     "LeftUpLeg",
+     "Neck",
+     "RightArm",
+     "RightFoot",
+     "RightForeArm",
+     "RightHand",
+     "RightHandIndex1",
+     "RightHandIndex2",
+     "RightHandIndex3",
+     "RightHandMiddle1",
+     "RightHandMiddle2",
+     "RightHandMiddle3",
+     "RightHandPinky1",
+     "RightHandPinky2",
+     "RightHandPinky3",
+     "RightHandProp",
+     "RightHandRing1",
+     "RightHandRing2",
+     "RightHandRing3",
+     "RightHandThumb1",
+     "RightHandThumb2",
+     "RightHandThumb3",
+     "RightLeg",
+     "RightShoulder",
+     "RightToeBase",
+     "RightUpLeg",
+     "Root",
+     "Spine",
+     "Spine1"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -0.01,
+      0.0
+     ],
+     [
+      0.0,
+      0.01,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "signature": {
+     "Root": {
+      "head": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "tail": [
+       -0.0,
+       0.0,
+       0.99154
+      ]
+     },
+     "Hips": {
+      "head": [
+       0.0,
+       0.0,
+       0.99154
+      ],
+      "tail": [
+       0.0,
+       0.0,
+       1.11058
+      ]
+     },
+     "Spine": {
+      "head": [
+       0.0,
+       0.0,
+       1.10878
+      ],
+      "tail": [
+       -0.0,
+       0.01208,
+       1.32283
+      ]
+     },
+     "Spine1": {
+      "head": [
+       -0.0,
+       0.00812,
+       1.32302
+      ],
+      "tail": [
+       -0.0,
+       0.02387,
+       1.53258
+      ]
+     },
+     "LeftShoulder": {
+      "head": [
+       0.03547,
+       0.01973,
+       1.51327
+      ],
+      "tail": [
+       0.05298,
+       0.03086,
+       1.66126
+      ]
+     },
+     "LeftArm": {
+      "head": [
+       0.18357,
+       0.01824,
+       1.49342
+      ],
+      "tail": [
+       0.28212,
+       0.03873,
+       1.76593
+      ]
+     },
+     "LeftForeArm": {
+      "head": [
+       0.4591,
+       0.00634,
+       1.40213
+      ],
+      "tail": [
+       0.55502,
+       0.02629,
+       1.66738
+      ]
+     },
+     "LeftHand": {
+      "head": [
+       0.64308,
+       -0.20228,
+       1.35133
+      ],
+      "tail": [
+       0.67797,
+       -0.21703,
+       1.42228
+      ]
+     },
+     "LeftHandIndex1": {
+      "head": [
+       0.68714,
+       -0.28431,
+       1.32699
+      ],
+      "tail": [
+       0.70486,
+       -0.29282,
+       1.3582
+      ]
+     },
+     "LeftHandIndex2": {
+      "head": [
+       0.7082,
+       -0.30829,
+       1.3085
+      ],
+      "tail": [
+       0.72462,
+       -0.3189,
+       1.32656
+      ]
+     },
+     "LeftHandIndex3": {
+      "head": [
+       0.71936,
+       -0.32329,
+       1.28954
+      ],
+      "tail": [
+       0.73663,
+       -0.33507,
+       1.30603
+      ]
+     },
+     "LeftHandMiddle1": {
+      "head": [
+       0.70504,
+       -0.26649,
+       1.32246
+      ],
+      "tail": [
+       0.72401,
+       -0.27567,
+       1.35562
+      ]
+     },
+     "LeftHandMiddle2": {
+      "head": [
+       0.72843,
+       -0.29082,
+       1.30234
+      ],
+      "tail": [
+       0.74461,
+       -0.30085,
+       1.32031
+      ]
+     },
+     "LeftHandMiddle3": {
+      "head": [
+       0.74029,
+       -0.30495,
+       1.28377
+      ],
+      "tail": [
+       0.75748,
+       -0.31621,
+       1.29998
+      ]
+     },
+     "LeftHandPinky1": {
+      "head": [
+       0.72692,
+       -0.23132,
+       1.31315
+      ],
+      "tail": [
+       0.74454,
+       -0.24086,
+       1.33917
+      ]
+     },
+     "LeftHandPinky2": {
+      "head": [
+       0.74721,
+       -0.24788,
+       1.29335
+      ],
+      "tail": [
+       0.76231,
+       -0.25695,
+       1.30771
+      ]
+     },
+     "LeftHandPinky3": {
+      "head": [
+       0.75806,
+       -0.25752,
+       1.27585
+      ],
+      "tail": [
+       0.77355,
+       -0.26694,
+       1.28956
+      ]
+     },
+     "LeftHandProp": {
+      "head": [
+       0.67769,
+       -0.24753,
+       1.30199
+      ],
+      "tail": [
+       0.71257,
+       -0.26227,
+       1.37294
+      ]
+     },
+     "LeftHandRing1": {
+      "head": [
+       0.71878,
+       -0.25081,
+       1.31885
+      ],
+      "tail": [
+       0.73918,
+       -0.26201,
+       1.34822
+      ]
+     },
+     "LeftHandRing2": {
+      "head": [
+       0.74074,
+       -0.27077,
+       1.29598
+      ],
+      "tail": [
+       0.75559,
+       -0.27986,
+       1.31095
+      ]
+     },
+     "LeftHandRing3": {
+      "head": [
+       0.75155,
+       -0.28147,
+       1.27878
+      ],
+      "tail": [
+       0.76698,
+       -0.29114,
+       1.29275
+      ]
+     },
+     "LeftHandThumb1": {
+      "head": [
+       0.63644,
+       -0.22629,
+       1.34961
+      ],
+      "tail": [
+       0.58539,
+       -0.23458,
+       1.36275
+      ]
+     },
+     "LeftHandThumb2": {
+      "head": [
+       0.63675,
+       -0.27196,
+       1.32199
+      ],
+      "tail": [
+       0.60298,
+       -0.28278,
+       1.32746
+      ]
+     },
+     "LeftHandThumb3": {
+      "head": [
+       0.64207,
+       -0.29972,
+       1.2999
+      ],
+      "tail": [
+       0.60957,
+       -0.31481,
+       1.3018
+      ]
+     },
+     "Neck": {
+      "head": [
+       -0.0,
+       0.02494,
+       1.56513
+      ],
+      "tail": [
+       -0.0,
+       0.00661,
+       1.66743
+      ]
+     },
+     "Head": {
+      "head": [
+       -0.0,
+       0.00661,
+       1.66743
+      ],
+      "tail": [
+       -0.0,
+       0.00676,
+       1.77136
+      ]
+     },
+     "RightShoulder": {
+      "head": [
+       -0.03547,
+       0.01973,
+       1.51328
+      ],
+      "tail": [
+       -0.01804,
+       0.00866,
+       1.36599
+      ]
+     },
+     "RightArm": {
+      "head": [
+       -0.18286,
+       0.01824,
+       1.49342
+      ],
+      "tail": [
+       -0.08408,
+       -0.0023,
+       1.22028
+      ]
+     },
+     "RightForeArm": {
+      "head": [
+       -0.4591,
+       0.00634,
+       1.40213
+      ],
+      "tail": [
+       -0.36317,
+       -0.0136,
+       1.13687
+      ]
+     },
+     "RightHand": {
+      "head": [
+       -0.64308,
+       -0.20229,
+       1.35128
+      ],
+      "tail": [
+       -0.60819,
+       -0.18754,
+       1.28033
+      ]
+     },
+     "RightHandIndex1": {
+      "head": [
+       -0.68714,
+       -0.28431,
+       1.32694
+      ],
+      "tail": [
+       -0.66942,
+       -0.2758,
+       1.29573
+      ]
+     },
+     "RightHandIndex2": {
+      "head": [
+       -0.70819,
+       -0.3083,
+       1.30845
+      ],
+      "tail": [
+       -0.69176,
+       -0.29769,
+       1.29038
+      ]
+     },
+     "RightHandIndex3": {
+      "head": [
+       -0.71935,
+       -0.32329,
+       1.28949
+      ],
+      "tail": [
+       -0.70208,
+       -0.31151,
+       1.273
+      ]
+     },
+     "RightHandMiddle1": {
+      "head": [
+       -0.70503,
+       -0.26649,
+       1.32241
+      ],
+      "tail": [
+       -0.68606,
+       -0.25732,
+       1.28925
+      ]
+     },
+     "RightHandMiddle2": {
+      "head": [
+       -0.72842,
+       -0.29083,
+       1.3023
+      ],
+      "tail": [
+       -0.71224,
+       -0.28079,
+       1.28434
+      ]
+     },
+     "RightHandMiddle3": {
+      "head": [
+       -0.74028,
+       -0.30495,
+       1.28372
+      ],
+      "tail": [
+       -0.72309,
+       -0.29368,
+       1.26751
+      ]
+     },
+     "RightHandPinky1": {
+      "head": [
+       -0.72692,
+       -0.23132,
+       1.3131
+      ],
+      "tail": [
+       -0.70931,
+       -0.22179,
+       1.28709
+      ]
+     },
+     "RightHandPinky2": {
+      "head": [
+       -0.7472,
+       -0.24789,
+       1.2933
+      ],
+      "tail": [
+       -0.7321,
+       -0.23882,
+       1.27893
+      ]
+     },
+     "RightHandPinky3": {
+      "head": [
+       -0.75805,
+       -0.25752,
+       1.2758
+      ],
+      "tail": [
+       -0.74256,
+       -0.2481,
+       1.26209
+      ]
+     },
+     "RightHandProp": {
+      "head": [
+       -0.67768,
+       -0.24753,
+       1.30194
+      ],
+      "tail": [
+       -0.64279,
+       -0.23279,
+       1.23099
+      ]
+     },
+     "RightHandRing1": {
+      "head": [
+       -0.71878,
+       -0.25081,
+       1.3188
+      ],
+      "tail": [
+       -0.69838,
+       -0.2396,
+       1.28943
+      ]
+     },
+     "RightHandRing2": {
+      "head": [
+       -0.74073,
+       -0.27078,
+       1.29593
+      ],
+      "tail": [
+       -0.72589,
+       -0.26169,
+       1.28096
+      ]
+     },
+     "RightHandRing3": {
+      "head": [
+       -0.75154,
+       -0.28147,
+       1.27873
+      ],
+      "tail": [
+       -0.73611,
+       -0.27179,
+       1.26476
+      ]
+     },
+     "RightHandThumb1": {
+      "head": [
+       -0.63644,
+       -0.2263,
+       1.34956
+      ],
+      "tail": [
+       -0.68749,
+       -0.21801,
+       1.33642
+      ]
+     },
+     "RightHandThumb2": {
+      "head": [
+       -0.63674,
+       -0.27196,
+       1.32194
+      ],
+      "tail": [
+       -0.67051,
+       -0.26114,
+       1.31647
+      ]
+     },
+     "RightHandThumb3": {
+      "head": [
+       -0.64206,
+       -0.29973,
+       1.29985
+      ],
+      "tail": [
+       -0.67456,
+       -0.28464,
+       1.29795
+      ]
+     },
+     "LeftUpLeg": {
+      "head": [
+       0.11994,
+       0.0,
+       0.99154
+      ],
+      "tail": [
+       0.10838,
+       0.44556,
+       1.00488
+      ]
+     },
+     "LeftLeg": {
+      "head": [
+       0.13682,
+       0.01377,
+       0.54616
+      ],
+      "tail": [
+       0.12515,
+       0.4283,
+       0.58209
+      ]
+     },
+     "LeftFoot": {
+      "head": [
+       0.15193,
+       0.05012,
+       0.13178
+      ],
+      "tail": [
+       0.13826,
+       0.13909,
+       -0.02308
+      ]
+     },
+     "LeftToeBase": {
+      "head": [
+       0.1758,
+       -0.1029,
+       0.04176
+      ],
+      "tail": [
+       0.17466,
+       -0.09438,
+       -0.13716
+      ]
+     },
+     "RightUpLeg": {
+      "head": [
+       -0.11994,
+       0.0,
+       0.99154
+      ],
+      "tail": [
+       -0.1315,
+       -0.44556,
+       0.9782
+      ]
+     },
+     "RightLeg": {
+      "head": [
+       -0.13682,
+       0.01377,
+       0.54616
+      ],
+      "tail": [
+       -0.14848,
+       -0.40076,
+       0.51023
+      ]
+     },
+     "RightFoot": {
+      "head": [
+       -0.15193,
+       0.05012,
+       0.13178
+      ],
+      "tail": [
+       -0.11052,
+       -0.043,
+       0.27909
+      ]
+     },
+     "RightToeBase": {
+      "head": [
+       -0.1758,
+       -0.1029,
+       0.04176
+      ],
+      "tail": [
+       -0.07315,
+       -0.1259,
+       0.18674
+      ]
+     }
+    }
+   }
+  },
+  "meshes": [
+   {
+    "name": "npc_hmn_01f_arms2_lod2",
+    "verts": 186,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 39,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod1",
+    "verts": 1340,
+    "materials": [
+     "mtl_01",
+     "mtl_02"
+    ],
+    "vgroup_count": 9,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod1",
+    "verts": 1276,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 10,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_pants_00f_lod0",
+    "verts": 1926,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 11,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_pants_00f_lod4",
+    "verts": 172,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 9,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_shoe_01_lod1",
+    "verts": 336,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 6,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod3",
+    "verts": 648,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 39,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod2",
+    "verts": 478,
+    "materials": [
+     "mtl_01",
+     "mtl_02"
+    ],
+    "vgroup_count": 9,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod2",
+    "verts": 764,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 10,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_pants_00f_lod1",
+    "verts": 1300,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 11,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_shoe_01_lod2",
+    "verts": 204,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 6,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod0",
+    "verts": 566,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 40,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod4",
+    "verts": 184,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 34,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod3",
+    "verts": 190,
+    "materials": [
+     "mtl_01",
+     "mtl_02"
+    ],
+    "vgroup_count": 7,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod3",
+    "verts": 400,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 10,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_pants_00f_lod2",
+    "verts": 728,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 11,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_shoe_01_lod3",
+    "verts": 92,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 6,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_arms2_lod1",
+    "verts": 1672,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 39,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod4",
+    "verts": 106,
+    "materials": [
+     "mtl_01",
+     "mtl_02"
+    ],
+    "vgroup_count": 7,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_hmn_01f_head2_lod0",
+    "verts": 2190,
+    "materials": [
+     "mtl_01",
+     "mtl_02"
+    ],
+    "vgroup_count": 9,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod4",
+    "verts": 168,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 10,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_tshirt_00f_lod0",
+    "verts": 1934,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 10,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_pants_00f_lod3",
+    "verts": 362,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 11,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_shoe_01_lod0",
+    "verts": 532,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 6,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   {
+    "name": "npc_csl_shoe_01_lod4",
+    "verts": 52,
+    "materials": [
+     "mtl_01"
+    ],
+    "vgroup_count": 6,
+    "armature_mods": [
+     "Armature"
+    ],
+    "matrix_world": [
+     [
+      0.01,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.0,
+      -0.01,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.01,
+      0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   }
+  ]
+ }
+]

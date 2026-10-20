@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "passed": 5104,
-  "failed": 0,
+  "passed": 5159,
+  "failed": 20,
   "results": {
     "unity/Assets/Game/Art/AbyssalBreach/Models/BarramundiFish.fbx": {
       "ok": true,
@@ -223,6 +223,308 @@
       ]
     },
     "unity/Assets/Game/Art/AbyssalBreach/Textures/T_SentinelDrone_Colormap.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Animations/KayKit/Knight.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": [
+        "Modelo 3D pesado (19.70MB)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_01.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_02.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01f_03.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_01.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_02.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_01m_03.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_01.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_02.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02f_03.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_01.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_02.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/PedDressed/ped_dressed_02m_03.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Animations/Mannequin_F.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Animations/UAL1_Standard.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)"
+      ],
+      "warnings": [
+        "Modelo 3D pesado (22.65MB)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Animations/UAL2_Standard.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)"
+      ],
+      "warnings": [
+        "Modelo 3D pesado (23.63MB)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Eye.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Female_Dark.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Female_Light.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Hair_1.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Hair_2.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Male_Dark.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Materials/Mat_Quat_Male_Light.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Eyebrows_Female.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Eyebrows_Regular.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_Beard.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_Buns.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_Buzzed.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_BuzzedFemale.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_Long.fbx": {
+      "ok": false,
+      "errors": [
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Hair_SimpleParted.fbx": {
+      "ok": false,
+      "errors": [
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Superhero_Female_FullBody.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Models/Superhero_Male_FullBody.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.03229)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/Preview.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Eye_Brown.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Eye_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_1_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_1_BaseColor_png.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_1_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_2_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_2_BaseColor_png.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Hair_2_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Female_Dark_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Female_Light_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Female_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Female_Roughness.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Male_Dark.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Male_Ligh.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Male_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Characters/Quaternius/Textures/T_Superhero_Male_Roughness.png": {
       "ok": true,
       "errors": [],
       "warnings": [
@@ -27747,6 +28049,144 @@
         "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
       ]
     },
+    "unity/Assets/Game/Art/UI/T_FX_BulletHole.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/UI/T_White.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Classic Car_9__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "144 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Classic Car_9__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "144 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Hatchback Car_15__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "106 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Hatchback Car_15__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "106 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Monster Truck_12__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "96 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Monster Truck_12__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "96 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/N Van_10__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "82 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/N Van_10__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "82 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/N_Muscle Car_10__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "71 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/N_Muscle Car_10__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "71 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Pick Up_11__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "152 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Pick Up_11__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "152 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Sport Car_39__wrecked_burned.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "90 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/Sport Car_39__wrecked_severe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "90 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/SportCar_1__wrecked_burned.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Vehicles/Variants/SportCar_1__wrecked_severe.fbx": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/AbyssalBreach/Mat_Abyssal_Rock.mat": {
       "ok": true,
       "errors": [],
@@ -27892,12 +28332,47 @@
       "errors": [],
       "warnings": []
     },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_FX_Brass.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_FX_Decal.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_FX_MuzzleFlash.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/NeonDistrict/Mat_FX_SkidMark.mat": {
       "ok": true,
       "errors": [],
       "warnings": []
     },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_FX_Tracer.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_ND_AmmoPickup.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_ND_Can.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/NeonDistrict/Mat_ND_Crosswalk.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_ND_GroundFar.mat": {
       "ok": true,
       "errors": [],
       "warnings": []

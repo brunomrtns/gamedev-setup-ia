@@ -557,3 +557,35 @@ UTF EditMode em `evidence/test-reports/quat-editmode.xml`.
 - `useExternalInput` (novo) gateia o Update do vendor — `PlayerCarController` virou fachada: traduz Steer/Throttle/Brake/Drift do DriveInputAdapter p/ GoForward/TurnLeft/Handbrake (teclado + mobile + QA + rede).
 - Zero regressão visual: SportCar_Model + materiais URP intactos; ChaseCamera, VehicleDamageController, HP/PlayerHealth preservados.
 - Cena rebuildada (2.20MB) + validate --strict exit 0. UTF pendente re-run.
+
+## Pipeline Universal de Pedestres — npc_csl vestidos FUNCIONANDO (19/10)
+
+**Vitória:** pedestres vestidos reais no jogo — `ped_dressed_*` (12 variantes,
+corpo+roupa+cabelo/barba) animando com o MESMO `Pedestrian.controller`+clips UAL.
+Verificado por imagem: walk/idle/run/death íntegros, texturizados, zero deformação.
+
+**Receita final (documentada em .studio/knowledge/gameplay/pedestrian-pipeline.md §v2):**
+- `tools/art/inspect_character_fbx.py` (Blender): inventário — provou que
+  `npc_csl_00_character_*.fbx` já traz UMA armature de 54 ossos com tudo bound;
+  extras (haircut/hairfacial) trazem armature duplicada idêntica.
+- `tools/art/unify_character_fbx.py` + `ped_dressed_manifest.json`: merge
+  determinístico de armatures (blindagem 1e-4), strip lod>0, normalização com
+  desparentamento (bug do "blob"), render rest+pose obrigatório, FBX único.
+- `QuaterniusPedPipeline.BakeDressedBatch` v3: import Humanoid + materiais por
+  mapa da prefab vendor + Animator/controller — SEM cirurgia de esqueleto.
+- `PedestrianSystem`: prefere `ped_dressed_*` → fallback `quat_*`. 16 peds
+  dressed confirmados em play mode.
+
+**Causa raiz das 3 falhas:** FBX vendor com bindposes inconsistentes p/ o
+import Humanoid do Unity (render T-pose OK, SOME sob animação). Não era o bake
+— era o asset de origem; só o re-export do Blender recria bindposes nativas.
+
+**Bug processual corrigido:** capturas de prova criavam luz/cubo/câmera na
+cena aberta (12x acumulados = estouro branco + lag). `CaptureDressedPilot`
+agora abre cena vazia. Cena reloaded do disco — NeonDistrict.unity intacta.
+
+**Gates:** scene --strict exit 0; validate_asset ped_dressed_01f_01 OK.
+UTF EditMode re-run: 80/81 — único fail = AutonomousPlaytest.Bot_Drives_And_Detects_Anomalies
+(bug de harness: teste PlayMode executado no contexto EditMode, pre-existente).
+validate_asset --all: 5159/5179 — os 20 fails sao vendor pre-existentes
+(anim FBXs sem UV, carros wrecked N-gons); ZERO nos novos PedDressed/.

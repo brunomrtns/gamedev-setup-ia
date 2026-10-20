@@ -333,3 +333,21 @@ adicionadas em `AGENTS.md` §1.8 e `CLAUDE.md` princípios rápidos.
 
 **Pendente:** relatório UTF em `evidence/test-reports/quat-editmode.xml`.
 
+### Adendo 3 — Pedestres VESTIDOS (19/10, sessão Devin) — SUCESSO
+
+- Pedestres = `ped_dressed_*` (12 variantes npc_csl: corpo+roupa+cabelo/barba),
+  mesma animação UAL/controller. `PedestrianSystem`: ped_dressed_* → quat_*.
+- Pipeline universal documentada: `.studio/knowledge/gameplay/pedestrian-pipeline.md`
+  §"Pipeline Universal v2" (chassi=esqueleto+clips, casca=pack visual).
+- Ferramentas: `tools/art/inspect_character_fbx.py` (inventário armatures/SMRs),
+  `tools/art/unify_character_fbx.py` + `ped_dressed_manifest.json` (merge
+  armatures duplicadas com blindagem 1e-4 + render verificação obrigatório),
+  `QuaterniusPedPipeline.BakeDressedBatch` v3 (import Humanoid + mapa de
+  materiais da prefab vendor, ZERO cirurgia de ossos).
+- Causa raiz descoberta: FBX vendor tinha bindposes inconsistentes no import
+  Humanoid — T-pose renderizava, malha SUMIA sob animação. Só re-export do
+  Blender recria bindposes nativas consistentes.
+- Armadilha corrigida: capturas de prova agora abrem cena vazia
+  (`EditorSceneManager.NewScene`) — antes vazavam luz/câmera na cena aberta.
+- Follow-up: rebake `NetPrefabBuilder` p/ MP quando reativado; UTF re-run.
+

@@ -52,122 +52,254 @@ namespace Studio.Editor
         /// <summary>Batch entry: -executeMethod Studio.Editor.QuaterniusPedPipeline.BakeDressedBatch</summary>
         public static void BakeDressedBatch() => BakeDressedPedestrians();
 
-        /// <summary>Verificação: renderiza um dressed prefab no clip Walk.</summary>
-        public static void CaptureDressedBatch()
+        /// <summary>
+        /// Verificação visual da piloto: renderiza ped_dressed_01f_01 nos
+        /// 4 estados-chave (idle/walk/run/death) com log de footY/hipsY/headY.
+        /// </summary>
+        public static void CaptureDressedBatch() =>
+            CaptureDressedPilot(PEDS + "/ped_dressed_01f_01.prefab", "ped_dressed_pilot");
+
+        /// <summary>
+        /// DIAGNÓSTICO: renderiza 3 fontes lado a lado sem modificar nada —
+        /// (a) prefab vendor intacta, (b) modelo FBX montado, (c) ped_dressed.
+        /// Isola se a falha de render é do FBX ou do bake.
+        /// </summary>
+        public static void DiagRenderBatch()
         {
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
-                PEDS + "/npc_csl_dressed_npc_csl_00_character_01f_01.prefab");
-            if (prefab == null) prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
-                PEDS + "/npc_csl_dressed_npc_csl_00_character_01m_01.prefab");
-            var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
-            go.transform.position = Vector3.zero;
-            AnimationClip clip = null;
-            foreach (var a in AssetDatabase.LoadAllAssetsAtPath(
-                ANIMS + "/UAL1_Standard.fbx"))
-                if (a is AnimationClip c && c.name == "Walk_Loop") { clip = c; break; }
+            var ground = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            ground.transform.position = new Vector3(0f, -0.5f, 0f);
+            ground.transform.localScale = new Vector3(30f, 1f, 30f);
+            ground.GetComponent<Renderer>().sharedMaterial =
+                new Material(Shader.Find("Universal Render Pipeline/Lit"))
+                { color = new Color(0.25f, 0.25f, 0.3f) };
             var light = new GameObject("L").AddComponent<Light>();
             light.type = LightType.Directional;
             light.intensity = 1.6f;
             light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
             RenderSettings.ambientLight = new Color(0.5f, 0.5f, 0.55f);
             var cam = new GameObject("C").AddComponent<Camera>();
-            cam.transform.position = new Vector3(2.5f, 1.3f, 2.5f);
-            cam.transform.LookAt(new Vector3(0f, 0.9f, 0f));
-            AnimationMode.StartAnimationMode();
-            try { AnimationMode.SampleAnimationClip(go, clip, clip.length * 0.35f); }
-            finally { AnimationMode.StopAnimationMode(); }
+            cam.transform.position = new Vector3(0f, 1.3f, 5.5f);
+            cam.transform.LookAt(new Vector3(0f, 0.8f, 0f));
+
+            var sources = new (string tag, string path)[]
+            {
+                ("vendor", "Assets/npc_casual_set_00/Prefabs/npc_csl_00_character_01f_01.prefab"),
+                ("fbx", "Assets/npc_casual_set_00/Mesh/npc_csl_00_character_01f.fbx"),
+                ("dressed", PEDS + "/ped_dressed_01f_01.prefab"),
+            };
+            float x = -2.2f;
+            foreach (var (tag, path) in sources)
+            {
+                var src = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                if (src == null) { Debug.LogError("[Diag] ausente: " + path); continue; }
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(src);
+                go.transform.position = new Vector3(x, 0f, 0f);
+                var smrs = go.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+                int en = 0, boneless = 0, nomesh = 0;
+                foreach (var s in smrs)
+                {
+                    if (s.enabled && s.gameObject.activeInHierarchy) en++;
+                    if (s.bones == null || s.bones.Length == 0 || s.bones[0] == null) boneless++;
+                    if (s.sharedMesh == null) nomesh++;
+                }
+                var lodg = go.GetComponentInChildren<LODGroup>(true);
+                Debug.Log($"[Diag] {tag}: smrs={smrs.Length} enabled={en} " +
+                    $"boneless={boneless} nomesh={nomesh} lodgroup={(lodg ? "Y" : "N")}");
+                x += 2.2f;
+            }
             var rt = new RenderTexture(900, 900, 24);
             cam.targetTexture = rt;
-            for (int i = 0; i < 3; i++) cam.Render();
-            cam.Render();
+            for (int i = 0; i < 4; i++) cam.Render();
             RenderTexture.active = rt;
             var tex = new Texture2D(900, 900, TextureFormat.RGB24, false);
             tex.ReadPixels(new Rect(0, 0, 900, 900), 0, 0); tex.Apply();
-            File.WriteAllBytes("../evidence/captures/dressed_verify.png", tex.EncodeToPNG());
-            Debug.Log("[Dressed] captura salva: dressed_verify.png");
+            File.WriteAllBytes("../evidence/captures/diag_vendor_fbx_dressed.png", tex.EncodeToPNG());
+            Debug.Log("[Diag] captura: diag_vendor_fbx_dressed.png (esq=vendor, meio=fbx, dir=dressed)");
         }
 
-        public static void BakeDressedPedestrians()
+        /// <summary>Batch por prefixo: -executeMethod ...CaptureDressedAllBatch — todas as ped_dressed_*.</summary>
+        public static void CaptureDressedAllBatch()
         {
-            // 1. FBX npc_csl → Humanoid + CreateFromThisModel (avatar válido)
-            const string pack = "Assets/npc_casual_set_00";
-            if (Directory.Exists(pack))
-                foreach (var f in Directory.GetFiles(pack, "*.fbx", SearchOption.AllDirectories))
-                {
-                    var p = f.Replace('\\', '/');
-                    var imp = AssetImporter.GetAtPath(p) as ModelImporter;
-                    if (imp == null) continue;
-                    imp.animationType = ModelImporterAnimationType.Human;
-                    imp.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
-                    imp.SaveAndReimport();
-                }
-            AssetDatabase.Refresh();
-
-            // 2. Para cada prefab npc_csl_* (originais com roupas): unificar
-            // SMRs no esqueleto do avatar e salvar como npc_csl_dressed_*
-            foreach (var path in Directory.GetFiles(PEDS, "npc_csl_*.prefab"))
+            foreach (var path in Directory.GetFiles(PEDS, "ped_dressed_*.prefab"))
             {
                 var name = Path.GetFileNameWithoutExtension(path);
-                if (name.EndsWith("_baked") || name.StartsWith("npc_csl_dressed_"))
-                    continue;
-                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-                if (prefab == null) continue;
-                var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
-                var anim = go.GetComponentInChildren<Animator>();
-                if (anim == null || !anim.isHuman)
+                CaptureDressedPilot(path.Replace('\\', '/'), name);
+            }
+        }
+
+        private static void CaptureDressedPilot(string prefabPath, string outPrefix)
+        {
+            // Cena vazia — NUNCA capturar na cena aberta do usuário: os objetos
+            // de prova (ground/light/cam) vazavam e estouravam a iluminação.
+            UnityEditor.SceneManagement.EditorSceneManager.NewScene(
+                UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,
+                UnityEditor.SceneManagement.NewSceneMode.Single);
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+            if (prefab == null) { Debug.LogError("[Dressed] prefab ausente: " + prefabPath); return; }
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            go.transform.position = Vector3.zero;
+
+            var anim = go.GetComponentInChildren<Animator>();
+            if (anim == null) anim = go.AddComponent<Animator>();
+            anim.applyRootMotion = false;
+            Debug.Log($"[DressedCap] {Path.GetFileName(prefabPath)} " +
+                $"avatar={(anim.avatar != null ? anim.avatar.name : "NULL")} isHuman={anim.isHuman}");
+
+            const string kk = "Assets/Game/Art/Characters/Quaternius/Animations/UAL1_Standard.fbx";
+            AnimationClip Find(string clipName)
+            {
+                foreach (var a in AssetDatabase.LoadAllAssetsAtPath(kk))
+                    if (a is AnimationClip c && c.name == clipName)
+                        return c;
+                return null;
+            }
+            var clips = new (string tag, AnimationClip clip, float t)[]
+            {
+                ("idle", Find("Idle_Loop"), 0.5f),
+                ("walk", Find("Walk_Loop"), 0.30f),
+                ("run", Find("Sprint_Loop") ?? Find("Jog_Fwd_Loop"), 0.35f),
+                ("death", Find("Death01"), 0.95f),
+            };
+
+            var ground = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            ground.transform.position = new Vector3(0f, -0.5f, 0f);
+            ground.transform.localScale = new Vector3(30f, 1f, 30f);
+            ground.GetComponent<Renderer>().sharedMaterial =
+                new Material(Shader.Find("Universal Render Pipeline/Lit"))
+                { color = new Color(0.25f, 0.25f, 0.3f) };
+            var light = new GameObject("L").AddComponent<Light>();
+            light.type = LightType.Directional;
+            light.intensity = 1.6f;
+            light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
+            RenderSettings.ambientLight = new Color(0.5f, 0.5f, 0.55f);
+            var cam = new GameObject("C").AddComponent<Camera>();
+            cam.transform.position = new Vector3(2.7f, 1.4f, 2.7f);
+            cam.transform.LookAt(new Vector3(0f, 0.8f, 0f));
+
+            AnimationMode.StartAnimationMode();
+            try
+            {
+                foreach (var (tag, clip, t) in clips)
                 {
-                    Debug.LogWarning($"[Dressed] {name}: sem avatar humanoid — pulando");
+                    if (clip == null) { Debug.LogError($"[DressedCap] clip {tag} NULL"); continue; }
+                    AnimationMode.SampleAnimationClip(go, clip, t * clip.length);
+                    var hips = anim.GetBoneTransform(HumanBodyBones.Hips);
+                    var head = anim.GetBoneTransform(HumanBodyBones.Head);
+                    var foot = anim.GetBoneTransform(HumanBodyBones.LeftFoot);
+                    var b = new Bounds(go.transform.position, Vector3.one);
+                    foreach (var r in go.GetComponentsInChildren<Renderer>()) b.Encapsulate(r.bounds);
+                    Debug.Log($"[DressedCap] {outPrefix}_{tag}: bounds=({b.min.y:F2}..{b.max.y:F2}) " +
+                        $"size={b.size} foot={(foot ? foot.position.ToString("F2") : "null")} " +
+                        $"hips={(hips ? hips.position.ToString("F2") : "null")} " +
+                        $"head={(head ? head.position.ToString("F2") : "null")} " +
+                        $"goPos={go.transform.position.ToString("F2")}");
+                    // câmera mira no hips real — prova se o corpo saiu do frame
+                    if (hips != null)
+                    {
+                        cam.transform.position = hips.position + new Vector3(2.4f, 0.9f, 2.4f);
+                        cam.transform.LookAt(hips.position + Vector3.up * 0.2f);
+                    }
+                    var rt = new RenderTexture(900, 900, 24);
+                    cam.targetTexture = rt;
+                    for (int i = 0; i < 3; i++) cam.Render();
+                    cam.Render();
+                    RenderTexture.active = rt;
+                    var tex = new Texture2D(900, 900, TextureFormat.RGB24, false);
+                    tex.ReadPixels(new Rect(0, 0, 900, 900), 0, 0); tex.Apply();
+                    File.WriteAllBytes($"../evidence/captures/{outPrefix}_{tag}.png", tex.EncodeToPNG());
+                    RenderTexture.active = null;
+                    cam.targetTexture = null;
+                    rt.Release();
+                }
+            }
+            finally { AnimationMode.StopAnimationMode(); }
+            Object.DestroyImmediate(go);
+            Debug.Log($"[DressedCap] capturas salvas: {outPrefix}_*.png");
+        }
+
+        /// <summary>
+        /// PEDESTRES VESTIDOS v3 — FBX unificado pelo Blender
+        /// (tools/art/unify_character_fbx.py + ped_dressed_manifest.json):
+        /// bindposes nativas consistentes → skinning funciona sob animação.
+        /// Aqui: importa ped_dressed_*.fbx (Humanoid), aplica o MAPA DE
+        /// MATERIAIS da variante vendor correspondente (por nome de SMR),
+        /// configura o Animator e salva a prefab. Zero cirurgia de esqueleto.
+        /// </summary>
+        public static void BakeDressedPedestrians()
+        {
+            var ctrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
+                PEDS + "/Pedestrian.controller");
+            const string fbxDir = "Assets/Game/Art/Characters/PedDressed";
+            const string vendorDir = "Assets/npc_casual_set_00/Prefabs";
+
+            // 1. Reimporta os FBX unificados como Humanoid/CreateFromThisModel
+            foreach (var f in Directory.GetFiles(fbxDir, "ped_dressed_*.fbx"))
+            {
+                var imp = AssetImporter.GetAtPath(f.Replace('\\', '/')) as ModelImporter;
+                if (imp == null) continue;
+                imp.animationType = ModelImporterAnimationType.Human;
+                imp.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
+                imp.materialImportMode = ModelImporterMaterialImportMode.None;
+                imp.SaveAndReimport();
+            }
+            AssetDatabase.Refresh();
+
+            foreach (var f in Directory.GetFiles(fbxDir, "ped_dressed_*.fbx"))
+            {
+                var suffix = Path.GetFileNameWithoutExtension(f)
+                    .Substring("ped_dressed_".Length); // 01f_01
+                var fbxPath = f.Replace('\\', '/');
+                var src = AssetDatabase.LoadAssetAtPath<GameObject>(fbxPath);
+                if (src == null) { Debug.LogWarning("[Dressed] fbx ausente: " + fbxPath); continue; }
+
+                // 2. Mapa de materiais da variante vendor (SMR.name → materials)
+                var vendorPath = $"{vendorDir}/npc_csl_00_character_{suffix}.prefab";
+                var vendor = AssetDatabase.LoadAssetAtPath<GameObject>(vendorPath);
+                var matMap = new Dictionary<string, Material[]>();
+                if (vendor != null)
+                {
+                    var vgo = (GameObject)PrefabUtility.InstantiatePrefab(vendor);
+                    foreach (var s in vgo.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+                        matMap[Norm(s.name)] = s.sharedMaterials;
+                    Object.DestroyImmediate(vgo);
+                }
+
+                // 3. Instancia o FBX limpo, aplica materiais, configura Animator
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(src);
+                PrefabUtility.UnpackPrefabInstance(go, PrefabUnpackMode.Completely,
+                    InteractionMode.AutomatedAction);
+                go.name = "ped_dressed_" + suffix;
+                int assigned = 0;
+                foreach (var smr in go.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+                    if (matMap.TryGetValue(Norm(smr.name), out var mats))
+                    { smr.sharedMaterials = mats; assigned++; }
+
+                var anim = go.GetComponentInChildren<Animator>();
+                if (anim == null) anim = go.AddComponent<Animator>();
+                if (!anim.isHuman)
+                {
+                    Debug.LogError($"[Dressed] {suffix}: avatar NÃO humanoid — abortando");
                     Object.DestroyImmediate(go); continue;
                 }
-                // esqueleto dirigido pelo avatar = subárvore do Hips
-                var hips = anim.GetBoneTransform(HumanBodyBones.Hips);
-                Transform skel = hips;
-                while (skel != null && skel.parent != go.transform) skel = skel.parent;
-                var byName = new Dictionary<string, Transform>();
-                if (skel != null)
-                    foreach (var t in skel.GetComponentsInChildren<Transform>(true))
-                        byName[t.name] = t;
-                int remapped = 0;
-                foreach (var smr in go.GetComponentsInChildren<SkinnedMeshRenderer>(true))
-                {
-                    var bones = smr.bones; bool changed = false;
-                    for (int i = 0; i < bones.Length; i++)
-                        if (bones[i] != null && byName.TryGetValue(bones[i].name, out var nb)
-                            && nb != bones[i]) { bones[i] = nb; changed = true; }
-                    if (changed) { smr.bones = bones; remapped++; }
-                    if (smr.rootBone != null && byName.TryGetValue(smr.rootBone.name, out var rb))
-                        smr.rootBone = rb;
-                    // CRÍTICO: recomputar bindposes — a matriz vértice→osso
-                    // deve casar com a pose ATUAL do esqueleto unificado,
-                    // senão a malha deforma ("tábua voando")
-                    var bp = smr.sharedMesh.bindposes;
-                    for (int i = 0; i < bones.Length && i < bp.Length; i++)
-                        if (bones[i] != null)
-                            bp[i] = bones[i].worldToLocalMatrix * smr.transform.localToWorldMatrix;
-                    var meshInst = Object.Instantiate(smr.sharedMesh);
-                    meshInst.bindposes = bp;
-                    smr.sharedMesh = meshInst;
-                }
-                // remove armatures duplicadas (sem renderers) que não sejam o skel
-                var kill = new List<Transform>();
-                foreach (Transform child in go.transform)
-                {
-                    if (child == skel) continue;
-                    if (child.GetComponentsInChildren<Renderer>(true).Length > 0) continue;
-                    bool hasHips = false;
-                    foreach (var t in child.GetComponentsInChildren<Transform>(true))
-                        if (t.name == hips?.name) { hasHips = true; break; }
-                    if (hasHips) kill.Add(child);
-                }
-                foreach (var k in kill) Object.DestroyImmediate(k.gameObject);
-                if (anim != null) anim.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-                var outp = $"{PEDS}/npc_csl_dressed_{name}.prefab";
+                anim.runtimeAnimatorController = ctrl;
+                anim.applyRootMotion = false;
+                anim.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+
+                var outp = $"{PEDS}/ped_dressed_{suffix}.prefab";
                 PrefabUtility.SaveAsPrefabAsset(go, outp);
                 Object.DestroyImmediate(go);
-                Debug.Log($"[Dressed] {name}: {remapped} SMRs unificadas → {Path.GetFileName(outp)}");
+                Debug.Log($"[Dressed] {suffix}: {assigned} SMRs com material vendor → {Path.GetFileName(outp)}");
             }
             AssetDatabase.SaveAssets();
-            Debug.Log("[Dressed] bake concluído");
+            Debug.Log("[Dressed] bake v3 concluído (FBX unificado Blender)");
+        }
+
+        /// <summary>Nome normalizado p/ casar SMR vendor↔fbx (minúsculo, sem sufixo lod).</summary>
+        private static string Norm(string n)
+        {
+            n = n.ToLowerInvariant();
+            int li = n.LastIndexOf("_lod", System.StringComparison.Ordinal);
+            return li >= 0 ? n.Substring(0, li) : n;
         }
 
         // ------------------------------------------------------------------

@@ -29,16 +29,16 @@ namespace Studio.Gameplay
         private void Awake()
         {
             Instance = this;
-            // Pedestres: prefabs Quaternius (quat_*) — esqueleto humanóide
-            // limpo que anima nativamente. NÃO usar os npc_csl_dressed_*
-            // (esqueleto unificado à mão deforma a animação).
+            // Pedestres vestidos: prefabs ped_dressed_* — FBX unificado no
+            // Blender (armature única, bindposes nativas) + materiais vendor.
+            // Fallback quat_* (manequins) se o pipeline não rodou.
             _prefabs = System.Array.FindAll(
                 Resources.LoadAll<GameObject>("Art/Pedestrians"),
-                g => g.name.StartsWith("quat_"));
+                g => g.name.StartsWith("ped_dressed_"));
             if (_prefabs.Length == 0)
                 _prefabs = System.Array.FindAll(
                     Resources.LoadAll<GameObject>("Art/Pedestrians"),
-                    g => g.name.StartsWith("npc_csl_"));
+                    g => g.name.StartsWith("quat_"));
             _controller = Resources.Load<RuntimeAnimatorController>(
                 "Art/Pedestrians/Pedestrian");
         }
