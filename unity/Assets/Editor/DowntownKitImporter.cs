@@ -117,6 +117,34 @@ namespace Studio.Editor
             Debug.Log("[MegaKitCap] pilot capturado: downtown_pilot_*.png");
         }
 
+        /// <summary>Capturas do Old Brick District: aérea + rua + conexão.</summary>
+        public static void CaptureDistrictBatch()
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
+                "Assets/Game/Scenes/NeonDistrict.unity");
+            var cam = new GameObject("DistrictCam").AddComponent<Camera>();
+            var shots = new (string tag, Vector3 pos, Vector3 look)[]
+            {
+                ("obd_aerial", new Vector3(182f, 160f, 0f), new Vector3(182f, 0f, 0f)),
+                ("obd_street_1", new Vector3(156f, 3f, 26f), new Vector3(208f, 8f, 26f)),
+                ("obd_street_2", new Vector3(182f, 2.5f, -60f), new Vector3(182f, 15f, 0f)),
+                ("obd_connection", new Vector3(120f, 6f, 26f), new Vector3(190f, 8f, 26f)),
+            };
+            foreach (var (tag, pos, look) in shots)
+            {
+                cam.transform.position = pos; cam.transform.LookAt(look);
+                var rt = new RenderTexture(1280, 720, 24);
+                cam.targetTexture = rt;
+                for (int i = 0; i < 6; i++) cam.Render();
+                RenderTexture.active = rt;
+                var tex = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+                tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
+                File.WriteAllBytes($"../evidence/captures/{tag}.png", tex.EncodeToPNG());
+                RenderTexture.active = null; cam.targetTexture = null; rt.Release();
+            }
+            Debug.Log("[MegaKitCap] distrito: obd_*.png");
+        }
+
         public static void RunImportBatch()
         {
             Directory.CreateDirectory(MatDir);

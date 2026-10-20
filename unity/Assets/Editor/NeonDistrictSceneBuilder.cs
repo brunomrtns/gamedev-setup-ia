@@ -1354,9 +1354,9 @@ namespace Studio.Editor
             var root = new GameObject("OldBrickDistrict");
             root.transform.SetParent(parent);
             var matStreet = AssetDatabase.LoadAssetAtPath<Material>(
-                "Assets/Game/Materials/NeonDistrict/Mat_Road_Street.mat");
+                MAT_DIR + "/Mat_ND_Road_Street.mat");
             var matWalk = AssetDatabase.LoadAssetAtPath<Material>(
-                "Assets/Game/Materials/NeonDistrict/Mat_Sidewalk.mat");
+                MAT_DIR + "/Mat_ND_Sidewalk.mat");
 
             // -- Malha viária: E-W estendidas (x 134→284) + N-S em 182/234 --
             float ewLen = OBD_ROAD_END - 134f, ewCx = 134f + ewLen * 0.5f;
@@ -1636,11 +1636,12 @@ namespace Studio.Editor
 
         private static List<TrafficEdge> BuildTrafficEdges()
         {
-            // xs estendido ao leste: Old Brick District (ruas N-S em x=182,234)
-            var xs = new float[LINES + 2];
+            // NOTA: rede de tráfego cobre só a cidade original (xs=zs=LINES).
+            // Estender p/ OBD (x=182,234) exige mudar BuildGrid p/ aceitar
+            // xs/zs assimétricos — gameplay code, pendente de aprovação.
+            var xs = new float[LINES];
             var zs = new float[LINES];
             for (int i = 0; i < LINES; i++) { xs[i] = StreetLine(i); zs[i] = StreetLine(i); }
-            xs[LINES] = OBD_XS0; xs[LINES + 1] = OBD_XS1;
             var edges = TrafficNetworkBuilder.BuildGrid(
                 xs, zs, STREET_HALF, LANE_OFF, AVENUE_J, AVENUE_HALF, AVENUE_LANE);
             Debug.Log($"[NeonDistrictSceneBuilder] Rede de tráfego: {edges.Count} arestas");
