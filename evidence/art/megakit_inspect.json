@@ -1,0 +1,129 @@
+[
+ {
+  "file": "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Building_Large_2.fbx",
+  "objects": [
+   {
+    "name": "Building_Large_2",
+    "type": "MESH",
+    "parent": null
+   }
+  ],
+  "armatures": {},
+  "meshes": [
+   {
+    "name": "Building_Large_2",
+    "verts": 30929,
+    "materials": [
+     "MI_InteriorFloor",
+     "MI_Trim_Dark",
+     "MI_Trim_MetalConcrete",
+     "MI_InteriorWall",
+     "MI_Glass",
+     "MI_FakeInterior_2",
+     "MI_FakeInterior_3",
+     "MI_RedBrick",
+     "MI_FakeInterior_1",
+     "MI_FakeInterior_4",
+     "MI_Trim",
+     "MI_Asphalt"
+    ],
+    "vgroup_count": 0,
+    "armature_mods": [],
+    "matrix_world": [
+     [
+      0.01,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -0.01,
+      0.0
+     ],
+     [
+      0.0,
+      0.01,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "file": "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Building_Small_1.fbx",
+  "objects": [
+   {
+    "name": "Building_Small_1",
+    "type": "MESH",
+    "parent": null
+   }
+  ],
+  "armatures": {},
+  "meshes": [
+   {
+    "name": "Building_Small_1",
+    "verts": 13312,
+    "materials": [
+     "MI_RedBrick_Pale",
+     "MI_Trim",
+     "MI_InteriorWall",
+     "MI_Trim_MetalConcrete",
+     "MI_Glass",
+     "MI_FakeInterior_2",
+     "MI_Trim_Dark",
+     "MI_FakeInterior_1",
+     "MI_Concrete",
+     "MI_FakeInterior_4",
+     "MI_FakeInterior_3",
+     "MI_Asphalt",
+     "MI_InteriorFloor"
+    ],
+    "vgroup_count": 0,
+    "armature_mods": [],
+    "matrix_world": [
+     [
+      0.01,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -0.01,
+      0.0
+     ],
+     [
+      0.0,
+      0.01,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "file": "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Brick_Plain_4x4.fbx",
+  "error": "Error: Couldn't open file 'unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Brick_Plain_4x4.fbx' ([Errno 2] No such file or directory: 'unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Brick_Plain_4x4.fbx')\n"
+ },
+ {
+  "file": "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Sidewalk_Straight_4m.fbx",
+  "error": "Error: Couldn't open file 'unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Sidewalk_Straight_4m.fbx' ([Errno 2] No such file or directory: 'unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Source/Models/Sidewalk_Straight_4m.fbx')\n"
+ }
+]

@@ -52,6 +52,16 @@ namespace Studio.Editor
             "N Van_10", "N_Muscle Car_10", "Pick Up_11", "Sport Car_39",
         };
 
+        private const string MEGAKIT_PREFABS = "Assets/Game/Prefabs/Modular/DowntownMegaKit";
+        // Prédios pré-montados do Downtown MegaKit (Boston/NYC, 3m-grid)
+        private static readonly string[] MEGAKIT_POOL =
+        {
+            "Building_Small_1", "Building_Medium_2_001", "Building_Large_2",
+        };
+        // PILOTO: 2 quarteirões adjacentes à Avenida Neon (z=+26, lado norte)
+        private static bool IsDowntownPilot(int bi, int bj) =>
+            (bi == 1 && bj == 3) || (bi == 3 && bj == 3);
+
         private static readonly string[] DOWNTOWN_POOL =
         {
             "office_building_1", "office_building_2", "office_building_3", "office_building_4",
@@ -1280,10 +1290,14 @@ namespace Studio.Editor
                             if (seed % 7 == 0) continue;
 
                             var lot = new Vector3(cx + lx * 9.5f, 0f, cz + lz * 9.5f);
-                            var prefabName = poolFinal[seed % poolFinal.Length];
+                            bool pilot = IsDowntownPilot(bi, bj);
+                            var usePool = pilot ? MEGAKIT_POOL : poolFinal;
+                            var prefabName = usePool[seed % usePool.Length];
                             float yaw = (seed % 4) * 90f;
                             float h = targetH * (0.85f + (seed % 40) / 100f);
-                            SpawnBuilding(parent, prefabName, lot, yaw, h, $"Bldg_{bi}_{bj}_{lx}_{lz}");
+                            SpawnBuilding(parent, prefabName, lot, yaw, h,
+                                $"Bldg_{bi}_{bj}_{lx}_{lz}",
+                                prefabDir: pilot ? MEGAKIT_PREFABS : null);
                         }
                     }
                 }
@@ -1291,9 +1305,10 @@ namespace Studio.Editor
         }
 
         private static void SpawnBuilding(Transform parent, string prefabName, Vector3 pos, float yaw,
-            float targetHeight, string name, bool withCollider = true)
+            float targetHeight, string name, bool withCollider = true, string prefabDir = null)
         {
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{CITY_PREFABS}/{prefabName}.prefab");
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                $"{prefabDir ?? CITY_PREFABS}/{prefabName}.prefab");
             if (prefab == null)
             {
                 Debug.LogWarning($"[NeonDistrictSceneBuilder] Prefab de prédio ausente: {prefabName}");

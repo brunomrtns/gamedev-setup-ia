@@ -589,3 +589,21 @@ UTF EditMode re-run: 80/81 — único fail = AutonomousPlaytest.Bot_Drives_And_D
 (bug de harness: teste PlayMode executado no contexto EditMode, pre-existente).
 validate_asset --all: 5159/5179 — os 20 fails sao vendor pre-existentes
 (anim FBXs sem UV, carros wrecked N-gons); ZERO nos novos PedDressed/.
+
+## Downtown City MegaKit — import + piloto 2 quarteirões (19/10)
+
+- `import_downtown_megakit.py`: extraiu 189 arquivos (153 FBX Unity + 36 texturas)
+  p/ `Art/Environment/Modular/DowntownMegaKit/` + manifesto SHA-256 `.studio/`.
+- Inventário: grid modular 3m (sidewalk 3×3×0.15); prédios montados
+  12–24m footprint, 17–28m altura, 12-13 slots MI_*.
+- `DowntownKitImporter.cs`: Mat_DT_* por família de textura (13 famílias:
+  RedBrick, Concrete, Trim, MarbleFloor, MetalConcrete, RoofSlate, Ornaments,
+  Dirt, lit_interior_1/2, dark_interior, Concrete_Asphalt, Street_Decals) +
+  153 prefabs em `Prefabs/Modular/DowntownMegaKit/`.
+- Piloto: quarteirões (1,3) e (3,3) — norte da Avenida Neon (z=+26) usam
+  MEGAKIT_POOL; resto permanece Demo City. Capturas `megakit_prefabs.png` +
+  `downtown_pilot_{west,east,street}.png` visualizadas: prédios tijolo
+  estilo Boston texturizados, iluminação dusk intacta.
+- Gameplay zero tocado: tráfego/pedestres/spawns/física intactos.
+- Gates: validate_scene --strict exit 0.
+- Pendente: expansão aprovada? + perf numbers + UTF re-run + APK (aprov. usuário).
