@@ -648,3 +648,16 @@ existe em NeonDistrictSceneBuilder + rodou; ApplyLitWindows 75%.
 6. Etapa 6 — perf antes/depois + UTF 75/75 + validators + matriz final + docs.
 
 **Veredito do dono sobre poste e invasão: PENDENTE (campos em branco no prompt).**
+
+## v3.1 continuação — Etapa 1 FECHADA (20/10)
+
+- `CaptureAuditTopDown` + `audit_topdown.png`: ortográfico topo com corredores
+  de via em overlay vermelho — **zero invasão de prédio sobre via** (commit
+  85722f33). Prédios confinados nos quarteirões, OBD incluso.
+- Veredito do dono (poste/invasão) permanece PENDENTE dele testar.
+
+**Próximo exato (Etapa 2 — A3 restante):** cabeças de poste emissivas + poça de
+luz decal + regra dia/noite (sol alto apaga) + neon Letter_A-Z ≥60% downtown
+(3 formatos). Métodos vivem em NeonDistrictSceneBuilder; pools: POLY_PROPS /
+POLY_LETTERS / MEGAKIT_PREFABS. Depois: A4 pisos → FASE B curvas → FASE C
+Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
