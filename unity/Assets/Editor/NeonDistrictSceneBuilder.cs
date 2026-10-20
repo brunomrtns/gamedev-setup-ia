@@ -36,6 +36,12 @@ namespace Studio.Editor
         // Grade: 6 linhas de rua em cada eixo → 25 quarteirões de 40x40m
         private const int LINES = 6;
         private const float PITCH = 52f;
+        // Old Brick District — extensão leste (MegaKit Boston/NYC).
+        // Ruas N-S novas em x=182 e x=234; quarteirões em x=156 e x=208.
+        private const float OBD_X0 = 156f, OBD_X1 = 208f;
+        private const float OBD_XS0 = 182f, OBD_XS1 = 234f;   // street lines N-S novas
+        private const float OBD_EAST_EDGE = 260f;             // fim dirigível
+        private const float OBD_ROAD_END = 284f;              // fim visual das ruas
         private const float STREET_W = 12f;
         private const float AVENUE_W = 16f;
         private const float STREET_HALF = STREET_W * 0.5f;
@@ -900,12 +906,13 @@ namespace Studio.Editor
             groundColObj.transform.SetParent(envRoot.transform);
             var groundCol = groundColObj.AddComponent<BoxCollider>();
             groundCol.center = new Vector3(0f, -0.05f, 0f);
-            groundCol.size = new Vector3(CITY_SPAN + 20f, 0.1f, CITY_SPAN + 20f);
+            groundCol.size = new Vector3(CITY_SPAN + 20f + 320f, 0.1f, CITY_SPAN + 20f); // +OBD leste
 
             // 7. Quarteirões com prédios + praça central
             var blocksRoot = new GameObject("City_Blocks");
             blocksRoot.transform.SetParent(envRoot.transform);
             BuildBlocks(blocksRoot.transform);
+            BuildOldBrickDistrict(envRoot.transform);
             BuildPlaza(blocksRoot.transform);
             BuildSkylineRing(blocksRoot.transform, matFar);
 
@@ -1337,6 +1344,86 @@ namespace Studio.Editor
             ColliderFitter.FitCompoundBuilding(go, parent);
         }
 
+        /// <summary>
+        /// OLD BRICK DISTRICT — cidade vizinha ao leste (MegaKit Boston/NYC).
+        /// 2 colunas × 5 fileiras de quarteirões (x=156,208), malha viária
+        /// completa (ruas E-W estendidas + N-S em 182/234), calçadas/props do kit.
+        /// </summary>
+        private static void BuildOldBrickDistrict(Transform parent)
+        {
+            var root = new GameObject("OldBrickDistrict");
+            root.transform.SetParent(parent);
+            var matStreet = AssetDatabase.LoadAssetAtPath<Material>(
+                "Assets/Game/Materials/NeonDistrict/Mat_Road_Street.mat");
+            var matWalk = AssetDatabase.LoadAssetAtPath<Material>(
+                "Assets/Game/Materials/NeonDistrict/Mat_Sidewalk.mat");
+
+            // -- Malha viária: E-W estendidas (x 134→284) + N-S em 182/234 --
+            float ewLen = OBD_ROAD_END - 134f, ewCx = 134f + ewLen * 0.5f;
+            for (int j = 0; j < LINES; j++)
+            {
+                var r = CreateRoadQuad($"OBD_Street_EW_{j}", STREET_W, ewLen,
+                    matStreet, ROAD_UV_V_PER_M, root.transform);
+                r.transform.position = new Vector3(ewCx, 0.045f, StreetLine(j));
+                r.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+            }
+            foreach (var sx in new[] { OBD_XS0, OBD_XS1 })
+            {
+                var r = CreateRoadQuad($"OBD_Street_NS_{(int)sx}", STREET_W,
+                    CITY_SPAN + 20f, matStreet, ROAD_UV_V_PER_M, root.transform);
+                r.transform.position = new Vector3(sx, 0.045f, 0f);
+            }
+
+            // -- Calçada base contínua sob o distrito (dirigível/caminhável) --
+            var walk = CreateRoadQuad("OBD_Sidewalk_Base",
+                OBD_ROAD_END - 128f, CITY_SPAN + 12f, matWalk, 0f, root.transform);
+            walk.transform.position = new Vector3(128f + (OBD_ROAD_END - 128f) * 0.5f, 0.02f, 0f);
+
+            // -- Quarteirões: 2×2 lotes, MEGAKIT_POOL, escala p/ lote ~16m --
+            for (int bj = 0; bj < 5; bj++)
+            {
+                float cz = (bj - 2) * PITCH;
+                foreach (float cx in new[] { OBD_X0, OBD_X1 })
+                {
+                    int col = cx < 190f ? 0 : 1;
+                    for (int lx = -1; lx <= 1; lx += 2)
+                        for (int lz = -1; lz <= 1; lz += 2)
+                        {
+                            int seed = col * 512461 ^ bj * 19349663
+                                ^ (lx + 2) * 83492791 ^ (lz + 2) * 29712149;
+                            seed = Mathf.Abs(seed);
+                            var lot = new Vector3(cx + lx * 9.5f, 0f, cz + lz * 9.5f);
+                            var pn = MEGAKIT_POOL[seed % MEGAKIT_POOL.Length];
+                            float h = 19f * (0.85f + (seed % 40) / 100f);
+                            SpawnBuilding(root.transform, pn, lot,
+                                (seed % 4) * 90f, h,
+                                $"OBD_Bldg_{col}_{bj}_{lx}_{lz}",
+                                prefabDir: MEGAKIT_PREFABS);
+                        }
+                }
+            }
+
+            // -- Props do kit nas esquinas dos quarteirões OBD --
+            string[] cornerProps = { "Prop_Bollard", "Sidewalk_Planter", "Prop_Planter_Single" };
+            for (int bj = 0; bj < 5; bj++)
+                foreach (float cx in new[] { OBD_X0, OBD_X1 })
+                    for (int c = 0; c < 4; c++)
+                    {
+                        var pn = cornerProps[(bj + c) % cornerProps.Length];
+                        var p = AssetDatabase.LoadAssetAtPath<GameObject>(
+                            $"{MEGAKIT_PREFABS}/{pn}.prefab");
+                        if (p == null) continue;
+                        var go = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                        go.transform.SetParent(root.transform);
+                        go.transform.position = new Vector3(
+                            cx + (c % 2 == 0 ? -17f : 17f), 0f,
+                            (bj - 2) * PITCH + (c < 2 ? -17f : 17f));
+                        go.transform.rotation = Quaternion.Euler(0f, c * 90f, 0f);
+                        ColliderFitter.FitProp(go, pn, root.transform);
+                    }
+            Debug.Log("[NeonDistrictSceneBuilder] Old Brick District construído");
+        }
+
         /// <summary>Anel de prédios _bgr (background) além do distrito — fecha o horizonte.</summary>
         private static void BuildSkylineRing(Transform parent, Material matFar)
         {
@@ -1529,7 +1616,7 @@ namespace Studio.Editor
             {
                 ("Bounds_Blocker_N", new Vector3(0f, 5f, half), new Vector3(CITY_SPAN + 10f, 10f, 1f)),
                 ("Bounds_Blocker_S", new Vector3(0f, 5f, -half), new Vector3(CITY_SPAN + 10f, 10f, 1f)),
-                ("Bounds_Blocker_E", new Vector3(half, 5f, 0f), new Vector3(1f, 10f, CITY_SPAN + 10f)),
+                ("Bounds_Blocker_E", new Vector3(OBD_ROAD_END + 8f, 5f, 0f), new Vector3(1f, 10f, CITY_SPAN + 10f)),
                 ("Bounds_Blocker_W", new Vector3(-half, 5f, 0f), new Vector3(1f, 10f, CITY_SPAN + 10f)),
             };
             foreach (var (n, c, s) in defs)
@@ -1549,9 +1636,11 @@ namespace Studio.Editor
 
         private static List<TrafficEdge> BuildTrafficEdges()
         {
-            var xs = new float[LINES];
+            // xs estendido ao leste: Old Brick District (ruas N-S em x=182,234)
+            var xs = new float[LINES + 2];
             var zs = new float[LINES];
             for (int i = 0; i < LINES; i++) { xs[i] = StreetLine(i); zs[i] = StreetLine(i); }
+            xs[LINES] = OBD_XS0; xs[LINES + 1] = OBD_XS1;
             var edges = TrafficNetworkBuilder.BuildGrid(
                 xs, zs, STREET_HALF, LANE_OFF, AVENUE_J, AVENUE_HALF, AVENUE_LANE);
             Debug.Log($"[NeonDistrictSceneBuilder] Rede de tráfego: {edges.Count} arestas");
