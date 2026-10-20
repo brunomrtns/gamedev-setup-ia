@@ -1734,6 +1734,7 @@ namespace Studio.Editor
                 float topY = b.max.y;
                 float cx = b.center.x, cz = b.center.z;
                 bool obd = t.position.x > 134f;
+                if (t.Find("LampGlow") != null) continue; // idempotente
                 var headMat = obd ? amberLamp
                     : n.Contains("blue") ? neonCyan
                     : n.Contains("pink") ? neonPink : neonWhite;
@@ -1756,8 +1757,42 @@ namespace Studio.Editor
                 if (col2 != null) UnityEngine.Object.DestroyImmediate(col2);
                 pool.transform.SetParent(t);
                 lampsDone++;
+                // Point Light real SÓ na avenida (|z-26|<10) — teste de budget
+                if (Mathf.Abs(t.position.z - StreetLine(AVENUE_J)) < 10f && t.position.x < 134f)
+                {
+                    var pl = new GameObject("LampPointLight");
+                    pl.transform.SetParent(t);
+                    pl.transform.position = new Vector3(cx, topY - 0.4f, cz);
+                    var li = pl.AddComponent<Light>();
+                    li.type = LightType.Point;
+                    li.intensity = 2.4f;
+                    li.range = 11f;
+                    li.color = headMat.GetColor("_EmissionColor");
+                    li.shadows = LightShadows.None; // shadow map custa caro
+                }
             }
 
+            // Point Lights reais SÓ na avenida — passe separado (postes já tinham LampGlow)
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                var n = t.name.ToLowerInvariant();
+                if (!n.Contains("lamp_pole") && !n.Contains("street_lamp") && !n.Contains("street lamp"))
+                    continue;
+                if (t.Find("LampPointLight") != null) continue;
+                if (Mathf.Abs(t.position.z - StreetLine(AVENUE_J)) > 10f || t.position.x > 134f) continue;
+                var glow = t.Find("LampGlow");
+                var pl = new GameObject("LampPointLight");
+                pl.transform.SetParent(t);
+                pl.transform.position = glow != null ? glow.position + Vector3.down * 0.3f : t.position;
+                var li = pl.AddComponent<Light>();
+                li.type = LightType.Point;
+                li.intensity = 2.4f;
+                li.range = 11f;
+                li.color = glow != null ? glow.GetComponent<Renderer>().sharedMaterial.GetColor("_EmissionColor")
+                                        : new Color(1f, 0.85f, 0.6f);
+                li.shadows = LightShadows.None;
+            }
             // Neon do centro: words emissivos nos prédios downtown (x<134)
             string[] words = { "MOTEL", "BAR", "CLUB", "HOTEL", "DINER", "PAWN",
                                "LIQUOR", "DELI", "CASINO", "24H" };
@@ -1769,16 +1804,21 @@ namespace Studio.Editor
                 if (!t.name.StartsWith("Bldg_")) continue;
                 var rs = t.GetComponentsInChildren<Renderer>(true);
                 if (rs.Length == 0) continue;
+                if (t.Find("NeonSign") != null) continue; // já tem letreiro
                 var b = rs[0].bounds;
                 foreach (var r in rs) b.Encapsulate(r.bounds);
+                // _bgr são fundo de skyline — não contam na meta de ≥60%
+                if (t.name.Contains("_bgr")) continue;
                 bldgs++;
-                if (rng.Next(100) >= 62) continue; // ≥60% dos prédios
+                if (rng.Next(100) >= 75) continue; // ~75% dos elegíveis
                 var word = words[rng.Next(words.Length)];
                 int fmt = rng.Next(3); // 0=horizontal térreo, 1=vertical, 2=marquee
                 float y0 = fmt == 1 ? b.max.y * 0.35f : fmt == 2 ? 3.4f : 4.4f;
                 var mat = rng.Next(2) == 0 ? neonPink : neonCyan;
                 // face sul do prédio (voltada p/ rua)
                 float zFace = b.min.z - 0.3f;
+                var signRoot = new GameObject("NeonSign");
+                signRoot.transform.SetParent(t);
                 if (fmt == 1) // vertical suspenso
                 {
                     for (int k = 0; k < word.Length; k++)
@@ -1792,7 +1832,7 @@ namespace Studio.Editor
                         g.transform.localScale = Vector3.one * 1.4f;
                         foreach (var rr in g.GetComponentsInChildren<Renderer>())
                             rr.sharedMaterial = mat;
-                        g.transform.SetParent(t);
+                        g.transform.SetParent(signRoot.transform);
                     }
                 }
                 else // horizontal térreo / marquee
@@ -1809,11 +1849,17 @@ namespace Studio.Editor
                         g.transform.localScale = Vector3.one * 1.2f;
                         foreach (var rr in g.GetComponentsInChildren<Renderer>())
                             rr.sharedMaterial = mat;
-                        g.transform.SetParent(t);
+                        g.transform.SetParent(signRoot.transform);
                         lx += 1.4f;
                     }
                 }
                 signs++;
+            }
+            // Controller dia/noite (ambiente) — dusk permanente => aceso por default
+            if (UnityEngine.Object.FindFirstObjectByType<Studio.Foundation.CityLightingController>() == null)
+            {
+                var ctrl = new GameObject("CityLightingController");
+                ctrl.AddComponent<Studio.Foundation.CityLightingController>();
             }
             UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
             Debug.Log($"[A3] postes acesos={lampsDone} | neon: {signs}/{bldgs} prédios");
@@ -1869,6 +1915,35 @@ namespace Studio.Editor
             UnityEngine.Object.DestroyImmediate(overlay);
             UnityEngine.Object.DestroyImmediate(cam.gameObject);
             Debug.Log("[A1-Audit] captura: audit_topdown.png");
+        }
+
+        /// <summary>A3 prova: aérea do centro no dusk + street-level poste aceso.</summary>
+        public static void CaptureLitCity()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            Shot(new Vector3(0f, 130f, -60f), Quaternion.Euler(55f, 0f, 0f),
+                 "../evidence/captures/aerial_neon_dusk.png");
+            // poste aceso de perto na avenida (x=10, z=26 avenida)
+            Shot(new Vector3(12f, 3.5f, 20f), Quaternion.Euler(10f, 30f, 0f),
+                 "../evidence/captures/street_lamp_closeup.png");
+            Debug.Log("[A3] capturas: aerial_neon_dusk + street_lamp_closeup");
+        }
+
+        private static void Shot(Vector3 pos, Quaternion rot, string path)
+        {
+            var camGo = new GameObject("ShotCam");
+            var cam = camGo.AddComponent<Camera>();
+            cam.fieldOfView = 55f;
+            cam.transform.SetPositionAndRotation(pos, rot);
+            var rt = new RenderTexture(1280, 720, 24);
+            cam.targetTexture = rt;
+            for (int i = 0; i < 8; i++) cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
+            File.WriteAllBytes(path, tex.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(camGo);
+            RenderTexture.active = null;
         }
 
         /// <summary>Anel de prédios _bgr (background) além do distrito — fecha o horizonte.</summary>
