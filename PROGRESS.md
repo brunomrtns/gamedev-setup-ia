@@ -683,3 +683,12 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
   recapture pendente se o dono exigir).
 - PENDENTE: Etapa 2 A4 pisos | Etapa 3 boulevard+rotatória | Etapa 4 Green Hills
   | Etapa 5 gates+docs.
+
+## v3.2 — Etapa 2 FECHADA (20/10)
+
+- ApplyRoadSurfaces: Mat_Road_Avenue (asfalto escuro azulado) na Avenue_Neon_EW,
+  Mat_Road_OBD (desgastado marrom) nas OBD_Street_* + interseções x>134 (9 quads).
+- 63 marcações 4Lane na avenida (Decal_DoubleYellow eixo + BrokenLine faixas);
+  4 patches Street_Asphalt_9x9 nas interseções do Central Plaza.
+- Prova visual por zona: pendente captura dedicada (cobrir na matriz final).
+- PENDENTE: Etapa 3 boulevard+rotatória | Etapa 4 Green Hills | Etapa 5 gates.
