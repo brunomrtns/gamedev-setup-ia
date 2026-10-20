@@ -1,1 +1,1 @@
-Studio.Editor.NeonDistrictSceneBuilder.RepairGreenHills();
+Studio.Editor.NeonDistrictSceneBuilder.RemoveGreenHills();

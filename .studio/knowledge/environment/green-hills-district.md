@@ -51,3 +51,16 @@ Render de editor escondeu 3 falhas de fundação (blocker, chão, densidade).
 - Aérea: rota de POIs parcialmente legível; trilhas curtas.
 - Tráfego IA fora das ruas novas (grid-only), PlayMode test discovery em
   batch não detecta testes (prova via pipeline do editor vivo).
+
+## PLANO B EXECUTADO (v3.4, veredito do dono: "tá um lixo")
+GreenHills + CurvedBoulevard removidos; Bounds_Blocker_E restaurado a x=292.
+Cidade polida intacta > distrito quebrado.
+
+### Motivo técnico exato do fracasso
+O inventário não tem kit de terreno com heightmap nem peças de relevo de
+escala suficiente — cliff_* são blocos ~8m, e empilhá-los em anéis gera
+"campo de entulho", não morro. Chão de quad gigante não aceita atlas
+(listras/grade) e textura escura vira void no dusk. Pra fazer direito
+precisaria de: (a) Unity Terrain/heightmap OU (b) kit de natureza com
+peças de morro grandes contínuas (ex.: POLYGON Nature/Swamp pack) +
+textura de grama tileável dedicada (não atlas).

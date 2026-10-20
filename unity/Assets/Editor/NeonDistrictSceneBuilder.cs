@@ -2402,6 +2402,33 @@ namespace Studio.Editor
             Debug.Log("[v3.4] Reparo GH: acesso x522 + chão grama + morros densos");
         }
 
+        /// <summary>PLANO B (v3.4): remove Green Hills + boulevard e restaura a
+        /// borda leste limpa do OBD. Veredito do dono: distrito não convenceu.</summary>
+        public static void RemoveGreenHills()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            foreach (var n in new[] { "GreenHills", "CurvedBoulevard" })
+            {
+                var go = GameObject.Find(n);
+                if (go != null) { UnityEngine.Object.DestroyImmediate(go); Debug.Log($"[v3.4] {n} removido"); }
+            }
+            // blocker leste volta pro limite do OBD
+            var be = GameObject.Find("Bounds_Blocker_E");
+            if (be != null)
+            {
+                be.transform.position = new Vector3(OBD_ROAD_END + 8f, 5f, 0f);
+                var bc = be.GetComponent<BoxCollider>();
+                if (bc != null) bc.size = new Vector3(1f, 10f, CITY_SPAN + 10f);
+            }
+            foreach (var n in new[] { "Bounds_Blocker_GH_N", "Bounds_Blocker_GH_S" })
+            {
+                var go = GameObject.Find(n);
+                if (go != null) UnityEngine.Object.DestroyImmediate(go);
+            }
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log("[v3.4] PLANO B: distrito removido, borda OBD restaurada");
+        }
+
         public static void FixGHGroundAndCapture()
         {
             BuildGreenHills();    // caminho de reparo (GreenHills já existe)
