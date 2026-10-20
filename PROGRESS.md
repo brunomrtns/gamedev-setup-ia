@@ -728,3 +728,12 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
   (chao escuro fallback, morros esparsos na aerea — retrabalho cosmetico).
 - Veredito do dono pendente nos campos do prompt v3.2.
 - PC fica LIGADO (ordem do dono 20/10).
+
+## v3.4 — REPARO Green Hills (20/10) — FUNDAÇÃO OK, cosmetica pendente
+- COLISOR FANTASMA: Bounds_Blocker_E (parede x=292) movido p/ x=522 + blockers N/S.
+- Chão: Mat_GH_Ground/Valley (T_Concrete + tint verde) — continuo, carro atravessa.
+- Fill sob peças elevadas (nada paira); densificação guardada por GH_Densified.
+- Prova IN-GAME via ingame_proof.py: 7 waypoints, carro chega ao distrito.
+  Frames em evidence/ingame/. validate_scene --strict OK.
+- PENDENTE: leitura dos morros ainda fraca (rubble, nao colina); possivel
+  Plano B (remover distrito) se o dono preferir cidade limpa.

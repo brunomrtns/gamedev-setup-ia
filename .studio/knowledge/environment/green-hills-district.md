@@ -24,3 +24,30 @@
    anel interno de preenchimento ou platform_* como núcleo sólido.
 3. Windmill/árvores: escala presumida — verificar in-game se leem bem.
 4. Sem IA de tráfego nas vias novas (TrafficNetwork é grid-only).
+
+## v3.4 — REPARO (colisor fantasma + chão + fill)
+
+**LIÇÃO PERMANENTE:** verificação de mundo = teste IN-GAME dirigindo.
+Render de editor escondeu 3 falhas de fundação (blocker, chão, densidade).
+
+- COLISOR FANTASMA identificado: `Bounds_Blocker_E` — parede invisível em
+  x=292 (OBD_ROAD_END+8), 10m altura × 294m, layer IgnoreRaycast. Era o
+  bloqueio original da borda leste do grid 5×5, nunca movido na expansão.
+  → movido p/ x=522, z-span 420; novos Bounds_Blocker_GH_N/S (z=±165).
+- CHÃO: 3ª tentativa funcionou — T_Concrete (albedo claro) × tint verde.
+  grass.png lia preto no dusk; atlas NatureKit virava listras; Grass 2 virava
+  grade; asfalto escuro virou navy. Regra: quad grande de terreno exige
+  textura CLARA e tileável + tint.
+- FILL: peças elevadas (cliff/platform) ganharam pilares cliff_block abaixo —
+  relevo sólido, nada paira. Fill roda POR ÚLTIMO, depois da densificação.
+- Prova in-game: tools/qa/ingame_proof.py teleporta o carro na rota
+  avenida→OBD→rotatória→ponte→moinho e renderiza Camera.main p/ PNG.
+  Frames: evidence/ingame/INGAME_0*.png — carro atravessa tudo.
+
+## Ressalvas que ficam (honesto)
+- Morros ainda leem como aglomerado de rochas, não colina orgânica — o kit
+  de cliff é de blocos ~8m; relevo convincente precisaria de muito mais
+  densidade ou um terreno de verdade.
+- Aérea: rota de POIs parcialmente legível; trilhas curtas.
+- Tráfego IA fora das ruas novas (grid-only), PlayMode test discovery em
+  batch não detecta testes (prova via pipeline do editor vivo).

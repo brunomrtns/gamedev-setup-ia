@@ -2267,6 +2267,141 @@ namespace Studio.Editor
             Debug.Log("[GH] Green Hills construído: 2 morros + rio + ponte + moinho + caverna + fazenda + acampamento");
         }
 
+        /// <summary>v3.4 REPARO: (1) move Bounds_Blocker_E pro novo limite x=520
+        /// + blockers N/S do distrito; (2) chão de grama tileável contínuo;
+        /// (3) densifica morros/núcleo pra ler como relevo.</summary>
+        public static void RepairGreenHills()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            var rng = new System.Random(4242);
+            const string MOD = "Assets/Game/Prefabs/Modular";
+
+            // ---- 1. ACESSO: blocker leste era parede em x=292 → vai p/ x=520
+            var blockerE = GameObject.Find("Bounds_Blocker_E");
+            if (blockerE != null)
+            {
+                blockerE.transform.position = new Vector3(522f, 5f, 0f);
+                var bc = blockerE.GetComponent<BoxCollider>();
+                bc.size = new Vector3(1f, 10f, 420f); // cobre o distrito N-S
+                Debug.Log("[v3.4] Bounds_Blocker_E movido x292→522 (era o colisor fantasma)");
+            }
+            // blockers N/S cobrindo a faixa do distrito (x>270)
+            var envRoot = GameObject.Find("Environment") ?? GameObject.Find("GreenHills");
+            foreach (var (nm, z) in new[] { ("Bounds_Blocker_GH_N", 165f), ("Bounds_Blocker_GH_S", -165f) })
+            {
+                if (GameObject.Find(nm) != null) continue;
+                var b = new GameObject(nm) { layer = 2 };
+                b.transform.position = new Vector3(390f, 5f, z);
+                var col = b.AddComponent<BoxCollider>();
+                col.size = new Vector3(250f, 10f, 1f);
+            }
+
+            // ---- 2. CHÃO: asfalto tileável tingido (grass.png lia preto no dusk)
+            var groundTex = AssetDatabase.LoadAssetAtPath<Texture2D>(
+                "Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Concrete_Asphalt_BaseColor.png");
+            var lit = Shader.Find("Universal Render Pipeline/Lit");
+            var matGH = new Material(lit) { name = "Mat_GH_Ground" };
+            matGH.SetTexture("_BaseMap", groundTex);
+            matGH.SetColor("_BaseColor", new Color(0.55f, 0.72f, 0.38f)); // verde-terra claro
+            AssetDatabase.CreateAsset(matGH, $"{MAT_DIR}/Mat_GH_Ground.mat");
+            var matVale = new Material(lit) { name = "Mat_GH_Valley" };
+            matVale.SetTexture("_BaseMap", groundTex);
+            matVale.SetColor("_BaseColor", new Color(0.42f, 0.58f, 0.32f)); // vale mais escuro
+            AssetDatabase.CreateAsset(matVale, $"{MAT_DIR}/Mat_GH_Valley.mat");
+
+            var root = GameObject.Find("GreenHills") ?? new GameObject("GreenHills");
+            var old = root.transform.Find("GH_Ground");
+            if (old != null) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            var old2 = root.transform.Find("GH_GroundValley");
+            if (old2 != null) UnityEngine.Object.DestroyImmediate(old2.gameObject);
+            // base contínua: 2 quads gramados (leste claro / vale escuro)
+            var g1 = CreateRoadQuad("GH_Ground", 240f, 340f, matGH, 0.08f, root.transform);
+            g1.transform.position = new Vector3(390f, -0.05f, 0f);
+            var g2 = CreateRoadQuad("GH_GroundValley", 90f, 340f, matVale, 0.08f, root.transform);
+            g2.transform.position = new Vector3(352f, -0.03f, 0f); // vale do rio mais escuro
+
+            // ---- 3. DENSIFICA: núcleo sólido nos morros + scatter irregular
+            GameObject Put(string prefab, Vector3 pos, float yaw = 0f, bool collide = false)
+            {
+                var p = AssetDatabase.LoadAssetAtPath<GameObject>($"{MOD}/{prefab}.prefab");
+                if (p == null) return null;
+                var g = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                g.transform.SetPositionAndRotation(pos, Quaternion.Euler(0f, yaw, 0f));
+                g.transform.SetParent(root.transform);
+                if (collide) ColliderFitter.FitProp(g, prefab, root.transform);
+                return g;
+            }
+            bool already = root.transform.Find("GH_Densified") != null;
+            if (!already)
+                foreach (Transform c in root.transform)
+                    if (c.name == "GH_platform_high") { already = true; break; }
+            if (!already)
+            {
+            foreach (var hc in new[] { new Vector3(400f, 0f, 75f), new Vector3(400f, 0f, -75f) })
+            {
+                // núcleo sólido: platform_high empilhado (mata leitura de anel oco)
+                for (int lvl = 0; lvl < 3; lvl++)
+                    Put("platform_high", hc + new Vector3(0f, lvl * 4f, 0f), lvl * 30f, collide: lvl == 0);
+                // fill interno de cliff: anel médio mais denso
+                for (int s = 0; s < 16; s++)
+                {
+                    float a = s / 16f * 360f * Mathf.Deg2Rad;
+                    Put(s % 3 == 0 ? "cliff_blockHalf_rock" : "cliff_block_rock",
+                        hc + new Vector3(Mathf.Cos(a) * 22f, 0f, Mathf.Sin(a) * 22f),
+                        -a * Mathf.Rad2Deg + 90f, collide: true);
+                }
+                // scatter irregular no topo
+                string[] top = { "tree_pineTallA", "tree_oak", "rock_largeA", "stone_largeB",
+                                 "plant_bush", "grass_large", "stump_old" };
+                for (int i = 0; i < 15; i++)
+                {
+                    float a = rng.Next(360) * Mathf.Deg2Rad, r = rng.Next(6, 16);
+                    Put(top[rng.Next(top.Length)],
+                        hc + new Vector3(Mathf.Cos(a) * r, 12.6f, Mathf.Sin(a) * r), rng.Next(360));
+                }
+            }
+            // scatter irregular no vale/planície (não-grade)
+            string[] scatter = { "tree_default", "tree_small", "tree_fat", "plant_bushLarge",
+                "rock_largeA", "stone_largeC", "grass", "grass_large", "flower_redA",
+                "flower_yellowB", "mushroom_tan", "stump_round" };
+            for (int i = 0; i < 90; i++)
+            {
+                float x = 295f + rng.Next(200);
+                float z = -145f + rng.Next(290);
+                if (Mathf.Abs(z - 26f) < 12f) continue;   // mantém a estrada livre
+                if (Vector2.Distance(new Vector2(x, z), new Vector2(352f, z)) < 8f) continue; // rio
+                var s = scatter[rng.Next(scatter.Length)];
+                Put(s, new Vector3(x, 0f, z), rng.Next(360), collide: s.StartsWith("tree"));
+            }
+            new GameObject("GH_Densified").transform.SetParent(root.transform);
+            }
+
+            // POR ÚLTIMO: preenche embaixo de TODA peça elevada (cliff/platform) —
+            // inclui as que a densificação acabou de criar. Relevo sólido, nada paira.
+            var fillPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{MOD}/cliff_block_rock.prefab");
+            var floats = new List<Transform>();
+            foreach (Transform c in root.transform)
+            {
+                var nm = c.name.ToLowerInvariant();
+                if ((nm.Contains("cliff") || nm.Contains("platform")) && c.position.y > 0.5f)
+                    floats.Add(c);
+            }
+            int filled = 0;
+            foreach (var c in floats)
+                for (float y = 0f; y < c.position.y - 1f; y += 4f)
+                {
+                    var f = (GameObject)PrefabUtility.InstantiatePrefab(fillPrefab);
+                    f.transform.SetPositionAndRotation(
+                        new Vector3(c.position.x, y, c.position.z), c.rotation);
+                    f.transform.SetParent(root.transform);
+                    filled++;
+                }
+            Debug.Log($"[v3.4] fill sob peças elevadas: {filled} blocos");
+
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log("[v3.4] Reparo GH: acesso x522 + chão grama + morros densos");
+        }
+
         public static void FixGHGroundAndCapture()
         {
             BuildGreenHills();    // caminho de reparo (GreenHills já existe)
