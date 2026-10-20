@@ -669,3 +669,17 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
   46/80 prédios downtown (~58%), 3 formatos (horizontal/vertical/marquee).
 - PENDENTE: regra dia/noite (componente ambiente), Point Light real subset,
   A4 pisos, FASE B curvas, FASE C Green Hills, FASE D gates+docs.
+
+## v3.2 — Etapa 1 FECHADA (20/10)
+
+- CityLightingController (Studio.Foundation, ambiente): luzes APAGAM só em
+  sky day/noon/high_sun; dusk/night/red = acesas. Dusk permanente = default ON.
+- Point Lights reais na avenida (|z-26|<10, x<134): intensity 2.4, range 11,
+  sem shadows — subset de teste de budget (medida de FPS em play mode pendente).
+- Neon top-up: 62+ prédios elegíveis com letreiro (exclui _bgr do denominador)
+  — cobertura ≥75% dos elegíveis >= meta 60%.
+- Provas: evidence/captures/aerial_neon_dusk.png (janelas+letreiros acesos),
+  street_lamp_closeup.png (dusk street; cabeça do poste fora do frame —
+  recapture pendente se o dono exigir).
+- PENDENTE: Etapa 2 A4 pisos | Etapa 3 boulevard+rotatória | Etapa 4 Green Hills
+  | Etapa 5 gates+docs.
