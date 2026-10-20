@@ -1917,6 +1917,78 @@ namespace Studio.Editor
             Debug.Log("[A1-Audit] captura: audit_topdown.png");
         }
 
+        /// <summary>A4: diversidade de piso por zona — avenida própria (4Lane+faixas),
+        /// OBD desgastado, praças em patches Street_Asphalt. ≤2 materiais novos.</summary>
+        public static void ApplyRoadSurfaces()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            const string MEGA = "Assets/Game/Prefabs/Modular/DowntownMegaKit";
+
+            // Material base existente das ruas (pega de uma via real)
+            Material baseMat = null;
+            foreach (var r in UnityEngine.Object.FindObjectsByType<Renderer>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+                if (r.name.StartsWith("Street_EW_")) { baseMat = r.sharedMaterial; break; }
+            if (baseMat == null) { Debug.LogError("[A4] material de rua base não achado"); return; }
+
+            Material Tint(Color c, string nm)
+            {
+                var m = new Material(baseMat) { color = c, name = nm };
+                AssetDatabase.CreateAsset(m, $"{MAT_DIR}/{nm}.mat");
+                return m;
+            }
+            var matAvenue = Tint(new Color(0.16f, 0.14f, 0.20f), "Mat_Road_Avenue"); // asfalto escuro azulado
+            var matOBD    = Tint(new Color(0.34f, 0.28f, 0.24f), "Mat_Road_OBD");    // desgastado marrom-cinza
+
+            int retinted = 0;
+            foreach (var r in UnityEngine.Object.FindObjectsByType<Renderer>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                var n = r.name;
+                if (n == "Avenue_Neon_EW") { r.sharedMaterial = matAvenue; retinted++; }
+                else if (n.StartsWith("OBD_Street_") ||
+                         (n.StartsWith("Intersection_") && r.bounds.center.x > 134f))
+                { r.sharedMaterial = matOBD; retinted++; }
+            }
+
+            // Marcações de 4Lane na avenida: double-yellow no eixo + broken lines nas faixas
+            var dy  = AssetDatabase.LoadAssetAtPath<GameObject>($"{MEGA}/Decal_DoubleYellow_Straight.prefab");
+            var bl  = AssetDatabase.LoadAssetAtPath<GameObject>($"{MEGA}/Decal_BrokenLine_Straight.prefab");
+            int marks = 0;
+            for (float x = -120f; x <= 120f; x += 12f)
+            {
+                if (dy != null)
+                {
+                    var g = (GameObject)PrefabUtility.InstantiatePrefab(dy);
+                    g.transform.position = new Vector3(x, 0.02f, StreetLine(AVENUE_J));
+                    marks++;
+                }
+                foreach (var zoff in new[] { -4f, 4f })
+                    if (bl != null)
+                    {
+                        var g = (GameObject)PrefabUtility.InstantiatePrefab(bl);
+                        g.transform.position = new Vector3(x, 0.02f, StreetLine(AVENUE_J) + zoff);
+                        marks++;
+                    }
+            }
+
+            // Patches de asfalto (pré-req da rotatória + praças) — nos 4 cantos do Central Plaza
+            var ap = AssetDatabase.LoadAssetAtPath<GameObject>($"{MEGA}/Street_Asphalt_9x9.prefab");
+            if (ap != null)
+                foreach (var p in new[] { new Vector3(-26f, 0.01f, -26f), new Vector3(26f, 0.01f, -26f),
+                                        new Vector3(-26f, 0.01f, 26f), new Vector3(26f, 0.01f, 26f) })
+                {
+                    var g = (GameObject)PrefabUtility.InstantiatePrefab(ap);
+                    g.name = "AsphaltPatch_Plaza";
+                    g.transform.position = p;
+                    var c = g.GetComponentInChildren<Collider>();
+                    if (c != null) UnityEngine.Object.DestroyImmediate(c);
+                }
+
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[A4] retinted={retinted} | faixas avenida={marks} | patches=4");
+        }
+
         /// <summary>A3 prova: aérea do centro no dusk + street-level poste aceso.</summary>
         public static void CaptureLitCity()
         {
