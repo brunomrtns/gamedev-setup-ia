@@ -1685,6 +1685,58 @@ namespace Studio.Editor
             Debug.Log($"[A1-Audit] {fixed_}/{total} prédios corrigidos: {log}");
         }
 
+        /// <summary>A1 prova: render ortográfico topo com corredores de via em
+        /// overlay vermelho — qualquer prédio sobre via fica visível.</summary>
+        public static void CaptureAuditTopDown()
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
+                "Assets/Game/Scenes/NeonDistrict.unity");
+            var overlay = new GameObject("AuditOverlay");
+            var matRed = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+            matRed.color = new Color(1f, 0f, 0f, 0.45f);
+            matRed.SetFloat("_Surface", 1f); // transparent
+            matRed.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            matRed.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            for (int i = 0; i < LINES; i++)
+            {
+                float s = StreetLine(i);
+                float hw = (i == AVENUE_J ? AVENUE_W : STREET_W) * 0.5f + 3f;
+                var q1 = GameObject.CreatePrimitive(PrimitiveType.Cube); // E-W
+                q1.transform.SetParent(overlay.transform);
+                q1.transform.position = new Vector3(80f, 0.5f, s);
+                q1.transform.localScale = new Vector3(600f, 0.1f, hw * 2f);
+                q1.GetComponent<Renderer>().sharedMaterial = matRed;
+                var q2 = GameObject.CreatePrimitive(PrimitiveType.Cube); // N-S
+                q2.transform.SetParent(overlay.transform);
+                q2.transform.position = new Vector3(s, 0.5f, 0f);
+                q2.transform.localScale = new Vector3(hw * 2f, 0.1f, 600f);
+                q2.GetComponent<Renderer>().sharedMaterial = matRed;
+            }
+            foreach (var sx in new[] { OBD_XS0, OBD_XS1 })
+            {
+                var q = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                q.transform.SetParent(overlay.transform);
+                q.transform.position = new Vector3(sx, 0.5f, 0f);
+                q.transform.localScale = new Vector3(18f, 0.1f, 600f);
+                q.GetComponent<Renderer>().sharedMaterial = matRed;
+            }
+            var cam = new GameObject("AuditCam").AddComponent<Camera>();
+            cam.orthographic = true;
+            cam.orthographicSize = 230f;
+            cam.transform.position = new Vector3(80f, 300f, 0f);
+            cam.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            var rt = new RenderTexture(1280, 900, 24);
+            cam.targetTexture = rt;
+            for (int i = 0; i < 6; i++) cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(1280, 900, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, 1280, 900), 0, 0); tex.Apply();
+            File.WriteAllBytes("../evidence/captures/audit_topdown.png", tex.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(overlay);
+            UnityEngine.Object.DestroyImmediate(cam.gameObject);
+            Debug.Log("[A1-Audit] captura: audit_topdown.png");
+        }
+
         /// <summary>Anel de prédios _bgr (background) além do distrito — fecha o horizonte.</summary>
         private static void BuildSkylineRing(Transform parent, Material matFar)
         {
