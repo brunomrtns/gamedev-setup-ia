@@ -1620,7 +1620,7 @@ namespace Studio.Editor
                     !r.name.Contains("Building")) continue;
                 var arr = r.sharedMaterials;
                 bool touched = false;
-                bool litB = rng.Next(100) < 55;
+                bool litB = rng.Next(100) < 75; // v3: 70-80% prédios acesos
                 for (int i = 0; i < arr.Length; i++)
                 {
                     var n = arr[i] != null ? arr[i].name.ToLowerInvariant() : "";
@@ -1630,6 +1630,59 @@ namespace Studio.Editor
                 if (touched) { r.sharedMaterials = arr; if (litB) lit++; }
             }
             Debug.Log($"[ArtPass] janelas acesas: {lit} prédios ({total} slots)");
+        }
+
+        /// <summary>
+        /// A1 — auditoria de invasão de via: para cada prédio, AABB XZ vs
+        /// corredores (rua 12m + calçada 3m; avenida 16m + calçada). Invasor é
+        /// re-encaixado ao quarteirão (encolhe/descola da via).
+        /// </summary>
+        public static void AuditBuildingFootprints()
+        {
+            var scene = UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
+                "Assets/Game/Scenes/NeonDistrict.unity");
+            var roads = new System.Collections.Generic.List<(float lo, float hi, bool isX)>();
+            for (int i = 0; i < LINES; i++)
+            {
+                float s = StreetLine(i);
+                float hw = (i == AVENUE_J ? AVENUE_W : STREET_W) * 0.5f + 3f; // rua+calçada
+                roads.Add((s - hw, s + hw, false)); // faixa Z de rua E-W
+                roads.Add((s - hw, s + hw, true));  // faixa X de rua N-S
+            }
+            roads.Add((OBD_XS0 - 9f, OBD_XS0 + 9f, true));
+            roads.Add((OBD_XS1 - 9f, OBD_XS1 + 9f, true));
+
+            int fixed_ = 0, total = 0;
+            var log = new System.Text.StringBuilder();
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (!t.name.StartsWith("Bldg_") && !t.name.StartsWith("OBD_Bldg_")) continue;
+                var rs = t.GetComponentsInChildren<Renderer>(true);
+                if (rs.Length == 0) continue;
+                total++;
+                var b = rs[0].bounds;
+                foreach (var r in rs) b.Encapsulate(r.bounds);
+                bool invades = false;
+                foreach (var (lo, hi, isX) in roads)
+                {
+                    float mn = isX ? b.min.x : b.min.z, mx = isX ? b.max.x : b.max.z;
+                    if (mn < hi && mx > lo) { invades = true; break; }
+                }
+                if (!invades) continue;
+                // corrige: encolhe 8% e desloca pro centro do quarteirão mais próximo
+                t.localScale *= 0.92f;
+                float bx = Mathf.Round(t.position.x / PITCH) * PITCH;
+                float bz = Mathf.Round(t.position.z / PITCH) * PITCH;
+                var toCenter = new Vector3(bx, 0f, bz) - t.position;
+                toCenter.y = 0f;
+                if (toCenter.magnitude > 0.1f)
+                    t.position += toCenter.normalized * Mathf.Min(toCenter.magnitude * 0.15f, 4f);
+                fixed_++;
+                log.Append($"{t.name} ");
+            }
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[A1-Audit] {fixed_}/{total} prédios corrigidos: {log}");
         }
 
         /// <summary>Anel de prédios _bgr (background) além do distrito — fecha o horizonte.</summary>

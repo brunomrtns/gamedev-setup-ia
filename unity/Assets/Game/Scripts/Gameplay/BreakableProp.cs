@@ -12,8 +12,9 @@ namespace Studio.Gameplay
     [RequireComponent(typeof(Rigidbody))]
     public class BreakableProp : MonoBehaviour
     {
-        [SerializeField] private float _breakImpulse = 3000f;   // N·s (~2.2 m/s num carro de 1350kg)
-        [SerializeField] private float _debrisMass = 45f;
+        [SerializeField] private float _breakImpulse = 13000f;  // N·s — batidinha ≤30km/h NÃO arranca
+        [SerializeField] private float _debrisMass = 220f;      // poste metálico realista (150–300kg)
+        [SerializeField] private float _maxDebrisSpeed = 6f;    // teto: cai perto, nunca voa
         [SerializeField] private float _debrisLifetime = 25f;
 
         private bool _broken;
@@ -59,9 +60,13 @@ namespace Studio.Gameplay
             if (_rb == null) _rb = gameObject.AddComponent<Rigidbody>();
             _rb.mass = _debrisMass;
             _rb.isKinematic = false;
-            // impulso no ponto de contato + levante sutil → tombo com arco
-            _rb.AddForceAtPosition(pushDir * impulse * 0.4f + Vector3.up * impulse * 0.06f,
+            _rb.linearDamping = 0.4f;
+            _rb.angularDamping = 3.5f;
+            // impulso no ponto de contato (dosado p/ tombo) + teto de velocidade:
+            // batida forte = cai perto; batidinha nem chega aqui (limiar).
+            _rb.AddForceAtPosition(pushDir * impulse * 0.15f + Vector3.up * impulse * 0.02f,
                 contactPoint, ForceMode.Impulse);
+            _rb.linearVelocity = Vector3.ClampMagnitude(_rb.linearVelocity, _maxDebrisSpeed);
             Foundation.ProceduralAudioService.Instance?.PlayCollisionThud(1f);
             StartCoroutine(ExpireAfterLifetime());
         }
