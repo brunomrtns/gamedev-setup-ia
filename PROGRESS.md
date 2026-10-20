@@ -692,3 +692,11 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
   4 patches Street_Asphalt_9x9 nas interseções do Central Plaza.
 - Prova visual por zona: pendente captura dedicada (cobrir na matriz final).
 - PENDENTE: Etapa 3 boulevard+rotatória | Etapa 4 Green Hills | Etapa 5 gates.
+
+## v3.2 — Etapa 3 FECHADA (20/10)
+- BuildCurvedBoulevard: rotatória em (292,26) [anel Street_Curve_2Lane + pad
+  Asphalt_9x9], arco de 10x Street_2Lane tangenciais (R=55) rumo ao nordeste,
+  diagonal (284,78)->(300,40), decals de faixa/crosswalk/stop.
+- Tráfego IA: NÃO coberto — TrafficNetwork é grid-only, reescrita fora de escopo.
+  Via dirigível sem IA (report honesto exigido pela missão).
+- PENDENTE: Etapa 4 Green Hills | Etapa 5 gates+docs.
