@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 389599}
   - component: {fileID: 389598}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4212,7 +4212,7 @@ GameObject:
   - component: {fileID: 53446030}
   - component: {fileID: 53446029}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7620,7 +7620,7 @@ GameObject:
   - component: {fileID: 84398462}
   - component: {fileID: 84398461}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9181,7 +9181,7 @@ GameObject:
   - component: {fileID: 104582050}
   - component: {fileID: 104582049}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11818,7 +11818,7 @@ GameObject:
   - component: {fileID: 128544246}
   - component: {fileID: 128544245}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12208,7 +12208,7 @@ GameObject:
   - component: {fileID: 132877074}
   - component: {fileID: 132877073}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14569,7 +14569,7 @@ GameObject:
   - component: {fileID: 157417877}
   - component: {fileID: 157417876}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18934,7 +18934,7 @@ GameObject:
   - component: {fileID: 197617687}
   - component: {fileID: 197617686}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19967,7 +19967,7 @@ GameObject:
   - component: {fileID: 210522419}
   - component: {fileID: 210522418}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20057,7 +20057,7 @@ GameObject:
   - component: {fileID: 210961781}
   - component: {fileID: 210961780}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21483,7 +21483,7 @@ GameObject:
   - component: {fileID: 226317728}
   - component: {fileID: 226317727}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21636,7 +21636,7 @@ GameObject:
   - component: {fileID: 227423873}
   - component: {fileID: 227423872}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23980,7 +23980,7 @@ GameObject:
   - component: {fileID: 257491478}
   - component: {fileID: 257491477}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26682,7 +26682,7 @@ GameObject:
   - component: {fileID: 286812161}
   - component: {fileID: 286812160}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26835,7 +26835,7 @@ GameObject:
   - component: {fileID: 287848756}
   - component: {fileID: 287848755}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33964,7 +33964,7 @@ GameObject:
   - component: {fileID: 369363268}
   - component: {fileID: 369363267}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35156,7 +35156,7 @@ GameObject:
   - component: {fileID: 382843761}
   - component: {fileID: 382843760}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36415,7 +36415,7 @@ GameObject:
   - component: {fileID: 392154956}
   - component: {fileID: 392154955}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36505,7 +36505,7 @@ GameObject:
   - component: {fileID: 392680135}
   - component: {fileID: 392680134}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38494,7 +38494,7 @@ GameObject:
   - component: {fileID: 410214438}
   - component: {fileID: 410214437}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39827,7 +39827,7 @@ GameObject:
   - component: {fileID: 422437430}
   - component: {fileID: 422437429}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45972,7 +45972,7 @@ GameObject:
   - component: {fileID: 471550671}
   - component: {fileID: 471550670}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49552,7 +49552,7 @@ GameObject:
   - component: {fileID: 504958751}
   - component: {fileID: 504958750}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49881,7 +49881,7 @@ GameObject:
   - component: {fileID: 511330979}
   - component: {fileID: 511330978}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52078,7 +52078,7 @@ GameObject:
   - component: {fileID: 527581445}
   - component: {fileID: 527581444}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52856,7 +52856,7 @@ GameObject:
   - component: {fileID: 533627708}
   - component: {fileID: 533627707}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55699,7 +55699,7 @@ GameObject:
   - component: {fileID: 566974498}
   - component: {fileID: 566974497}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59826,7 +59826,7 @@ GameObject:
   - component: {fileID: 608395294}
   - component: {fileID: 608395293}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68784,7 +68784,7 @@ GameObject:
   - component: {fileID: 689982340}
   - component: {fileID: 689982339}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69982,7 +69982,7 @@ GameObject:
   - component: {fileID: 698727633}
   - component: {fileID: 698727632}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70509,7 +70509,7 @@ GameObject:
   - component: {fileID: 703311728}
   - component: {fileID: 703311727}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72473,7 +72473,7 @@ GameObject:
   - component: {fileID: 723667200}
   - component: {fileID: 723667199}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80515,7 +80515,7 @@ GameObject:
   - component: {fileID: 803396627}
   - component: {fileID: 803396626}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86456,7 +86456,7 @@ GameObject:
   - component: {fileID: 855388170}
   - component: {fileID: 855388169}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90865,7 +90865,7 @@ GameObject:
   - component: {fileID: 888347438}
   - component: {fileID: 888347437}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97123,7 +97123,7 @@ GameObject:
   - component: {fileID: 943938280}
   - component: {fileID: 943938279}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98017,7 +98017,7 @@ GameObject:
   - component: {fileID: 954510924}
   - component: {fileID: 954510923}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99759,7 +99759,7 @@ GameObject:
   - component: {fileID: 965195962}
   - component: {fileID: 965195961}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99997,7 +99997,7 @@ GameObject:
   - component: {fileID: 966930686}
   - component: {fileID: 966930685}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101332,7 +101332,7 @@ GameObject:
   - component: {fileID: 981402841}
   - component: {fileID: 981402840}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103046,7 +103046,7 @@ GameObject:
   - component: {fileID: 992773657}
   - component: {fileID: 992773656}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103777,7 +103777,7 @@ GameObject:
   - component: {fileID: 1001078160}
   - component: {fileID: 1001078159}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111989,7 +111989,7 @@ GameObject:
   - component: {fileID: 1088576610}
   - component: {fileID: 1088576609}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115495,7 +115495,7 @@ GameObject:
   - component: {fileID: 1134191197}
   - component: {fileID: 1134191196}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117369,7 +117369,7 @@ GameObject:
   - component: {fileID: 1151604471}
   - component: {fileID: 1151604470}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118206,7 +118206,7 @@ GameObject:
   - component: {fileID: 1160259184}
   - component: {fileID: 1160259183}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122705,7 +122705,7 @@ GameObject:
   - component: {fileID: 1215599315}
   - component: {fileID: 1215599314}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124175,7 +124175,7 @@ GameObject:
   - component: {fileID: 1235004291}
   - component: {fileID: 1235004290}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126973,7 +126973,7 @@ GameObject:
   - component: {fileID: 1267023916}
   - component: {fileID: 1267023915}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128690,7 +128690,7 @@ GameObject:
   - component: {fileID: 1286800455}
   - component: {fileID: 1286800454}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143437,7 +143437,7 @@ GameObject:
   - component: {fileID: 1410652027}
   - component: {fileID: 1410652026}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143897,7 +143897,7 @@ GameObject:
   - component: {fileID: 1414429492}
   - component: {fileID: 1414429491}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146318,7 +146318,7 @@ GameObject:
   - component: {fileID: 1442752990}
   - component: {fileID: 1442752989}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152827,7 +152827,7 @@ GameObject:
   - component: {fileID: 1508808672}
   - component: {fileID: 1508808671}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153077,7 +153077,7 @@ GameObject:
   - component: {fileID: 1509439342}
   - component: {fileID: 1509439341}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156302,7 +156302,7 @@ GameObject:
   - component: {fileID: 1538661495}
   - component: {fileID: 1538661494}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157039,7 +157039,7 @@ GameObject:
   - component: {fileID: 1543278578}
   - component: {fileID: 1543278577}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164901,7 +164901,7 @@ GameObject:
   - component: {fileID: 1621040579}
   - component: {fileID: 1621040578}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164991,7 +164991,7 @@ GameObject:
   - component: {fileID: 1622298265}
   - component: {fileID: 1622298264}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166056,7 +166056,7 @@ GameObject:
   - component: {fileID: 1630312683}
   - component: {fileID: 1630312682}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169758,7 +169758,7 @@ GameObject:
   - component: {fileID: 1669786350}
   - component: {fileID: 1669786349}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170777,7 +170777,7 @@ GameObject:
   - component: {fileID: 1684381581}
   - component: {fileID: 1684381580}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179110,7 +179110,7 @@ GameObject:
   - component: {fileID: 1777962502}
   - component: {fileID: 1777962501}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182152,7 +182152,7 @@ GameObject:
   - component: {fileID: 1800133981}
   - component: {fileID: 1800133980}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183112,7 +183112,7 @@ GameObject:
   - component: {fileID: 1813456010}
   - component: {fileID: 1813456009}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186846,7 +186846,7 @@ GameObject:
   - component: {fileID: 1856451608}
   - component: {fileID: 1856451607}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189480,7 +189480,7 @@ GameObject:
   - component: {fileID: 1884138268}
   - component: {fileID: 1884138267}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190018,7 +190018,7 @@ GameObject:
   - component: {fileID: 1889661903}
   - component: {fileID: 1889661902}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194113,7 +194113,7 @@ GameObject:
   - component: {fileID: 1939076579}
   - component: {fileID: 1939076578}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194866,7 +194866,7 @@ GameObject:
   - component: {fileID: 1942849429}
   - component: {fileID: 1942849428}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196567,7 +196567,7 @@ GameObject:
   - component: {fileID: 1955054902}
   - component: {fileID: 1955054901}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197318,7 +197318,7 @@ GameObject:
   - component: {fileID: 1965264066}
   - component: {fileID: 1965264065}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197408,7 +197408,7 @@ GameObject:
   - component: {fileID: 1965556940}
   - component: {fileID: 1965556939}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203540,7 +203540,7 @@ GameObject:
   - component: {fileID: 2019500354}
   - component: {fileID: 2019500353}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206614,7 +206614,7 @@ GameObject:
   - component: {fileID: 2045312513}
   - component: {fileID: 2045312512}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208217,7 +208217,7 @@ GameObject:
   - component: {fileID: 2060763799}
   - component: {fileID: 2060763798}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208719,7 +208719,7 @@ GameObject:
   - component: {fileID: 2068917603}
   - component: {fileID: 2068917602}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210367,7 +210367,7 @@ GameObject:
   - component: {fileID: 2091012861}
   - component: {fileID: 2091012860}
   m_Layer: 0
-  m_Name: LampGlow
+  m_Name: LampGlowGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213121,7 +213121,7 @@ GameObject:
   - component: {fileID: 2118062397}
   - component: {fileID: 2118062396}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214732,7 +214732,7 @@ GameObject:
   - component: {fileID: 2133537906}
   - component: {fileID: 2133537905}
   m_Layer: 0
-  m_Name: LightPool
+  m_Name: LightPoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

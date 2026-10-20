@@ -42,8 +42,9 @@ namespace Studio.Foundation
             foreach (var r in renderers)
             {
                 var n = r.name;
-                if (n != "LampGlow" && n != "LightPool" && !n.StartsWith("NeonSign") &&
-                    !n.Contains("Letter_") && !n.StartsWith("LitWin")) continue;
+                if (!n.StartsWith("LampGlow") && !n.StartsWith("LightPool") &&
+                    !n.StartsWith("NeonSign") && !n.Contains("Letter_") &&
+                    !n.StartsWith("LitWin")) continue;
                 r.enabled = want;
             }
 

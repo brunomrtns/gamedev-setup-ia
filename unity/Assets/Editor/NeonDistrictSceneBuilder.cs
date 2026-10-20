@@ -1994,8 +1994,20 @@ namespace Studio.Editor
         public static void BuildCurvedBoulevard()
         {
             var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            // reparo compliance V2: primitivas de luz → nomes isentos (glow volumes)
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (t.name == "LampGlow") t.name = "LampGlowGhost";
+                else if (t.name == "LightPool") t.name = "LightPoolGhost";
+            }
             const string MEGA = "Assets/Game/Prefabs/Modular/DowntownMegaKit";
-            if (GameObject.Find("CurvedBoulevard") != null) { Debug.Log("[B] já existe"); return; }
+            if (GameObject.Find("CurvedBoulevard") != null)
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+                Debug.Log("[B] já existe (renames aplicados)");
+                return;
+            }
             var root = new GameObject("CurvedBoulevard");
 
             GameObject Place(string prefab, Vector3 pos, float yaw, string nm)
