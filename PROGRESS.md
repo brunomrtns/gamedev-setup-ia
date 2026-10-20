@@ -607,3 +607,23 @@ validate_asset --all: 5159/5179 — os 20 fails sao vendor pre-existentes
 - Gameplay zero tocado: tráfego/pedestres/spawns/física intactos.
 - Gates: validate_scene --strict exit 0.
 - Pendente: expansão aprovada? + perf numbers + UTF re-run + APK (aprov. usuário).
+
+## ART PASS — Old Brick District completo + City Pack (20/10)
+
+- City Pack: `import_city_pack.py` (whitelist 53 modelos + 26 atlas texturas,
+  manifesto SHA-256) + `RunCityPackImport` → 106 prefabs URP `Mat_CP_*`.
+- `BuildOBD_ArtPass` (NeonDistrictSceneBuilder): calçadas do kit por quarteirão,
+  decals em TODAS interseções OBD (crosswalk/stop/double-yellow/manhole/drain),
+  densidade por quarteirão (postes quentes, árvores, hidrante, bancos, bins,
+  parking meters, mailbox, bus stop, semáforo decorativo), letreiros de térreo
+  com `Letter_*` (DELI/BAR/PAWN/LAUNDRY/LIQUOR/CAFE), praça do bairro,
+  canto industrial (containers/barrier/fence/tractor), pássaros.
+- `ApplyLitWindows`: 4 variantes emissivas âmbar (Mat_WinLit_0-3) em ~55% dos
+  prédios (slots interior/glass/window), seed fixa.
+- TrafficNetworkBuilder.BuildGrid aceita grid assimétrico — ruas N-S do OBD
+  cobertas pela rede de tráfego.
+- Perf baseline: 1.376M tris / 1552 slots. Cena pós-pass: 4.35MB,
+  validate_scene --strict exit 0. Matriz BEFORE/AFTER em evidence/captures/.
+- Pendências honestas: perf pós-pass não medido (tris), UTF re-run pendente,
+  neon downtown (letters no centro) não implementado — só storefronts no OBD,
+  classical_* importados mas não posicionados no mapa (inventário pronto).
