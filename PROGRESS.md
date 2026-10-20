@@ -661,3 +661,11 @@ luz decal + regra dia/noite (sol alto apaga) + neon Letter_A-Z ≥60% downtown
 (3 formatos). Métodos vivem em NeonDistrictSceneBuilder; pools: POLY_PROPS /
 POLY_LETTERS / MEGAKIT_PREFABS. Depois: A4 pisos → FASE B curvas → FASE C
 Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
+
+## v3.1 — Etapa 2 FECHADA (20/10)
+
+- ApplyCityLights: 40 postes com cabeça emissiva (âmbar OBD / neon pink-white-cyan
+  downtown por paleta) + poça de luz translúcida no chão; neon Letter_* em
+  46/80 prédios downtown (~58%), 3 formatos (horizontal/vertical/marquee).
+- PENDENTE: regra dia/noite (componente ambiente), Point Light real subset,
+  A4 pisos, FASE B curvas, FASE C Green Hills, FASE D gates+docs.
