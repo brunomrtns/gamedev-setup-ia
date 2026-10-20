@@ -184,11 +184,12 @@ namespace Studio.Gameplay
 
             // laneEdge[i,j,dir] — índice da aresta de faixa que vai do cruzamento
             // (i,j) ao próximo na direção. dir: 0=N(+Z),1=S(-Z),2=E(+X),3=W(-X).
-            int[,,,] laneEdge = new int[n, m, 4, 6]; // [i,j,dir,targetIndex]
+            int tMax = Mathf.Max(n, m); // assimétrico: alvo é índice do outro eixo
+            int[,,,] laneEdge = new int[n, m, 4, tMax]; // [i,j,dir,targetIndex]
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < m; j++)
                     for (int d = 0; d < 4; d++)
-                        for (int t = 0; t < 6; t++)
+                        for (int t = 0; t < tMax; t++)
                             laneEdge[i, j, d, t] = -1;
 
             var queue = new List<(int edge, int endI, int endJ, int heading)>();

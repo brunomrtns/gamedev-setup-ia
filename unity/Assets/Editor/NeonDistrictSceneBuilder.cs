@@ -913,6 +913,7 @@ namespace Studio.Editor
             blocksRoot.transform.SetParent(envRoot.transform);
             BuildBlocks(blocksRoot.transform);
             BuildOldBrickDistrict(envRoot.transform);
+            BuildOBD_ArtPass(envRoot.transform);
             BuildPlaza(blocksRoot.transform);
             BuildSkylineRing(blocksRoot.transform, matFar);
 
@@ -1424,6 +1425,213 @@ namespace Studio.Editor
             Debug.Log("[NeonDistrictSceneBuilder] Old Brick District construído");
         }
 
+        // ==================== ART PASS — Old Brick District ====================
+        private const string POLY_PROPS = "Assets/POLYGON city pack/Prefabs/Props";
+        private const string POLY_LETTERS = "Assets/POLYGON city pack/Prefabs/Letters";
+        private const string POLY_SIGNS = "Assets/POLYGON city pack/Prefabs/traffic signs";
+        private const string BIRDS_DIR = "Assets/Game/Resources/Art/Birds";
+        private const string CP_PREFABS = "Assets/Game/Prefabs/Modular/CityPack";
+
+        /// <summary>
+        /// ART PASS OBD: calçadas do kit por quarteirão, decals de via nas
+        /// interseções, densidade de props por quarteirão (luz quente de bairro
+        /// velho), letreiros de térreo, praça + canto industrial, janelas acesas.
+        /// </summary>
+        private static void BuildOBD_ArtPass(Transform parent)
+        {
+            var root = new GameObject("OBD_ArtPass");
+            root.transform.SetParent(parent);
+            var rng = new System.Random(4242);
+            GameObject Spawn(string dir, string name, Vector3 pos, float yaw)
+            {
+                var p = AssetDatabase.LoadAssetAtPath<GameObject>($"{dir}/{name}.prefab");
+                if (p == null) return null;
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                go.transform.SetParent(root.transform);
+                go.transform.position = pos;
+                go.transform.rotation = Quaternion.Euler(0f, yaw, 0f);
+                return go;
+            }
+
+            var cols = new[] { OBD_X0, OBD_X1 };   // 156, 208
+            var stX = new[] { OBD_XS0, OBD_XS1 };  // ruas N-S 182, 234
+
+            // ---- 2.2 Calçadas + decals + drains/manholes ----
+            foreach (var cx in cols) for (int bj = 0; bj < 5; bj++)
+            {
+                float cz = (bj - 2) * PITCH;
+                // calçada perímetro: linha de peças 3m nas 2 faces de rua
+                for (int k = -6; k <= 6; k++)
+                {
+                    Spawn(MEGAKIT_PREFABS, "Sidewalk_Straight_3m",
+                        new Vector3(cx + k * 3f, 0.03f, cz - 20f), 0f);
+                    Spawn(MEGAKIT_PREFABS, "Sidewalk_Straight_3m",
+                        new Vector3(cx + k * 3f, 0.03f, cz + 20f), 180f);
+                }
+            }
+            // decals nas interseções das ruas N-S novas × E-W
+            foreach (var sx in stX) for (int j = 0; j < LINES; j++)
+            {
+                float z = StreetLine(j);
+                Spawn(MEGAKIT_PREFABS, "Decal_Crosswalk", new Vector3(sx, 0.07f, z - STREET_HALF - 1.5f), 0f);
+                Spawn(MEGAKIT_PREFABS, "Decal_Crosswalk", new Vector3(sx, 0.07f, z + STREET_HALF + 1.5f), 180f);
+                Spawn(MEGAKIT_PREFABS, "Decal_Stop", new Vector3(sx - STREET_HALF - 2f, 0.07f, z - 3f), 90f);
+                Spawn(MEGAKIT_PREFABS, "Decal_DoubleYellow_Straight",
+                    new Vector3(sx, 0.07f, z + (j % 2 == 0 ? 26f : -26f) * 0.5f), 0f);
+                Spawn(MEGAKIT_PREFABS, "Prop_ManholeCover",
+                    new Vector3(sx + 3f, 0.07f, z + 4f), 0f);
+                Spawn(MEGAKIT_PREFABS, "Prop_Drain", new Vector3(sx - 5f, 0.07f, z - 5f), 0f);
+            }
+            // crosswalks nas E-W estendidas
+            for (int j = 0; j < LINES; j++)
+                foreach (var sx in stX)
+                    Spawn(MEGAKIT_PREFABS, "Decal_Crosswalk_Wide",
+                        new Vector3(sx - STREET_HALF - 2f, 0.07f, StreetLine(j)), 90f);
+
+            // ---- 2.3 Densidade por quarteirão ----
+            string[] lamps = { "lamp_pole_single_orange", "lamp_pole_single_white" };
+            string[] trees = { "tree_1", "tree_2", "tree_3" };
+            string[] signs = { "platt sign 1 prefab", "platt sign 2 prefab",
+                "platt sign 3 prefab", "platt sign 4 prefab", "platt sign 5 prefab" };
+            string[] storefronts = { "DELI", "BAR", "PAWN", "LAUNDRY", "LIQUOR", "CAFE" };
+
+            foreach (var cx in cols) for (int bj = 0; bj < 5; bj++)
+            {
+                float cz = (bj - 2) * PITCH;
+                int seed = Mathf.Abs((int)cx * 7919 ^ bj * 104729);
+
+                // postes luz quente: 2 por lado N/S
+                for (int side = -1; side <= 1; side += 2)
+                    for (int k = 0; k < 2; k++)
+                    {
+                        var go = Spawn(CITY_PREFABS, lamps[(seed + k) % 2],
+                            new Vector3(cx - 14f + k * 28f, 0f, cz + side * 18f),
+                            side > 0 ? 180f : 0f);
+                        if (go != null) ColliderFitter.FitProp(go, "lamp_pole", root.transform);
+                    }
+                // árvores 6-10 no perímetro
+                int nTree = 6 + seed % 5;
+                for (int k = 0; k < nTree; k++)
+                {
+                    float ang = k * (360f / nTree);
+                    var go = Spawn(CITY_PREFABS, trees[(seed + k) % trees.Length],
+                        new Vector3(cx + 17f * Mathf.Sin(ang * Mathf.Deg2Rad), 0f,
+                                    cz + 17f * Mathf.Cos(ang * Mathf.Deg2Rad)),
+                        (seed + k) * 47f % 360f);
+                }
+                // hidrante, bancos, bins, parking meter
+                var hyd = Spawn(POLY_PROPS, "Hydrant prefab",
+                    new Vector3(cx - 17f, 0f, cz - 17f), 0f);
+                if (hyd != null) ColliderFitter.FitProp(hyd, "hydrant", root.transform);
+                Spawn(POLY_PROPS, "Bench 2 prefab",
+                    new Vector3(cx + 15f, 0f, cz - 15f), 270f);
+                Spawn(POLY_PROPS, "Bin prefab",
+                    new Vector3(cx + 15.5f, 0f, cz - 13f), 0f);
+                Spawn(POLY_PROPS, "Big_trash_bin prefab",
+                    new Vector3(cx - 16f, 0f, cz + 15f), 0f);
+                Spawn(POLY_PROPS, "parking meter prefab",
+                    new Vector3(cx - 8f, 0f, cz - 18.5f), 0f);
+                Spawn(POLY_PROPS, "parking meter prefab",
+                    new Vector3(cx + 8f, 0f, cz - 18.5f), 0f);
+                if ((seed & 1) == 0)
+                    Spawn(POLY_PROPS, "Mail_box prefab",
+                        new Vector3(cx + 17f, 0f, cz + 10f), 270f);
+                if ((seed & 3) == 1)
+                    Spawn(POLY_PROPS, "Bus stop prefab",
+                        new Vector3(cx - 12f, 0f, cz - 18.5f), 0f);
+                // semáforo decorativo na esquina SE do quarteirão
+                var tl = Spawn(POLY_SIGNS, $"Traffic light {(seed % 4) + 1} Prefab",
+                    new Vector3(cx + 19f, 0f, cz + 19f), 180f);
+                if (tl != null) ColliderFitter.FitProp(tl, "traffic_light", root.transform);
+                // letreiro de loja no térreo virado p/ rua sul
+                var signWord = storefronts[seed % storefronts.Length];
+                float lx = cx - signWord.Length * 0.9f;
+                foreach (var ch in signWord)
+                {
+                    var l = Spawn(POLY_LETTERS, $"Letter_{ch}_Prefab",
+                        new Vector3(lx, 4.2f, cz - 20.2f), 180f);
+                    lx += 1.8f;
+                }
+            }
+
+            // ---- 2.4 Praça do bairro (quarteirão col 0, bj 2 — centro (156,0)) ----
+            var plazaCP = Spawn(CP_PREFABS, "floor_park", new Vector3(OBD_X0, 0.05f, 0f), 0f);
+            for (int k = 0; k < 6; k++)
+                Spawn(POLY_PROPS, "Bench 2 prefab",
+                    new Vector3(OBD_X0 - 12f + k * 5f, 0f, k % 2 == 0 ? -8f : 8f),
+                    k % 2 == 0 ? 0f : 180f);
+            for (int k = 0; k < 8; k++)
+            {
+                float ang = k * 45f * Mathf.Deg2Rad;
+                Spawn(CITY_PREFABS, trees[k % 3],
+                    new Vector3(OBD_X0 + 14f * Mathf.Sin(ang), 0f, 14f * Mathf.Cos(ang)),
+                    k * 60f);
+            }
+            if (Spawn(POLY_PROPS, "statue_obelisk", new Vector3(OBD_X0, 0f, 0f), 0f) == null)
+                Spawn(POLY_PROPS, "Pot_tree prefab", new Vector3(OBD_X0, 0f, 0f), 0f);
+
+            // ---- 2.4 Canto industrial (borda leste, quarteirão col 1 bj 4) ----
+            float ix = OBD_X1, iz = -104f;
+            string[] industrial = { "container_blue", "container_red", "container_green",
+                "container_white", "construction_barrier", "fence_a", "wall_industrial", "tractor" };
+            for (int k = 0; k < industrial.Length; k++)
+                Spawn(CP_PREFABS, industrial[k],
+                    new Vector3(ix - 12f + (k % 4) * 8f, 0f, iz + (k / 4) * 10f), (k * 37) % 360);
+
+            // ---- 2.5 Janelas acesas (matriz inteira: OBD + pilotos) ----
+            ApplyLitWindows();
+
+            // ---- Etapa 3: pássaros sobre praça + OBD ----
+            for (int k = 0; k < 3; k++)
+                Spawn(BIRDS_DIR, "01BirdPrefab",
+                    new Vector3(OBD_X0 - 10f + k * 10f, 15f + k * 3f, 10f), 0f);
+
+            Debug.Log("[NeonDistrictSceneBuilder] OBD Art Pass aplicado");
+        }
+
+        /// <summary>Janelas acesas: 4 variantes emissivas âmbar nos slots de
+        /// interior/vidro dos prédios do mapa inteiro (~50%, seed fixa).</summary>
+        private static void ApplyLitWindows()
+        {
+            var shader = Shader.Find("Universal Render Pipeline/Lit");
+            var variants = new Material[4];
+            var warm = new Color(1f, 0.85f, 0.63f); // #FFD9A0
+            for (int i = 0; i < 4; i++)
+            {
+                var path = $"{MAT_DIR}/Mat_WinLit_{i}.mat";
+                var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+                if (m == null)
+                {
+                    m = new Material(shader);
+                    var src = AssetDatabase.LoadAssetAtPath<Material>(
+                        $"Assets/Game/Materials/DowntownMegaKit/Mat_DT_lit_interior_{(i % 2) + 1}.mat");
+                    if (src != null) { m.CopyPropertiesFromMaterial(src); m.shader = shader; }
+                    m.EnableKeyword("_EMISSION");
+                    m.SetColor("_EmissionColor", warm * (0.6f + i * 0.5f));
+                    AssetDatabase.CreateAsset(m, path);
+                }
+                variants[i] = m;
+            }
+            int lit = 0, total = 0;
+            var rng = new System.Random(777);
+            foreach (var r in UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None))
+            {
+                if (!r.transform.root.name.Contains("Bldg") &&
+                    !r.name.Contains("Building")) continue;
+                var arr = r.sharedMaterials;
+                bool touched = false;
+                bool litB = rng.Next(100) < 55;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    var n = arr[i] != null ? arr[i].name.ToLowerInvariant() : "";
+                    if (n.Contains("interior") || n.Contains("glass") || n.Contains("window"))
+                    { total++; touched = true; if (litB) arr[i] = variants[rng.Next(4)]; }
+                }
+                if (touched) { r.sharedMaterials = arr; if (litB) lit++; }
+            }
+            Debug.Log($"[ArtPass] janelas acesas: {lit} prédios ({total} slots)");
+        }
+
         /// <summary>Anel de prédios _bgr (background) além do distrito — fecha o horizonte.</summary>
         private static void BuildSkylineRing(Transform parent, Material matFar)
         {
@@ -1636,12 +1844,12 @@ namespace Studio.Editor
 
         private static List<TrafficEdge> BuildTrafficEdges()
         {
-            // NOTA: rede de tráfego cobre só a cidade original (xs=zs=LINES).
-            // Estender p/ OBD (x=182,234) exige mudar BuildGrid p/ aceitar
-            // xs/zs assimétricos — gameplay code, pendente de aprovação.
-            var xs = new float[LINES];
+            // xs estendido ao leste p/ cobrir o Old Brick District (ruas N-S
+            // em 182/234) — BuildGrid agora aceita xs/zs assimétricos.
+            var xs = new float[LINES + 2];
             var zs = new float[LINES];
             for (int i = 0; i < LINES; i++) { xs[i] = StreetLine(i); zs[i] = StreetLine(i); }
+            xs[LINES] = OBD_XS0; xs[LINES + 1] = OBD_XS1;
             var edges = TrafficNetworkBuilder.BuildGrid(
                 xs, zs, STREET_HALF, LANE_OFF, AVENUE_J, AVENUE_HALF, AVENUE_LANE);
             Debug.Log($"[NeonDistrictSceneBuilder] Rede de tráfego: {edges.Count} arestas");

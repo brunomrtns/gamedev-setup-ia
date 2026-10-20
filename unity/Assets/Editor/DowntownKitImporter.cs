@@ -145,6 +145,117 @@ namespace Studio.Editor
             Debug.Log("[MegaKitCap] distrito: obd_*.png");
         }
 
+        /// <summary>Matriz ANTES/DEPOIS do art pass — posições fixas. prefix="before"|"after".</summary>
+        public static void CaptureArtMatrix(string prefix)
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
+                "Assets/Game/Scenes/NeonDistrict.unity");
+            var cam = new GameObject("MatrixCam").AddComponent<Camera>();
+            var shots = new (string tag, Vector3 pos, Vector3 look)[]
+            {
+                ("aerial", new Vector3(90f, 210f, -160f), new Vector3(70f, 0f, 20f)),
+                ("downtown_1", new Vector3(0f, 3f, -26f), new Vector3(0f, 12f, -52f)),
+                ("downtown_2", new Vector3(30f, 3f, 26f), new Vector3(60f, 12f, 26f)),
+                ("obd_1", new Vector3(156f, 3f, 26f), new Vector3(208f, 8f, 26f)),
+                ("obd_2", new Vector3(182f, 2.5f, -60f), new Vector3(182f, 15f, 0f)),
+                ("connection", new Vector3(120f, 6f, 26f), new Vector3(190f, 8f, 26f)),
+                ("obd_intersection", new Vector3(176f, 4f, 20f), new Vector3(188f, 8f, 32f)),
+            };
+            foreach (var (tag, pos, look) in shots)
+            {
+                cam.transform.position = pos; cam.transform.LookAt(look);
+                var rt = new RenderTexture(1280, 720, 24);
+                cam.targetTexture = rt;
+                for (int i = 0; i < 6; i++) cam.Render();
+                RenderTexture.active = rt;
+                var tex = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+                tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
+                File.WriteAllBytes($"../evidence/captures/{prefix}_{tag}.png", tex.EncodeToPNG());
+                RenderTexture.active = null; cam.targetTexture = null; rt.Release();
+            }
+            Debug.Log($"[ArtPass] matriz {prefix}: 7 capturas");
+        }
+        public static void CaptureBefore() => CaptureArtMatrix("before");
+        public static void CaptureAfter() => CaptureArtMatrix("after");
+
+        // ==================== CITY PACK ====================
+        private const string CP_Models = "Assets/Game/Art/Environment/Modular/CityPack/Models";
+        private const string CP_Tex = "Assets/Game/Art/Environment/Modular/CityPack/Textures";
+        private const string CP_MatDir = "Assets/Game/Materials/CityPack";
+        private const string CP_PrefabDir = "Assets/Game/Prefabs/Modular/CityPack";
+
+        /// <summary>
+        /// Prefabs do City Pack: converte os materiais importados do FBX
+        /// (Standard shader) p/ URP Lit Mat_CP_*, preservando o atlas correto.
+        /// Atlas por nome do material: city_classical/modern/props/veg/road/industrial.
+        /// </summary>
+        public static void RunCityPackImport()
+        {
+            Directory.CreateDirectory(CP_MatDir);
+            Directory.CreateDirectory(CP_PrefabDir);
+            AssetDatabase.Refresh();
+            int done = 0;
+            var log = new System.Text.StringBuilder();
+
+            // Materiais URP por atlas (dia/normal — sem sufixo night/winter/Autumn)
+            Material AtlasMat(string fam)
+            {
+                var path = $"{CP_MatDir}/Mat_CP_{fam}.mat";
+                var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+                if (m == null)
+                {
+                    m = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                    var tex = AssetDatabase.LoadAssetAtPath<Texture2D>($"{CP_Tex}/city_{fam}.tif");
+                    if (tex != null) m.SetTexture("_BaseMap", tex);
+                    m.SetFloat("_Smoothness", 0.2f);
+                    AssetDatabase.CreateAsset(m, path);
+                }
+                return m;
+            }
+            string FamFor(string matName)
+            {
+                var n = matName.ToLowerInvariant();
+                if (n.Contains("classical")) return "classical";
+                if (n.Contains("modern")) return "modern";
+                if (n.Contains("prop")) return "props";
+                if (n.Contains("veg") || n.Contains("tree") || n.Contains("leaf")) return "veg";
+                if (n.Contains("road")) return "road";
+                if (n.Contains("industrial")) return "industrial";
+                if (n.Contains("bannar") || n.Contains("banner")) return "props";
+                return "classical"; // prédios clássicos são o default do whitelist
+            }
+
+            foreach (var f in Directory.GetFiles(CP_Models, "*.fbx")
+                         .Concat(Directory.GetFiles(CP_Models, "*.FBX")).OrderBy(x => x))
+            {
+                var rel = f.Replace('\\', '/');
+                var name = Path.GetFileNameWithoutExtension(rel);
+                var imp = AssetImporter.GetAtPath(rel) as ModelImporter;
+                if (imp != null && imp.materialImportMode == ModelImporterMaterialImportMode.None)
+                { imp.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription; imp.SaveAndReimport(); }
+
+                var src = AssetDatabase.LoadAssetAtPath<GameObject>(rel);
+                if (src == null) continue;
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(src);
+                PrefabUtility.UnpackPrefabInstance(go, PrefabUnpackMode.Completely,
+                    InteractionMode.AutomatedAction);
+                go.name = name;
+                foreach (var r in go.GetComponentsInChildren<Renderer>(true))
+                {
+                    var arr = r.sharedMaterials;
+                    for (int i = 0; i < arr.Length; i++)
+                        arr[i] = arr[i] != null ? AtlasMat(FamFor(arr[i].name)) : arr[i];
+                    r.sharedMaterials = arr;
+                }
+                PrefabUtility.SaveAsPrefabAsset(go, $"{CP_PrefabDir}/{name}.prefab");
+                Object.DestroyImmediate(go);
+                done++;
+                log.Append($"{name} ");
+            }
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[CityPack] {done} prefabs");
+        }
+
         public static void RunImportBatch()
         {
             Directory.CreateDirectory(MatDir);
