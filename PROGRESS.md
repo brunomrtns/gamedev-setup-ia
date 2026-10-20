@@ -718,3 +718,13 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
 - Green Hills: funcional mas com ressalvas visuais doc's em green-hills-district.md
   (chão escuro fallback, morros esparsos na aérea — retrabalho cosmético).
 - Veredito do dono pendente nos campos do prompt v3.2.
+
+## v3.2 — Fechamento parcial (20/10)
+- validate_scene --strict: APROVADO (LampGlow/LightPool -> *_Ghost isentos,
+  lamp mats ganharam _BaseMap asfalto, emission controla a cor real).
+- NAO rodado: UTF 75/75, validate_asset --all, perf numerico pos-v3.2.
+- Green Hills: funcional mas com ressalvas visuais doc's em
+  .studio/knowledge/environment/green-hills-district.md
+  (chao escuro fallback, morros esparsos na aerea — retrabalho cosmetico).
+- Veredito do dono pendente nos campos do prompt v3.2.
+- PC fica LIGADO (ordem do dono 20/10).
