@@ -1685,6 +1685,140 @@ namespace Studio.Editor
             Debug.Log($"[A1-Audit] {fixed_}/{total} prédios corrigidos: {log}");
         }
 
+        /// <summary>
+        /// A3 — cidade acesa: cabeça emissiva + poça de luz em todos os postes
+        /// (âmbar OBD / branco-rosa downtown) + letreiros neon Letter_* em ≥60%
+        /// dos prédios do centro (horizontal/vertical/marquee).
+        /// </summary>
+        public static void ApplyCityLights()
+        {
+            var scene = UnityEditor.SceneManagement.EditorSceneManager.OpenScene(
+                "Assets/Game/Scenes/NeonDistrict.unity");
+            var shader = Shader.Find("Universal Render Pipeline/Lit");
+
+            Material LampMat(Color c, string nm)
+            {
+                var path = $"{MAT_DIR}/{nm}.mat";
+                var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+                if (m == null)
+                {
+                    m = new Material(shader);
+                    m.EnableKeyword("_EMISSION");
+                    m.SetColor("_EmissionColor", c * 2.2f);
+                    m.SetColor("_BaseColor", c * 0.15f);
+                    AssetDatabase.CreateAsset(m, path);
+                }
+                return m;
+            }
+            var amberLamp = LampMat(new Color(1f, 0.8f, 0.5f), "Mat_Lamp_Amber");
+            var neonPink = LampMat(new Color(1f, 0.2f, 0.7f), "Mat_Lamp_Pink");
+            var neonWhite = LampMat(new Color(0.9f, 0.95f, 1f), "Mat_Lamp_White");
+            var neonCyan = LampMat(new Color(0.2f, 0.9f, 1f), "Mat_Neon_Cyan");
+            var poolMat = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+            poolMat.color = new Color(1f, 0.75f, 0.4f, 0.18f);
+            poolMat.SetFloat("_Surface", 1f);
+            poolMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            poolMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+
+            int lampsDone = 0;
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                var n = t.name.ToLowerInvariant();
+                if (!n.Contains("lamp_pole") && !n.Contains("street_lamp") && !n.Contains("street lamp"))
+                    continue;
+                var rs = t.GetComponentsInChildren<Renderer>(true);
+                if (rs.Length == 0) continue;
+                var b = rs[0].bounds;
+                foreach (var r in rs) b.Encapsulate(r.bounds);
+                float topY = b.max.y;
+                float cx = b.center.x, cz = b.center.z;
+                bool obd = t.position.x > 134f;
+                var headMat = obd ? amberLamp
+                    : n.Contains("blue") ? neonCyan
+                    : n.Contains("pink") ? neonPink : neonWhite;
+                // cabeça emissiva no topo do poste
+                var head = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                head.name = "LampGlow";
+                head.transform.position = new Vector3(cx, topY - 0.15f, cz);
+                head.transform.localScale = Vector3.one * 0.55f;
+                head.GetComponent<Renderer>().sharedMaterial = headMat;
+                var col = head.GetComponent<Collider>();
+                if (col != null) UnityEngine.Object.DestroyImmediate(col);
+                head.transform.SetParent(t);
+                // poça de luz no chão
+                var pool = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                pool.name = "LightPool";
+                pool.transform.position = new Vector3(cx, 0.06f, cz);
+                pool.transform.localScale = new Vector3(6f, 0.015f, 6f);
+                pool.GetComponent<Renderer>().sharedMaterial = poolMat;
+                var col2 = pool.GetComponent<Collider>();
+                if (col2 != null) UnityEngine.Object.DestroyImmediate(col2);
+                pool.transform.SetParent(t);
+                lampsDone++;
+            }
+
+            // Neon do centro: words emissivos nos prédios downtown (x<134)
+            string[] words = { "MOTEL", "BAR", "CLUB", "HOTEL", "DINER", "PAWN",
+                               "LIQUOR", "DELI", "CASINO", "24H" };
+            var rng = new System.Random(909);
+            int signs = 0, bldgs = 0;
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (!t.name.StartsWith("Bldg_")) continue;
+                var rs = t.GetComponentsInChildren<Renderer>(true);
+                if (rs.Length == 0) continue;
+                var b = rs[0].bounds;
+                foreach (var r in rs) b.Encapsulate(r.bounds);
+                bldgs++;
+                if (rng.Next(100) >= 62) continue; // ≥60% dos prédios
+                var word = words[rng.Next(words.Length)];
+                int fmt = rng.Next(3); // 0=horizontal térreo, 1=vertical, 2=marquee
+                float y0 = fmt == 1 ? b.max.y * 0.35f : fmt == 2 ? 3.4f : 4.4f;
+                var mat = rng.Next(2) == 0 ? neonPink : neonCyan;
+                // face sul do prédio (voltada p/ rua)
+                float zFace = b.min.z - 0.3f;
+                if (fmt == 1) // vertical suspenso
+                {
+                    for (int k = 0; k < word.Length; k++)
+                    {
+                        var lp = AssetDatabase.LoadAssetAtPath<GameObject>(
+                            $"{POLY_LETTERS}/Letter_{word[k]}_Prefab.prefab");
+                        if (lp == null) break;
+                        var g = (GameObject)PrefabUtility.InstantiatePrefab(lp);
+                        g.transform.position = new Vector3(b.center.x, y0 + k * 1.9f, zFace);
+                        g.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                        g.transform.localScale = Vector3.one * 1.4f;
+                        foreach (var rr in g.GetComponentsInChildren<Renderer>())
+                            rr.sharedMaterial = mat;
+                        g.transform.SetParent(t);
+                    }
+                }
+                else // horizontal térreo / marquee
+                {
+                    float lx = b.center.x - word.Length * 0.7f;
+                    foreach (var ch in word)
+                    {
+                        var lp = AssetDatabase.LoadAssetAtPath<GameObject>(
+                            $"{POLY_LETTERS}/Letter_{ch}_Prefab.prefab");
+                        if (lp == null) break;
+                        var g = (GameObject)PrefabUtility.InstantiatePrefab(lp);
+                        g.transform.position = new Vector3(lx, y0, zFace);
+                        g.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                        g.transform.localScale = Vector3.one * 1.2f;
+                        foreach (var rr in g.GetComponentsInChildren<Renderer>())
+                            rr.sharedMaterial = mat;
+                        g.transform.SetParent(t);
+                        lx += 1.4f;
+                    }
+                }
+                signs++;
+            }
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[A3] postes acesos={lampsDone} | neon: {signs}/{bldgs} prédios");
+        }
+
         /// <summary>A1 prova: render ortográfico topo com corredores de via em
         /// overlay vermelho — qualquer prédio sobre via fica visível.</summary>
         public static void CaptureAuditTopDown()
