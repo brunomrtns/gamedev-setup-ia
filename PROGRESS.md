@@ -627,3 +627,24 @@ validate_asset --all: 5159/5179 — os 20 fails sao vendor pre-existentes
 - Pendências honestas: perf pós-pass não medido (tris), UTF re-run pendente,
   neon downtown (letters no centro) não implementado — só storefronts no OBD,
   classical_* importados mas não posicionados no mapa (inventário pronto).
+
+## MISSÃO v3.1 — ponto de continuação (20/10)
+
+**Feito na v3:** A2 postes calibrados (commit e7ab7528); A1 AuditBuildingFootprints()
+existe em NeonDistrictSceneBuilder + rodou; ApplyLitWindows 75%.
+**PENDENTE COM PROVA (ordem da missão):**
+1. Etapa 1 — prova visual A1: render ortográfico topo com corredores de via
+   destacados (zero invasão) + 3 street-level dos piores ex-invasores.
+2. Etapa 2 — A3 restante: cabeças de poste emissivas (âmbar OBD/branco-rosa
+   downtown) + poça de luz decal + regra dia/noite (sol alto apaga) + neon
+   Letter_A-Z em ≥60% prédios downtown (horizontal/vertical/marquee).
+3. Etapa 3 — A4: piso distinto por zona (avenida 4Lane / OBD kit / praças
+   Asphalt_6x6-9x9 + tint ≤3 mats).
+4. Etapa 4 — FASE B: boulevard curvo (Street_Curve_*) leste + rotatória +
+   diagonais; tráfego só se BuildGrid engolir sem reescrita.
+5. Etapa 5 — FASE C: Green Hills ao leste do OBD (cliff_* morros, ground_river*
+   rio, path_* trilhas, windmill landmark, crops/fence/tents, bosque por espécie,
+   cave+waterfall+camp POIs). Todos os assets já existem no projeto.
+6. Etapa 6 — perf antes/depois + UTF 75/75 + validators + matriz final + docs.
+
+**Veredito do dono sobre poste e invasão: PENDENTE (campos em branco no prompt).**
