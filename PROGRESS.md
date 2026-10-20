@@ -549,3 +549,11 @@ death hipsY=0.06 deitado), `wheels_steering_turn.png`, `birds_visible_sky.png`.
 Conhecimento: `.studio/knowledge/gameplay/{pedestrian-pipeline,ballistics-and-props}.md`.
 UTF EditMode em `evidence/test-reports/quat-editmode.xml`.
 
+
+## Integração PROMETEO — Física Fluida (19/10)
+
+- PROMETEO Car Controller (Asset Store, cache Mena) extraído p/ `unity/Assets/PROMETEO - Car Controller/` + `PROMETEO.asmdef` + ref em Gameplay/Editor asmdefs + .gitignore (vendor).
+- `PrometeoCarController` no PlayerCar: maxSpeed=140, accel=3, steerAngle=32, steerSpeed=0.5, driftMult=5. 4 WheelColliders (r=~0.32, susp 0.25m) nos mounts FL/FR/RL/RR + meshes visuais wireadas.
+- `useExternalInput` (novo) gateia o Update do vendor — `PlayerCarController` virou fachada: traduz Steer/Throttle/Brake/Drift do DriveInputAdapter p/ GoForward/TurnLeft/Handbrake (teclado + mobile + QA + rede).
+- Zero regressão visual: SportCar_Model + materiais URP intactos; ChaseCamera, VehicleDamageController, HP/PlayerHealth preservados.
+- Cena rebuildada (2.20MB) + validate --strict exit 0. UTF pendente re-run.

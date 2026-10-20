@@ -43,6 +43,133 @@ namespace Studio.Editor
         /// <summary>Ponto de entrada batch: -executeMethod Studio.Editor.QuaterniusPedPipeline.RunPipelineBatch</summary>
         public static void RunPipelineBatch() => RunPipeline();
 
+        // ==================================================================
+        // PEDESTRES VESTIDOS — modelos npc_csl (roupas originais) com clips
+        // UAL retargetados via Mecanim. Esqueleto unificado ASSADO EM DISCO
+        // (proibido rebind em runtime — isto é editor-time, uma vez só).
+        // ==================================================================
+
+        /// <summary>Batch entry: -executeMethod Studio.Editor.QuaterniusPedPipeline.BakeDressedBatch</summary>
+        public static void BakeDressedBatch() => BakeDressedPedestrians();
+
+        /// <summary>Verificação: renderiza um dressed prefab no clip Walk.</summary>
+        public static void CaptureDressedBatch()
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                PEDS + "/npc_csl_dressed_npc_csl_00_character_01f_01.prefab");
+            if (prefab == null) prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                PEDS + "/npc_csl_dressed_npc_csl_00_character_01m_01.prefab");
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            go.transform.position = Vector3.zero;
+            AnimationClip clip = null;
+            foreach (var a in AssetDatabase.LoadAllAssetsAtPath(
+                ANIMS + "/UAL1_Standard.fbx"))
+                if (a is AnimationClip c && c.name == "Walk_Loop") { clip = c; break; }
+            var light = new GameObject("L").AddComponent<Light>();
+            light.type = LightType.Directional;
+            light.intensity = 1.6f;
+            light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
+            RenderSettings.ambientLight = new Color(0.5f, 0.5f, 0.55f);
+            var cam = new GameObject("C").AddComponent<Camera>();
+            cam.transform.position = new Vector3(2.5f, 1.3f, 2.5f);
+            cam.transform.LookAt(new Vector3(0f, 0.9f, 0f));
+            AnimationMode.StartAnimationMode();
+            try { AnimationMode.SampleAnimationClip(go, clip, clip.length * 0.35f); }
+            finally { AnimationMode.StopAnimationMode(); }
+            var rt = new RenderTexture(900, 900, 24);
+            cam.targetTexture = rt;
+            for (int i = 0; i < 3; i++) cam.Render();
+            cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(900, 900, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, 900, 900), 0, 0); tex.Apply();
+            File.WriteAllBytes("../evidence/captures/dressed_verify.png", tex.EncodeToPNG());
+            Debug.Log("[Dressed] captura salva: dressed_verify.png");
+        }
+
+        public static void BakeDressedPedestrians()
+        {
+            // 1. FBX npc_csl → Humanoid + CreateFromThisModel (avatar válido)
+            const string pack = "Assets/npc_casual_set_00";
+            if (Directory.Exists(pack))
+                foreach (var f in Directory.GetFiles(pack, "*.fbx", SearchOption.AllDirectories))
+                {
+                    var p = f.Replace('\\', '/');
+                    var imp = AssetImporter.GetAtPath(p) as ModelImporter;
+                    if (imp == null) continue;
+                    imp.animationType = ModelImporterAnimationType.Human;
+                    imp.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
+                    imp.SaveAndReimport();
+                }
+            AssetDatabase.Refresh();
+
+            // 2. Para cada prefab npc_csl_* (originais com roupas): unificar
+            // SMRs no esqueleto do avatar e salvar como npc_csl_dressed_*
+            foreach (var path in Directory.GetFiles(PEDS, "npc_csl_*.prefab"))
+            {
+                var name = Path.GetFileNameWithoutExtension(path);
+                if (name.EndsWith("_baked") || name.StartsWith("npc_csl_dressed_"))
+                    continue;
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                if (prefab == null) continue;
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+                var anim = go.GetComponentInChildren<Animator>();
+                if (anim == null || !anim.isHuman)
+                {
+                    Debug.LogWarning($"[Dressed] {name}: sem avatar humanoid — pulando");
+                    Object.DestroyImmediate(go); continue;
+                }
+                // esqueleto dirigido pelo avatar = subárvore do Hips
+                var hips = anim.GetBoneTransform(HumanBodyBones.Hips);
+                Transform skel = hips;
+                while (skel != null && skel.parent != go.transform) skel = skel.parent;
+                var byName = new Dictionary<string, Transform>();
+                if (skel != null)
+                    foreach (var t in skel.GetComponentsInChildren<Transform>(true))
+                        byName[t.name] = t;
+                int remapped = 0;
+                foreach (var smr in go.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+                {
+                    var bones = smr.bones; bool changed = false;
+                    for (int i = 0; i < bones.Length; i++)
+                        if (bones[i] != null && byName.TryGetValue(bones[i].name, out var nb)
+                            && nb != bones[i]) { bones[i] = nb; changed = true; }
+                    if (changed) { smr.bones = bones; remapped++; }
+                    if (smr.rootBone != null && byName.TryGetValue(smr.rootBone.name, out var rb))
+                        smr.rootBone = rb;
+                    // CRÍTICO: recomputar bindposes — a matriz vértice→osso
+                    // deve casar com a pose ATUAL do esqueleto unificado,
+                    // senão a malha deforma ("tábua voando")
+                    var bp = smr.sharedMesh.bindposes;
+                    for (int i = 0; i < bones.Length && i < bp.Length; i++)
+                        if (bones[i] != null)
+                            bp[i] = bones[i].worldToLocalMatrix * smr.transform.localToWorldMatrix;
+                    var meshInst = Object.Instantiate(smr.sharedMesh);
+                    meshInst.bindposes = bp;
+                    smr.sharedMesh = meshInst;
+                }
+                // remove armatures duplicadas (sem renderers) que não sejam o skel
+                var kill = new List<Transform>();
+                foreach (Transform child in go.transform)
+                {
+                    if (child == skel) continue;
+                    if (child.GetComponentsInChildren<Renderer>(true).Length > 0) continue;
+                    bool hasHips = false;
+                    foreach (var t in child.GetComponentsInChildren<Transform>(true))
+                        if (t.name == hips?.name) { hasHips = true; break; }
+                    if (hasHips) kill.Add(child);
+                }
+                foreach (var k in kill) Object.DestroyImmediate(k.gameObject);
+                if (anim != null) anim.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                var outp = $"{PEDS}/npc_csl_dressed_{name}.prefab";
+                PrefabUtility.SaveAsPrefabAsset(go, outp);
+                Object.DestroyImmediate(go);
+                Debug.Log($"[Dressed] {name}: {remapped} SMRs unificadas → {Path.GetFileName(outp)}");
+            }
+            AssetDatabase.SaveAssets();
+            Debug.Log("[Dressed] bake concluído");
+        }
+
         // ------------------------------------------------------------------
         // 1. Modelos base: Humanoid + CreateFromThisModel
         // ------------------------------------------------------------------

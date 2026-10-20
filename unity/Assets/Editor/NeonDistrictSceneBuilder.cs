@@ -715,6 +715,20 @@ namespace Studio.Editor
             Debug.Log("[PedCap] capturas salvas em evidence/captures/ped_*.png");
         }
 
+        /// <summary>
+        /// Calibração completa PROMETEO+GTA na cena já construída: curvas de
+        /// atrito dos WheelCols + parâmetros do controller (idem ao builder).
+        /// </summary>
+        public static void TunePrometeoBatch()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH, OpenSceneMode.Single);
+            var prom = UnityEngine.Object.FindAnyObjectByType<PrometeoCarController>();
+            if (prom == null) { Debug.LogError("[Tune] PrometeoCarController não achado"); return; }
+            Studio.Gameplay.CarTunings.SuperCar.ApplyTo(prom);
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log("[Tune] PROMETEO calibrado: grip+brake+steer aplicados");
+        }
+
         /// <summary>Capturas do briefing: rodas viradas + pássaros visíveis.</summary>
         public static void CaptureWheelsAndBirdsBatch()
         {
@@ -1653,6 +1667,64 @@ namespace Studio.Editor
             ColliderFitter.FitVehicleCompound(wrapper, localB);
             foreach (var c in wrapper.GetComponentsInChildren<Collider>(true))
                 c.material = GetOrCreatePhysicsMaterial("Physic_Car");
+
+            // ── FÍSICA FLUIDA PROMETEO (WheelColliders + PrometeoCarController)
+            // Fachada: PlayerCarController só injeta input; PROMETEO dirige.
+            WheelCollider WheelCol(string name, Transform mount, bool front)
+            {
+                var go = new GameObject("WheelCol_" + name);
+                go.transform.SetParent(wrapper.transform, false);
+                // Z do collider DEVE alinhar ao forward do carro — o wrapper nasce
+                // rotacionado 90°, sem isso o carro "anda de lado"
+                go.transform.localRotation = Quaternion.identity;
+                go.transform.position = mount != null ? mount.position
+                    : wrapper.transform.position;
+                var wc = go.AddComponent<WheelCollider>();
+                wc.radius = wheelRadius;
+                wc.mass = 45f;
+                wc.suspensionDistance = 0.25f;
+                var spring = wc.suspensionSpring;
+                spring.spring = 32000f; spring.damper = 4200f;
+                wc.suspensionSpring = spring;
+                // Forward: tração/frenagem firme (stiffness 2.0 sustenta 1350kg)
+                var fw = wc.forwardFriction;
+                fw.extremumSlip = 0.4f; fw.extremumValue = 1.0f;
+                fw.asymptoteSlip = 0.8f; fw.asymptoteValue = 0.75f;
+                fw.stiffness = 2.0f;
+                wc.forwardFriction = fw;
+                // Sideways: mordida frontal (2.6) mata o deslize de sabão na
+                // entrada da curva; traseira (2.4) segura sem escorregar
+                var sw = wc.sidewaysFriction;
+                if (front)
+                {
+                    sw.extremumSlip = 0.25f; sw.extremumValue = 1.1f;
+                    sw.asymptoteSlip = 0.5f; sw.asymptoteValue = 0.85f;
+                    sw.stiffness = 2.6f;
+                }
+                else
+                {
+                    sw.extremumSlip = 0.28f; sw.extremumValue = 1.05f;
+                    sw.asymptoteSlip = 0.55f; sw.asymptoteValue = 0.80f;
+                    sw.stiffness = 2.4f;
+                }
+                wc.sidewaysFriction = sw;
+                return wc;
+            }
+            var prom = wrapper.AddComponent<PrometeoCarController>();
+            Studio.Gameplay.CarTunings.SuperCar.ApplyTo(prom); // spec do carro
+            prom.bodyMassCenter = new Vector3(0f, -0.35f, 0f);
+            prom.useExternalInput = true;   // input via DriveInputAdapter→fachada
+            prom.useEffects = false;
+            prom.useUI = false;
+            prom.useSounds = false;
+            prom.frontLeftMesh = fl != null ? fl.gameObject : null;
+            prom.frontRightMesh = fr != null ? fr.gameObject : null;
+            prom.rearLeftMesh = rl != null ? rl.gameObject : null;
+            prom.rearRightMesh = rr != null ? rr.gameObject : null;
+            prom.frontLeftCollider = WheelCol("FL", fl, true);
+            prom.frontRightCollider = WheelCol("FR", fr, true);
+            prom.rearLeftCollider = WheelCol("RL", rl, false);
+            prom.rearRightCollider = WheelCol("RR", rr, false);
 
             var carSo = new SerializedObject(car);
             var wr = carSo.FindProperty("_wheelRadius");

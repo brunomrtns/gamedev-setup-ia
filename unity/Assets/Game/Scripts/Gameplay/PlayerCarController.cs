@@ -63,9 +63,12 @@ namespace Studio.Gameplay
         public float SpeedNorm => Mathf.Clamp01(Mathf.Abs(_forwardSpeed) / _maxSpeed);
         public bool IsDrifting { get; private set; }
 
+        private PrometeoCarController _prometeo; // física fluida quando presente
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+            _prometeo = GetComponent<PrometeoCarController>();
             // Idempotente: sem ResetCenterOfMass o += acumulava a cada Awake
             // (sessões sem reload de domínio) e o carro virava pião
             _rb.ResetCenterOfMass();
@@ -146,6 +149,23 @@ namespace Studio.Gameplay
                     $"com={_rb.centerOfMass} thr={throttle:F2} steer={steer:F2} fwd={_forwardSpeed:F2} " +
                     $"vel={_rb.linearVelocity} net={UseNetInput} scale={Time.timeScale}");
 
+            // ── Física PROMETEO: esta classe vira fachada de input/telemetria.
+            // WheelColliders + PrometeoCarController dirigem; aqui só injetamos
+            // os canais e expomos SpeedNorm/IsDrifting p/ HUD, QA e pedestres.
+            if (_prometeo != null)
+            {
+                DrivePrometeo(steer, throttle, brake, drift);
+                var pv = _rb.linearVelocity;
+                _forwardSpeed = Vector3.Dot(
+                    new Vector3(pv.x, 0f, pv.z), transform.forward);
+                IsDrifting = _prometeo.isDrifting;
+                PrometeoStabilityAssist(steer, Time.fixedDeltaTime);
+                UpdateBodyRoll(steer, 0f, Time.fixedDeltaTime);
+                UpdateSkidTrails();
+                UpdateAudio(throttle);
+                return;
+            }
+
             float dt = Time.fixedDeltaTime;
             Vector3 vel = _rb.linearVelocity;
             Vector3 fwd = transform.forward;
@@ -190,6 +210,59 @@ namespace Studio.Gameplay
             UpdateBodyRoll(steer, yawRate, dt);
             UpdateSkidTrails();
             UpdateAudio(throttle);
+        }
+
+        /// <summary>
+        /// Ponte de input → PROMETEO (digital): throttle vira GoForward/GoReverse,
+        /// steer vira TurnLeft/Right + ResetSteeringAngle, drift vira Handbrake.
+        /// A rampa interna do PROMETEO (steeringSpeed) faz a suavização.
+        /// </summary>
+        private void DrivePrometeo(float steer, float throttle, float brake, bool drift)
+        {
+            if (throttle > 0.15f) _prometeo.GoForward();
+            else if (brake > 0.15f) _prometeo.GoReverse();
+            else _prometeo.ThrottleOff();
+
+            if (steer < -0.15f) _prometeo.TurnLeft();
+            else if (steer > 0.15f) _prometeo.TurnRight();
+            else _prometeo.ResetSteeringAngle();
+
+            if (drift) _prometeo.Handbrake(); else _prometeo.RecoverTraction();
+        }
+
+        /// <summary>
+        /// Tempero GTA por cima da física WheelCollider:
+        /// 1) Downforce progressivo — prende os pneus no asfalto em alta.
+        /// 2) Anti-slide lateral — corta o deslize de sabão preservando a
+        ///    velocidade frontal (desligado durante Handbrake/Space).
+        /// 3) Turn-in assist — yaw auxiliar pro nariz apontar na curva.
+        /// </summary>
+        private void PrometeoStabilityAssist(float steer, float dt)
+        {
+            float speedMs = _rb.linearVelocity.magnitude;
+            // 1) Downforce aerodinâmico: força vertical ~35 N por m/s
+            _rb.AddForce(-transform.up * (speedMs * 35f), ForceMode.Force);
+            // 2) Amortecimento de velocidade lateral (só SEM freio de mão).
+            //    Em manobra lenta (<8 m/s) o amortecimento afrouxa — ré+curva
+            //    precisa de deslize livre pra não travar.
+            var inp = DriveInputAdapter.Instance;
+            bool handbraking = UseNetInput ? NetDrift : (inp != null && inp.DriftHeld);
+            var localVel = transform.InverseTransformDirection(_rb.linearVelocity);
+            if (!handbraking)
+            {
+                float damp = speedMs < 8f ? 3f : 6.5f; // manobra = solto
+                localVel.x = Mathf.Lerp(localVel.x, 0f, dt * damp);
+            }
+            _rb.linearVelocity = transform.TransformDirection(localVel);
+            // 3) Turn-in assist: yaw proporcional ao steer; segue o SINAL da
+            //    velocidade (em ré a guinada inverte — manobra natural)
+            if (speedMs > 1.5f && Mathf.Abs(steer) > 0.05f)
+            {
+                float dir = Mathf.Sign(localVel.z == 0f ? 1f : localVel.z);
+                float assist = steer * dir * Mathf.Clamp01(10f / speedMs) * 40f;
+                _rb.MoveRotation(_rb.rotation *
+                    Quaternion.Euler(0f, assist * dt, 0f));
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
