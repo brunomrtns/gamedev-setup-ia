@@ -2062,6 +2062,222 @@ namespace Studio.Editor
             Debug.Log($"[B] boulevard: arco={n} segs + rotatória + diagonal — sem IA (grid-only)");
         }
 
+        /// <summary>FASE C: Green Hills District — leste do OBD (x>284).
+        /// Relevo empilhado (sem heightmap), rio serpenteante, 3 POIs legíveis.
+        /// SÓ assets de Assets/Game/Prefabs/Modular + Resources/Art/Birds.</summary>
+        public static void BuildGreenHills()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            var existing = GameObject.Find("GreenHills");
+            if (existing != null)
+            {
+                // reparo: chão escuro (Grass 2 tileado virou grade; far ground é sólido)
+                var grassFix = AssetDatabase.LoadAssetAtPath<Material>(
+                    "Assets/Game/Materials/NeonDistrict/Mat_ND_GroundFar.mat");
+                var gquad = existing.transform.Find("GH_Ground");
+                if (gquad != null && grassFix != null)
+                {
+                    gquad.GetComponent<Renderer>().sharedMaterial = grassFix;
+                    var mf = gquad.GetComponent<MeshFilter>();
+                    if (mf != null && mf.sharedMesh != null)
+                    {   // retile UV pra densidade de grama melhor
+                        var uv = mf.sharedMesh.uv;
+                        for (int i = 0; i < uv.Length; i++) uv[i] *= 4f;
+                        var m2 = new Mesh { vertices = mf.sharedMesh.vertices, uv = uv,
+                            normals = mf.sharedMesh.normals, triangles = mf.sharedMesh.triangles };
+                        mf.sharedMesh = m2;
+                    }
+                    UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+                    Debug.Log("[GH] chão corrigido: Grass 2 tileável");
+                }
+                return;
+            }
+            var root = new GameObject("GreenHills");
+            var rng = new System.Random(731);
+            const string MOD = "Assets/Game/Prefabs/Modular";
+
+            GameObject Put(string prefab, Vector3 pos, float yaw = 0f, string nm = null,
+                           bool collide = false)
+            {
+                var p = AssetDatabase.LoadAssetAtPath<GameObject>($"{MOD}/{prefab}.prefab")
+                     ?? AssetDatabase.LoadAssetAtPath<GameObject>($"{MOD}/CityPack/{prefab}.prefab");
+                if (p == null) { Debug.LogWarning($"[GH] não tenho {prefab}"); return null; }
+                var g = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                g.name = nm ?? $"GH_{prefab}";
+                g.transform.SetPositionAndRotation(pos, Quaternion.Euler(0f, yaw, 0f));
+                g.transform.SetParent(root.transform);
+                if (collide) ColliderFitter.FitProp(g, prefab, root.transform);
+                return g;
+            }
+
+            // ===== C1 Cinturão de transição (x 288–318) =====
+            for (float z = -80f; z <= 80f; z += 8f)
+                Put("fence_a", new Vector3(288f, 0f, z), 90f, collide: true);
+            for (int i = 0; i < 10; i++)
+                Put(i % 2 == 0 ? "tree_small" : "tree_thin",
+                    new Vector3(292f + rng.Next(24), 0f, -90f + rng.Next(180)),
+                    rng.Next(360), collide: true);
+            for (int k = 0; k < 6; k++) // trilha de terra saindo da cidade
+                Put("crops_dirtRow", new Vector3(296f + k * 5f, 0f, 30f + k * 2f), 20f);
+
+            // ===== C2 Morros em degraus (peças empilhadas) =====
+            void Hill(Vector3 center, float baseR)
+            {
+                for (int ring = 0; ring < 3; ring++)
+                {
+                    float r = baseR - ring * 12f;
+                    float y = ring * 4.2f;
+                    int segs = 14 - ring * 3;
+                    for (int s = 0; s < segs; s++)
+                    {
+                        float a = s / (float)segs * 360f;
+                        var rad = a * Mathf.Deg2Rad;
+                        string piece = ring == 2 ? "cliff_top_rock"
+                            : s % 4 == 0 ? "cliff_blockSlope_rock" : "cliff_block_rock";
+                        Put(piece, center + new Vector3(Mathf.Cos(rad) * r, y, Mathf.Sin(rad) * r),
+                            -a + 90f, collide: true);
+                    }
+                }
+                Put("platform_grass", center + Vector3.up * 12.6f);
+            }
+            var hillN = new Vector3(400f, 0f, 75f);
+            var hillS = new Vector3(400f, 0f, -75f);
+            Hill(hillN, 42f); Hill(hillS, 42f);
+            // rochas decorativas nas encostas
+            for (int i = 0; i < 14; i++)
+            {
+                var hc = i % 2 == 0 ? hillN : hillS;
+                float a = rng.Next(360) * Mathf.Deg2Rad;
+                Put(i % 3 == 0 ? "stone_largeA" : "rock_largeA",
+                    hc + new Vector3(Mathf.Cos(a) * (30f + rng.Next(18)), 0.5f, Mathf.Sin(a) * (30f + rng.Next(18))),
+                    rng.Next(360));
+            }
+
+            // ===== C3 Rio serpenteante no vale (x≈352) + cachoeira + ponte =====
+            for (int k = 0; k < 12; k++)
+            {
+                float z = 105f - k * 19f;
+                float x = 352f + Mathf.Sin(k * 0.9f) * 14f; // serpentina
+                string piece = k % 5 == 4 ? "ground_riverBend" : "ground_riverStraight";
+                Put(piece, new Vector3(x, 0f, z), k % 5 == 4 ? 45f : 0f, $"GH_River_{k}");
+                if (k % 4 == 1)
+                    Put("ground_riverRocks", new Vector3(x + 3f, 0f, z - 5f), rng.Next(360));
+            }
+            // cachoeira descendo do morro norte pro rio
+            Put("cliff_waterfall_rock", hillN + new Vector3(-14f, 4f, -30f), 200f, "GH_Waterfall");
+            Put("cliff_waterfallTop_rock", hillN + new Vector3(-14f, 9f, -33f), 200f, "GH_WaterfallTop");
+            Put("platform_beach", new Vector3(345f, 0f, 6f), 0f, "GH_Beach");
+            // ponte de pedra na linha da avenida prolongada (z=26)
+            Put("bridge_stone", new Vector3(352f, 0.2f, 26f), 90f, "GH_Bridge", collide: true);
+
+            // Estrada do boulevard até a ponte (z=26, x 300→345)
+            const string MEGA = "Assets/Game/Prefabs/Modular/DowntownMegaKit";
+            for (float x = 300f; x <= 344f; x += 9f)
+            {
+                var p = AssetDatabase.LoadAssetAtPath<GameObject>($"{MEGA}/Street_2Lane.prefab");
+                if (p == null) break;
+                var g = (GameObject)PrefabUtility.InstantiatePrefab(p);
+                g.name = "GH_Road";
+                g.transform.SetPositionAndRotation(new Vector3(x, 0.01f, 26f),
+                    Quaternion.Euler(0f, 90f, 0f));
+                g.transform.SetParent(root.transform);
+            }
+
+            // ===== C4 Vida rural + POIs =====
+            Put("windmill", hillN + new Vector3(0f, 13f, 0f), 0f, "GH_Windmill", collide: true); // POI 3
+            Put("cliff_cave_rock", hillS + new Vector3(-30f, 0f, 6f), 270f, "GH_Cave", collide: true); // POI 1
+            // acampamento perto da caverna
+            Put("campfire_stones", new Vector3(362f, 0f, -48f), 0f, "GH_Camp");
+            Put("campfire_logs", new Vector3(362f, 0f, -48f));
+            Put("tentClosed", new Vector3(367f, 0f, -51f), 200f, collide: true);
+            // fazendinha
+            for (int r = 0; r < 3; r++)
+                for (int cx = 0; cx < 4; cx++)
+                    Put("crops_dirtRow", new Vector3(322f + cx * 5f, 0f, -18f + r * 6f), 0f);
+            for (int f = 0; f < 6; f++) Put("fence_a", new Vector3(318f + f * 5f, 0f, -24f), 0f, collide: true);
+            Put("stall-green", new Vector3(330f, 0f, -10f), 180f, collide: true);
+            Put("tent", new Vector3(318f, 0f, -10f), 150f, collide: true);
+            // trilhas ligando POIs
+            for (int k = 0; k < 8; k++) // ponte -> moinho (sobe o morro)
+                Put("path_stone", new Vector3(358f + k * 5f, 0.05f + k * 1.5f, 33f + k * 5f), 45f);
+            for (int k = 0; k < 6; k++) // acampamento -> praia
+                Put("path_wood", new Vector3(360f - k * 3f, 0.05f, -44f + k * 9f), 160f);
+
+            // ===== Bosques por espécie/área =====
+            string[] pines = { "tree_pineTallA", "tree_pineTallB", "tree_pineRoundA", "tree_pineDefaultA" };
+            for (int i = 0; i < 20; i++) // pinheiros na encosta norte
+            {
+                float a = rng.Next(360) * Mathf.Deg2Rad;
+                Put(pines[rng.Next(pines.Length)],
+                    hillN + new Vector3(Mathf.Cos(a) * (18f + rng.Next(24)), 0f, Mathf.Sin(a) * (18f + rng.Next(24))),
+                    rng.Next(360), collide: true);
+            }
+            string[] oaks = { "tree_oak", "tree_detailed", "tree_default", "tree_fat" };
+            for (int i = 0; i < 18; i++) // carvalhos no vale
+                Put(oaks[rng.Next(oaks.Length)],
+                    new Vector3(330f + rng.Next(50), 0f, -95f + rng.Next(35)),
+                    rng.Next(360), collide: true);
+            string[] fall = { "tree_default_fall", "tree_oak_fall", "tree_tall_fall" };
+            for (int i = 0; i < 8; i++) // acentos fall/dark no sul
+                Put(fall[rng.Next(fall.Length)],
+                    hillS + new Vector3(rng.Next(-40, 40), 0f, rng.Next(-45, -15)),
+                    rng.Next(360), collide: true);
+            // chão de bosque: tocos, troncos, cogumelos, arbustos, flores
+            string[] ground = { "stump_old", "stump_round", "log_large", "mushroom_redGroup",
+                "mushroom_tanGroup", "plant_bush", "plant_bushLarge" };
+            for (int i = 0; i < 24; i++)
+                Put(ground[rng.Next(ground.Length)],
+                    new Vector3(320f + rng.Next(140), 0f, -100f + rng.Next(200)), rng.Next(360));
+            string[] flowers = { "flower_redA", "flower_yellowB", "flower_purpleC" };
+            for (int i = 0; i < 14; i++)
+                Put(flowers[rng.Next(flowers.Length)],
+                    new Vector3(300f + rng.Next(60), 0f, -80f + rng.Next(160)), rng.Next(360));
+
+            // pássaros sobrevoando
+            var birds = AssetDatabase.LoadAssetAtPath<GameObject>(
+                "Assets/Game/Resources/Art/Birds/03BirdsPrefab.prefab");
+            if (birds != null)
+                foreach (var bp in new[] { new Vector3(370f, 25f, 60f), new Vector3(400f, 30f, -40f),
+                                           new Vector3(350f, 20f, 0f) })
+                {
+                    var b = (GameObject)PrefabUtility.InstantiatePrefab(birds);
+                    b.name = "GH_Birds"; b.transform.position = bp; b.transform.SetParent(root.transform);
+                }
+
+            // chão do distrito: quad com grama tileável do City Pack
+            // (Mat_Kit_NatureKit é atlas — esticaria em listras num quad 240m)
+            var grassMat = AssetDatabase.LoadAssetAtPath<Material>(
+                "Assets/POLYGON city pack/Materials/Material_meshs/Grass 2.mat");
+            var gh = CreateRoadQuad("GH_Ground", 240f, 320f, grassMat, 0.25f, root.transform);
+            gh.transform.position = new Vector3(390f, -0.1f, 0f);
+
+            UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);
+            Debug.Log("[GH] Green Hills construído: 2 morros + rio + ponte + moinho + caverna + fazenda + acampamento");
+        }
+
+        public static void FixGHGroundAndCapture()
+        {
+            BuildGreenHills();    // caminho de reparo (GreenHills já existe)
+            CaptureGreenHills();
+        }
+
+        /// <summary>FASE C provas: aérea com Green Hills, rio+cachoeira, caverna, moinho, boulevard.</summary>
+        public static void CaptureGreenHills()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            Shot(new Vector3(390f, 200f, -40f), Quaternion.Euler(60f, 0f, 0f),
+                 "../evidence/captures/greenhills_aerial.png");
+            Shot(new Vector3(330f, 12f, 15f), Quaternion.Euler(15f, 60f, 0f),
+                 "../evidence/captures/river_waterfall.png");
+            Shot(new Vector3(352f, 4f, -40f), Quaternion.Euler(5f, 130f, 0f),
+                 "../evidence/captures/cave_camp.png");
+            Shot(new Vector3(340f, 8f, 45f), Quaternion.Euler(10f, 55f, 0f),
+                 "../evidence/captures/windmill_dusk.png");
+            Shot(new Vector3(260f, 40f, -20f), Quaternion.Euler(45f, 70f, 0f),
+                 "../evidence/captures/boulevard_curve.png");
+            Debug.Log("[GH] capturas: 5 imagens");
+        }
+
         /// <summary>A3 prova: aérea do centro no dusk + street-level poste aceso.</summary>
         public static void CaptureLitCity()
         {

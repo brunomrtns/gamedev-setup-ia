@@ -700,3 +700,13 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
 - Tráfego IA: NÃO coberto — TrafficNetwork é grid-only, reescrita fora de escopo.
   Via dirigível sem IA (report honesto exigido pela missão).
 - PENDENTE: Etapa 4 Green Hills | Etapa 5 gates+docs.
+
+## v3.2 — Etapa 4 Green Hills ENTREGUE COM RESSALVAS (20/10)
+- BuildGreenHills executou sem faltar asset: 2 morros + rio + ponte + moinho
+  + caverna + acampamento + fazenda + bosques + pássaros (~200 objs).
+- RESSALVAS (2 tentativas usadas no chão): textura de grama ideal pendente
+  (fallback escuro), morros leem esparsos na aérea. Receita e problemas em
+  .studio/knowledge/environment/green-hills-district.md.
+- Capturas: greenhills_aerial, river_waterfall, cave_camp, windmill_dusk,
+  boulevard_curve — inspecionadas, documentam o estado real.
+- PENDENTE: Etapa 5 gates finais (perf/UTF/validators), HANDOFF, push.
