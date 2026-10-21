@@ -737,3 +737,12 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
   Frames em evidence/ingame/. validate_scene --strict OK.
 - PENDENTE: leitura dos morros ainda fraca (rubble, nao colina); possivel
   Plano B (remover distrito) se o dono preferir cidade limpa.
+
+## v3.6 — Sprint de padroes (20/10)
+- FIX-4 z-fight: 85 decals re-tiered por familia (gaps >=15mm). PROVADO in-game f4.
+- FIX-6 letreiros: 20 snapped na fachada, 18 removidos (sem hit <=2m).
+- FIX-5 fragmentos: 112 objetos ganharam colisor; filtro de nomes nao cobriu
+  o campo de (219,-103) — residuo honesto.
+- FIX-3 arvores: 297 renderers brancos -> Mat_Kit_NatureKit no prefab.
+- FIX-1 postes: 0 na pista pela mascara de corredor; 80 mantidos.
+- FIX-2 luzes: 80 postes com Point Light real; FPS nao medido numericamente.

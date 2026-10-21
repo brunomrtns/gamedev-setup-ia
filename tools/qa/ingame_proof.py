@@ -10,13 +10,14 @@ OUT = os.path.join(ROOT, "evidence", "ingame")
 STEP = os.path.join(ROOT, "tools", "qa", "_proof_step.cs")
 
 ROUTE = [
-    ("01_avenida",   60, 1, 26, 90),
-    ("02_obd",      200, 1, 26, 90),
-    ("03_obd_fim",  275, 1, 26, 90),
-    ("04_rotatoria",300, 1, 26, 90),
-    ("05_estrada",  330, 1, 26, 90),
-    ("06_ponte",    352, 2, 26, 90),
-    ("07_moinho",   390, 1, 40, 45),
+    ("f1_poste1",  -21.6, 1, 19.3, 0),
+    ("f1_poste2",   23.5, 1, 18.5, 0),
+    ("f2_luz",     167.7, 1, 17.0, 90),
+    ("f4_zfight",  184.3, 1, 22.3, 90),
+    ("f5_frag1",   -33.5, 1, 31.4, 0),
+    ("f5_frag2",   230.0, 1, 0.3, 90),
+    ("f5_campo",   219.7, 1, -102.9, 0),
+    ("f6_letreiro",210.2, 1, -124.5, 0),
 ]
 
 CS_MOVE = """

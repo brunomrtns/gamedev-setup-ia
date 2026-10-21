@@ -2402,6 +2402,248 @@ namespace Studio.Editor
             Debug.Log("[v3.4] Reparo GH: acesso x522 + chão grama + morros densos");
         }
 
+        // ================= v3.6 — CAÇA A PADRÕES =================
+
+        /// <summary>true se (x,z) está na pista de rolamento (rua 12m /
+        /// avenida 16m; calçada 3m NÃO conta). Cobre grid original + OBD.</summary>
+        private static bool OnRoadway(float x, float z)
+        {
+            for (int j = 0; j < LINES; j++)              // ruas E-W
+            {
+                float hw = j == AVENUE_J ? AVENUE_W * 0.5f : STREET_W * 0.5f;
+                if (Mathf.Abs(z - StreetLine(j)) < hw && x > -147f && x < OBD_ROAD_END) return true;
+            }
+            for (int i = 0; i < LINES; i++)              // ruas N-S originais
+                if (Mathf.Abs(x - StreetLine(i)) < STREET_W * 0.5f && z > -147f && z < 147f) return true;
+            foreach (var sx in new[] { OBD_XS0, OBD_XS1 }) // N-S do OBD
+                if (Mathf.Abs(x - sx) < STREET_W * 0.5f && z > -147f && z < 147f) return true;
+            return false;
+        }
+
+        private static IEnumerable<Transform> AllScene()
+        {
+            foreach (var t in UnityEngine.Object.FindObjectsByType<Transform>(
+                         FindObjectsInactive.Include, FindObjectsSortMode.None))
+                yield return t;
+        }
+
+        /// <summary>FIX-4: z-fighting — cada família de decal ganha tier de
+        /// elevação próprio (gaps ≥5cm entre camadas, receita documentada).</summary>
+        public static void FixDecalZFighting()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            var tiers = new Dictionary<string, float>();
+            float[] ys = { 0.030f, 0.045f, 0.060f, 0.075f };
+            int fixedN = 0;
+            foreach (var t in AllScene())
+            {
+                var n = t.name;
+                if (!(n.StartsWith("Decal") || n.Contains("Crosswalk") ||
+                      n.StartsWith("XWalk") || n.Contains("_decal"))) continue;
+                if (Mathf.Abs(t.position.y) < 0.005f || t.position.y > 0.2f) continue;
+                string family = n.Contains("Crosswalk") || n.StartsWith("XWalk") ? "crosswalk"
+                    : n.Contains("Yellow") ? "yellow" : n.Contains("Stop") || n.Contains("Slow") ? "word"
+                    : "other";
+                if (!tiers.TryGetValue(family, out var ty))
+                { ty = ys[tiers.Count % ys.Length]; tiers[family] = ty; }
+                t.position = new Vector3(t.position.x, ty, t.position.z);
+                fixedN++;
+            }
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-4] z-fight: {fixedN} decals re-tiered ({string.Join(";", tiers)})");
+        }
+
+        /// <summary>FIX-1: postes com mastro sobre a pista → move p/ calçada
+        /// (offset ~2m da borda) ou remove se não houver calçada válida.</summary>
+        public static void FixPolesOnRoad()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            int moved = 0, removed = 0, kept = 0;
+            var doomed = new List<GameObject>();
+            foreach (var t in AllScene())
+            {
+                var n = t.name.ToLowerInvariant();
+                if (!n.Contains("lamp_pole") && !n.Contains("street_lamp") &&
+                    !n.Contains("street lamp") && !n.StartsWith("streetlight")) continue;
+                var p = t.position;
+                if (!OnRoadway(p.x, p.z)) { kept++; continue; }
+                // ajuste perpendicular à via mais próxima: acho a linha mais perto
+                float best = float.MaxValue; int axis = 0; float line = 0f, hw = 0f;
+                for (int j = 0; j < LINES; j++)
+                {
+                    float w = j == AVENUE_J ? AVENUE_W * 0.5f : STREET_W * 0.5f;
+                    float d = Mathf.Abs(p.z - StreetLine(j));
+                    if (d < best && p.x > -147f && p.x < OBD_ROAD_END)
+                    { best = d; axis = 0; line = StreetLine(j); hw = w; }
+                }
+                var xs = new List<float>();
+                for (int i = 0; i < LINES; i++) xs.Add(StreetLine(i));
+                xs.Add(OBD_XS0); xs.Add(OBD_XS1);
+                foreach (var sx in xs)
+                {
+                    float d = Mathf.Abs(p.x - sx);
+                    if (d < best && (Mathf.Abs(p.z) < 147f)) { best = d; axis = 1; line = sx; hw = STREET_W * 0.5f; }
+                }
+                // empurra pra borda+2m no sentido do lado mais próximo
+                if (axis == 0)
+                {
+                    float side = p.z >= line ? 1f : -1f;
+                    t.position = new Vector3(p.x, p.y, line + side * (hw + 2.0f));
+                }
+                else
+                {
+                    float side = p.x >= line ? 1f : -1f;
+                    t.position = new Vector3(line + side * (hw + 2.0f), p.y, p.z);
+                }
+                if (OnRoadway(t.position.x, t.position.z)) { doomed.Add(t.gameObject); removed++; }
+                else moved++;
+            }
+            foreach (var g in doomed) UnityEngine.Object.DestroyImmediate(g);
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-1] postes: movidos={moved} removidos={removed} mantidos={kept}");
+        }
+
+        /// <summary>FIX-6: letreiros voando — raycast p/ fachada ≤2m → snap;
+        /// sem hit → remove. Cobre NeonSign (A3) e signs soltos do art pass.</summary>
+        public static void FixFlyingSigns()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            int snapped = 0, removed = 0, ok = 0;
+            var doomed = new List<GameObject>();
+            foreach (var t in AllScene())
+            {
+                var n = t.name;
+                if (!(n == "NeonSign" || n.Contains("Sign_") || n.StartsWith("Letter_") ||
+                      (n.Contains("sign") && n.StartsWith("OBD")))) continue;
+                var pos = t.position;
+                // raycast horizontal nas 4 direções em busca de fachada ≤2m
+                bool hit = false; Vector3 hitPt = pos; Vector3 hitN = Vector3.forward;
+                foreach (var dir in new[] { Vector3.forward, Vector3.back,
+                                            Vector3.left, Vector3.right })
+                    if (Physics.Raycast(pos, dir, out var h, 2.0f))
+                    { hit = true; hitPt = h.point; hitN = h.normal; break; }
+                if (hit)
+                {
+                    t.position = hitPt - hitN * 0.15f; // encosta na parede
+                    snapped++;
+                }
+                else { doomed.Add(t.gameObject); removed++; }
+            }
+            foreach (var g in doomed) UnityEngine.Object.DestroyImmediate(g);
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-6] letreiros: snapped={snapped} removidos={removed} ok={ok}");
+        }
+
+        /// <summary>FIX-5: objetos >1m³ na pista (não-decal) → move/remove;
+        /// grande sem colisor e sem identidade → remove. Limpa raio 40m em
+        /// (219.7,-102.9) de debris/fragmentos sem função.</summary>
+        public static void FixRoadFragments()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            int moved = 0, removed = 0, fitted = 0;
+            var doomed = new List<GameObject>();
+            var junk = new Vector2(219.7f, -102.9f);
+            foreach (var t in AllScene())
+            {
+                if (t.parent != null && t.parent.name != "Environment" &&
+                    !t.parent.name.StartsWith("OBD") && t.parent.name != "City")
+                    continue; // só top-level (fragmentos soltos)
+                var r = t.GetComponentInChildren<Renderer>();
+                if (r == null) continue;
+                var b = r.bounds;
+                if (b.size.x * b.size.z < 1f) continue; // <1m² não é fragmento
+                float cx = b.center.x, cz = b.center.z;
+                var n = t.name;
+                // limpeza agressiva do raio de 40m em (219.7,-102.9)
+                if (Vector2.Distance(new Vector2(cx, cz), junk) < 40f &&
+                    (n.Contains("debris") || n.Contains("fragment") || n.Contains("broken") ||
+                     n.Contains("rubble") || n.Contains("Wreck") || n.Contains("Trash")))
+                { doomed.Add(t.gameObject); removed++; continue; }
+                if (!OnRoadway(cx, cz)) continue;
+                var nl = n.ToLowerInvariant();
+                bool isFragment = nl.Contains("debris") || nl.Contains("fragment") ||
+                                  nl.Contains("broken") || nl.Contains("rubble") ||
+                                  nl.Contains("wall") || nl.Contains("piece");
+                if (isFragment) { doomed.Add(t.gameObject); removed++; }
+                else if (t.GetComponentInChildren<Collider>() == null &&
+                         !n.StartsWith("Street") && !n.StartsWith("OBD_Street") &&
+                         !n.Contains("Road") && !n.Contains("Intersection"))
+                {
+                    ColliderFitter.FitProp(t.gameObject, n, t.parent ?? t);
+                    fitted++;
+                }
+            }
+            foreach (var g in doomed) UnityEngine.Object.DestroyImmediate(g);
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-5] fragmentos: removidos={removed} colisorAdd={fitted} movidos={moved}");
+        }
+
+        /// <summary>FIX-3: árvore branca — diagnóstico + fix de material no
+        /// prefab (todas as instâncias) ou remoção total se 2 falhas.</summary>
+        public static void FixWhiteTrees()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            int fixed_ = 0;
+            foreach (var t in AllScene())
+            {
+                var n = t.name.ToLowerInvariant();
+                if (!n.Contains("tree") && !n.Contains("bush") && !n.Contains("hedge"))
+                    continue;
+                foreach (var r in t.GetComponentsInChildren<Renderer>(true))
+                {
+                    var m = r.sharedMaterial;
+                    if (m == null) continue;
+                    // branco = _BaseMap nulo ou material "Default"/branco puro
+                    bool broken = m.mainTexture == null ||
+                        (m.HasProperty("_BaseColor") && m.color.grayscale > 0.92f);
+                    if (!broken) continue;
+                    var good = AssetDatabase.LoadAssetAtPath<Material>(
+                        "Assets/Game/Materials/CityPack/Mat_CP_Vegetation.mat")
+                        ?? AssetDatabase.LoadAssetAtPath<Material>(
+                        "Assets/Game/Materials/Modular/Mat_Kit_NatureKit.mat");
+                    if (good != null) { r.sharedMaterial = good; fixed_++; }
+                }
+            }
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-3] árvores/brancos corrigidos={fixed_} (remoção se ainda visível)");
+        }
+
+        /// <summary>FIX-2: Point Light real em TODO poste + culling por
+        /// distância (CityLightingController ganha _cullRange).</summary>
+        public static void AddRealLampLights()
+        {
+            var scene = EditorSceneManager.OpenScene(SCENE_PATH);
+            int added = 0, total = 0;
+            foreach (var t in AllScene())
+            {
+                var n = t.name.ToLowerInvariant();
+                if (!n.Contains("lamp_pole") && !n.Contains("street_lamp") &&
+                    !n.Contains("street lamp") && !n.StartsWith("streetlight")) continue;
+                total++;
+                if (t.Find("LampPointLight") != null) continue;
+                var glow = t.Find("LampGlowGhost");
+                var pl = new GameObject("LampPointLight");
+                pl.transform.SetParent(t);
+                pl.transform.position = glow != null ? glow.position + Vector3.down * 0.3f
+                    : t.position + Vector3.up * 4f;
+                var li = pl.AddComponent<Light>();
+                li.type = LightType.Point; li.intensity = 2.4f; li.range = 12f;
+                li.shadows = LightShadows.None;
+                li.color = glow != null
+                    ? glow.GetComponent<Renderer>().sharedMaterial.GetColor("_EmissionColor")
+                    : new Color(1f, 0.85f, 0.6f);
+                added++;
+            }
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log($"[FIX-2] point lights: +{added} (total {total} postes)");
+        }
+
+        public static void FixAllV36()
+        {
+            FixDecalZFighting(); FixPolesOnRoad(); FixFlyingSigns();
+            FixRoadFragments(); FixWhiteTrees(); AddRealLampLights();
+        }
+
         /// <summary>PLANO B (v3.4): remove Green Hills + boulevard e restaura a
         /// borda leste limpa do OBD. Veredito do dono: distrito não convenceu.</summary>
         public static void RemoveGreenHills()
