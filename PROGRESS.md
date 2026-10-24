@@ -240,6 +240,8 @@
 | 2026-10-16 | Antigravity (Líder Técnico & Engenheiro Chefe) | Desenvolvimento completo de **ABYSSAL BREACH**: GDD, Arquitetura, ADR-004, pipeline de conversão de assets (20 PBR textures e FBX triangulados), 11 componentes C# modulares em 5 assemblies respeitando Studio.Foundation (motor 6-DoF moderado, balística de plasma submarino, sistema de hipóxia/oxigênio, HUD tático de mergulho, IA de drones e pods), cena procedural `AbyssalBreach.unity` com iluminação URP e pós-processamento, 19 novos testes UTF (total 33/33 passando 100%), 6 capturas de evidência visual de alta fidelidade e compilação de executável Windows standalone (`AbyssalBreach.exe`) com 0 erros/warnings de compilação C# e verificação de processo. |
 | 2026-10-16 | Devin (Refatoração V2 — ETAPA 5) | Conclusão da **Refatoração Arquitetural V2 (Quality Gate V2)**: validação de assets `1848/1848` exit 0; nova `ProceduralMeshLibrary` com 7 malhas procedurais `.asset` (UV0/normais, winding verificado numericamente); **zero `GameObject.CreatePrimitive`** — skyline NeonRush em prefabs CityKit + portais SpaceKit, paredões Abyssal em rochas kitbash CC0, octaedros/toros procedurais para coletáveis e portais; correção de `capture_scene.py` (`-scenePath=`) e warm-up de shaders em `CaptureScreenshotBatch`; cenas NeonRush/AbyssalBreach/Calibration reconstruídas e validadas (AbyssalBreach em `--strict`); **33/33 testes UTF**; 14 capturas de evidência regeneradas. Detalhes completos em `HANDOFF.md`. |
 | 2026-10-17 | Devin (Engenheiro Chefe Gameplay/Física) | **NEON DISTRICT v2.2**: refatoração de física e combate — `TrafficVehicle` com máquina de estados de colisão (Routing/PhysicsFree/Wrecked, `FindNearestEdge` re-roteia NPCs após impacto), `BreakableProp` (postes decepam por limiar de impulso, toco estático + haste com Rigidbody), anti-launch do player (`centerOfMass` -0.4, `ContinuousDynamic`, clamps de velocidade + auto-nivelamento), convergência balística câmera→muzzle (`ComputeMuzzleDir` + ADS centrado), F10 debug de posição, fixes de z-fighting (cruzamentos cobrem a avenida, gaps >=5cm, tiling de calçada 48x48). Novo padrão `docs/standards/physics-and-combat.md` + regras em AGENTS.md/CLAUDE.md. **75/75 testes UTF** (8 novos), cena `--strict` validada. |
+| 2026-10-20 | Sessões v3.2–v3.6 + "realçar" (IA anterior) | Green Hills tentado 3× e MORTO pelo dono; **v3.5 Plano B executado** (commit `cdf35da9` — Green Hills + boulevard removidos, borda leste do OBD fechada); sprint v3.6 de padrões com **ERRO GRAVE: 112 colisores em massa** (commit `50354cdc`) + sessão "realçar a cidade" que bugou a cidade (colisões invisíveis + textura de estrada errada), sem commit próprio — dano embutido em `50354cdc`. Sem documentação destas sessões até o registro v3.8-M0 abaixo. Detalhes na seção **MISSÃO v3.8 — M0**. |
+| 2026-10-24 | OpenCode (GLM) — MISSÃO v3.8 | Handoff recebido (`prompt_v3_8_handoff_nova_ia.md`). M0: gap do PROGRESS.md registrado com verificação de repo (v3.5 confirmado executado; sem root GreenHills na cena; working tree limpa). Missão: des-colisionizar a cidade (M2) + consertar textura da estrada (M3). |
 
 
 ## NEON DISTRICT — sessão de física/VFX (17/10)
@@ -746,3 +748,66 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
 - FIX-3 arvores: 297 renderers brancos -> Mat_Kit_NatureKit no prefab.
 - FIX-1 postes: 0 na pista pela mascara de corredor; 80 mantidos.
 - FIX-2 luzes: 80 postes com Point Light real; FPS nao medido numericamente.
+
+---
+
+## MISSÃO v3.8 — M0: registro do gap de sessões (24/10)
+
+> Fonte: handoff `prompt_v3_8_handoff_nova_ia.md` (vence PROGRESS.md desatualizado).
+> Esta seção fecha o gap de documentação das sessões de 20/10. Itens marcados
+> [VERIFICADO] foram conferidos no repo em 24/10; [NÃO VERIFICADO] ainda pendem checagem.
+
+### O que aconteceu (gap A4 do handoff)
+
+1. **v3.2–v3.4 Green Hills** — 3 tentativas falhas (chão lendo como água, grama
+   preta, plataformas flutuando, colisor invisível bloqueando rua). **MORTO pelo
+   dono.** Causa raiz: inventário sem heightmap/textura de natureza funcional.
+2. **v3.5 Plano B** — remoção total do Green Hills + fechamento leste com obras
+   + rotatória em (292,26). **[VERIFICADO — EXECUTADO]**: commit `cdf35da9`
+   "revert(gh): PLANO B — remove Green Hills + boulevard, restaura borda leste
+   limpa do OBD". Sem root `GreenHills`/`GH_Densified` na cena; restam apenas
+   `Bounds_Blocker_N/S/E/W` (bordas legítimas do mapa). A tag
+   `greenhills-attempt-2` **NÃO foi criada** [VERIFICADO], mas o commit de revert
+   preserva o histórico no git.
+3. **v3.6 sprint de padrões** — parcial: 85 decals re-tiered, 20 letreiros
+   encaixados + 18 removidos, 297 árvores rematerializadas (⚠️ UVs não
+   verificados), luz fake sem medição de FPS, postes auditados com máscara
+   ERRADA (dono vê postes na pista em (-21.6,19.3), (23.5,18.5), (75.9,16.3),
+   (76.1,120.4)), campo de debris (219.7,-102.9) parcialmente não limpo.
+   **ERRO GRAVE: 112 colisores adicionados EM MASSA** em fragmentos/debris
+   (commit `50354cdc`, que trocou 73.756 linhas da cena de uma vez).
+4. **Sessão "realçar a cidade"** (pedido direto do dono) — **BUGOU TUDO**:
+   colisões invisíveis no meio da pista (evidência: par de screenshots do dono
+   com/sem visor de colisão — wireframes verde/ciano sem mesh visível) +
+   textura de estrada errada aplicada (dono pediu asfalto de outro pack).
+   **[VERIFICADO]**: sem commit próprio; working tree limpa e nenhum commit
+   após `50354cdc` (20/10 23:04) → o dano desta sessão está EMBUTIDO no
+   commit `50354cdc` junto com a v3.6.
+
+### Estado atual — QUEBRADO (A5 do handoff)
+
+1. **Colisões invisíveis espalhadas pela cidade** — dono NÃO CONSEGUE JOGAR.
+   Causas prováveis: 112 colisores em massa (v3.6) + colisores da sessão
+   "realçar" + colisores órfãos/inflados (bounding box > mesh visual).
+2. **Textura de estrada errada** em pontos da via — material atual não é
+   asfalto; dono pediu a textura asfáltica do outro pack baixado.
+3. Dívidas v3.6: FPS das luzes não medido; postes na pista (4 posições acima);
+   debris (219.7,-102.9); UVs das árvores.
+
+### Missão v3.8 (ativa)
+
+- **M0** (esta seção) — registrar o gap + commit imediato.
+- **M1** — mapa de dano: inventário do que `50354cdc` alterou (colisores,
+  materiais, prefabs) com recomendação MANTER/REVERTER/CONFERIR, ANTES de corrigir.
+- **M2** — eliminar colisões invisíveis: inventário de colisores suspeitos,
+  classificar OK/INFLADO/LIXO, criar `tools/qa/drivability_check.py` (rota de
+  waypoints cobrindo TODAS as vias, autopilot PROMETEO, detecção de bloqueio
+  invisível), ciclar até **0 bloqueios invisíveis**.
+- **M3** — consertar textura da estrada: diagnosticar material errado, listar
+  candidatos asfálticos com frames, substituir pelo escolhido pelo dono
+  (frame A/B/C se ambíguo — não adivinhar).
+- **M4** — gates finais: validate_scene --strict + validate_asset --all +
+  drivability 0 bloqueios + zona sagrada intacta + PROGRESS.md por etapa + push.
+
+**Veredito final é o dono JOGANDO.** Se ele não consegue dirigir da avenida ao
+fim da estrada sem bater em nada invisível, a entrega falhou.
