@@ -2569,6 +2569,11 @@ namespace Studio.Editor
                          !n.StartsWith("Street") && !n.StartsWith("OBD_Street") &&
                          !n.Contains("Road") && !n.Contains("Intersection"))
                 {
+                    // v3.8 GUARDA: decal/piso plano (altura < 0,3 m) NUNCA ganha
+                    // colisor — o FitProp em massa aqui criou 361 caixas de 2 m
+                    // sobre faixas/calçadas/patches (missão v3.8-M2). Regra A6.4:
+                    // colisor é por objeto, com decisão individual registrada.
+                    if (b.size.y < 0.3f) continue;
                     ColliderFitter.FitProp(t.gameObject, n, t.parent ?? t);
                     fitted++;
                 }
@@ -2593,9 +2598,11 @@ namespace Studio.Editor
                 {
                     var m = r.sharedMaterial;
                     if (m == null) continue;
-                    // branco = _BaseMap nulo ou material "Default"/branco puro
-                    bool broken = m.mainTexture == null ||
-                        (m.HasProperty("_BaseColor") && m.color.grayscale > 0.92f);
+                    // branco = SEM textura. (v3.8: o check de tint branco
+                    // "_BaseColor>0.92" condenava materiais TEXTURIZADOS com
+                    // tint branco — nucou as ruas Mat_ND_Road_Street. Tint só
+                    // é suspeito quando não há _BaseMap.)
+                    bool broken = m.mainTexture == null;
                     if (!broken) continue;
                     var good = AssetDatabase.LoadAssetAtPath<Material>(
                         "Assets/Game/Materials/CityPack/Mat_CP_Vegetation.mat")
