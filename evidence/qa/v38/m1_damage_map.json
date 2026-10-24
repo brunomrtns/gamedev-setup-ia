@@ -1,0 +1,7754 @@
+{
+ "rows": [
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -130.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -130.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    -26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    -26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    226.0,
+    0.882,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.882,
+    26.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "pos": [
+    174.0,
+    0.882,
+    78.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.882,
+    78.0,
+    10.503,
+    2.0,
+    4.293
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -70.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -70.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    -18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    -18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -137.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -137.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    -122.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    -122.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    234.0,
+    0.882,
+    18.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.882,
+    18.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    85.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    85.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "pos": [
+    182.0,
+    0.882,
+    33.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.882,
+    33.5,
+    4.175,
+    2.0,
+    4.992
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    153.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    153.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    193.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    193.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    162.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    162.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    214.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    214.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    138.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    138.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    168.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    168.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    199.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    199.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    171.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    171.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    141.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    141.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    196.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    196.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    190.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    190.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    165.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    165.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    226.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    208.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    208.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    159.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    159.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    217.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    217.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    156.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    156.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    202.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    202.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    150.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    150.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    205.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    205.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    220.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    220.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    147.0,
+    0.955,
+    32.005
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    147.0,
+    0.955,
+    32.005,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    211.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    211.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    144.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    144.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    223.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    223.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Sidewalk_Straight_3m_BoundsCollider",
+   "pos": [
+    174.0,
+    0.955,
+    19.995
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.955,
+    19.995,
+    2.76,
+    2.15,
+    2.769
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "pos": [
+    -21.5,
+    0.86,
+    21.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -21.5,
+    0.86,
+    21.5,
+    8.28,
+    2.0,
+    8.28
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "pos": [
+    30.5,
+    0.86,
+    21.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    30.5,
+    0.86,
+    21.5,
+    8.28,
+    2.0,
+    8.28
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "pos": [
+    -21.5,
+    0.86,
+    -30.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -21.5,
+    0.86,
+    -30.5,
+    8.28,
+    2.0,
+    8.28
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "pos": [
+    30.5,
+    0.86,
+    -30.5
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    30.5,
+    0.86,
+    -30.5,
+    8.28,
+    2.0,
+    8.28
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.915,
+    75.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.915,
+    75.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -29.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -29.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    -81.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    -81.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    174.0,
+    0.93,
+    23.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    174.0,
+    0.93,
+    23.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.915,
+    -133.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.915,
+    -133.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_Stop_BoundsCollider",
+   "pos": [
+    226.0,
+    0.93,
+    127.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    226.0,
+    0.93,
+    127.0,
+    1.4,
+    2.0,
+    2.723
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -72.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -72.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -12.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -12.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -84.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -84.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    36.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    36.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -24.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -24.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -108.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -108.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -120.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -120.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    60.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    60.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -60.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -60.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    48.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    48.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    96.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    96.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    24.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    24.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    72.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    72.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    84.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    84.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.95,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.95,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    -117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    -117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -96.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -96.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -48.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -48.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    0.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    0.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.95,
+    -13.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.95,
+    -13.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    -36.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    -36.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    12.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    12.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    120.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    120.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    234.0,
+    0.935,
+    91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    234.0,
+    0.935,
+    91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    -91.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    -91.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    182.0,
+    0.935,
+    117.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    182.0,
+    0.935,
+    117.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "OK",
+   "on_road": true
+  },
+  {
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "pos": [
+    108.0,
+    0.95,
+    26.0
+   ],
+   "type": "BoxCollider",
+   "cb": [
+    108.0,
+    0.95,
+    26.0,
+    5.52,
+    2.0,
+    0.362
+   ],
+   "trigger": 0,
+   "on": 1,
+   "verdict": "LIXO-sem-visual",
+   "on_road": true
+  }
+ ],
+ "mat_changes": [
+  [
+   "Environment/Roads/Crosswalk_Street_-1",
+   [
+    26.0,
+    0.03,
+    17.8
+   ],
+   "Mat_ND_Crosswalk",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_EW_0",
+   [
+    0.0,
+    0.0,
+    -130.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_1",
+   [
+    -78.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_0",
+   [
+    -130.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_4",
+   [
+    78.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_2",
+   [
+    -26.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_3",
+   [
+    26.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_EW_1",
+   [
+    0.0,
+    0.0,
+    -78.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_NS_5",
+   [
+    130.0,
+    0.0,
+    0.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Crosswalk_Street_1",
+   [
+    26.0,
+    0.03,
+    34.2
+   ],
+   "Mat_ND_Crosswalk",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_EW_4",
+   [
+    0.0,
+    0.0,
+    78.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_EW_2",
+   [
+    0.0,
+    0.0,
+    -26.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ],
+  [
+   "Environment/Roads/Street_EW_5",
+   [
+    0.0,
+    0.0,
+    130.0
+   ],
+   "Mat_ND_Road_Street",
+   "Mat_Kit_NatureKit"
+  ]
+ ],
+ "added": [
+  "AsphaltPatch_Plaza_BoundsCollider",
+  "Decal_Crosswalk_BoundsCollider",
+  "Decal_Crosswalk_Wide_BoundsCollider",
+  "Decal_DoubleYellow_Straight_BoundsCollider",
+  "Decal_Stop_BoundsCollider",
+  "LampPointLight",
+  "Sidewalk_Straight_3m_BoundsCollider"
+ ],
+ "removed": [
+  "Decal_BrokenLine_Straight",
+  "Letter_ R",
+  "Letter_A",
+  "Letter_A_Prefab",
+  "Letter_D",
+  "Letter_D_Prefab",
+  "Letter_F",
+  "Letter_F_Prefab",
+  "Letter_I",
+  "Letter_I_Prefab",
+  "Letter_M",
+  "Letter_M_Prefab",
+  "Letter_N",
+  "Letter_N_Prefab",
+  "Letter_P",
+  "Letter_P_Prefab",
+  "Letter_Q",
+  "Letter_Q_Prefab",
+  "Letter_R_Prefab",
+  "Letter_S",
+  "Letter_S_Prefab",
+  "Letter_W",
+  "Letter_W_Prefab",
+  "Letter_Y",
+  "Letter_Y_Prefab",
+  "NeonSign"
+ ]
+}
