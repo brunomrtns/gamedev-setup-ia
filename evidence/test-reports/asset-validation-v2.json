@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "passed": 5159,
-  "failed": 20,
+  "passed": 5424,
+  "failed": 226,
   "results": {
     "unity/Assets/Game/Art/AbyssalBreach/Models/BarramundiFish.fbx": {
       "ok": true,
@@ -2115,6 +2115,1820 @@
       ]
     },
     "unity/Assets/Game/Art/Environment/Modular/CityKitCommercial/Textures/variation-b.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/bannar.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/canopi.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_a.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_b.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.21849)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_c.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.36726)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_d.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_e.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_f.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_g.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/Classical_h.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_i.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_j.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_k.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_l.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_m.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_n.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_o.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_p.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_q.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_r.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_s.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_t.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_u.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_v.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_w.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_x.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_y.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/classical_z.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/construction_barrier.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/construction_building.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/container_blue.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/container_green.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/container_red.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/container_white.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/fence_a.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/floor_park.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.09942)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/industrial_gate.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_a.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_b.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_c.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_d.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_e.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/p_tree_f.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/road_direction.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/statue stand_b.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tower_cn.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tractor.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tree_a.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tree_b.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tree_bed_b.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tree_c.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/tree_d.FBX": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/CityPack/Models/wall_industrial.FBX": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.811)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.48051)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_BottomTrim.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Column_RedBricks.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.31776)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Column_Small.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.81911)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Column_TrimBricks.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.96778)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Corner_Plain.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=5.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_Bottom.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.67874)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_Cap.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.17158)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_CapShort.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.46417)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_Center_Half.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.35098)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_CornerColumn_Top.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.30913)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_HalfColumn_Bottom.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.31889)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_HalfColumn_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.94238)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_HalfColumn_Top.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.31889)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_HalfTrim.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.7512)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Inset.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.25926)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Inset_Window.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=6.11423)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Inset_Window_Curved.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=6.40669)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Inset_Window_Curved_Small.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=4.14539)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_InteriorWall_1.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_InteriorWall_3.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_InteriorWall_4.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Ornament_Horizontal.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Plain_1.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.25)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Plain_3.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.75)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Plain_3_noWear.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.75)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Plain_4.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_RedWhite_DoubleWindow.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=4.44003)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_TopTrim.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.33805)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_TopTrim_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.54121)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_TopTrim_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.47869)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_TopTrim_Corner.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=4.06195)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Window_CurvedDouble.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.68202)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Window_Square_Single.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.23206)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Window_Trim.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.80027)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Brick_Window_Trim_Single.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.0499)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Building_Large_2.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=758.19346)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Building_Medium_2_001.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=676.25014)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "56 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Building_Small_1.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=386.87839)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "10 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Brick_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.51367)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Brick_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.27434)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Brick_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.8951)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Brick_L.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.83694)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Brick_R.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.27156)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Metal_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Metal_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Metal_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Metal_L.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Metal_R.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Trim_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Trim_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Trim_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Trim_L.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.58146)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Cornice_Trim_R.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.38892)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_ArrowForwardLeft.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_ArrowForwardRight.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_ArrowStraight.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_ArrowTurnLeft.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_ArrowTurnRight.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Bikelane.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_BrokenLine_Straight.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.11794)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Crosswalk.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Crosswalk_Wide.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Curve_2Lane_Stripe.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.2074)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Curve_4LaneShort.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.28644)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Curve_4LaneShort_DoubleYellow.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.38604)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Curve_4LaneShort_Stripe.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.3669)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_DoubleYellow_Straight.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.15896)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Only.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Slow.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Decal_Stop.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Door_1.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.09865)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Door_2.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.36053)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Door_3.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.82931)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/DoorFrame_Metal_Single.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.44438)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/DoorFrame_Trim.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/DoorFrame_Wooden.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.6024)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Entrance_Concrete_2x1.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Entrance_Concrete_2x2.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Floor_2x2.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Floor_4x4.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Floor_Inset.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Bottom.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.74613)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Small_Bottom.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.74613)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Small_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Small_Top.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Column_Top.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_FirstFloor_Wall.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.60116)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_FirstFloor_Wall_1.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_FirstFloor_Window.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.13913)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_FullWindow.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.18419)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Plain_1.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Plain_3.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.27211)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Window.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.31885)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Metal_Window_Half.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.45839)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Prop_ACUnit.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Prop_Bollard.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Prop_Drain.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Prop_ManholeCover.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Prop_Planter_Single.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.37756)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_2x2.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_2x2_90Angle_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_2x2_90Angle_L.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_2x2_90Angle_R.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_4x4.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_Slate_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.26645)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_Slate_Corner.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.11177)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_Slate_InnerCorner.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.45035)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_Slate_Window_1.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.19956)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_SlateCornice_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.59272)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_SlateCornice_Corner.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.17064)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_SlateCornice_InnerCorner.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.21657)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Roof_SlateCornice_Window_1.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.04974)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Corner_Flat_3m.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.95243)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Corner_Flat_3m_Stripe.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.08371)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Corner_Round_3m.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.85645)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "7 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Corner_Round_3m_Stripe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_NoCurb_3m.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.04938)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Planter.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.92443)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "1 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Straight_3m.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.90483)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Sidewalk_Straight_3m_Stripe.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Stairs_Entrance_Concrete.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Stairs_Rails_Metal.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Stairs_Rails_Metal_Straight_1.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Stairs_Rails_Metal_Straight_2.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_2Lane.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.53595)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "4 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_2Lane_noSidewalk.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_4Lane.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=9.5139)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "8 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_4Lane_noSidewalk.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=7.26537)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_4WayIntersection.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=40.19416)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "28 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Asphalt_6x6.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=4.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Asphalt_9x9.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=9.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Asphalt_Curve_2Lane.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=5.03546)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Asphalt_Curve_4Lane_Short.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=31.0405)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Curve_2Lane.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.50907)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "7 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Curve_2Lane_Curb.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=2.91334)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Curve_4Lane_Short_Curb.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=3.69824)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_Curve_4LaneShort.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=17.6)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "7 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Street_TIntersection.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=43.27101)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "26 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_90Angle_TopCover.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Column_Bottom.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Column_Center.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Column_Top.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Corner.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_FirstFloor_Wall.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)",
+        "2 N-gons (triangule a malha)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_FirstFloor_Window_001.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=1.26055)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_FirstFloor_Window_Columns.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.0)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Plain_3.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Wall_Guard.fbx": {
+      "ok": false,
+      "errors": [
+        "UV0 invalido/ausente (area=0.2344)",
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Models/Trim_Window.fbx": {
+      "ok": false,
+      "errors": [
+        "transform residual na raiz (rotacao/escala nao aplicadas)"
+      ],
+      "warnings": []
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Blinds.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Concrete_Asphalt_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Concrete_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Concrete_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (4.21MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Concrete_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_CornerDamage_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Curtains.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_dark_interior.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Dirt_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Dirt_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (9.20MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Dirt_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_lit_interior_1.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_lit_interior_2.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MarbleFloor_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MarbleFloor_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MarbleFloor_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MetalConcrete_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MetalConcrete_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (4.59MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_MetalConcrete_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Noise_Drips.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Ornaments_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (4.56MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Ornaments_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (6.84MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Ornaments_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (4.34MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RedBrick_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RedBrick_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (6.94MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RedBrick_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RoofSlate_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RoofSlate_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_RoofSlate_ORM.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Street_Decals.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Trim_BaseColor.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Textura pesada (4.22MB)",
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Trim_Normal.png": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "PIL ausente: dimensoes nao verificadas (use venv WSL p/ verificacao completa)"
+      ]
+    },
+    "unity/Assets/Game/Art/Environment/Modular/DowntownMegaKit/Textures/T_Trim_ORM.png": {
       "ok": true,
       "errors": [],
       "warnings": [
@@ -28267,6 +30081,76 @@
       "errors": [],
       "warnings": []
     },
+    "unity/Assets/Game/Materials/CityPack/Mat_CP_classical.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Concrete.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Concrete_Asphalt.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_dark_interior.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Dirt.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_lit_interior_1.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_lit_interior_2.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_MarbleFloor.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_MetalConcrete.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Ornaments.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_RedBrick.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_RoofSlate.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Street_Decals.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/DowntownMegaKit/Mat_DT_Trim.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/Modular/Mat_Kit_CarKit.mat": {
       "ok": true,
       "errors": [],
@@ -28357,6 +30241,31 @@
       "errors": [],
       "warnings": []
     },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_GH_Ground.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_GH_Valley.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Lamp_Amber.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Lamp_Pink.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Lamp_White.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/NeonDistrict/Mat_ND_AmmoPickup.mat": {
       "ok": true,
       "errors": [],
@@ -28397,7 +30306,42 @@
       "errors": [],
       "warnings": []
     },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Neon_Cyan.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Road_Avenue.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_Road_OBD.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
     "unity/Assets/Game/Materials/NeonDistrict/Mat_Skybox_NeonDusk.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_WinLit_0.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_WinLit_1.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_WinLit_2.mat": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Materials/NeonDistrict/Mat_WinLit_3.mat": {
       "ok": true,
       "errors": [],
       "warnings": []
@@ -28843,6 +30787,271 @@
       "warnings": []
     },
     "unity/Assets/Game/Prefabs/Modular/chimney_detailed.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/bannar.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/canopi.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_a.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_c.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_d.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_e.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_f.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_g.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/Classical_h.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_i.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_j.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_k.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_l.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_m.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_n.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_o.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_p.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_q.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_r.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_s.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_t.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_u.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_v.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_w.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_x.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_y.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/classical_z.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/construction_barrier.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/construction_building.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/container_blue.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/container_green.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/container_red.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/container_white.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/fence_a.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/floor_park.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/industrial_gate.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_a.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_c.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_d.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_e.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/p_tree_f.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/road_direction.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/statue stand_b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tower_cn.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tractor.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tree_a.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tree_b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tree_bed_b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tree_c.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/tree_d.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/CityPack/wall_industrial.prefab": {
       "ok": true,
       "errors": [],
       "warnings": []
@@ -29498,6 +31707,771 @@
       "warnings": []
     },
     "unity/Assets/Game/Prefabs/Modular/detail-parasol-b.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_BottomTrim.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Column_RedBricks.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Column_Small.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Column_TrimBricks.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Corner_Plain.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_Bottom.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_Cap.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_CapShort.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_Center_Half.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_CornerColumn_Top.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_HalfColumn_Bottom.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_HalfColumn_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_HalfColumn_Top.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_HalfTrim.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Inset.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Inset_Window.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Inset_Window_Curved.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Inset_Window_Curved_Small.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_InteriorWall_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_InteriorWall_3.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_InteriorWall_4.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Ornament_Horizontal.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Plain_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Plain_3.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Plain_3_noWear.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Plain_4.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_RedWhite_DoubleWindow.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_TopTrim.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_TopTrim_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_TopTrim_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_TopTrim_Corner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Window_CurvedDouble.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Window_Square_Single.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Window_Trim.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Brick_Window_Trim_Single.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Building_Large_2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Building_Medium_2_001.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Building_Small_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Brick_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Brick_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Brick_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Brick_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Brick_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Metal_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Metal_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Metal_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Metal_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Metal_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Trim_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Trim_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Trim_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Trim_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Cornice_Trim_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_ArrowForwardLeft.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_ArrowForwardRight.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_ArrowStraight.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_ArrowTurnLeft.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_ArrowTurnRight.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Bikelane.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_BrokenLine_Straight.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Crosswalk.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Crosswalk_Wide.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Curve_2Lane_Stripe.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Curve_4LaneShort.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Curve_4LaneShort_DoubleYellow.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Curve_4LaneShort_Stripe.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_DoubleYellow_Straight.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Only.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Slow.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Decal_Stop.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Door_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Door_2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Door_3.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/DoorFrame_Metal_Single.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/DoorFrame_Trim.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/DoorFrame_Wooden.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Entrance_Concrete_2x1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Entrance_Concrete_2x2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Floor_2x2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Floor_4x4.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Floor_Inset.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Bottom.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Small_Bottom.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Small_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Small_Top.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Column_Top.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_FirstFloor_Wall.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_FirstFloor_Wall_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_FirstFloor_Window.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_FullWindow.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Plain_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Plain_3.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Window.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Metal_Window_Half.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Prop_ACUnit.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Prop_Bollard.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Prop_Drain.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Prop_ManholeCover.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Prop_Planter_Single.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_2x2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_2x2_90Angle_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_2x2_90Angle_L.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_2x2_90Angle_R.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_4x4.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_Slate_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_Slate_Corner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_Slate_InnerCorner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_Slate_Window_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_SlateCornice_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_SlateCornice_Corner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_SlateCornice_InnerCorner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Roof_SlateCornice_Window_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Corner_Flat_3m.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Corner_Flat_3m_Stripe.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Corner_Round_3m.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Corner_Round_3m_Stripe.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_NoCurb_3m.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Planter.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Straight_3m.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Sidewalk_Straight_3m_Stripe.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Stairs_Entrance_Concrete.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Stairs_Rails_Metal.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Stairs_Rails_Metal_Straight_1.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Stairs_Rails_Metal_Straight_2.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_2Lane.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_2Lane_noSidewalk.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_4Lane.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_4Lane_noSidewalk.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_4WayIntersection.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Asphalt_6x6.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Asphalt_9x9.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Asphalt_Curve_2Lane.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Asphalt_Curve_4Lane_Short.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Curve_2Lane.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Curve_2Lane_Curb.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Curve_4Lane_Short_Curb.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_Curve_4LaneShort.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Street_TIntersection.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_90Angle_TopCover.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Column_Bottom.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Column_Center.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Column_Top.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Corner.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_FirstFloor_Wall.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_FirstFloor_Window_001.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_FirstFloor_Window_Columns.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Plain_3.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Wall_Guard.prefab": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "unity/Assets/Game/Prefabs/Modular/DowntownMegaKit/Trim_Window.prefab": {
       "ok": true,
       "errors": [],
       "warnings": []

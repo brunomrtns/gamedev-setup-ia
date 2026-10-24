@@ -811,3 +811,44 @@ Green Hills → FASE D gates. Editor batch provado; live-editor eval instável.
 
 **Veredito final é o dono JOGANDO.** Se ele não consegue dirigir da avenida ao
 fim da estrada sem bater em nada invisível, a entrega falhou.
+
+---
+
+## MISSÃO v3.8 — M1–M4 EXECUTADAS (24/10)
+
+### M1 — Mapa de dano (commit `ff47a179`)
+Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
+`tools/qa/scene_inventory_diff.py` (diff estrutural). Diff pre(`cdf35da9`)→HEAD:
+- **361 colisores-lixo adicionados** (`*_BoundsCollider` sobre decals/calçadas/patches — caixas 2 m via `FitProp` `extraTop=2`)
+- **13 pisos de via com `Mat_Kit_NatureKit`** (ruas verdes — `FixWhiteTrees` condenou `_BaseColor` branco de material TEXTURIZADO)
+- **~270 letras neon + 74 NeonSign + 42 faixas tracejadas destruídos** (não "18" como dizia o PROGRESS; `FixFlyingSigns`/filtro "broken")
+- **Decisão do dono: cidade fica SEM letreiros por enquanto** — restauração de letreiros/faixas DEFERIDA; escopo travado em colisões+estrada.
+
+### M2 — Colisões invisíveis ELIMINADAS
+- Removidos **361/361** colliders lixo (6 nomes exatos, contagem confere: 57+72+36+36+156+4)
+- **48 postes/árvores/parquímetros empurrados pra fora do corredor de via** (push mínimo perpendicular; 3 iterações até fixpoint; inclui 3 postes NO MEIO da avenida z=26 e as 4 posições reportadas pelo dono)
+- `Avenue_Dual_*` (10, mediana): **BreakableProp calibrado intocado** (zona sagrada)
+- **`DrivabilityProbe.cs` + `tools/qa/drivability_check.py`** (ferramenta PERMANENTE): rota 14 segmentos/459 waypoints cobrindo TODAS as vias, PROMETEO por input real, física real, bloqueio = vel<0,7 m/s c/ gas>2 s, classificação INVISÍVEL/LEGÍTIMO/VISÍVEL_NA_VIA por raycast+renderer
+- **Prova in-game: baseline 34 blocks (4 invis) → pós-fix 0 invisíveis** (4 visíveis = medianeiros quebráveis). Evidências: `evidence/qa/v38/drivability_*.json`, frames `evidence/ingame/v38/`
+- Auditoria estática de corredor (`v38_corridor_audit.py`): restam só medianeiros/blockers de borda/prédios OBD marginais (≤1,5 m, visíveis, pré-existentes — resíduo documentado)
+
+### M3 — Estrada consertada
+- Causa-raiz: `FixWhiteTrees` trocou material de rua TEXTURIZADO (tint branco) por vegetação. Material original sempre teve `_BaseMap = asphalt_2_tracks.png` (Demo City)
+- Restaurados **13/13** pisos: `Street_EW_{0,1,2,4,5}`+`Street_NS_{0..5}` → `Mat_ND_Road_Street`; `Crosswalk_Street_±1` → `Mat_ND_Crosswalk`
+- Padrão por zona preservado (avenida `Mat_Road_Avenue`/ruas `Mat_ND_Road_Street`/OBD `Mat_Road_OBD`/cruzamentos `Mat_ND_Intersection`/praça `Mat_DT_Concrete_Asphalt`). Zero `Mat_Kit_NatureKit` em vias (verificado por inventário)
+- **Vacinas anti-recaída no builder**: `FixWhiteTrees` só condena SEM textura; `FixRoadFragments` NUNCA dá colisor a piso/decal (altura<0,3 m)
+- Frames antes/depois: `evidence/ingame/v38/V38_m3_*.png`
+
+### M4 — Gates
+- `validate_scene.py --strict`: **exit 0** ✓
+- `validate_asset.py --all`: exit 1 — **226 arquivos FAIL, 100% vendor pré-existente** (MegaKit 153, CityPack 53, wrecked 14, anims/hair 6; importados 19-20/10 e nunca gateados pois o validador CRASHAVA no parse Blender). Fix da ferramenta: `raw_decode` tolerante em `studio_validators.py`. Zero fails em arquivos v3.8.
+- Drivability: **0 bloqueios invisíveis** ✓
+- Zona sagrada: intacta (peds/PROMETEO/Net/BreakableProp/ProjectSettings intocados) ✓
+- `Mat_Skybox_NeonDusk._Exposure` 0.944→1.262: ajuste MANUAL do dono no editor (persistido pelo SaveScene) — PRESERVADO.
+
+### Resíduos honestos
+- Letreiros neon + faixas tracejadas: destruídos, restauração DEFERIDA por decisão do dono
+- Prédios OBD encostam ≤1,5 m na borda de 2 vias NS (visíveis, pré-existentes)
+- FPS das 80 lamp lights AINDA não medido numericamente (dívida v3.6 carregada)
+- UTF não re-rodado nesta sessão (compilação do editor sem erros; suite última conhecida 80/81 c/ 1 fail de harness pré-existente)
+- Campo de debris (219.7,-102.9): limpeza parcial da v3.6 mantida (sem novo relato)

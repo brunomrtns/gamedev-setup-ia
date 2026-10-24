@@ -346,7 +346,13 @@ def inspect_binary_fbxs(paths, timeout=1500):
     reports = {}
     for line in (proc.stdout or "").splitlines():
         if line.startswith("REPORT_JSON:"):
-            rep = json.loads(line[len("REPORT_JSON:"):])
+            # raw_decode: tolera dados extras após o objeto JSON na linha
+            # (blender às vezes concatena log no mesmo stdout line)
+            try:
+                rep, _ = json.JSONDecoder().raw_decode(
+                    line[len("REPORT_JSON:"):].strip())
+            except json.JSONDecodeError:
+                continue
             key = rep["file"].replace("/mnt/c/", "C:/").replace("/", "\\")
             reports[key] = rep
     return reports
