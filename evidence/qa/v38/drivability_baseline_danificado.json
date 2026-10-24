@@ -1,0 +1,387 @@
+{
+ "finished": "completo",
+ "elapsed": 298.2,
+ "waypoints": 460,
+ "drivenWaypoints": 367,
+ "segments": 14,
+ "blocksTotal": 34,
+ "invisible": 4,
+ "blocks": [
+  {
+   "pos": [
+    165.48,
+    -78.81
+   ],
+   "seg": "EW_z-78",
+   "cls": "CAPOTOU",
+   "collider": "-",
+   "path": "-",
+   "dist": 0
+  },
+  {
+   "pos": [
+    218.5,
+    -78.02
+   ],
+   "seg": "EW_z-78",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    -27.94,
+    -26.29
+   ],
+   "seg": "EW_z-26",
+   "cls": "CAPOTOU",
+   "collider": "-",
+   "path": "-",
+   "dist": 0
+  },
+  {
+   "pos": [
+    24.16,
+    -26.81
+   ],
+   "seg": "EW_z-26",
+   "cls": "INVISIVEL",
+   "collider": "AsphaltPatch_Plaza_BoundsCollider",
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "dist": 3.06
+  },
+  {
+   "pos": [
+    165.47,
+    -26.1
+   ],
+   "seg": "EW_z-26",
+   "cls": "CAPOTOU",
+   "collider": "-",
+   "path": "-",
+   "dist": 0
+  },
+  {
+   "pos": [
+    218.5,
+    -26.11
+   ],
+   "seg": "EW_z-26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    -125.01,
+    26.07
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    166.35,
+    26.49
+   ],
+   "seg": "EW_z26",
+   "cls": "INVISIVEL",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.56
+  },
+  {
+   "pos": [
+    218.5,
+    25.97
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    166.5,
+    76.91
+   ],
+   "seg": "EW_z78",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    218.5,
+    78.36
+   ],
+   "seg": "EW_z78",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    166.5,
+    128.98
+   ],
+   "seg": "EW_z130",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    218.5,
+    129.9
+   ],
+   "seg": "EW_z130",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_Wide_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_Wide_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    -25.73,
+    -37.14
+   ],
+   "seg": "NS_x-26",
+   "cls": "CAPOTOU",
+   "collider": "-",
+   "path": "-",
+   "dist": 0
+  },
+  {
+   "pos": [
+    -25.25,
+    15.13
+   ],
+   "seg": "NS_x-26",
+   "cls": "INVISIVEL",
+   "collider": "AsphaltPatch_Plaza_BoundsCollider",
+   "path": "AsphaltPatch_Plaza/AsphaltPatch_Plaza_BoundsCollider",
+   "dist": 3.02
+  },
+  {
+   "pos": [
+    25.4,
+    23.57
+   ],
+   "seg": "NS_x26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Decal_DoubleYellow_Straight/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    184.88,
+    -119.43
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.26
+  },
+  {
+   "pos": [
+    182,
+    -93.43
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    182,
+    -75.25
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    182,
+    -38.25
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    178.86,
+    -17.83
+   ],
+   "seg": "NS_x182",
+   "cls": "CAPOTOU",
+   "collider": "-",
+   "path": "-",
+   "dist": 0
+  },
+  {
+   "pos": [
+    182,
+    10.57
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    181.77,
+    65.75
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    182,
+    88.69
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.68
+  },
+  {
+   "pos": [
+    182,
+    114.57
+   ],
+   "seg": "NS_x182",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    236.88,
+    -119.43
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.26
+  },
+  {
+   "pos": [
+    234,
+    -93.43
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    234,
+    -75.25
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    234,
+    -38.25
+   ],
+   "seg": "NS_x234",
+   "cls": "INVISIVEL",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    231.22,
+    -15.48
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Ground_Collider_System",
+   "path": "Environment/Ground_Collider_System",
+   "dist": 4.71
+  },
+  {
+   "pos": [
+    233.92,
+    10.57
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    232.67,
+    65.75
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_Crosswalk_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_Crosswalk_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    234,
+    88.69
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.68
+  },
+  {
+   "pos": [
+    234,
+    114.57
+   ],
+   "seg": "NS_x234",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Decal_DoubleYellow_Straight_BoundsCollider",
+   "path": "Environment/OBD_ArtPass/Decal_DoubleYellow_Straight_BoundsCollider",
+   "dist": 2.25
+  }
+ ],
+ "skippedNoGround": 0,
+ "fell": 0
+}

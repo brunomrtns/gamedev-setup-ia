@@ -1,0 +1,57 @@
+{
+ "finished": "completo",
+ "elapsed": 174.9,
+ "waypoints": 460,
+ "drivenWaypoints": 401,
+ "segments": 14,
+ "blocksTotal": 4,
+ "invisible": 0,
+ "blocks": [
+  {
+   "pos": [
+    10.63,
+    25.62
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Avenue_Dual_-13_BoundsCollider",
+   "path": "Environment/Street_Props/Avenue_Dual_-13/Avenue_Dual_-13_BoundsCollider",
+   "dist": 1.8
+  },
+  {
+   "pos": [
+    36.62,
+    26
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Avenue_Dual_39_BoundsCollider",
+   "path": "Environment/Street_Props/Avenue_Dual_39/Avenue_Dual_39_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    62.62,
+    25.99
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Avenue_Dual_65_BoundsCollider",
+   "path": "Environment/Street_Props/Avenue_Dual_65/Avenue_Dual_65_BoundsCollider",
+   "dist": 2.25
+  },
+  {
+   "pos": [
+    88.62,
+    26.02
+   ],
+   "seg": "EW_z26",
+   "cls": "VISIVEL_NA_VIA",
+   "collider": "Avenue_Dual_91_BoundsCollider",
+   "path": "Environment/Street_Props/Avenue_Dual_91/Avenue_Dual_91_BoundsCollider",
+   "dist": 2.25
+  }
+ ],
+ "skippedNoGround": 0,
+ "fell": 0
+}
