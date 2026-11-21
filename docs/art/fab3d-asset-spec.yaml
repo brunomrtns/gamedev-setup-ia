@@ -1,0 +1,56 @@
+# fab3d-asset-spec.yaml — Especificação de asset de jogo originado na Fábrica 3D
+#
+# Um bloco por peça que entra no Unity pela ponte (ADR-005). Os budgets herdam
+# docs/art/art-spec.yaml v1.0 (mobile_android) e são aplicados pela ponte
+# (decimate + downscale) — NÃO são sugestões, são gate.
+#
+# `glb`/`fab3d_repo` dependem da máquina do dono: preencher com os caminhos reais
+# antes de rodar (são os únicos campos que a sessão de IA não pode adivinhar).
+
+version: "1.0"
+
+categories:  # espelho de geometry_budgets/texture_specifications de art-spec.yaml
+  small_prop_item:
+    max_tris: 600
+    texture_size: 512
+    astc: "ASTC_6x6"
+    collider: "box"
+    preset: "prop"
+  large_prop_building:
+    max_tris: 3000
+    texture_size: 512
+    astc: "ASTC_6x6"
+    collider: "box"
+    preset: "prop"
+  player_character:
+    max_tris: 4500
+    texture_size: 1024
+    astc: "ASTC_4x4"
+    collider: "none"
+    preset: "character"
+  enemy_character:
+    max_tris: 2500
+    texture_size: 1024
+    astc: "ASTC_4x4"
+    collider: "none"
+    preset: "character"
+
+# --- Exemplo preenchido (primeira peça do teste da ponte) ---
+assets:
+  - asset_id: "caixa_distribuidora_neon"
+    category: "small_prop_item"
+    source:
+      mode: "from_glb"            # from_glb (teste da ponte) | fab3d_run (geração completa)
+      glb: "<caminho-do-glb-ja-publicado-pela-fabrica>"  # ex.: <fab3d>/out/<id>/<variante>.glb
+      fab3d_repo: ""              # preencher quando mode == "fab3d_run" (caminho local do repo 3dprinter-setup-ia)
+      fab3d_config: ""            # preencher quando mode == "fab3d_run" (assets/<id>.json da Fábrica)
+    notes: >
+      Peça de teste da ponte: caixa/dispenser de distribuidora com estilo neon para
+      o NEON DISTRICT. BaseColor 4K/8K + MetallicRoughness 2048 vêm no GLB da
+      Fábrica; a ponte reduz para 512px ASTC_6x6 e decima para <= 600 tris.
+
+# Convenção de saída da ponte (criada automaticamente, não editar a mão):
+#   unity/Assets/Game/Art/Generated/<asset_id>/<asset_id>.fbx
+#   unity/Assets/Game/Art/Generated/<asset_id>/<asset_id>_basecolor.png
+#   unity/Assets/Game/Art/Generated/<asset_id>/<asset_id>_mr.png
+#   unity/Assets/Game/Art/Generated/<asset_id>/fab3d_manifest.json
