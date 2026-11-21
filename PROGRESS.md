@@ -852,3 +852,25 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
 - FPS das 80 lamp lights AINDA não medido numericamente (dívida v3.6 carregada)
 - UTF não re-rodado nesta sessão (compilação do editor sem erros; suite última conhecida 80/81 c/ 1 fail de harness pré-existente)
 - Campo de debris (219.7,-102.9): limpeza parcial da v3.6 mantida (sem novo relato)
+
+---
+
+## Integração Fábrica 3D — assets originais 100% locais (21/11)
+- ADR-005 aceito: ponte Blender WSL (GLB print-grade -> FBX canonico) +
+  Fab3dImporter URP. Sem pacotes novos e sem downloads (Blender 5.0.1 ja
+  instalado no WSL). Fonte: repo 3dprinter-setup-ia (run_asset.py -> GLB 4K/8K
+  BaseColor + MR 2048). Regra permanente: 100% local, servicos externos de
+  geracao em nuvem PROIBIDOS (ver ADR-009 daquele repo).
+- Entregue: fab3d_bridge.py + fab3d_glb_to_fbx.py (tools/art/ai_generator/),
+  unity/Assets/Editor/Fab3dImporter.cs, docs/art/fab3d-asset-spec.yaml,
+  docs/operations/fab3d-bridge-runbook.md, skill .agents/skills/fab3d-asset/.
+- Budgets herdados do art-spec.yaml v1.0 e aplicados como gate (decimate +
+  downscale ASTC): small_prop 600 tris/512px, large_prop 3000/512px,
+  player 4500/1024px, enemy 2500/1024px.
+- [ ] Teste da ponte Modo 1 (from_glb) com um GLB ja publicado pela Fábrica
+- [ ] Fab3dImporter rodado (exit 0): material _BaseMap + _MetallicGlossMap
+- [ ] validate_asset.py --asset exit 0 na peça gerada
+- [ ] Captura in-game da peça em cena do NEON DISTRICT (evidence/captures/)
+- [ ] (adiado, NAO bloqueia) front-end de imagem local (ComfyUI + modelo
+      destilado) quando houver disco livre; contrato de entrada da ponte
+      permanece GLB/imagem
