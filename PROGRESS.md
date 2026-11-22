@@ -99,3 +99,6 @@
   - Checklist permanente proibindo geradores/pesos de terceiros ou scripts experimentais avulsos dentro de `gamedev-setup-ia/tools/art/` (movidos para `C:\Users\Bruno\tools\`).
 - [x] **Smoke Test Final Modo 1 (`prop_caixote`, `is_biped: false`):**
   - `glTF-Validator` exit 0 (`evidence/validation/gltf_validator_prop_caixote.json`) → `validate_asset` exit 0 → `validate_visual` v1.1.0 exit 0 pelo branch explícito `is_biped: false` (`branch: prop_grounded_uniform_scale`, `evidence/validation/validate_visual_prop_caixote.json`) → `Fab3dImporter` exit 0 com captura automática datada (`evidence/captures/fab3d_prop_caixote_20261122_160228.png`). Arquivos temporários de import limpos de `unity/Assets/`.
+- **DOC 3 ENCERRADO E CONSOLIDADO EM `main` (2026-11-22):**
+  - Merge commit `bf214100` (`feat/visual-gates` → `main`), tag local institucional **`gates-v1.0`**.
+  - Suíte pós-merge re-executada na `main` com 3/3 resultados verificados: `smoke_dragonborn` (`exit 0`, `is_biped: true`), `fixture_biped_deitado` (`exit 1`, exclusivamente `ORIENTATION_FAIL`) e `prop_caixote` (`exit 0`, `is_biped: false`). Sem push.
