@@ -37,6 +37,7 @@ Este documento é a autoridade central e vinculante para qualquer agente de IA (
 3. **Arte final de herói e props autorais só via Fábrica 3D:** Todo modelo 3D original de produção deve vir exclusivamente da Fábrica 3D (`TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game`), consumido pela ponte canônica `tools/art/ai_generator/fab3d_bridge.py` → forja Blender (`fab3d_glb_to_fbx.py`) → `Fab3dImporter`, respeitando a ordem inegociável de gates (`glTF-Validator` → `validate_asset` → `validate_visual` → `Fab3dImporter` → captura datada MCP) e a tabela de licenças/carrimbos em `LICENSES-ARTE.md`.
 4. **Placeholders só de fonte padronizada CC0/Kenney:** Todo greybox e blocagem modular utiliza exclusivamente `Kenney Prototype Textures` (grid 1 tile = 1 m), kits modulares CC0 (`Kenney City Kit (Industrial)`, `Quaternius UAL`) e materiais PBR CC0 (`Poly Haven` / `AmbientCG`) registrados em `LICENSES-ARTE.md`.
 5. **Regra Anti-Improviso:** Proibido criar script paralelo de conversão/eixo enquanto existir ponte canônica (`fab3d_bridge.py` / `fbx_canonical.py`); se a ponte não atender, abrir ADR em `docs/decisions/`, não gambiarra.
+6. **Protocolo de Sync Studio Core → Jogos Derivados (`game-concerto`):** Qualquer atualização futura da BAN LIST, dos validadores (`tools/validation/`, `tools/qa/`) ou das skills (`.agents/skills/`) no Studio Core tem como parte obrigatória do DoD a sincronização imediata para o `game-concerto` no mesmo ciclo, com a nota de proveniência atualizada para o novo hash.
 
 ---
 
