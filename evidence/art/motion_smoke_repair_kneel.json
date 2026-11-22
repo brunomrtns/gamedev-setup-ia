@@ -1,0 +1,17 @@
+{
+  "schema": "motion-bridge-v1",
+  "name": "smoke_repair_kneel",
+  "prompt": "a person kneels down and tightens something with both hands",
+  "requested_frames_20fps": 80,
+  "bvh_file": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\momask_smoke\\smoke_repair_kneel.bvh",
+  "fbx_file": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\momask_smoke\\smoke_repair_kneel.fbx",
+  "blender_report": {
+    "input_bvh": "/mnt/c/Users/Bruno/.gemini/antigravity/brain/03435ea6-873f-4c53-9ff4-e86af072027e/scratch/momask_smoke/smoke_repair_kneel.bvh",
+    "output_fbx": "/mnt/c/Users/Bruno/.gemini/antigravity/brain/03435ea6-873f-4c53-9ff4-e86af072027e/scratch/momask_smoke/smoke_repair_kneel.fbx",
+    "bones_count": 22,
+    "bones_renamed": 6,
+    "frames": 250,
+    "fps": 24
+  },
+  "errors": []
+}

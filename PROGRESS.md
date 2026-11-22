@@ -66,4 +66,7 @@
   - [x] **P1-4:** `tools/audio/audio_bridge.py` atualizado para EBU R128 `loudnorm` **two-pass** (`linear=true` + `measured_output_i` em `evidence/audio/audio_bridge_smoke_{sfx,music}.json`).
   - [x] **P1-8:** `unity/Assets/Game/Scripts/Gameplay/InteractionSystem.cs` (`IInteractable`, `InteractableBase` com `IkHandTarget`, `PlayerInteractor`).
   - [x] **P2-11:** histórico v1–v3.8 arquivado em `docs/operations/log-v3.x.md`.
-  - [ ] **Estágio 5.1-B:** MoMask (texto → BVH) + UniRig (download seletivo `skeleton/` + `skin/`) + pontes `motion_bridge.py` / `unirig_bridge.py`.
+  - [x] **Estágio 5.1-B (Animação & Rigging Neural 100% local em `C:\`):**
+    - **MoMask** (`~/tools/momask-codes` + `~/.venvs/momask`, 188 MB checkpoints): `tools/art/ai_generator/motion_bridge.py` + `bvh_to_fbx_blender.py` (texto → `.bvh` → `.fbx` Mecanim 22 juntas, exit 0: `evidence/art/motion_smoke_repair_kneel.json`).
+    - **UniRig** (`~/tools/UniRig` + `~/.venvs/unirig`, download seletivo 5,54 GB `skeleton/` + `skin/`, pulando `data/`): `tools/art/ai_generator/unirig_bridge.py` (Skeleton 13s + Skinning 5s + Merge 1.3s em `criatura_dragao__pbr_4k.glb`, exit 0: `evidence/art/unirig_smoke_dragao.json`).
+    - Runbook & skill: `docs/operations/animation-pipeline-runbook.md` + `.agents/skills/studio-animation-director/SKILL.md`.

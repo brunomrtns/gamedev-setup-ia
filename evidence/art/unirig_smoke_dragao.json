@@ -1,0 +1,11 @@
+{
+  "schema": "unirig-bridge-v1",
+  "name": "smoke_dragao",
+  "input_mesh": "C:\\Users\\Bruno\\OneDrive\\Documentos\\Default Project\\3dprinter-setup-ia\\evidence\\rtx3060-12gb\\pipe_std\\criatura_dragao\\staged_models\\criatura_dragao__pbr_4k.glb",
+  "skeleton_fbx": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\unirig_smoke\\smoke_dragao_skeleton.fbx",
+  "skin_fbx": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\unirig_smoke\\smoke_dragao_skin.fbx",
+  "rigged_fbx": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\unirig_smoke\\smoke_dragao_rigged.fbx",
+  "size_bytes": 10520588,
+  "elapsed_sec": 135.2,
+  "errors": []
+}
