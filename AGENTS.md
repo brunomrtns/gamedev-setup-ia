@@ -23,6 +23,23 @@ Este documento é a autoridade central e vinculante para qualquer agente de IA (
 
 ---
 
+## 1.1. Regras de Visibilidade do Agente (Unity MCP) & Institucionalização de Arte (BAN LIST) — Inegociáveis
+
+### Regras de Visibilidade do Agente (Unity MCP) — inegociáveis
+1. O agente DEVE usar a ferramenta de screenshot do Unity MCP após TODA operação que altere cena, transform, material ou prefab. Nunca confiar em exit 0 como prova de qualidade visual.
+2. Antes de qualquer entrega ao dono: captura da cena + 1 frase do agente descrevendo o que vê e comparando com o art-bible. Se não reconhecer o objeto na captura, reprovar sozinho e corrigir (máx. 3 tentativas, depois PARE).
+3. Na fase de mecânica: proibido gerar arte IA (malha/textura). Placeholder cinza no eixo correto (capsule Y-up, +Z para frente, escala em metros). Arte final entra somente após mecânica aprovada, via fab3d_bridge canônico, 1 asset por vez.
+4. Toda captura vai para `evidence/captures/` com nome datado — histórico auditável.
+
+### Cláusulas Permanentes de Institucionalização & BAN LIST
+1. **Agente de código NUNCA gera arte final:** Durante a fase de mecânica, gameplay e greybox, o agente de código jamais gera malhas ou texturas finais por IA. A mecânica é validada primeiro sobre placeholders padronizados.
+2. **TripoAI / TripoSR banido PERMANENTEMENTE em qualquer jogo do `gamedev-setup-ia`:** É terminantemente proibido utilizar TripoSR ou TripoAI (seja local ou via API) para qualquer personagem, criatura ou prop de jogo em todo o ecossistema do Studio Core.
+3. **Arte final de herói e props autorais só via Fábrica 3D:** Todo modelo 3D original de produção deve vir exclusivamente da Fábrica 3D (`TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game`), consumido pela ponte canônica `tools/art/ai_generator/fab3d_bridge.py` → forja Blender (`fab3d_glb_to_fbx.py`) → `Fab3dImporter`, respeitando a ordem inegociável de gates (`glTF-Validator` → `validate_asset` → `validate_visual` → `Fab3dImporter` → captura datada MCP) e a tabela de licenças/carrimbos em `LICENSES-ARTE.md`.
+4. **Placeholders só de fonte padronizada CC0/Kenney:** Todo greybox e blocagem modular utiliza exclusivamente `Kenney Prototype Textures` (grid 1 tile = 1 m), kits modulares CC0 (`Kenney City Kit (Industrial)`, `Quaternius UAL`) e materiais PBR CC0 (`Poly Haven` / `AmbientCG`) registrados em `LICENSES-ARTE.md`.
+5. **Regra Anti-Improviso:** Proibido criar script paralelo de conversão/eixo enquanto existir ponte canônica (`fab3d_bridge.py` / `fbx_canonical.py`); se a ponte não atender, abrir ADR em `docs/decisions/`, não gambiarra.
+
+---
+
 ## 2. Estrutura Canônica de Diretórios
 
 ```text
@@ -74,7 +91,7 @@ Fatos vinculantes do ambiente:
 - O **Python 3.13 do Windows NÃO possui** `PIL`, `numpy`, `trimesh` nem `requests`. O venv `/home/bruno/.venvs/game-ai3d` do WSL possui todos (PIL 12.3, numpy 2.4.6, requests 2.34.2, trimesh 5.1.1).
 - Scripts devem **delegar automaticamente** para o WSL quando as libs faltarem no Windows — padrão de referência: `run_in_wsl_venv()` em `tools/art/convert_abyssal_assets.py`.
 - Conversão de caminho Windows→WSL: `C:\foo\bar` → `/mnt/c/foo/bar` (helper `convert_to_wsl_path()` em `tools/art/`).
-- GPU (RTX 3060) é acessível ao WSL para cargas CUDA (ex: TripoSR).
+- GPU (RTX 3060) é acessível ao WSL para cargas CUDA (TRELLIS.2-4B, SDXL-Turbo, XTTS-v2, UniRig, MoMask).
 
 ---
 
@@ -82,7 +99,7 @@ Fatos vinculantes do ambiente:
 
 Todos os agentes devem executar comandos através das interfaces padronizadas:
 
-### Ambiente e Toolchain de Arte (WSL)
+### Ambiente e Toolchain de Arte (WSL + Ponte Fábrica 3D)
 ```bash
 # Blender headless no WSL — geração/normalização de malhas FBX
 wsl blender -b -P tools/art/<script_bpy>.py -- <output_dir>
@@ -96,57 +113,49 @@ python tools/art/download_modular_kits.py
 # Normalização canônica de um asset existente (eixos, pivo, UV, triangulação)
 wsl blender -b -P tools/art/normalize_fbx.py -- --input <fbx> --output <fbx> --preset weapon|character|prop|kit
 
-# Geração IA 3D local (TripoSR/CUDA via WSL): imagem ou prompt -> obj/glb texturizado
-python tools/art/ai_generator/generate_model.py --image <img.png> --output <out.obj|.glb> [--normalize --target-height <m>]
+# Ponte Fábrica 3D (TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game -> FBX canônico + gates pré-import)
+python tools/art/ai_generator/fab3d_bridge.py --from-glb <peca.glb> --name <asset_id> --category small_prop_item|large_prop_building|player_character|enemy_character [--auto-rig]
 
-# Auto-rigging headless + ações canônicas (Idle/RunCycle/Jump/Slide) -> FBX Mecanim
-wsl blender -b -P tools/art/auto_rig.py -- <mesh.obj> <out.fbx> [altura_m]
-
-# Pipeline completo de personagem (TripoSR -> normalização -> texturas -> rig -> quality gate)
-python tools/art/character_pipeline.py --image <concept.png> --output-dir unity/Assets/Game/Art/Characters/<Nome> --rig-type humanoid
+# Pipeline completo de gates visuais (glTF-Validator -> validate_asset -> validate_visual -> Fab3dImporter + captura datada)
+python tools/qa/run_visual_gates.py --asset-dir unity/Assets/Game/Art/Generated/<asset_id>
 ```
 
 ### Receita Canônica — Novo Jogo do Zero (sessão fria)
 
-Para um briefing de jogo novo, execute nesta ordem (referência: `NeonRushSceneBuilder.cs`
-e `AbyssalBreachSceneBuilder.cs` são os templates de Scene Builder):
+Para um briefing de jogo novo, execute nesta ordem (referência: `.agents/skills/studio-scene-director/SKILL.md`, `NeonRushSceneBuilder.cs` e `AbyssalBreachSceneBuilder.cs`):
 
-1. **Documento de design**: crie GDD/arquitetura em `_bmad-output/planning-artifacts/`
-   (ver exemplos `gdd-neon-rush.md`, `gdd-abyssal-breach.md`).
-2. **Catálogo de assets**: inventário em `docs/art/asset-catalog.md`; prefabs prontos em
-   `Assets/Game/Prefabs/Modular/`; malhas utilitárias via `ProceduralMeshLibrary`
-   (editor) — **nunca `GameObject.CreatePrimitive`**.
-3. **Código gameplay**: assemblies em `Assets/Game/Scripts/` respeitando
-   `docs/standards/architecture.md`; testes em `Assets/Game/Tests/EditMode/`.
-4. **Scene Builder**: crie `Assets/Editor/<Jogo>SceneBuilder.cs` com
-   `RunBuildSceneBatch` (build+save) e método de captura multi-ângulo com warm-up
-   de shaders (copie o padrão de `RenderAndSave` + warmup de `StudioAutomation`).
+0. **Etapa 0 — Olhos do Agente (Unity MCP + Smoke Test de Captura):** instale/verifique o Unity MCP (Rota A oficial `com.unity.ai.assistant` → Rota B `CoderGamester/mcp-unity` MIT em `C:\Users\Bruno\tools\mcp-unity` → Rota C `IvanMurzak/Unity-MCP` Apache-2.0) e execute um smoke test de captura sobre `Assets/Game/Scenes/Calibration.unity`, abrindo o PNG em `evidence/captures/` e descrevendo em 1 frase o que vê. **Sem olhos, sem jogo.**
+1. **Documento de design & Diagrama Top-Down (C1)**: crie GDD/arquitetura em `_bmad-output/planning-artifacts/` ou `docs/gdd/`, `LICENSES-ARTE.md` e produza o diagrama top-down do cenário (markdown + PNG: zonas, dimensões em metros, altura de teto, focal point único, lista de props com budget). **PARE e peça OK humano antes de criar qualquer `GameObject` no Unity.**
+2. **Greybox Fechado (C2) & Catálogo de assets (C3)**: bloqueie a cena fechada (piso com `Kenney Prototype Textures` grid 1 tile = 1 m, paredes + teto fechando o espaço, jamais fundo void, cápsulas/cubos placeholder Y-up +Z-frente); inventário em `docs/art/asset-catalog.md`; prefabs modulares CC0 (`Kenney City Kit (Industrial)`) em `Assets/Game/Prefabs/Modular/`; malhas utilitárias via `ProceduralMeshLibrary` (editor) — **nunca `GameObject.CreatePrimitive`**.
+3. **Código gameplay**: assemblies em `Assets/Game/Scripts/` respeitando `docs/standards/architecture.md`; testes em `Assets/Game/Tests/EditMode/`. **Na fase de mecânica é proibido gerar arte IA.**
+4. **Scene Builder**: crie `Assets/Editor/<Jogo>SceneBuilder.cs` com `RunBuildSceneBatch` (build+save) e método de captura multi-ângulo datada com warm-up de shaders (padrão `RenderAndSave` + warmup de `StudioAutomation`).
 5. **Build da cena** (Windows):
    `"C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Unity.exe" -batchmode -quit -projectPath unity -executeMethod Studio.Editor.<Jogo>SceneBuilder.RunBuildSceneBatch -logFile evidence/logs/<jogo>-build.log`
-6. **Gates obrigatórios** (todos exit 0): `validate_scene.py --scene <cena> --strict`,
-   `validate_asset.py --all`, `python tools/qa/run_unity_tests.py` (33+ testes).
-7. **Evidências**: capturas via método do builder ou
-   `python tools/capture/capture_scene.py --scene <cena> --out evidence/captures/<jogo>.png`.
+6. **Arte Final (C5, após mecânica aprovada) & Ordem Canônica de Gates** (todos exit 0, 1 asset por vez):
+   `glTF-Validator` (`validate_gltf.py`) → `validate_asset.py` → `validate_visual.py` → `Fab3dImporter` (com captura datada automática em `evidence/captures/`) → `validate_scene.py --scene <cena> --strict` → `python tools/qa/run_unity_tests.py`.
+7. **Evidências & Revisão Multimodal**: abra cada captura gerada em `evidence/captures/`, descreva em 1 frase o que vê comparando com o `art-bible.yaml` e passe pelo `studio-strict-reviewer`.
 8. **Build Android**: `python tools/android/build_apk.py --target development --out builds/<jogo>.apk`.
 9. **Atualize `PROGRESS.md`** com checklist, evidências e ponteiro para logs.
 
 ### Inspeção e Status
 ```bash
-# Verificar estado dos editores e CLI
-unity doctor
-unity status
+# Verificar integridade glTF/GLB (Gate 0)
+python tools/validation/validate_gltf.py --input <arquivo.glb> --name <asset_id>
+
+# Verificar integridade estrutural de um asset (Gate 1)
+python tools/validation/validate_asset.py --asset Assets/Game/Models/Player.fbx
+
+# Verificar sanidade visual determinística: orientação Y-up, budget, texel density, material, escala (Gate 2)
+python tools/validation/validate_visual.py --asset Assets/Game/Models/Player.fbx --class player_character
 
 # Verificar integridade da cena atual
-python tools/validation/validate_scene.py --scene Assets/Game/Scenes/Main.unity
-
-# Verificar integridade de um asset
-python tools/validation/validate_asset.py --asset Assets/Game/Models/Player.fbx
+python tools/validation/validate_scene.py --scene Assets/Game/Scenes/Main.unity --strict
 ```
 
 ### Testes e Validação
 ```bash
 # Executar todos os testes em batchmode
-unity test unity/ --test-platform EditMode --test-platform PlayMode --format json
+python tools/qa/run_unity_tests.py
 
 # Capturar cena padronizada para evidência visual
 python tools/capture/capture_scene.py --scene Assets/Game/Scenes/Calibration.unity --out evidence/captures/calibration.png
@@ -166,6 +175,7 @@ Uma story ou tarefa só é considerada `[x]` (concluída) quando:
 1. Todos os critérios de aceitação da story foram atendidos.
 2. A compilação no Unity passa sem nenhum warning marcado como erro e sem exceptions.
 3. Testes EditMode e PlayMode passam 100%.
-4. `ValidateScene` e `ValidateAsset` retornam código 0 (sem componentes órfãos ou leaks).
-5. As evidências (logs de teste, screenshots em `evidence/`) foram salvas em disco.
-6. `PROGRESS.md` foi atualizado com o status e o ponteiro para a evidência.
+4. Todos os gates na ordem canônica (`validate_gltf`, `validate_asset`, `validate_visual`, `validate_scene`) retornam código 0.
+5. As evidências (JSONs dos validadores, logs de teste e screenshots datados em `evidence/captures/`) foram salvas em disco e **inspecionadas visualmente** pelo agente (com 1 frase descritiva do que vê).
+6. Todo asset ou ferramenta utilizada possui registro verificado em `LICENSES-ARTE.md`.
+7. `PROGRESS.md` foi atualizado com o status e o ponteiro para a evidência.
