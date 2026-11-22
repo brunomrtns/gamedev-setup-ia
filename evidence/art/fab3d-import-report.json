@@ -1,0 +1,11 @@
+{
+    "generatedAt": "2026-11-21T23:05:47.4414572Z",
+    "assetsProcessed": 1,
+    "materials": [
+        "Assets/Game/Materials/Fab3D/Mat_Fab3D_prop_caixote.mat"
+    ],
+    "prefabs": [
+        "Assets/Game/Prefabs/Fab3D/prop_caixote.prefab"
+    ],
+    "errors": []
+}

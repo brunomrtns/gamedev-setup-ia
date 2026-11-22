@@ -1,0 +1,44 @@
+{
+  "manifest": {
+    "asset_name": "prop_caixote",
+    "category": "large_prop_building",
+    "preset": "prop",
+    "texture_size": 512,
+    "astc": "ASTC_6x6",
+    "collider": "box",
+    "max_tris": 3000,
+    "tris_final": 3000,
+    "source_mode": "from_glb",
+    "source_glb": "prop_caixote__pbr_4k.glb"
+  },
+  "blender_report": {
+    "name": "prop_caixote",
+    "preset": "prop",
+    "uv": {
+      "has_layer": true,
+      "area": 2.810484,
+      "inside01": 1.0,
+      "valid": true
+    },
+    "identity_transform": true,
+    "exported": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote.fbx",
+    "dimensions": {
+      "x": 1.8745,
+      "y": 1.8811,
+      "z": 1.927
+    },
+    "tris": 3000,
+    "decimate": {
+      "before": 250000,
+      "after": 3000,
+      "applied": true,
+      "final_ratio": 0.012
+    },
+    "textures": {
+      "basecolor": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote_basecolor.png",
+      "mr": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote_mr.png"
+    },
+    "source_glb": "prop_caixote__pbr_4k.glb",
+    "texture_size": 512
+  }
+}

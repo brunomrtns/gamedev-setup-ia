@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Studio.Editor
@@ -61,6 +62,95 @@ namespace Studio.Editor
             var report = ImportAll();
             Debug.Log($"[Fab3dImporter] Concluido: assets={report.assetsProcessed} materiais={report.materials.Count} prefabs={report.prefabs.Count} erros={report.errors.Count}");
             EditorApplication.Exit(report.errors.Count == 0 && report.assetsProcessed > 0 ? 0 : 1);
+        }
+
+        /// <summary>Captura evidencia visual de um prefab Fab3D em cena do NEON DISTRICT sem alterar a cena em disco.</summary>
+        public static void CapturePreviewBatch()
+        {
+            string assetName = null;
+            foreach (var arg in Environment.GetCommandLineArgs())
+            {
+                if (arg.StartsWith("-fab3dAsset="))
+                    assetName = arg.Substring("-fab3dAsset=".Length);
+            }
+            if (string.IsNullOrEmpty(assetName))
+            {
+                var prefabs = Directory.Exists(PrefabsDir) ? Directory.GetFiles(PrefabsDir, "*.prefab") : Array.Empty<string>();
+                if (prefabs.Length == 0)
+                {
+                    Debug.LogError("[Fab3dImporter] Nenhum prefab em " + PrefabsDir);
+                    EditorApplication.Exit(1);
+                    return;
+                }
+                assetName = Path.GetFileNameWithoutExtension(prefabs[0]);
+            }
+
+            string prefabPath = $"{PrefabsDir}/{assetName}.prefab";
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+            if (prefab == null)
+            {
+                Debug.LogError("[Fab3dImporter] Prefab nao encontrado: " + prefabPath);
+                EditorApplication.Exit(1);
+                return;
+            }
+
+            string scenePath = "Assets/Game/Scenes/NeonDistrict.unity";
+            EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+
+            // Posiciona na calcada sul da Avenida Neon (z=16.5, x=-52), sem salvar a cena
+            Vector3 pos = new Vector3(-52f, 0.15f, 16.5f);
+            if (Physics.Raycast(new Vector3(pos.x, 10f, pos.z), Vector3.down, out RaycastHit hit, 20f))
+            {
+                pos.y = hit.point.y;
+            }
+
+            GameObject inst = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            inst.transform.position = pos;
+            inst.transform.rotation = Quaternion.Euler(0f, 35f, 0f);
+
+            var renderers = inst.GetComponentsInChildren<MeshRenderer>(true);
+            Bounds b = renderers.Length > 0 ? renderers[0].bounds : new Bounds(pos + Vector3.up, Vector3.one);
+            for (int i = 1; i < renderers.Length; i++) b.Encapsulate(renderers[i].bounds);
+
+            var cam = Camera.main ?? UnityEngine.Object.FindAnyObjectByType<Camera>();
+            if (cam == null)
+            {
+                cam = new GameObject("Fab3dPreviewCam").AddComponent<Camera>();
+            }
+            float dist = Mathf.Max(b.size.magnitude * 1.45f, 3.0f);
+            cam.transform.position = b.center + new Vector3(-dist * 0.65f, b.size.y * 0.55f, dist * 0.85f);
+            cam.transform.LookAt(b.center + Vector3.up * (b.size.y * 0.05f));
+
+            // Warm-up URP (3 frames)
+            for (int w = 0; w < 3; w++)
+            {
+                var wrt = RenderTexture.GetTemporary(256, 144, 24);
+                cam.targetTexture = wrt;
+                cam.Render();
+                cam.targetTexture = null;
+                RenderTexture.ReleaseTemporary(wrt);
+            }
+
+            int width = 1280, height = 720;
+            var rt = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+            cam.targetTexture = rt;
+            cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            tex.Apply();
+            cam.targetTexture = null;
+            RenderTexture.active = null;
+            UnityEngine.Object.DestroyImmediate(rt);
+
+            string outDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "evidence", "captures");
+            Directory.CreateDirectory(outDir);
+            string outPath = Path.Combine(outDir, $"fab3d_{assetName}.png");
+            File.WriteAllBytes(outPath, tex.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(tex);
+
+            Debug.Log($"[Fab3dImporter] Captura salva em: {outPath} (bounds={b.size})");
+            EditorApplication.Exit(0);
         }
 
         public static ImportReport ImportAll()

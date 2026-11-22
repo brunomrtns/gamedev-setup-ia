@@ -867,10 +867,10 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
 - Budgets herdados do art-spec.yaml v1.0 e aplicados como gate (decimate +
   downscale ASTC): small_prop 600 tris/512px, large_prop 3000/512px,
   player 4500/1024px, enemy 2500/1024px.
-- [ ] Teste da ponte Modo 1 (from_glb) com um GLB ja publicado pela Fábrica
-- [ ] Fab3dImporter rodado (exit 0): material _BaseMap + _MetallicGlossMap
-- [ ] validate_asset.py --asset exit 0 na peça gerada
-- [ ] Captura in-game da peça em cena do NEON DISTRICT (evidence/captures/)
+- [x] Teste da ponte Modo 1 (from_glb) com `prop_caixote__pbr_4k.glb` (repo `3dprinter-setup-ia`, categoria `large_prop_building`): exit 0, `identity_transform=true`, 250.000 → 3.000 tris, BaseColor + MR 512px (`evidence/art/fab3d_bridge_prop_caixote.json`)
+- [x] Fab3dImporter rodado em batchmode (exit 0): `Mat_Fab3D_prop_caixote.mat` (`_BaseMap` + `_MetallicGlossMap` + ASTC_6x6) + `prop_caixote.prefab` com `BoxCollider` (`evidence/art/fab3d-import-report.json`)
+- [x] `validate_asset.py --asset unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote.fbx` exit 0 (`ASSET APROVADO`)
+- [x] Captura in-game da peça em cena do NEON DISTRICT: `evidence/captures/fab3d_prop_caixote.png` (via `Studio.Editor.Fab3dImporter.CapturePreviewBatch`, sem alterar `NeonDistrict.unity`)
 - [ ] (adiado, NAO bloqueia) front-end de imagem local (ComfyUI + modelo
       destilado) quando houver disco livre; contrato de entrada da ponte
       permanece GLB/imagem
