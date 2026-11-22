@@ -1,0 +1,102 @@
+{
+  "validator": "validate_visual.py",
+  "version": "1.1.0",
+  "timestamp": "2026-11-22T16:15:24.515975+00:00",
+  "asset_name": "smoke_dragonborn",
+  "asset_path": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\smoke_dragonborn\\smoke_dragonborn.fbx",
+  "class": "player_character",
+  "is_biped": true,
+  "applied_checks": [
+    "identity_transform_uniform_scale",
+    "pivot_grounded_or_centered",
+    "biped_upright_y_major_axis",
+    "biped_vertical_aspect_ratio_min_1.6",
+    "no_ngons",
+    "class_tri_budget",
+    "uv_texel_density_world_scale",
+    "material_basemap",
+    "scale_meters"
+  ],
+  "passed": true,
+  "checks": {
+    "orientation": {
+      "passed": true,
+      "details": {
+        "is_biped": true,
+        "branch": "biped_vertical_aspect",
+        "applied_checks": [
+          "identity_transform_uniform_scale",
+          "pivot_grounded_or_centered",
+          "biped_upright_y_major_axis",
+          "biped_vertical_aspect_ratio_min_1.6"
+        ],
+        "identity_transform": true,
+        "uniform_scale": true,
+        "pivot_grounded_on_floor": true,
+        "grounded_y_min": -0.9365,
+        "bounds_unity_y_up": {
+          "width_x": 1.2858,
+          "height_y": 1.873,
+          "depth_z": 0.9961,
+          "y_min": -0.9365,
+          "y_max": 0.9365
+        },
+        "torso_bounds": {
+          "width_x": 1.122,
+          "depth_z": 0.7738
+        },
+        "aspect_height_over_min_horiz": 1.88,
+        "aspect_height_over_torso_depth": 2.421,
+        "required_biped_aspect": 1.6,
+        "errors": []
+      }
+    },
+    "budget": {
+      "passed": true,
+      "details": {
+        "class": "player_character",
+        "tris": 4500,
+        "max_tris": 4500,
+        "ngons": 0,
+        "errors": []
+      }
+    },
+    "uv_texel_density": {
+      "passed": true,
+      "details": {
+        "uv_valid": true,
+        "uv_total_area": 0.12477,
+        "uv_inside01": 1.0,
+        "mesh_area_m2": 5.50275,
+        "uv_world_ratio": 0.02267,
+        "allowed_ratio_range": [
+          0.005,
+          50.0
+        ],
+        "errors": []
+      }
+    },
+    "material": {
+      "passed": true,
+      "details": {
+        "material_slots": 1,
+        "basecolor_texture": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\smoke_dragonborn\\smoke_dragonborn_basecolor.png",
+        "unity_material_checked": null,
+        "errors": []
+      }
+    },
+    "scale_meters": {
+      "passed": true,
+      "details": {
+        "reference_dimension_m": 1.873,
+        "allowed_range_m": [
+          0.4,
+          3.5
+        ],
+        "errors": []
+      }
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -31,51 +31,37 @@ geração — prova a conversão, o import e a validação de ponta a ponta.
        --name caixa_neon --category small_prop_item
    ```
 
-   Etapas internas, na ordem:
+   Etapas internas e ordem canônica de gates (DOC 3 §3-B — nenhum asset pula etapa):
 
-   - Staging do GLB em `unity/Assets/Game/Art/Generated/<nome>/`
-   - Blender WSL headless (`fab3d_glb_to_fbx.py`): importa o GLB, **decima** até o
-     budget da categoria (`art-spec.yaml`: small_prop 600 tris), **extrai e reduz**
-     as texturas (BaseColor 4K/8K → 512px; MetallicRoughness 2048 → 512px) e exporta
-     FBX canônico via `fbx_canonical.canonical_finalize` (preset `prop`:
-     pivô na base, eixos canônicos, triangulado, UV garantido)
-   - Grava `fab3d_manifest.json` (para o importer) e
-     `evidence/art/fab3d_bridge_<nome>.json` (relatório com tris antes/depois e
-     texturas)
+   1. **Gate 0 — `glTF-Validator` (GLB):** `python tools/validation/validate_gltf.py --input <glb> --name <nome>` → valida buffers, acessores, imagens e extensões do GLB antes do Blender e grava `evidence/validation/gltf_validator_<nome>.json`.
+   2. **Staging + Forja Blender WSL headless (`fab3d_glb_to_fbx.py`):** importa o GLB, **decima** até o budget da categoria (`art-spec.yaml`: small_prop 600 tris), **extrai e reduz** as texturas (BaseColor 4K/8K → 512px; MetallicRoughness 2048 → 512px) e exporta FBX canônico via `fbx_canonical.canonical_finalize`. Grava `fab3d_manifest.json` e `evidence/art/fab3d_bridge_<nome>.json`.
+   3. **Gate 1 — `validate_asset`:** `python tools/validation/validate_asset.py --asset unity/Assets/Game/Art/Generated/<nome>/<nome>.fbx` → verifica integridade binária, UV0, transform identidade e N-gons.
+   4. **Gate 2 — `validate_visual`:** `python tools/validation/validate_visual.py --asset unity/Assets/Game/Art/Generated/<nome>/<nome>.fbx --manifest unity/Assets/Game/Art/Generated/<nome>/fab3d_manifest.json` → verifica **orientação Y-up** (`altura > largura × 1.6` para bípede, detectando modelos deitados/invertidos), **budget de triângulos**, **densidade UV/texel** (contra UV 1×1 esticado), **material** e **escala em metros**, gravando `evidence/validation/validate_visual_<nome>.json`.
 
-   Saída esperada na última linha do log: `REPORT_JSON:{...}` com
-   `identity_transform: true` e tris ≤ budget. Exit 0 obrigatório.
+   Saída esperada: `REPORT_JSON:{...}` com `identity_transform: true`, `validate_asset` exit 0 e `validate_visual` exit 0.
 
-3. **Import no Unity (Editor ou batchmode):**
+3. **Gate 3 & 4 — Import no Unity (`Fab3dImporter`) + Captura Automática Pós-Import:**
 
    ```powershell
    # Editor: menu  Studio > Fab3D > Import Generated Assets
-   # Batchmode:
+   # Batchmode (ou via python tools/qa/run_visual_gates.py --asset-dir unity/Assets/Game/Art/Generated/<nome>):
    & "C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Unity.exe" -batchmode -quit `
      -projectPath <repo>\unity -executeMethod Studio.Editor.Fab3dImporter.RunImportBatch `
      -logFile fab3d-import.log
    ```
 
-   O `Fab3dImporter` cria: texturas com settings ASTC por categoria, material URP
-   Lit `Mat_Fab3D_<nome>` com `_BaseMap` (BaseColor) + `_MetallicGlossMap`
-   (construído do PNG de MetallicRoughness: B→metallic, 1−G→smoothness), prefab em
-   `Assets/Game/Prefabs/Fab3D/<nome>.prefab` com colisor (box para props) e o
-   relatório `evidence/art/fab3d-import-report.json`. **Exit 0 obrigatório.**
+   O `Fab3dImporter` cria: texturas com settings ASTC por categoria, material URP Lit `Mat_Fab3D_<nome>` com `_BaseMap` (BaseColor) + `_MetallicGlossMap`, prefab em `Assets/Game/Prefabs/Fab3D/<nome>.prefab`, relatório `evidence/art/fab3d-import-report.json` e **executa automaticamente a captura pós-import** (`CapturePreviewForPrefab`), salvando o PNG datado `evidence/captures/fab3d_<nome>_<YYYYMMDD_HHMMSS>.png` (e `evidence/captures/fab3d_<nome>.png`). **Exit 0 obrigatório.**
 
-4. **Validação determinística (gate V2):**
+4. **Gate 5 & 6 — Validação de Cena + Testes Automatizados + Inspeção Visual MCP:**
 
    ```powershell
-   python tools/validation/validate_asset.py --asset unity/Assets/Game/Art/Generated/caixa_neon/caixa_neon.fbx
+   python tools/validation/validate_scene.py --scene Assets/Game/Scenes/<Cena>.unity --strict
+   python tools/qa/run_unity_tests.py
    ```
 
-   Exit 0 obrigatório (UV0 presente, material com `_BaseMap`, tri count no budget).
+   O agente **DEVE** abrir a captura gerada em `evidence/captures/fab3d_<nome>_*.png`, descrever em 1 frase o que vê (orientação, textura, silhueta vs. `art-bible.yaml`) e pedir o OK humano antes do próximo asset.
 
-5. **Evidência visual:** coloque o prefab em uma cena alvo (ex.: uma calçada do
-   NEON DISTRICT), capture com o fluxo de capturas do studio e salve em
-   `evidence/captures/fab3d_<nome>.png`.
-
-6. **Handoff:** marque o item correspondente em `PROGRESS.md`
-   (seção "Integração Fábrica 3D").
+5. **Handoff:** marque o item correspondente em `PROGRESS.md` (seção "Integração Fábrica 3D").
 
 ## 2. Modo 2 — `fab3d_run` (geração completa)
 

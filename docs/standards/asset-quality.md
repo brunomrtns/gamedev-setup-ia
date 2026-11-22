@@ -123,3 +123,26 @@ wsl blender -b -P tools/art/batch_normalize.py -- <manifest.json>
 - `kit`: **preserva o pivô do autor** (essencial para kitbashing/snapping de peças modulares Kenney).
 
 **Exportação FBX canônica (Blender 5.0+):** `axis_forward='-Z'`, `axis_up='Y'` — o exportador nativo aplica unit scale e bake space transform inerentemente (verificado por round-trip determinístico com transform identidade).
+
+---
+
+## 9. Regras Permanentes de Sanidade Visual — Gate `validate_visual.py` (DOC 3 §3-E)
+
+1. **Texel Density World-Scale (Densidade Constante, Proibido UV 1×1 Esticado):**
+   - Toda superfície de piso, parede, teto e arquitetura modular deve aplicar tiling em escala de mundo: **1 tile = 1 a 2 metros** com **densidade de texel idêntica** em todas as superfícies da cena.
+   - Em greybox, é obrigatório o uso de `Kenney Prototype Textures` (grid de debug onde 1 tile = 1 m).
+   - O validador `tools/validation/validate_visual.py` reprova (`exit 1`, `TEXEL_DENSITY_FAIL`) qualquer malha cuja razão área-UV/área-mundo (`uv_world_ratio`) indique UV `1×1` esticado sobre geometria grande ou UV colapsado.
+2. **Orientação Canônica (`Y-up`, `+Z-frente`) com Branch Explícito (`is_biped`):**
+   - **Personagens Bípedes (`is_biped: true` — `player_character`, `enemy_character`, `biped`):** o eixo maior do bounding box em espaço Unity DEVE ser o vertical (`height_y > width_x` e `height_y > depth_z`) e a razão de aspecto vertical deve cumprir `height_y >= 1.6 * min(width_x, depth_z)`. Qualquer personagem deitado, tombado ou invertido é reprovado com `exit 1` (`ORIENTATION_FAIL`).
+   - **Props e Objetos Estáticos (`is_biped: false` — `prop`, `small_prop_item`, `large_prop_building`, `drone`):** isentos da razão vertical de bípede; são validados por: pivô na base/apoio no piso, escala uniforme (`identity_transform = true`), 0 N-gons, escala plausível em metros e budget de triângulos da classe.
+3. **Proibição de Decimação Bruta sem Retopologia em Personagens (Detalhe em Normal-Map):**
+   - É terminantemente proibido decimar *blobs* brutos de Marching Cubes para produzir personagens de jogo.
+   - Detalhes finos de superfície (mostradores de relógio, engrenagens internas, rebites, gravações e micro-relevos) devem ser transferidos para **normal-map bake** (`_BumpMap`) ou texturas PBR da Fábrica 3D, **nunca** mantidos como geometria bruta decimada.
+4. **Budgets Canônicos por Classe (`docs/art/art-spec.yaml` / `fab3d_bridge.py`):**
+
+   | Classe (`category`) | Budget Máximo (`max_tris`) | Resolução Textura (`texture_size`) | Compressão Mobile (`astc`) | Colisor Padrão | `is_biped` |
+   | --- | --- | --- | --- | --- | --- |
+   | `small_prop_item` | **≤ 600 tris** | 512 × 512 px | `ASTC_6x6` | `box` | `false` |
+   | `large_prop_building` | **≤ 3.000 tris** | 512 × 512 px | `ASTC_6x6` | `box` | `false` |
+   | `enemy_character` | **≤ 2.500 tris** *(ou budget do plano do jogo, ex.: ≤ 3.500)* | 1024 × 1024 px | `ASTC_4x4` | `none` (capsule/controller) | `true` |
+   | `player_character` | **≤ 4.500 tris** *(ou budget de herói do plano do jogo, ex.: ≤ 8.000)* | 1024 × 1024 px | `ASTC_4x4` | `none` (capsule/controller) | `true` |

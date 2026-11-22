@@ -1,0 +1,97 @@
+{
+  "validator": "validate_visual.py",
+  "version": "1.1.0",
+  "timestamp": "2026-11-22T16:15:26.432109+00:00",
+  "asset_name": "prop_caixote",
+  "asset_path": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\prop_caixote\\prop_caixote.fbx",
+  "class": "large_prop_building",
+  "is_biped": false,
+  "applied_checks": [
+    "pivot_base_grounded_on_floor",
+    "uniform_scale_identity_transform",
+    "prop_exempt_from_biped_vertical_ratio",
+    "no_ngons",
+    "class_tri_budget",
+    "uv_texel_density_world_scale",
+    "material_basemap",
+    "scale_meters"
+  ],
+  "passed": true,
+  "checks": {
+    "orientation": {
+      "passed": true,
+      "details": {
+        "is_biped": false,
+        "branch": "prop_grounded_uniform_scale",
+        "applied_checks": [
+          "pivot_base_grounded_on_floor",
+          "uniform_scale_identity_transform",
+          "prop_exempt_from_biped_vertical_ratio"
+        ],
+        "identity_transform": true,
+        "uniform_scale": true,
+        "pivot_grounded_on_floor": true,
+        "grounded_y_min": -0.9635,
+        "bounds_unity_y_up": {
+          "width_x": 1.8745,
+          "height_y": 1.927,
+          "depth_z": 1.8811,
+          "y_min": -0.9635,
+          "y_max": 0.9635
+        },
+        "torso_bounds": null,
+        "aspect_height_over_min_horiz": null,
+        "aspect_height_over_torso_depth": null,
+        "required_biped_aspect": null,
+        "errors": []
+      }
+    },
+    "budget": {
+      "passed": true,
+      "details": {
+        "class": "large_prop_building",
+        "tris": 3000,
+        "max_tris": 3000,
+        "ngons": 0,
+        "errors": []
+      }
+    },
+    "uv_texel_density": {
+      "passed": true,
+      "details": {
+        "uv_valid": true,
+        "uv_total_area": 2.81048,
+        "uv_inside01": 1.0,
+        "mesh_area_m2": 21.39852,
+        "uv_world_ratio": 0.13134,
+        "allowed_ratio_range": [
+          0.005,
+          50.0
+        ],
+        "errors": []
+      }
+    },
+    "material": {
+      "passed": true,
+      "details": {
+        "material_slots": 1,
+        "basecolor_texture": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\prop_caixote\\prop_caixote_basecolor.png",
+        "unity_material_checked": null,
+        "errors": []
+      }
+    },
+    "scale_meters": {
+      "passed": true,
+      "details": {
+        "reference_dimension_m": 1.927,
+        "allowed_range_m": [
+          0.2,
+          50.0
+        ],
+        "errors": []
+      }
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
