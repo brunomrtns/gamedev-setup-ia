@@ -35,16 +35,16 @@ flowchart TD
 
 ## 2. Estado Real Verificado (Espelho Exato do `PROGRESS.md`)
 
-| Bloco | Commit em `main` | Status Real | Evidência em Disco / Pendência Honesta |
+| Bloco | Commit em `main` | Status Real | Evidência em Disco / Observações Honestas |
 | --- | --- | --- | --- |
 | **Ponte 3D (ADR-005)** | `3c2b6ac8`, `1b0e722b`, `78c921f1` | ✅ **Concluído (Modo 1)** | `evidence/art/fab3d_bridge_prop_caixote.json` (250k → 3k tris), `fab3d-import-report.json`, `fab3d_prop_caixote.png`. `unity/Assets/` limpo. |
-| **Fase 1 — Organização & Agentes** | `154d9272` | ✅ **Concluído** | Roadmap, padrão Git, `art-bible.template.yaml`, skills `studio-art-director` e `studio-strict-reviewer`, `AGENTS.md`. |
-| **Fase 2 — TTS Local (XTTS-v2)** | `245ed4c6` | ✅ **Concluído (isolado)** | `evidence/audio/tts_bridge_smoke_test.json` (2 falas PT-BR, 7.138s, 24 kHz, `-1.0 dBFS`, `cuda`, `errors: []`). **0 MB download.** |
-| **Fase 3 — Cutscene Builder** | `c488aa04` | ⚠️ **Parcial (sem VO real)** | `evidence/cutscenes/cutscene_intro_exemplo.json` (2 shots, 2 keyframes, `errors: []`), mas rodou com `audio_clips_bound: 0` e `--dry-run-assets`. **Pendente:** teste de integração ponta a ponta **TTS → `vo_manifest.json` → CutsceneBuilder (`audio_clips_bound > 0`)**. |
-| **Fase 4 — Ponte 2D Local** | `3f27c206` | ⏳ **Pendente (só código)** | `concept_bridge.py` + `concept_diffusers_worker.py` prontos (reusa `~/.venvs/hunyuan`). **Sem download aprovado, sem smoke test e sem PNG em `evidence/`.** |
-| **Adapters de Schema (G2)** | — | ⏳ **Planejado** | Necessário para conectar os YAMLs ricos do **CONCERTO** às pontes. |
-| **Fase 5 — Personagens Animados** | — | ⏳ **Planejado** | `Fab3D → auto_rig.py → Unity` (0 MB). |
-| **Fase 6 — SFX & Música Local** | — | ⏳ **Planejado** | Começar pelo modo CC0/local (0 MB) + normalização LUFS. |
+| **Fase 1 — Organização & Agentes** | `154d9272`, `72f85534` | ✅ **Concluído** | Roadmap, padrão Git, `art-bible.template.yaml`, skills `studio-art-director` e `studio-strict-reviewer`, `AGENTS.md` (incl. Regra Anti-Overclaim), `.gitattributes` (LFS ativo). |
+| **Fase 2 — TTS Local (XTTS-v2)** | `245ed4c6` | ✅ **Concluído** | `evidence/audio/tts_bridge_smoke_test.json` (2 falas PT-BR, 7.138s, 24 kHz, `-1.0 dBFS`, `cuda`, `errors: []`). **0 MB download.** |
+| **Fase 3 + 3b — Cutscene Builder + VO** | `c488aa04`, `5e97612d` | ✅ **Concluído (Tier 1)** | `evidence/cutscenes/cutscene_integration_vo.json` (`audio_clips_bound: 2`, `9.277s`, `TimelineAsset` + Prefab + 2 keyframes, `errors: []`). |
+| **Adapters de Schema (G2) + Env Vars** | `5e97612d` | ✅ **Concluído (Adapter)** | `evidence/studio/g2_adapters_validation.json` (PASS nos 3 YAMLs reais do CONCERTO via `PyYAML` no WSL em `yaml_loader.py`). *Pendente no worker (`tts_xtts_worker.py`):* aplicar `retry` de `max_duration_ms`, `speed` e `fx` (hoje preservados como metadados). |
+| **Fase 4 — Ponte 2D Local (`sdxl-turbo`)** | `3f27c206`, `b022c8c3` | ✅ **Concluído (Gate técnico)** | Download (~6,5 GB em `C:\`) autorizado pelo dono em 21/11 após limpeza de `+51,94 GB` (Crash CTR) + `+9 GB` WSL (`cuda_*.run`) → `171,46 GB` livres em `C:\`. `evidence/art/concept_smoke_*.json` + `evidence/concepts/smoke_*.png` (LFS). *Inspeção visual feita pela IA; aprovação estética final pelo dono disponível a qualquer momento.* |
+| **Fase 5 — Personagens Animados (Base)** | `b022c8c3` | ✅ **Concluído (Base)** | `fab3d_bridge.py --auto-rig` + `Fab3dImporter.cs`: `smoke_dragonborn` (4.500 tris, 18 ossos, 4 clips, `validate_asset` exit 0, `fab3d_smoke_dragonborn.png`). *Upgrade profissional planejado na Fase 5.1 abaixo.* |
+| **Fase 6 — SFX & Música Local (CC0/EBU R128)** | `629d92f2` | ✅ **Concluído** | `audio_bridge.py` (`ffmpeg` nativo, 0 MB) + `evidence/audio/audio_bridge_smoke_{sfx,music}.json` (`-16/-18 LUFS`, `errors: []`). |
 
 ---
 
@@ -61,7 +61,7 @@ Os contratos YAML do pacote **CONCERTO** são a **fonte da verdade**; os JSONs c
 | Contrato CONCERTO | Lacuna identificada (Review `dd3cd64`) | Adaptação planejada |
 | --- | --- | --- |
 | `art-bible.yaml` | Usa `prompt_base.{text, negative}` + `characters.<id>.prompt_mod` + `palettes.<fuso>`, enquanto `concept_bridge.py` só lia `local_generation_prompts.*` | Estender `concept_bridge.py` para suportar `prompt_base.{text, negative}` + flags `--character <id>` e `--fuso <id>` (falhando com erro explícito se o prompt resultar vazio — nunca silêncio). |
-| `dialogues.yaml` | 7 vozes com `xtts-v2`/`kokoro-82m`/`f5-tts`, idioma `"pt-BR"`, `speed`, `max_duration_ms` e `subtitles.{pt-BR,en}` | Criar `tools/audio/dialogue_adapter.py`: (a) converte `"pt-BR" → "pt"` para XTTS-v2; (b) suporta fallback unificado para XTTS-v2 com 7 amostras `.wav` (6–15 s gravadas/definidas pelo dono) — ou opcionalmente `kokoro-82m` (~350 MB) para a Porca; (c) implementa retry automático de `max_duration_ms` e preserva `subtitles.{pt-BR,en}` no `vo_manifest.json`. |
+| `dialogues.yaml` | 7 vozes com `xtts-v2`/`kokoro-82m`/`f5-tts`, idioma `"pt-BR"`, `speed`, `max_duration_ms` e `subtitles.{pt-BR,en}` | `tools/audio/dialogue_adapter.py` implementado: converte `"pt-BR" → "pt"`, roteia engines não-XTTS com warnings explícitos e preserva `max_duration_ms`, `speed`, `fx` e `subtitles.{pt-BR,en}` nos JSONs derivados. *(Pendente no `tts_xtts_worker.py`: implementar execução real de `retry` de `max_duration_ms`, `speed` e `fx` antes da produção final de VO do CONCERTO.)* |
 | `cutscene_01_abertura.yaml` | 165 s, múltiplos `sets`, `actors` com poses, `camera.{type, lens_mm, dof}`, `music.fades` | **Tier 1 (Vertical Slice):** `tools/studio/cutscene_adapter.py` converte o YAML rico para o JSON do `CutsceneBuilder.cs` (`lens_mm → fov`, `dolly`/`orbit`/`static` → camera rails, `vo` → `vo_line_id`, legendas bilíngues). **Tier 2 (Produção CONCERTO):** evoluir `CutsceneBuilder.cs` para `actors`/poses, `music.fades` (ducking) e troca de `sets`. |
 
 > **Higiene técnica (G5):** externalizar caminhos padrão de máquina via variáveis de ambiente (`STUDIO_UNITY_EXE`, `STUDIO_WSL_TTS_PYTHON`, `STUDIO_WSL_2D_PYTHON`) mantendo os caminhos atuais do Bruno como fallback.
@@ -118,12 +118,21 @@ O Studio V2 é declarado **PRONTO** quando todos os 6 gates abaixo estiverem `[x
 
 ---
 
-## 7. Decisões Aguardando Sua Aprovação (Ordem Recomendada)
+## 7. Fase 5.1 — Upgrade Profissional de Animação (Opcional, Pós-Vertical Slice)
 
-*(Nota: o push dos commits anteriores até `dd3cd647` já foi autorizado e executado em `origin/main`.)*
+> **Critério definido pelo dono:** foco na melhor qualidade técnica 100% local (sem filtro de licença; verificação técnica sempre na fonte oficial). O `auto_rig.py` atual fecha o vertical slice; a Fase 5.1 eleva rigging e animação para nível de produção:
 
-1. **Limpeza no WSL (recomendado fazer primeiro):** autoriza apagar `cuda_12.8.0_linux.run` + `cuda_13.0.0_linux.run` (~9,7 GB) em `/home/bruno/` para abrir folga no `C:\`?
-2. **Integração TTS → Cutscene + Adapters G2 (0 MB):** autoriza executar o teste de integração da Fase 3 com VO real + adaptar as pontes para os YAMLs do CONCERTO?
-3. **Download Fase 4 (~6,5 GB em `C:\`, após item 1):** autoriza baixar `stabilityai/sdxl-turbo` para rodar o smoke test `concept` + `tileable`?
-4. **Fase 6 (SFX/Música):** confirma começar no modo **CC0/local (0 MB)** antes de avaliar modelo generativo (~1,5 GB)?
-5. **Repo `game-concerto`:** prefere criar o repositório novo `game-concerto` logo após fechar o DoD macro do Studio V2, ou já criar a estrutura base agora em paralelo?
+| Estágio | Stack (100% local, `C:\`) | Escopo e Gate |
+| --- | --- | --- |
+| **5.1-A (0 MB)** | **Quaternius UAL** (já existe em `QuaterniusPedPipeline.cs` + `import_quaternius_pack.py`) + `Fab3dImporter` → `ModelImporterAnimationType.Human` + Animation Rigging IK | Reutilizar UAL como biblioteca oficial + avatar config no 1º personagem do CONCERTO |
+| **5.1-B (~2–4 GB seletivo)** | **UniRig** (WSL headless, baixar **somente** checkpoints `skeleton/` + `skin/`, jamais `data/`) + **MoMask** (texto → BVH, roda até em CPU) + **Estória 5.1-B2** (normalizador de ossos Mecanim/`keemap` + retarget automatizado em `bpy`) | Gate: 1 criatura/personagem rigado com UniRig + 3 clips UAL retargetados sem retoque manual + 1 gesto MoMask → BVH → captura |
+| **5.1-C (Opcional)** | **GVHMR** (vídeo → SMPL → conversor SMPL→BVH, medir VRAM real no 1º run) | Cenas expressivas gravadas em vídeo curto para cutscenes |
+
+---
+
+## 8. Registro de Aprovações & Próxima Decisão
+
+- **Aprovações já concedidas pelo dono (21/11):** limpeza dos instaladores `cuda_*.run` (+9 GB WSL) e sobras do Crash CTR (+51,94 GB em `C:\` → `171,46 GB` livres medidos); execução de Fase 3b + G2 + download `sdxl-turbo` (~6,5 GB) + Fases 4/5/6; pushes até `b022c8c3`.
+- **Próxima decisão em aberto:**
+  1. Abrir agora o repositório limpo **`game-concerto`** (com o pacote `concerto-gdd.zip` + Git LFS + vertical slice usando a base atual do Studio V2) **ou** executar o **Estágio 5.1-A (Quaternius UAL + Humanoid)** antes?
+  2. (Opcional) Implementar `retry` de `max_duration_ms` + `speed` no `tts_xtts_worker.py` antes da gravação das vozes do CONCERTO.

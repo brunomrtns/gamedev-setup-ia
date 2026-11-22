@@ -910,3 +910,6 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
   - `tools/audio/audio_bridge.py`, `docs/operations/audio-sfx-runbook.md`, `.agents/skills/studio-audio-designer/SKILL.md`.
   - Smoke test SFX (`-16 LUFS`, `-1.0 dBFS`, WAV 44.1 kHz) + Música (`-18 LUFS`, OGG loop, `errors: []`): `evidence/audio/audio_bridge_smoke_sfx.json`, `evidence/audio/audio_bridge_smoke_music.json`.
 - **DoD Macro do Studio V2: 6/6 GATES VERDES** — ambiente 100% configurado e pronto para receber `game-concerto`.
+- **Registro de auditoria (21/11, pós-review `review-upgrade-animacao-fase5.md`):**
+  - Aprovações registradas: limpeza `cuda_*.run` (+9 GB WSL) + sobras Crash CTR (+51,94 GB → `171,46 GB` livres em `C:\`), download `sdxl-turbo` (~6,5 GB) e pushes até `b022c8c3`.
+  - Pendências honestas (não bloqueiam vertical slice): (a) `tts_xtts_worker.py` ainda não executa `retry` de `max_duration_ms`/`speed`/`fx` (apenas preservados pelo `dialogue_adapter.py`); (b) **Fase 5.1** planejada no Plano v2.1 (Estágio A: Quaternius UAL + Humanoid 0 MB; Estágio B: UniRig seletivo + MoMask + estória 5.1-B2 normalizador/retarget; Estágio C: GVHMR opcional).
