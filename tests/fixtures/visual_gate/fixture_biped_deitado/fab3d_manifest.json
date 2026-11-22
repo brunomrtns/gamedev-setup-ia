@@ -1,0 +1,12 @@
+{
+  "asset_name": "fixture_biped_deitado",
+  "category": "player_character",
+  "preset": "character",
+  "texture_size": 512,
+  "astc": "ASTC_4x4",
+  "collider": "none",
+  "max_tris": 4500,
+  "tris_final": 12,
+  "rigged": false,
+  "source_mode": "fixture_regression"
+}
