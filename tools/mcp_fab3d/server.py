@@ -47,9 +47,10 @@ TOOL_SPECS = [
 
 
 class Fab3DMCPService:
-    def __init__(self, adapter_mode: str = None, work_dir: Path = None):
+    def __init__(self, adapter_mode: str = None, work_dir: Path = None, engine: str = None):
         self.adapter_mode = (adapter_mode or os.environ.get("FAB3D_ADAPTER", "real")).strip().lower()
-        self.adapter = get_adapter(self.adapter_mode)
+        self.adapter = get_adapter(self.adapter_mode, engine=engine)
+        self.engine = self.adapter.engine
         self.work_dir = Path(work_dir) if work_dir else WORK_DIR
         self.work_dir.mkdir(parents=True, exist_ok=True)
         self._jobs = {}
@@ -57,11 +58,13 @@ class Fab3DMCPService:
     def system_status(self) -> dict:
         return {
             "service": "studio-fab3d-mcp",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "attribution": "Baseado em MyMeshy (MIT, github.com/felippeomgt/mymeshy)",
             "adapter_mode": self.adapter_mode,
             "adapter_name": self.adapter.name,
-            "default_production_route": "TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game",
+            "engine": self.engine,
+            "fallback_engine": "trellis2",
+            "default_production_route": "TripoSG (padrão) / TRELLIS.2-4B (fallback) + Hunyuan3D-Paint + pack_glb modo game",
             "gate_bypass_allowed": False,
             "mandatory_gates": [
                 "glTF-Validator (tools/validation/validate_gltf.py)",
@@ -73,7 +76,7 @@ class Fab3DMCPService:
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 
-    def image_to_3d(self, asset_name: str, image_path: str = "", category: str = "small_prop_item") -> dict:
+    def image_to_3d(self, asset_name: str, image_path: str = "", category: str = "small_prop_item", engine: str = None) -> dict:
         job_id = f"job_{asset_name}_{uuid.uuid4().hex[:8]}"
         job_dir = self.work_dir / job_id
         job_dir.mkdir(parents=True, exist_ok=True)
@@ -83,6 +86,7 @@ class Fab3DMCPService:
             "category": category,
             "image_path": image_path,
             "adapter": self.adapter.name,
+            "engine": engine or self.engine,
             "stage": "image_to_3d",
             "status": "running",
             "created_at": datetime.now(timezone.utc).isoformat(),
@@ -90,7 +94,7 @@ class Fab3DMCPService:
         }
         self._jobs[job_id] = job
         try:
-            res = self.adapter.image_to_3d(asset_name, image_path, job_dir, category)
+            res = self.adapter.image_to_3d(asset_name, image_path, job_dir, category, engine=engine)
             job.update(res)
             job["status"] = "completed"
             job["completed_at"] = datetime.now(timezone.utc).isoformat()
@@ -110,8 +114,8 @@ class Fab3DMCPService:
         job.update(res)
         return job
 
-    def generate_asset(self, asset_name: str, image_path: str = "", category: str = "small_prop_item") -> dict:
-        job = self.image_to_3d(asset_name=asset_name, image_path=image_path, category=category)
+    def generate_asset(self, asset_name: str, image_path: str = "", category: str = "small_prop_item", engine: str = None) -> dict:
+        job = self.image_to_3d(asset_name=asset_name, image_path=image_path, category=category, engine=engine)
         if job.get("status") == "completed":
             job = self.texture_mesh(job["job_id"])
             job["stage"] = "generate_asset_done"

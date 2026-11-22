@@ -1,6 +1,6 @@
 {
   "smoke": "P1 — Fab3D MCP Service (MyMeshy MIT base, Mock adapter)",
-  "timestamp": "2026-11-22T17:52:41.701922+00:00",
+  "timestamp": "2026-11-22T21:13:25.077902+00:00",
   "exposed_tools": [
     "generate_asset",
     "image_to_3d",
@@ -13,11 +13,13 @@
   ],
   "system_status": {
     "service": "studio-fab3d-mcp",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "attribution": "Baseado em MyMeshy (MIT, github.com/felippeomgt/mymeshy)",
     "adapter_mode": "mock",
     "adapter_name": "mock_procedural_blender",
-    "default_production_route": "TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game",
+    "engine": "triposg",
+    "fallback_engine": "trellis2",
+    "default_production_route": "TripoSG (padrão) / TRELLIS.2-4B (fallback) + Hunyuan3D-Paint + pack_glb modo game",
     "gate_bypass_allowed": false,
     "mandatory_gates": [
       "glTF-Validator (tools/validation/validate_gltf.py)",
@@ -26,16 +28,16 @@
       "Fab3dImporter + captura datada (unity/Assets/Editor/Fab3dImporter.cs)"
     ],
     "active_jobs": 0,
-    "timestamp": "2026-11-22T17:52:30.734434+00:00"
+    "timestamp": "2026-11-22T21:13:11.696460+00:00"
   },
   "wait_for_job_status": "completed",
   "get_job_stage": "generate_asset_done",
   "export_result": {
-    "job_id": "job_mcp_mock_caixote_smoke_9a7ac13c",
+    "job_id": "job_mcp_mock_caixote_smoke_500b5b0b",
     "asset_name": "mcp_mock_caixote_smoke",
     "exported": true,
     "gates_passed": true,
-    "export_dir": "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\.studio\\mcp_fab3d_jobs\\job_mcp_mock_caixote_smoke_9a7ac13c\\exported_game_asset",
+    "export_dir": "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\.studio\\mcp_fab3d_jobs\\job_mcp_mock_caixote_smoke_500b5b0b\\exported_game_asset",
     "gate_reports": {
       "gltf_validator": "evidence/validation/gltf_validator_mcp_mock_caixote_smoke.json",
       "validate_visual": "evidence/validation/validate_visual_mcp_mock_caixote_smoke.json",
@@ -48,7 +50,7 @@
     "count": 1,
     "assets": [
       {
-        "job_id": "job_mcp_mock_caixote_smoke_9a7ac13c",
+        "job_id": "job_mcp_mock_caixote_smoke_500b5b0b",
         "asset_name": "mcp_mock_caixote_smoke",
         "category": "small_prop_item",
         "status": "completed",
