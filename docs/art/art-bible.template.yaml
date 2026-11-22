@@ -2,8 +2,9 @@
 #
 # Copie este arquivo para `docs/art/art-bible.yaml` no início de cada jogo novo.
 # Dono: Art Director (.agents/skills/studio-art-director/SKILL.md).
-# Toda geração 2D (ComfyUI), 3D (Fábrica 3D), iluminação e material URP deve
-# obedecer a este documento para garantir 100% de coesão visual.
+# Toda geração 2D (diffusers/WSL via concept_bridge.py), 3D (Fábrica 3D),
+# iluminação e material URP deve obedecer a este documento para garantir
+# 100% de coesão visual.
 
 version: "1.0"
 game_title: "<Nome do Jogo>"
@@ -37,7 +38,7 @@ lighting_and_atmosphere:
   fog_enabled: true
   fog_color: "#3A4B63"
 
-# Prompts-base usados em TODAS as gerações locais (ComfyUI -> Fábrica 3D)
+# Prompts-base usados em TODAS as gerações locais (diffusers/WSL -> Fábrica 3D)
 # para manter identidade visual única entre todos os assets do jogo.
 local_generation_prompts:
   style_prefix: >
