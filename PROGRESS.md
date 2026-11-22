@@ -70,3 +70,16 @@
     - **MoMask** (`~/tools/momask-codes` + `~/.venvs/momask`, 188 MB checkpoints): `tools/art/ai_generator/motion_bridge.py` + `bvh_to_fbx_blender.py` (texto → `.bvh` → `.fbx` Mecanim 22 juntas, exit 0: `evidence/art/motion_smoke_repair_kneel.json`).
     - **UniRig** (`~/tools/UniRig` + `~/.venvs/unirig`, download seletivo 5,54 GB `skeleton/` + `skin/`, pulando `data/`): `tools/art/ai_generator/unirig_bridge.py` (Skeleton 13s + Skinning 5s + Merge 1.3s em `criatura_dragao__pbr_4k.glb`, exit 0: `evidence/art/unirig_smoke_dragao.json`).
     - Runbook & skill: `docs/operations/animation-pipeline-runbook.md` + `.agents/skills/studio-animation-director/SKILL.md`.
+
+---
+
+## Fix Permanente de Visibilidade e Gates Visuais — DOC 3 (`feat/visual-gates`, 22/11)
+- **Justificativa Unity MCP (Rota B em vez de Rota A):** adotada a Rota B (`CoderGamester/mcp-unity` v1.5.0, licença MIT, em `C:\Users\Bruno\tools\mcp-unity`) porque o pacote oficial da Rota A (`com.unity.ai.assistant`) está em beta fechado por entitlement de conta Unity (ausente no `PackageCache` local do Unity 6000.3.26f1) e o symlink `C:\WINDOWS\system32\unity.exe` aponta para um binário inexistente (`C:\Program Files\Unity Hub\resources\unity.exe`).
+- [x] **Etapa 0 — Smoke Test de Visibilidade (MCP / Captura):** `Calibration.unity` (fixture de QA commitada com `Mat_PBR_ConcretePanel.mat` registrado em `LICENSES-ARTE.md`) capturada e inspecionada multimodalmente (`evidence/captures/mcp_smoke_test_20261122.png`).
+- [x] **Item A — `tools/validation/validate_visual.py` (+ `tools/art/inspect_fbx.py` expandido):**
+  - Checa orientação Y-up (`height_y > max(width_x, depth_z)` e `height_y >= 1.6 * min_horiz` para bípede), budget de triângulos/N-gons, densidade UV/texel (`uv_world_ratio`), material e escala em metros.
+  - Provado `exit 0` no `smoke_dragonborn` em pé (`evidence/validation/validate_visual_smoke_dragonborn.json`) e `exit 1` (`ORIENTATION_FAIL`) na fixture de regressão permanente `tests/fixtures/visual_gate/fixture_biped_deitado/` (`evidence/validation/validate_visual_fixture_biped_deitado.json`).
+- [x] **Item B — Ordem Canônica de Gates (`glTF-Validator` → `validate_asset` → `validate_visual` → `Fab3dImporter` → Captura → `validate_scene` → `run_unity_tests`):**
+  - `tools/validation/validate_gltf.py` (Khronos `glTF-Validator` Apache-2.0) integrado ao `fab3d_bridge.py` e ao orquestrador `tools/qa/run_visual_gates.py`; documentado em `docs/operations/fab3d-bridge-runbook.md` (`evidence/validation/gltf_validator_smoke_dragonborn.json`).
+- [x] **Item C — Captura Automática Datada Pós-Import (`Fab3dImporter.cs`):**
+  - `ImportAll(autoCapture: true)` gera `evidence/captures/fab3d_<nome>_<YYYYMMDD_HHMMSS>.png` em todo import; provado em `evidence/captures/fab3d_smoke_dragonborn_20261122_154155.png` e registrado em `evidence/art/fab3d-import-report.json`.

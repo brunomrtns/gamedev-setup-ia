@@ -56,25 +56,27 @@ namespace Studio.Editor
             public int ualClipsBound;
             public List<string> materials = new List<string>();
             public List<string> prefabs = new List<string>();
+            public List<string> captures = new List<string>();
             public List<string> errors = new List<string>();
         }
 
         [MenuItem("Studio/Fab3D/Import Generated Assets")]
         public static void MenuRun()
         {
-            var report = ImportAll();
-            Debug.Log($"[Fab3dImporter] Concluido: assets={report.assetsProcessed} materiais={report.materials.Count} prefabs={report.prefabs.Count} erros={report.errors.Count}");
+            var report = ImportAll(autoCapture: true);
+            Debug.Log($"[Fab3dImporter] Concluido: assets={report.assetsProcessed} materiais={report.materials.Count} prefabs={report.prefabs.Count} captures={report.captures.Count} erros={report.errors.Count}");
         }
 
         /// <summary>Entrada batchmode: Unity -batchmode -quit -executeMethod Studio.Editor.Fab3dImporter.RunImportBatch</summary>
         public static void RunImportBatch()
         {
-            var report = ImportAll();
-            Debug.Log($"[Fab3dImporter] Concluido: assets={report.assetsProcessed} materiais={report.materials.Count} prefabs={report.prefabs.Count} erros={report.errors.Count}");
+            bool skipCapture = Environment.GetCommandLineArgs().Any(a => a == "-skipPreviewCapture");
+            var report = ImportAll(autoCapture: !skipCapture);
+            Debug.Log($"[Fab3dImporter] Concluido: assets={report.assetsProcessed} materiais={report.materials.Count} prefabs={report.prefabs.Count} captures={report.captures.Count} erros={report.errors.Count}");
             EditorApplication.Exit(report.errors.Count == 0 && report.assetsProcessed > 0 ? 0 : 1);
         }
 
-        /// <summary>Captura evidencia visual de um prefab Fab3D em cena do NEON DISTRICT sem alterar a cena em disco.</summary>
+        /// <summary>Captura evidencia visual de um prefab Fab3D com nome datado em evidence/captures/ sem alterar a cena em disco.</summary>
         public static void CapturePreviewBatch()
         {
             string assetName = null;
@@ -95,23 +97,48 @@ namespace Studio.Editor
                 assetName = Path.GetFileNameWithoutExtension(prefabs[0]);
             }
 
+            string datedOutPath = CapturePreviewForAsset(assetName, out string err);
+            if (string.IsNullOrEmpty(datedOutPath))
+            {
+                Debug.LogError("[Fab3dImporter] " + err);
+                EditorApplication.Exit(1);
+                return;
+            }
+            EditorApplication.Exit(0);
+        }
+
+        public static string CapturePreviewForAsset(string assetName, out string error)
+        {
+            error = null;
             string prefabPath = $"{PrefabsDir}/{assetName}.prefab";
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
             if (prefab == null)
             {
-                Debug.LogError("[Fab3dImporter] Prefab nao encontrado: " + prefabPath);
-                EditorApplication.Exit(1);
-                return;
+                error = "Prefab nao encontrado: " + prefabPath;
+                return null;
             }
 
-            string scenePath = "Assets/Game/Scenes/NeonDistrict.unity";
-            EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
-
-            // Posiciona na calcada sul da Avenida Neon (z=16.5, x=-52), sem salvar a cena
-            Vector3 pos = new Vector3(-52f, 0.15f, 16.5f);
-            if (Physics.Raycast(new Vector3(pos.x, 10f, pos.z), Vector3.down, out RaycastHit hit, 20f))
+            string neonScene = "Assets/Game/Scenes/NeonDistrict.unity";
+            string calibScene = "Assets/Game/Scenes/Calibration.unity";
+            Vector3 pos = Vector3.zero;
+            if (File.Exists(neonScene))
             {
-                pos.y = hit.point.y;
+                EditorSceneManager.OpenScene(neonScene, OpenSceneMode.Single);
+                pos = new Vector3(-52f, 0.15f, 16.5f);
+                if (Physics.Raycast(new Vector3(pos.x, 10f, pos.z), Vector3.down, out RaycastHit hit, 20f))
+                {
+                    pos.y = hit.point.y;
+                }
+            }
+            else if (File.Exists(calibScene))
+            {
+                EditorSceneManager.OpenScene(calibScene, OpenSceneMode.Single);
+                pos = new Vector3(0f, 0.0f, 0f);
+            }
+            else
+            {
+                EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects, NewSceneMode.Single);
+                pos = Vector3.zero;
             }
 
             GameObject inst = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
@@ -153,17 +180,23 @@ namespace Studio.Editor
             RenderTexture.active = null;
             UnityEngine.Object.DestroyImmediate(rt);
 
+            byte[] pngBytes = tex.EncodeToPNG();
+            UnityEngine.Object.DestroyImmediate(tex);
+            UnityEngine.Object.DestroyImmediate(inst);
+
             string outDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "evidence", "captures");
             Directory.CreateDirectory(outDir);
-            string outPath = Path.Combine(outDir, $"fab3d_{assetName}.png");
-            File.WriteAllBytes(outPath, tex.EncodeToPNG());
-            UnityEngine.Object.DestroyImmediate(tex);
+            string stamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+            string datedPath = Path.Combine(outDir, $"fab3d_{assetName}_{stamp}.png");
+            string latestPath = Path.Combine(outDir, $"fab3d_{assetName}.png");
+            File.WriteAllBytes(datedPath, pngBytes);
+            File.WriteAllBytes(latestPath, pngBytes);
 
-            Debug.Log($"[Fab3dImporter] Captura salva em: {outPath} (bounds={b.size})");
-            EditorApplication.Exit(0);
+            Debug.Log($"[Fab3dImporter] Captura datada salva em: {datedPath} (bounds={b.size})");
+            return datedPath;
         }
 
-        public static ImportReport ImportAll()
+        public static ImportReport ImportAll(bool autoCapture = true)
         {
             var report = new ImportReport();
             EnsureFolder("Assets/Game/Materials");
@@ -191,7 +224,7 @@ namespace Studio.Editor
             {
                 try
                 {
-                    ImportOne(Path.GetDirectoryName(manifestPath), report);
+                    ImportOne(Path.GetDirectoryName(manifestPath), report, autoCapture);
                 }
                 catch (Exception e)
                 {
@@ -203,7 +236,7 @@ namespace Studio.Editor
             return report;
         }
 
-        private static void ImportOne(string folder, ImportReport report)
+        private static void ImportOne(string folder, ImportReport report, bool autoCapture = true)
         {
             var manifest = JsonUtility.FromJson<Fab3dManifest>(File.ReadAllText(Path.Combine(folder, "fab3d_manifest.json")));
             string name = manifest.asset_name;
@@ -333,6 +366,20 @@ namespace Studio.Editor
             UnityEngine.Object.DestroyImmediate(go);
             report.prefabs.Add(prefabPath);
             report.assetsProcessed++;
+
+            if (autoCapture)
+            {
+                AssetDatabase.SaveAssets();
+                string datedCap = CapturePreviewForAsset(name, out string capErr);
+                if (!string.IsNullOrEmpty(datedCap))
+                {
+                    report.captures.Add(datedCap);
+                }
+                else
+                {
+                    report.errors.Add($"{name}: falha na captura automatica pos-import ({capErr})");
+                }
+            }
 
             Debug.Log($"[Fab3dImporter] {name}: cat={manifest.category} tris={manifest.tris_final}/{manifest.max_tris} tex={manifest.texture_size}px {manifest.astc} collider={manifest.collider}");
         }
