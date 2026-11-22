@@ -1,9 +1,9 @@
 {
   "validator": "validate_visual.py",
   "version": "1.1.0",
-  "timestamp": "2026-11-22T16:02:08.011135+00:00",
+  "timestamp": "2026-11-22T16:15:21.385173+00:00",
   "asset_name": "prop_caixote",
-  "asset_path": "unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote.fbx",
+  "asset_path": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\prop_caixote\\prop_caixote.fbx",
   "class": "large_prop_building",
   "is_biped": false,
   "applied_checks": [
@@ -75,7 +75,7 @@
       "passed": true,
       "details": {
         "material_slots": 1,
-        "basecolor_texture": "unity/Assets/Game/Art/Generated/prop_caixote/prop_caixote_basecolor.png",
+        "basecolor_texture": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\prop_caixote\\prop_caixote_basecolor.png",
         "unity_material_checked": null,
         "errors": []
       }
