@@ -1,4 +1,5 @@
 {
+  "schema": "cutscene-spec-v1",
   "cutscene_id": "intro_exemplo",
   "scene_path": "Assets/Game/Scenes/NeonDistrict.unity",
   "vo_manifest_path": "Assets/Game/Audio/VO/intro_exemplo/vo_manifest.json",

@@ -83,6 +83,7 @@ def adapt_cutscene(yaml_path: Path, out_json: Path, scene_path: str = "",
         })
 
     spec = {
+        "schema": "cutscene-spec-v1",
         "cutscene_id": cutscene_id,
         "scene_path": scene_path,
         "vo_manifest_path": vo_manifest_path,

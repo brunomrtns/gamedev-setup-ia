@@ -20,9 +20,12 @@ namespace Studio.Editor
     {
         private const string CutscenesRoot = "Assets/Game/Cutscenes";
 
+        public const string ExpectedSchema = "cutscene-spec-v1";
+
         [Serializable]
         public class CutsceneSpec
         {
+            public string schema;
             public string cutscene_id;
             public string scene_path;
             public string vo_manifest_path;
@@ -119,6 +122,18 @@ namespace Studio.Editor
                 {
                     report.errors.Add("CutsceneSpec invalido: cutscene_id ou shots ausentes");
                     WriteReport(report, "invalid");
+                    return report;
+                }
+                if (!string.IsNullOrEmpty(spec.schema) && spec.schema != ExpectedSchema)
+                {
+                    report.errors.Add($"Schema incompatível em CutsceneSpec: esperado '{ExpectedSchema}', recebido '{spec.schema}'");
+                    WriteReport(report, spec.cutscene_id);
+                    return report;
+                }
+                if (string.IsNullOrEmpty(spec.schema))
+                {
+                    report.errors.Add($"Campo 'schema' ausente em CutsceneSpec (esperado '{ExpectedSchema}')");
+                    WriteReport(report, spec.cutscene_id);
                     return report;
                 }
                 report.cutscene_id = spec.cutscene_id;

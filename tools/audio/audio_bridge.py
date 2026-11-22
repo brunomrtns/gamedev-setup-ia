@@ -64,22 +64,59 @@ def measure_wav(path: Path) -> dict:
     }
 
 
+def _extract_loudnorm_json(stderr_text: str) -> dict:
+    start = stderr_text.rfind("{")
+    end = stderr_text.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        try:
+            return json.loads(stderr_text[start:end + 1])
+        except Exception:
+            pass
+    return {}
+
+
 def normalize_file(src: Path, dst: Path, kind: str, ffmpeg_mode: str) -> dict:
+    """Normalizacao EBU R128 two-pass (medicao pass 1 -> linear=true pass 2)."""
     target_i = -16.0 if kind == "sfx" else -18.0
     target_tp = -1.0 if kind == "sfx" else -1.5
-    af = f"loudnorm=I={target_i}:TP={target_tp}:LRA=11"
+    target_lra = 11.0
 
     dst.parent.mkdir(parents=True, exist_ok=True)
-    if ffmpeg_mode == "native":
-        cmd = ["ffmpeg", "-y", "-i", str(src), "-af", af, "-ar", "44100", str(dst)]
-    elif ffmpeg_mode == "wsl":
-        cmd = ["wsl", "ffmpeg", "-y", "-i", to_wsl_path(src), "-af", af, "-ar", "44100", to_wsl_path(dst)]
-    else:
-        raise RuntimeError("ffmpeg nao encontrado nem no Windows nem no WSL")
+    src_arg = str(src) if ffmpeg_mode == "native" else to_wsl_path(src)
+    dst_arg = str(dst) if ffmpeg_mode == "native" else to_wsl_path(dst)
+    null_sink = "NUL" if ffmpeg_mode == "native" else "/dev/null"
+    base_cmd = ["ffmpeg"] if ffmpeg_mode == "native" else ["wsl", "ffmpeg"]
 
-    res = subprocess.run(cmd, capture_output=True, text=True)
-    if res.returncode != 0:
-        raise RuntimeError(f"ffmpeg falhou em {src.name}: {res.stderr[-400:]}")
+    # Pass 1: medicao exata de loudness (print_format=json)
+    af1 = f"loudnorm=I={target_i}:TP={target_tp}:LRA={target_lra}:print_format=json"
+    p1 = subprocess.run(
+        [*base_cmd, "-y", "-i", src_arg, "-af", af1, "-f", "null", null_sink],
+        capture_output=True, text=True,
+    )
+    if p1.returncode != 0:
+        raise RuntimeError(f"ffmpeg pass 1 falhou em {src.name}: {p1.stderr[-400:]}")
+    m1 = _extract_loudnorm_json(p1.stderr)
+
+    # Pass 2: normalizacao linear deterministica com os valores medidos
+    if m1 and m1.get("input_i") not in (None, "-inf"):
+        af2 = (
+            f"loudnorm=I={target_i}:TP={target_tp}:LRA={target_lra}"
+            f":measured_I={m1['input_i']}:measured_LRA={m1['input_lra']}"
+            f":measured_TP={m1['input_tp']}:measured_thresh={m1['input_thresh']}"
+            f":offset={m1.get('target_offset', '0.0')}:linear=true:print_format=json"
+        )
+        two_pass = True
+    else:
+        af2 = f"loudnorm=I={target_i}:TP={target_tp}:LRA={target_lra}:print_format=json"
+        two_pass = False
+
+    p2 = subprocess.run(
+        [*base_cmd, "-y", "-i", src_arg, "-af", af2, "-ar", "44100", dst_arg],
+        capture_output=True, text=True,
+    )
+    if p2.returncode != 0:
+        raise RuntimeError(f"ffmpeg pass 2 falhou em {src.name}: {p2.stderr[-400:]}")
+    m2 = _extract_loudnorm_json(p2.stderr)
 
     info = {
         "id": src.stem,
@@ -87,8 +124,12 @@ def normalize_file(src: Path, dst: Path, kind: str, ffmpeg_mode: str) -> dict:
         "output_file": dst.name,
         "kind": kind,
         "loop": kind == "music",
+        "two_pass": two_pass,
         "target_lufs": target_i,
         "target_tp_dbtp": target_tp,
+        "measured_input_i": m1.get("input_i"),
+        "measured_output_i": m2.get("output_i"),
+        "measured_output_tp": m2.get("output_tp"),
         "size_bytes": dst.stat().st_size,
     }
     if dst.suffix.lower() == ".wav":

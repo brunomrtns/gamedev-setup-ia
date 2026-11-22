@@ -1,0 +1,22 @@
+{
+  "schema": "voice-sample-validation-v1",
+  "status": "PASS",
+  "total": 1,
+  "passed": 1,
+  "samples": {
+    "bruno": {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\bruno\\Desenvolvimento\\brunointegrations\\video-generate\\public\\voices\\bruno.wav",
+      "duration_sec": 139.18,
+      "sample_rate": 22050,
+      "channels": 1,
+      "peak_dbfs": 0.0,
+      "silence_ratio": 0.482,
+      "clip_ratio": 0.0,
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "duracao 139.18s > recomendado 120.0s (XTTS usa os primeiros ~15s)"
+      ]
+    }
+  }
+}

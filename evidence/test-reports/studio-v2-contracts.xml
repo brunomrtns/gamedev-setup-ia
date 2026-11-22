@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0,0933576">
+  <test-suite type="TestSuite" id="1000" name="NeonDistrictServer" fullname="NeonDistrictServer" runstate="Runnable" testcasecount="87" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.093358" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1093" name="Studio.Tests.EditMode.dll" fullname="C:/Users/Bruno/workspace/gamedev-setup-ia/unity/Library/ScriptAssemblies/Studio.Tests.EditMode.dll" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.084704" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="28204" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1094" name="Studio" fullname="Studio" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.083258" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1095" name="Tests" fullname="Studio.Tests" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.082359" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1096" name="EditMode" fullname="Studio.Tests.EditMode" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.081491" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1087" name="StudioV2ContractTests" fullname="Studio.Tests.EditMode.StudioV2ContractTests" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.078728" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1090" name="CutsceneBuilder_AcceptsValidSchemaAndCalculatesDuration" fullname="Studio.Tests.EditMode.StudioV2ContractTests.CutsceneBuilder_AcceptsValidSchemaAndCalculatesDuration" methodname="CutsceneBuilder_AcceptsValidSchemaAndCalculatesDuration" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" seed="1744445829" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.033269" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1088" name="CutsceneBuilder_RejectsMissingSchemaLoudly" fullname="Studio.Tests.EditMode.StudioV2ContractTests.CutsceneBuilder_RejectsMissingSchemaLoudly" methodname="CutsceneBuilder_RejectsMissingSchemaLoudly" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" seed="2010930729" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.013321" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1089" name="CutsceneBuilder_RejectsWrongSchemaVersion" fullname="Studio.Tests.EditMode.StudioV2ContractTests.CutsceneBuilder_RejectsWrongSchemaVersion" methodname="CutsceneBuilder_RejectsWrongSchemaVersion" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" seed="53461361" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.009050" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1091" name="DialoguePresenter_ParsesPackageAndResolvesBilingualSubtitles" fullname="Studio.Tests.EditMode.StudioV2ContractTests.DialoguePresenter_ParsesPackageAndResolvesBilingualSubtitles" methodname="DialoguePresenter_ParsesPackageAndResolvesBilingualSubtitles" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" seed="1101323230" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.003777" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1092" name="InteractionSystem_TriggersInteractableAndExposesIkTarget" fullname="Studio.Tests.EditMode.StudioV2ContractTests.InteractionSystem_TriggersInteractableAndExposesIkTarget" methodname="InteractionSystem_TriggersInteractableAndExposesIkTarget" classname="Studio.Tests.EditMode.StudioV2ContractTests" runstate="Runnable" seed="1273992225" result="Passed" start-time="2026-11-22 03:06:06Z" end-time="2026-11-22 03:06:06Z" duration="0.002311" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/Bruno/AppData/LocalLow/StudioAI/NeonDistrictServer\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

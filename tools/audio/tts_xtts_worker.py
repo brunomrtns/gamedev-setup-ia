@@ -159,6 +159,7 @@ def main():
         })
 
     manifest = {
+        "schema": "vo-manifest-v1",
         "scene": args.scene,
         "model": args.model,
         "device": device,

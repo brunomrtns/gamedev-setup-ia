@@ -10,9 +10,13 @@
       "output_file": "oficina_loop.ogg",
       "kind": "music",
       "loop": true,
+      "two_pass": true,
       "target_lufs": -18.0,
       "target_tp_dbtp": -1.5,
-      "size_bytes": 38852,
+      "measured_input_i": "-19.32",
+      "measured_output_i": "-18.04",
+      "measured_output_tp": "-1.50",
+      "size_bytes": 38909,
       "duration_sec": 5.0,
       "silent": false
     }
