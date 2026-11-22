@@ -887,7 +887,10 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
   - `.agents/skills/studio-art-director/SKILL.md` (Diretor de Arte)
   - `.agents/skills/studio-strict-reviewer/SKILL.md` (Revisor Criterioso com poder de veto)
   - `AGENTS.md` atualizado (Princípio 9)
-- [ ] **Fase 2 — TTS local em `C:\`** (`tools/audio/tts_bridge.py` + Kokoro-82M / F5-TTS)
+- [x] **Fase 2 — TTS local em `C:\` (XTTS-v2 WSL já em cache, 0 MB download):**
+  - `tools/audio/tts_bridge.py` + `tools/audio/tts_xtts_worker.py` (orquestrador Windows stdlib + worker CUDA WSL)
+  - `docs/audio/voice-cast.template.json` + `docs/operations/tts-bridge-runbook.md` + `.agents/skills/studio-voice-tts/SKILL.md`
+  - Smoke test PT-BR (`smoke_test`, 2 falas, 7.138s total, 24 kHz, `-1.0 dBFS`, `cuda`, `errors: []`): `evidence/audio/tts_bridge_smoke_test.json`
 - [ ] **Fase 3 — Cutscene Builder declarativo** (Unity Timeline + Cinemachine a partir de YAML)
 - [ ] **Fase 4 — Conceito 2D / Texturas Tileáveis / UI local** (ComfyUI em `C:\` + checkpoint enxuto)
 - [ ] **Fase 5 — Personagens Animados** (`Fab3D → auto_rig.py → animações reutilizáveis`)

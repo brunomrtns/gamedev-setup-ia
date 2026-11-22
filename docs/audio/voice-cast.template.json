@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "notes": "Elenco de vozes do jogo. Cada personagem aponta para uma amostra limpa de 6 a 15 segundos (gravada pelo dono ou amostra pronta) usada pelo XTTS-v2 local no WSL.",
+  "characters": {
+    "narrator": {
+      "display_name": "Narrador",
+      "language": "pt",
+      "speaker_wav": "/home/bruno/Desenvolvimento/brunointegrations/video-generate/public/voices/bruno.wav",
+      "acting_notes": "Tom calmo, cinematografico e pausado"
+    },
+    "hero": {
+      "display_name": "Protagonista",
+      "language": "pt",
+      "speaker_wav": "<caminho-windows-ou-wsl-para-voz-gravada-hero.wav>",
+      "acting_notes": "Jovem, determinado, natural"
+    },
+    "mentor": {
+      "display_name": "Guardiao Antigo",
+      "language": "pt",
+      "speaker_wav": "<caminho-windows-ou-wsl-para-voz-gravada-mentor.wav>",
+      "acting_notes": "Voz grave, misteriosa e serena"
+    }
+  }
+}
