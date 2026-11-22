@@ -146,3 +146,6 @@ wsl blender -b -P tools/art/batch_normalize.py -- <manifest.json>
    | `large_prop_building` | **≤ 3.000 tris** | 512 × 512 px | `ASTC_6x6` | `box` | `false` |
    | `enemy_character` | **≤ 2.500 tris** *(ou budget do plano do jogo, ex.: ≤ 3.500)* | 1024 × 1024 px | `ASTC_4x4` | `none` (capsule/controller) | `true` |
    | `player_character` | **≤ 4.500 tris** *(ou budget de herói do plano do jogo, ex.: ≤ 8.000)* | 1024 × 1024 px | `ASTC_4x4` | `none` (capsule/controller) | `true` |
+   | `env_tile` *(Linha AMBIENTE — P2b)* | **≤ 600 tris** *(LOD1 ≤ 300, LOD2 ≤ 150)* | 512 × 512 px (tileable 1–2 m) | `ASTC_6x6` | `box` | `false` |
+   | `env_structure` *(Linha AMBIENTE — P2b)* | **≤ 4.000 tris** *(LOD1 ≤ 2.000, LOD2 ≤ 1.000)* | 1024 × 1024 px (world-scale) | `ASTC_6x6` | `box` / `mesh` | `false` |
+   | `env_skybox` *(Linha AMBIENTE — P2b)* | **≤ 2.000 tris** *(cúpula/horizonte)* | 1024 × 1024 px (seamless) | `ASTC_6x6` | `none` | `false` |

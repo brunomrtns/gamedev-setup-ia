@@ -44,6 +44,10 @@ CLASS_DEFAULTS = {
     "small_prop_item":     {"max_tris": 600,  "is_biped": False, "min_h": 0.05, "max_h": 5.00},
     "large_prop_building": {"max_tris": 3000, "is_biped": False, "min_h": 0.20, "max_h": 50.0},
     "prop":                {"max_tris": 3000, "is_biped": False, "min_h": 0.05, "max_h": 50.0},
+    # P2b — Linha AMBIENTE da Fábrica 3D (Lei 6c)
+    "env_tile":            {"max_tris": 600,  "is_biped": False, "min_h": 0.05, "max_h": 20.0},
+    "env_structure":       {"max_tris": 4000, "is_biped": False, "min_h": 0.50, "max_h": 60.0},
+    "env_skybox":          {"max_tris": 2000, "is_biped": False, "min_h": 1.00, "max_h": 1000.0},
 }
 
 MIN_UV_WORLD_RATIO = 0.005
