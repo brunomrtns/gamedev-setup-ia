@@ -118,19 +118,10 @@ namespace Studio.Editor
                 return null;
             }
 
-            string neonScene = "Assets/Game/Scenes/NeonDistrict.unity";
+            // Lei de Higiene 6a: captura de ferramenta/gate usa SEMPRE Calibration.unity (ou cena neutra). Zero cenario de outros jogos.
             string calibScene = "Assets/Game/Scenes/Calibration.unity";
             Vector3 pos = Vector3.zero;
-            if (File.Exists(neonScene))
-            {
-                EditorSceneManager.OpenScene(neonScene, OpenSceneMode.Single);
-                pos = new Vector3(-52f, 0.15f, 16.5f);
-                if (Physics.Raycast(new Vector3(pos.x, 10f, pos.z), Vector3.down, out RaycastHit hit, 20f))
-                {
-                    pos.y = hit.point.y;
-                }
-            }
-            else if (File.Exists(calibScene))
+            if (File.Exists(calibScene))
             {
                 EditorSceneManager.OpenScene(calibScene, OpenSceneMode.Single);
                 pos = new Vector3(0f, 0.0f, 0f);

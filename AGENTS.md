@@ -39,6 +39,13 @@ Este documento é a autoridade central e vinculante para qualquer agente de IA (
 5. **Regra Anti-Improviso:** Proibido criar script paralelo de conversão/eixo enquanto existir ponte canônica (`fab3d_bridge.py` / `fbx_canonical.py`); se a ponte não atender, abrir ADR em `docs/decisions/`, não gambiarra.
 6. **Protocolo de Sync Studio Core → Jogos Derivados (`game-concerto`):** Qualquer atualização futura da BAN LIST, dos validadores (`tools/validation/`, `tools/qa/`) ou das skills (`.agents/skills/`) no Studio Core tem como parte obrigatória do DoD a sincronização imediata para o `game-concerto` no mesmo ciclo, com a nota de proveniência atualizada para o novo hash.
 
+### Leis de Higiene & Pasta Canônica de Decisões (Vigentes Permanentemente)
+- **Lei 6a (Captura Limpa de Gate):** Captura de ferramenta/gate usa **SEMPRE `Calibration.unity`** (ou cena neutra isolada). **Zero** cenário de outros jogos (`NeonDistrict.unity` proibido em previews de gate). Capturas antigas com fundo Neon ficam arquivadas em `evidence/captures/arquivo_neon/`.
+- **Lei 6b (Isolamento de Outros Jogos):** Assets do Neon District só entram item a item, com OK explícito do Bruno e linha registrada em `LICENSES-ARTE.md` — nunca em lote. Código, cenas e design do Neon District: **NUNCA**.
+- **Lei 6c (Linha AMBIENTE na Fábrica 3D):** A Fábrica 3D ganha linha **AMBIENTE** (chão/tiles, módulos arquitetônicos, props estruturais grandes, horizonte/skybox) com meta final de mundo 100% IA local. `CC0/Kenney` é andaime temporário substituível sem retrabalho (mesmos pivôs, escalas e snap).
+- **Lei 6d (Decisão vs. Engenharia):** **PROIBIDO** enviar fixtures ou capturas puramente de engenharia ao Bruno para aprovação visual — enviar apenas artefatos de decisão de diretor.
+- **Lei 7 (Pasta Canônica `director_review`):** Toda imagem que exige veredito do Bruno vai para `<jogo>\director_review\<YYYY-MM-DD>_<nome>\` acompanhada de `LEIA-ME.txt` de 3 linhas (`O QUE É` / `O QUE VOCÊ DECIDE` / `O QUE ACONTECE DEPOIS`), e o checkpoint no chat **SEMPRE** inclui o caminho completo da pasta.
+
 ---
 
 ## 2. Estrutura Canônica de Diretórios
