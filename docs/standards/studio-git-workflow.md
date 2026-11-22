@@ -12,6 +12,11 @@
   - **Proibido** acumular scripts descartáveis/experimentos soltos na raiz de `tools/art/`
     ou assets de teste temporários em `unity/Assets/Game/Art/Generated/`. Experimentos
     temporários ficam fora do repo ou em pastas ignoradas pelo `.gitignore`.
+  - **Checklist de Higiene de Geradores e Repositórios de Terceiros (Inegociável — DOC 3 §3-J):**
+    - [ ] Repositórios, servidores e pesos de terceiros (`mcp-unity`, `UniRig`, `MoMask`, etc.) vivem **obrigatoriamente fora do Studio Core**, em `~/tools/<ferramenta>` (no Windows: `C:\Users\Bruno\tools\<ferramenta>`; no WSL: `/home/bruno/tools/<ferramenta>`).
+    - [ ] **Nunca** clonar ou manter pastas de geradores externos dentro de `gamedev-setup-ia/tools/art/` (`TripoSR` removido para fora do Studio Core e permanentemente banido pelo `AGENTS.md` §1.1).
+    - [ ] `tools/art/` e `tools/art/ai_generator/` contêm **exclusivamente** código canônico versionado do Studio Core.
+    - [ ] Antes de qualquer commit no Studio Core, `git status` não pode listar scripts experimentais avulsos ou pastas de output temporárias dentro de `tools/art/`.
 - **Repositório de Jogo Novo (ex.: `game-<slug>`):**
   - Nasce limpo (sem packs de terceiros misturados), copiando apenas o Studio Core
     necessário (importers, validadores, skills, contratos `AGENTS.md`).
