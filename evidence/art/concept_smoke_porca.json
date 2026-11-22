@@ -1,0 +1,18 @@
+{
+  "mode": "concept",
+  "model": "stabilityai/sdxl-turbo",
+  "device": "cuda",
+  "size": [
+    512,
+    512
+  ],
+  "steps": 4,
+  "seed": 42,
+  "circular_layers": 0,
+  "elapsed_sec": 125.43,
+  "output_png": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/evidence/concepts/smoke_porca_concept.png",
+  "prompt": "stylized detailed 3d game concept art, clockwork-whimsy, brass and copper clockwork, mechanical details with visible function (gears, rivets, gauges), warm workshop glow, clean silhouette readable in 3 seconds, hand-painted texture feel, strong shape language, single subject, neutral studio background, small floating brass sphere maintenance drone, single lens eye, magnetic claw, riveted panels, small propeller fins, caldeiral palette (#e8a13c, #b3542c, #2e2419, #6e5a4a, #3d342c)",
+  "name": "smoke_porca",
+  "art_bible": "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\concerto-gdd\\concerto-gdd\\art-bible.yaml",
+  "output_win": "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\evidence\\concepts\\smoke_porca_concept.png"
+}

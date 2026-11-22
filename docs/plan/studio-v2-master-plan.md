@@ -109,12 +109,12 @@ O primeiro jogo oficial construído sobre o Studio V2 é **CONCERTO** (pacote `c
 ## 6. Definition of Done Macro do Studio V2 (Critério para Liberar `game-concerto`)
 
 O Studio V2 é declarado **PRONTO** quando todos os 6 gates abaixo estiverem `[x]` no `PROGRESS.md` com evidência em disco:
-1. [ ] Teste de integração **TTS → Cutscene** com `audio_clips_bound >= 2` e `errors: []`.
-2. [ ] **Adapters G2** (`art-bible.yaml`, `dialogues.yaml`, `cutscene_01_abertura.yaml` do CONCERTO) testados sem perda silenciosa.
-3. [ ] **Fase 4 (2D local):** `concept` + `tileable` aprovados visualmente (`evidence/concepts/` + `evidence/art/`).
-4. [ ] **Fase 5 (Rigging):** 1 personagem humanoide da Fábrica rigado e importado no Unity (`SkinnedMeshRenderer` + animação).
-5. [ ] **Fase 6 (SFX/Música):** `audio_bridge.py` validado em modo CC0/local com normalização LUFS.
-6. [ ] **Higiene:** zero arquivos temporários em `unity/Assets/`, `.gitattributes` com LFS ativo, `AGENTS.md` com regra anti-overclaim.
+1. [x] Teste de integração **TTS → Cutscene** com `audio_clips_bound >= 2` e `errors: []` (`evidence/cutscenes/cutscene_integration_vo.json`).
+2. [x] **Adapters G2** (`art-bible.yaml`, `dialogues.yaml`, `cutscene_01_abertura.yaml` do CONCERTO) testados sem perda silenciosa (`evidence/studio/g2_adapters_validation.json`).
+3. [x] **Fase 4 (2D local):** `concept` + `tileable` aprovados visualmente (`evidence/concepts/smoke_*.png` + `evidence/art/concept_smoke_*.json`).
+4. [x] **Fase 5 (Rigging):** 1 personagem humanoide da Fábrica rigado e importado no Unity (`SkinnedMeshRenderer` + 4 animações, `evidence/captures/fab3d_smoke_dragonborn.png`).
+5. [x] **Fase 6 (SFX/Música):** `audio_bridge.py` validado em modo CC0/local com normalização LUFS (`evidence/audio/audio_bridge_smoke_*.json`).
+6. [x] **Higiene:** zero arquivos temporários em `unity/Assets/`, `.gitattributes` com LFS ativo, `AGENTS.md` com regra anti-overclaim.
 
 ---
 

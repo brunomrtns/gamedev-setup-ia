@@ -896,9 +896,17 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
   - `unity/Assets/Editor/CutsceneBuilder.cs` (+ `Unity.Timeline` em `Studio.Editor.asmdef`): compila JSON → `TimelineAsset` (`AudioTrack` ligado ao `vo_manifest.json` da Fase 2) + Prefab + capturas de keyframes sem alterar a cena
   - `tools/studio/build_cutscene.py`, `docs/narrative/cutscene.template.json`, `docs/operations/cutscene-builder-runbook.md`, `.agents/skills/studio-cutscene-director/SKILL.md`
   - Smoke test batchmode Unity 6.3 (`intro_exemplo`, 2 shots, 7.0s, exit 0, `errors: []`): `evidence/cutscenes/cutscene_intro_exemplo.json` + `evidence/captures/cutscene_intro_exemplo_*.png`
-- [ ] **Fase 3b — Integração TTS → Cutscene** (`tts_bridge.py → vo_manifest.json → CutsceneBuilder` com `audio_clips_bound >= 2`, 0 MB)
-- [ ] **Estória G2 — Adapters de Schema para o CONCERTO** (`art-bible.yaml`, `dialogues.yaml`, `cutscene_01_abertura.yaml` → pontes do estúdio + env vars para caminhos de máquina)
-- [ ] **Fase 4 — Conceito 2D / Texturas Tileáveis / UI local** (código pronto em `3f27c206`; pendente aprovação de download `stabilityai/sdxl-turbo` ~6,5 GB em `C:\` + smoke test `concept` e `tileable`)
-- [ ] **Fase 5 — Personagens Animados** (`Fab3D → auto_rig.py → Unity`, 0 MB)
-- [ ] **Fase 6 — SFX & Música local** (modo CC0/local 0 MB + normalização LUFS)
-- **Plano Mestre v2.0 (alinhado ao review `dd3cd64` + pacote CONCERTO):** `docs/plan/studio-v2-master-plan.md`, `AGENTS.md` (Princípio 10 anti-overclaim), `.gitattributes` (LFS `evidence/**/*.png` + `*.pdf`).
+- [x] **Fase 3b — Integração TTS → Cutscene (`audio_clips_bound: 2`, 0 MB):**
+  - `tts_bridge.py` (`integration_vo`, 2 falas PT-BR, 8.577s) → `vo_manifest.json` → `CutsceneBuilder.cs` (`total_duration_sec: 9.277`, `audio_clips_bound: 2`, `TimelineAsset` + Prefab + 2 keyframes, `errors: []`). Evidências: `evidence/cutscenes/cutscene_integration_vo.json`, `evidence/audio/tts_bridge_integration_vo.json`, `evidence/captures/cutscene_integration_vo_shot_0{1,2}*.png`. Arquivos de teste limpos de `unity/Assets/`.
+- [x] **Estória G2 — Adapters de Schema para o CONCERTO + Env Vars (G5):**
+  - `tools/studio/yaml_loader.py`, `tools/audio/dialogue_adapter.py`, `tools/studio/cutscene_adapter.py`, `concept_bridge.py` (`prompt_base` + `--character` + `--fuso` + `STUDIO_WSL_2D_PYTHON`), `tts_bridge.py` (`STUDIO_WSL_TTS_PYTHON`), `build_cutscene.py` (`STUDIO_UNITY_EXE`).
+  - Validação contra os 3 YAMLs reais do CONCERTO (`art-bible.yaml`, `dialogues.yaml`, `cutscene_01_abertura.yaml` — exit 0 nos 3): `evidence/studio/g2_adapters_validation.json`.
+- [x] **Fase 4 — Conceito 2D / Texturas Tileáveis / UI local (`stabilityai/sdxl-turbo` em `C:\`, CUDA):**
+  - Smoke test `--mode concept` (`smoke_porca_concept.png`, 512×512, `art-bible.yaml` do CONCERTO) e `--mode tileable` (`smoke_piso_oficina_tileable.png`, 512×512, 115 camadas `Conv2d` circulares sem emenda), inspecionados visualmente: `evidence/art/concept_smoke_porca.json`, `evidence/art/concept_smoke_piso_oficina.json`, `evidence/concepts/smoke_*.png`.
+- [x] **Fase 5 — Personagens Animados (`Fab3D → auto_rig.py → Unity`, 0 MB):**
+  - `fab3d_bridge.py --auto-rig` + `fab3d_glb_to_fbx.py` + `Fab3dImporter.cs` (`SkinnedMeshRenderer`, `ModelImporterAnimationType.Generic`, contagem de `AnimationClip`s).
+  - Smoke test `humanoide_dragonborn__pbr_4k.glb` (249.997 → 4.500 tris, 18 ossos, 4 clips `Idle/Jump/RunCycle/Slide`, `validate_asset` exit 0, `animationsImported: 4`, `errors: []`): `evidence/art/fab3d_bridge_smoke_dragonborn.json`, `evidence/art/fab3d-import-report.json`, `evidence/captures/fab3d_smoke_dragonborn.png`. Arquivos de teste limpos de `unity/Assets/`.
+- [x] **Fase 6 — SFX & Música local (EBU R128 CC0/local, 0 MB):**
+  - `tools/audio/audio_bridge.py`, `docs/operations/audio-sfx-runbook.md`, `.agents/skills/studio-audio-designer/SKILL.md`.
+  - Smoke test SFX (`-16 LUFS`, `-1.0 dBFS`, WAV 44.1 kHz) + Música (`-18 LUFS`, OGG loop, `errors: []`): `evidence/audio/audio_bridge_smoke_sfx.json`, `evidence/audio/audio_bridge_smoke_music.json`.
+- **DoD Macro do Studio V2: 6/6 GATES VERDES** — ambiente 100% configurado e pronto para receber `game-concerto`.

@@ -34,7 +34,7 @@ import normalize_fbx as nf  # noqa: E402  (import_any ja habilita o addon glTF)
 def parse_args():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     opts = {"input": None, "out-dir": None, "name": None, "preset": "prop",
-            "max-tris": 0, "texture-size": 512}
+            "max-tris": 0, "texture-size": 512, "auto-rig": False}
     i = 0
     while i < len(argv):
         a = argv[i]
@@ -50,6 +50,8 @@ def parse_args():
             i += 1; opts["max-tris"] = int(argv[i])
         elif a == "--texture-size":
             i += 1; opts["texture-size"] = int(argv[i])
+        elif a == "--auto-rig":
+            opts["auto-rig"] = True
         i += 1
     return opts
 
@@ -151,6 +153,43 @@ def main():
     out_fbx = os.path.join(opts["out-dir"], f"{opts['name']}.fbx")
     report = fbx_canonical.canonical_finalize(
         meshes, opts["name"], preset=opts["preset"], out_path=out_fbx)
+
+    rig_info = {"applied": False}
+    if opts["auto-rig"]:
+        import auto_rig  # noqa: E402
+        cur_meshes = [o for o in bpy.data.objects if o.type == "MESH"]
+        if len(cur_meshes) > 1:
+            bpy.ops.object.select_all(action="DESELECT")
+            for m in cur_meshes:
+                m.select_set(True)
+            bpy.context.view_layer.objects.active = cur_meshes[0]
+            bpy.ops.object.join()
+            cur_meshes = [bpy.context.view_layer.objects.active]
+        mesh_obj = cur_meshes[0]
+        bpy.ops.object.select_all(action="DESELECT")
+        mesh_obj.select_set(True)
+        bpy.context.view_layer.objects.active = mesh_obj
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+
+        armature, bones_spec, lm = auto_rig.create_humanoid_rig(mesh_obj)
+        auto_rig.bind_skin_robust(mesh_obj, armature, bones_spec, lm)
+        auto_rig.create_animation_actions(armature)
+        auto_rig.validate_rig_orientation(armature)
+
+        bpy.ops.object.select_all(action="DESELECT")
+        mesh_obj.select_set(True)
+        armature.select_set(True)
+        bpy.context.view_layer.objects.active = armature
+        bpy.ops.export_scene.fbx(
+            filepath=out_fbx,
+            axis_forward="-Z",
+            axis_up="Y",
+        )
+        actions = [a.name for a in bpy.data.actions]
+        rig_info = {"applied": True, "bones": len(armature.data.bones), "actions": actions}
+        print(f"[fab3d_glb_to_fbx] Auto-Rig aplicado: {rig_info}")
+
+    report["rig"] = rig_info
     report["decimate"] = dec
     report["textures"] = {k: v for k, v in tex.items()
                           if k in ("basecolor", "mr", "note")}

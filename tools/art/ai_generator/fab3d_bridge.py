@@ -97,6 +97,8 @@ def main():
                     help="Sobrescreve o colisor padrao da categoria")
     ap.add_argument("--max-tris", type=int, default=None, help="Sobrescreve o budget da categoria")
     ap.add_argument("--texture-size", type=int, default=None, help="Sobrescreve o tamanho da categoria")
+    ap.add_argument("--auto-rig", action="store_true",
+                    help="Aplica auto_rig.py (esqueleto humanoide + animacoes Idle/RunCycle/Jump/Slide)")
     ap.add_argument("--out", default=None,
                     help="Diretorio de saida (default: unity/Assets/Game/Art/Generated/<name>)")
     args = ap.parse_args()
@@ -145,10 +147,12 @@ def main():
     glb_staged = out_dir / glb_src.name
     shutil.copy2(glb_src, glb_staged)
 
-    # 3. Blender WSL: GLB -> FBX canonico + texturas
+    # 3. Blender WSL: GLB -> FBX canonico + texturas (+ auto-rig opcional)
     bpy_args = ["--input", wsl_path(glb_staged), "--out-dir", wsl_path(out_dir),
                 "--name", args.name, "--preset", preset,
                 "--max-tris", str(max_tris), "--texture-size", str(tex_size)]
+    if args.auto_rig:
+        bpy_args.append("--auto-rig")
     stdout = run_capture(["wsl", "blender", "-b", "-P", wsl_path(BPY_SCRIPT),
                           "--", *bpy_args], "Blender WSL (decimate + texturas + FBX)")
     report = parse_report(stdout)
@@ -170,6 +174,7 @@ def main():
         "collider": collider,
         "max_tris": max_tris,
         "tris_final": dec.get("after"),
+        "rigged": bool(report.get("rig", {}).get("applied", False)),
         "source_mode": source_mode,
         "source_glb": glb_src.name,
     }

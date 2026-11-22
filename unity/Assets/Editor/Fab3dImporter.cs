@@ -35,6 +35,7 @@ namespace Studio.Editor
             public string collider;
             public int max_tris;
             public int tris_final;
+            public bool rigged;
             public string source_mode;
             public string source_glb;
         }
@@ -44,6 +45,7 @@ namespace Studio.Editor
         {
             public string generatedAt = DateTime.UtcNow.ToString("o");
             public int assetsProcessed;
+            public int animationsImported;
             public List<string> materials = new List<string>();
             public List<string> prefabs = new List<string>();
             public List<string> errors = new List<string>();
@@ -108,7 +110,7 @@ namespace Studio.Editor
             inst.transform.position = pos;
             inst.transform.rotation = Quaternion.Euler(0f, 35f, 0f);
 
-            var renderers = inst.GetComponentsInChildren<MeshRenderer>(true);
+            var renderers = inst.GetComponentsInChildren<Renderer>(true);
             Bounds b = renderers.Length > 0 ? renderers[0].bounds : new Bounds(pos + Vector3.up, Vector3.one);
             for (int i = 1; i < renderers.Length; i++) b.Encapsulate(renderers[i].bounds);
 
@@ -245,7 +247,24 @@ namespace Studio.Editor
             AssetDatabase.CreateAsset(mat, matPath);
             report.materials.Add(matPath);
 
-            // Prefab com material aplicado + colisor por categoria
+            // Configura rig/animacao quando personagem rigado (Fase 5)
+            if (manifest.rigged)
+            {
+                var modelImp = AssetImporter.GetAtPath(fbxPath) as ModelImporter;
+                if (modelImp != null)
+                {
+                    modelImp.animationType = ModelImporterAnimationType.Generic;
+                    modelImp.importAnimation = true;
+                    modelImp.SaveAndReimport();
+                }
+                foreach (var sub in AssetDatabase.LoadAllAssetsAtPath(fbxPath))
+                {
+                    if (sub is AnimationClip clip && !clip.name.StartsWith("__preview__"))
+                        report.animationsImported++;
+                }
+            }
+
+            // Prefab com material aplicado (MeshRenderer + SkinnedMeshRenderer) + colisor por categoria
             GameObject src = AssetDatabase.LoadAssetAtPath<GameObject>(fbxPath);
             if (src == null)
             {
@@ -253,7 +272,7 @@ namespace Studio.Editor
                 return;
             }
             GameObject go = (GameObject)UnityEngine.Object.Instantiate(src);
-            var renderers = go.GetComponentsInChildren<MeshRenderer>(true);
+            var renderers = go.GetComponentsInChildren<Renderer>(true);
             foreach (var r in renderers)
             {
                 r.sharedMaterial = mat;

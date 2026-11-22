@@ -1,11 +1,12 @@
 {
-    "generatedAt": "2026-11-21T23:05:47.4414572Z",
+    "generatedAt": "2026-11-22T02:06:46.6425319Z",
     "assetsProcessed": 1,
+    "animationsImported": 4,
     "materials": [
-        "Assets/Game/Materials/Fab3D/Mat_Fab3D_prop_caixote.mat"
+        "Assets/Game/Materials/Fab3D/Mat_Fab3D_smoke_dragonborn.mat"
     ],
     "prefabs": [
-        "Assets/Game/Prefabs/Fab3D/prop_caixote.prefab"
+        "Assets/Game/Prefabs/Fab3D/smoke_dragonborn.prefab"
     ],
     "errors": []
 }
