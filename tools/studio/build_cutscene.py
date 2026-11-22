@@ -10,12 +10,16 @@ Uso:
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DEFAULT_UNITY = r"C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Unity.exe"
+DEFAULT_UNITY = os.getenv(
+    "STUDIO_UNITY_EXE",
+    r"C:\Program Files\Unity\Hub\Editor\6000.3.26f1\Editor\Unity.exe",
+)
 
 
 def main():

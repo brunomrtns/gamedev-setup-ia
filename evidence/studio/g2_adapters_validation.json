@@ -1,0 +1,59 @@
+﻿{
+    "status":  "PASS",
+    "concept_adapter":  {
+                            "name":  "porca_test",
+                            "mode":  "concept",
+                            "full_prompt":  "stylized detailed 3d game concept art, clockwork-whimsy, brass and copper clockwork, mechanical details with visible function (gears, rivets, gauges), warm workshop glow, clean silhouette readable in 3 seconds, hand-painted texture feel, strong shape language, single subject, neutral studio background, small floating brass sphere maintenance drone, single lens eye, magnetic claw, riveted panels, small propeller fins, caldeiral palette (#e8a13c, #b3542c, #2e2419, #6e5a4a, #3d342c)",
+                            "negative_prompt":  "photo, photorealistic, gore, blood, text, watermark, letters, signature, neon cyberpunk, military tech, gritty realism, cluttered details, low contrast"
+                        },
+    "dialogue_adapter":  {
+                             "source_yaml":  "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\concerto-gdd\\concerto-gdd\\dialogues.yaml",
+                             "cast_json":  "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\voice-cast.json",
+                             "voices_count":  7,
+                             "scenes_count":  13,
+                             "lines_exported":  23,
+                             "scene_files":  [
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_cs01_abertura.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_tutorial.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_patio_sirenes.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_sirene_mestra.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_contramestre.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_resincronia.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_caldeiral_fuga.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_vitralha_chegada.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_vitralha_mirante.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_vitralha_estufa.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_vitralha_consequencia.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_cs02_oferta.json",
+                                                 "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\vo\\dialogues_barks.json"
+                                             ],
+                             "warnings":  [
+                                              "Voz \u0027porca\u0027 pede engine \u0027kokoro-82m\u0027 -\u003e roteada para fallback \u0027xtts-v2\u0027 (requer speaker_wav)",
+                                              "Voz \u0027vo_segunda\u0027 pede engine \u0027f5-tts\u0027 -\u003e roteada para fallback \u0027xtts-v2\u0027 (requer speaker_wav)",
+                                              "Voz \u0027tio_horario\u0027 pede engine \u0027f5-tts\u0027 -\u003e roteada para fallback \u0027xtts-v2\u0027 (requer speaker_wav)",
+                                              "Voz \u0027narrador\u0027 pede engine \u0027f5-tts\u0027 -\u003e roteada para fallback \u0027xtts-v2\u0027 (requer speaker_wav)"
+                                          ]
+                         },
+    "cutscene_adapter":  {
+                             "source_yaml":  "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\concerto-gdd\\concerto-gdd\\cutscene_01_abertura.yaml",
+                             "output_json":  "C:\\Users\\Bruno\\.gemini\\antigravity\\brain\\03435ea6-873f-4c53-9ff4-e86af072027e\\scratch\\g2_test_out\\cs01_abertura.json",
+                             "cutscene_id":  "cs01_abertura",
+                             "shots_count":  12,
+                             "vo_shots_count":  6,
+                             "total_duration_sec":  165.0,
+                             "warnings":  [
+                                              "s01: ancora nominal \u0027pendulo_mor\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s02: ancora nominal \u0027juno.mao\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s03: ancora nominal \u0027dez\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s04: ancora nominal \u0027dez.rosto\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s05: ancora nominal \u0027escapamento_slot\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s06: ancora nominal \u0027manometro\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s07: ancora nominal \u0027ceu_rachando\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s08: ancora nominal \u0027seis_fragmentos\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s09: ancora nominal \u0027juno.corpo\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s10: ancora nominal \u0027dez\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s11: ancora nominal \u0027bis_pulso_closeup\u0027 mapeada para origem [0,1.5,0] no Tier 1",
+                                              "s12_titulo: ancora nominal \u0027titulo\u0027 mapeada para origem [0,1.5,0] no Tier 1"
+                                          ]
+                         }
+}

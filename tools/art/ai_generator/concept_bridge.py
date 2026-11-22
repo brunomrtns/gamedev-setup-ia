@@ -1,58 +1,83 @@
 #!/usr/bin/env python3
 """
 tools/art/ai_generator/concept_bridge.py
-Ponte 2D 100% Local (Windows -> WSL Diffusers CUDA) — Studio V2 Fase 4.
+Ponte 2D 100% Local (Windows -> WSL Diffusers CUDA) — Studio V2 Fase 4 + Adapter G2.
 
 Gera conceitos 2D (para alimentar a Fabrica 3D), texturas 100% tileaveis (chao/parede)
-e icones/UI respeitando a Biblia Visual (docs/art/art-bible.yaml).
+e icones/UI respeitando a Biblia Visual (`art-bible.yaml`).
 
-Reutiliza a venv ~/.venvs/hunyuan ja existente no WSL (diffusers 0.33.1 + CUDA).
+Suporta os dois schemas de Biblia Visual do Studio V2:
+  - Template padrao: `local_generation_prompts.{style_prefix, style_suffix, negative_prompt}`
+  - Schema CONCERTO: `prompt_base.{text, negative}` + `characters.<id>.prompt_mod` + `palettes.<fuso>`
+
+Reutiliza a venv `~/.venvs/hunyuan` (ou `STUDIO_WSL_2D_PYTHON`).
 Regra permanente: 100% local, somente C:\\ (D:\\ proibido).
-
-Uso:
-  python tools/art/ai_generator/concept_bridge.py ^
-      --name altar_antigo --mode concept ^
-      --prompt "ancient stone shrine with glowing golden rune" ^
-      --art-bible docs/art/art-bible.template.yaml
 """
 
 import argparse
 import json
-import re
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent.parent
+sys.path.insert(0, str(ROOT / "tools" / "studio"))
+from yaml_loader import load_yaml, to_wsl_path  # noqa: E402
+
 WORKER_SCRIPT = Path(__file__).resolve().parent / "concept_diffusers_worker.py"
-DEFAULT_WSL_PYTHON = "/home/bruno/.venvs/hunyuan/bin/python"
+DEFAULT_WSL_PYTHON = os.getenv("STUDIO_WSL_2D_PYTHON", "/home/bruno/.venvs/hunyuan/bin/python")
 
 
-def to_wsl_path(win_path) -> str:
-    s = str(win_path).strip()
-    if s.startswith("/"):
-        return s
-    p = Path(s).resolve()
-    drive = p.drive.replace(":", "").lower()
-    return f"/mnt/{drive}{p.as_posix().split(':', 1)[-1]}"
+def resolve_art_bible(bible_path: Path, character: str = None, fuso: str = None) -> dict:
+    data = load_yaml(bible_path)
+    prefix, suffix, negative = "", "", ""
 
+    if isinstance(data.get("local_generation_prompts"), dict):
+        lgp = data["local_generation_prompts"]
+        prefix = str(lgp.get("style_prefix") or "").strip()
+        suffix = str(lgp.get("style_suffix") or "").strip()
+        negative = str(lgp.get("negative_prompt") or "").strip()
+    elif isinstance(data.get("prompt_base"), dict):
+        pb = data["prompt_base"]
+        prefix = str(pb.get("text") or "").strip()
+        negative = str(pb.get("negative") or "").strip()
 
-def extract_bible_prompts(bible_path: Path) -> dict:
-    """Extrai style_prefix, style_suffix e negative_prompt de art-bible.yaml sem PyYAML."""
-    if not bible_path or not bible_path.exists():
-        return {"style_prefix": "", "style_suffix": "", "negative_prompt": ""}
-    text = bible_path.read_text(encoding="utf-8")
-    result = {"style_prefix": "", "style_suffix": "", "negative_prompt": ""}
-    for key in list(result.keys()):
-        m = re.search(rf"^\s*{key}:\s*>\s*\n((?:\s{{4,}}.*\n)+)", text, re.MULTILINE)
-        if m:
-            lines = [ln.strip() for ln in m.group(1).splitlines() if ln.strip()]
-            result[key] = " ".join(lines)
-        else:
-            m2 = re.search(rf'^\s*{key}:\s*"([^"]*)"', text, re.MULTILINE)
-            if m2:
-                result[key] = m2.group(1).strip()
-    return result
+    if not prefix and not suffix:
+        raise ValueError(
+            f"art-bible '{bible_path}' nao possui 'local_generation_prompts' nem 'prompt_base.text' preenchido"
+        )
+
+    char_mod = ""
+    if character:
+        chars = data.get("characters", {})
+        c = chars.get(character)
+        if not isinstance(c, dict) or not c.get("prompt_mod"):
+            raise ValueError(f"Personagem '{character}' nao encontrado em characters.* de '{bible_path}'")
+        char_mod = str(c["prompt_mod"]).strip()
+
+    fuso_mod = ""
+    if fuso:
+        palettes = data.get("palettes", {})
+        pal = palettes.get(fuso)
+        if not isinstance(pal, dict):
+            raise ValueError(f"Fuso '{fuso}' nao encontrado em palettes.* de '{bible_path}'")
+        colors = []
+        for k in ("sync", "desync"):
+            v = pal.get(k)
+            if isinstance(v, list):
+                colors.extend(str(x) for x in v)
+        if pal.get("accent_energy"):
+            colors.append(str(pal["accent_energy"]))
+        fuso_mod = f"{fuso} palette ({', '.join(colors[:5])})"
+
+    return {
+        "style_prefix": prefix,
+        "style_suffix": suffix,
+        "negative_prompt": negative,
+        "character_mod": char_mod,
+        "fuso_mod": fuso_mod,
+    }
 
 
 def parse_report(stdout: str) -> dict:
@@ -65,10 +90,12 @@ def parse_report(stdout: str) -> dict:
 
 def main():
     ap = argparse.ArgumentParser(description="Ponte 2D Local (Conceito / Tileable / UI)")
-    ap.add_argument("--name", required=True, help="Slug do asset (ex.: altar_antigo, chao_pedra)")
-    ap.add_argument("--prompt", required=True, help="Descricao da peca/textura")
+    ap.add_argument("--name", required=True, help="Slug do asset (ex.: porca_drone, piso_caldeiral)")
+    ap.add_argument("--prompt", default="", help="Descricao da peca/textura (opcional se --character for usado)")
     ap.add_argument("--mode", default="concept", choices=["concept", "tileable", "ui"])
     ap.add_argument("--art-bible", default=None, help="Caminho para docs/art/art-bible.yaml")
+    ap.add_argument("--character", default=None, help="ID de personagem em art-bible.yaml (ex.: dez, porca)")
+    ap.add_argument("--fuso", default=None, help="ID de paleta/fuso em art-bible.yaml (ex.: caldeiral)")
     ap.add_argument("--model", default="stabilityai/sdxl-turbo")
     ap.add_argument("--size", type=int, default=512)
     ap.add_argument("--steps", type=int, default=4)
@@ -76,19 +103,49 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out", default=None, help="Caminho PNG de saida")
     ap.add_argument("--wsl-python", default=DEFAULT_WSL_PYTHON)
+    ap.add_argument("--resolve-only", action="store_true",
+                    help="Apenas resolve e imprime o prompt final da art-bible (teste G2 sem GPU)")
     args = ap.parse_args()
 
-    bible = extract_bible_prompts(Path(args.art_bible).resolve()) if args.art_bible else {
-        "style_prefix": "", "style_suffix": "", "negative_prompt": ""
-    }
+    bible = resolve_art_bible(Path(args.art_bible).resolve(), args.character, args.fuso) \
+        if args.art_bible else {
+            "style_prefix": "", "style_suffix": "", "negative_prompt": "",
+            "character_mod": "", "fuso_mod": "",
+        }
 
     if args.mode == "tileable":
-        full_prompt = f"seamless tileable top-down PBR albedo texture, flat even lighting, no shadows, {args.prompt}"
+        parts = [
+            "seamless tileable top-down PBR albedo texture, flat even lighting, no shadows",
+            args.prompt,
+            bible["fuso_mod"],
+        ]
     elif args.mode == "ui":
-        full_prompt = f"clean stylized game UI icon, centered composition, crisp readability, {args.prompt}"
+        parts = [
+            "clean stylized game UI icon, centered composition, crisp readability",
+            args.prompt,
+            bible["fuso_mod"],
+        ]
     else:
-        parts = [bible["style_prefix"], args.prompt, bible["style_suffix"]]
-        full_prompt = ", ".join(p for p in parts if p)
+        parts = [
+            bible["style_prefix"],
+            bible["character_mod"],
+            args.prompt,
+            bible["fuso_mod"],
+            bible["style_suffix"],
+        ]
+    full_prompt = ", ".join(p for p in parts if p)
+    if not full_prompt:
+        print("[concept_bridge] Prompt final vazio — passe --prompt ou --art-bible + --character")
+        sys.exit(2)
+
+    if args.resolve_only:
+        print(json.dumps({
+            "name": args.name,
+            "mode": args.mode,
+            "full_prompt": full_prompt,
+            "negative_prompt": bible["negative_prompt"],
+        }, indent=2, ensure_ascii=False))
+        return
 
     if args.out:
         out_png = Path(args.out).resolve()

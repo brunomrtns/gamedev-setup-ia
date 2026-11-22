@@ -1,0 +1,14 @@
+{
+    "generatedAt": "2026-11-22T01:58:15.8730156Z",
+    "cutscene_id": "integration_vo",
+    "total_duration_sec": 9.277000427246094,
+    "shot_count": 2,
+    "audio_clips_bound": 2,
+    "timeline_asset": "Assets/Game/Cutscenes/integration_vo/integration_vo.playable",
+    "prefab_asset": "Assets/Game/Cutscenes/integration_vo/integration_vo.prefab",
+    "keyframes": [
+        "evidence/captures/cutscene_integration_vo_shot_01_establishing.png",
+        "evidence/captures/cutscene_integration_vo_shot_02_reveal.png"
+    ],
+    "errors": []
+}

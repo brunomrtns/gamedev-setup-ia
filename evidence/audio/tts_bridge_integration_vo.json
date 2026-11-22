@@ -1,0 +1,32 @@
+{
+  "scene": "integration_vo",
+  "model": "tts_models/multilingual/multi-dataset/xtts_v2",
+  "device": "cuda",
+  "total_lines": 2,
+  "total_duration_sec": 8.577,
+  "lines": [
+    {
+      "id": "smoke_001",
+      "character": "narrator",
+      "display_name": "Narrador",
+      "language": "pt",
+      "text": "Há mil anos, as ruínas guardam um segredo que ninguém ousou despertar.",
+      "wav_file": "smoke_001.wav",
+      "duration_sec": 5.611,
+      "sample_rate": 24000,
+      "peak_dbfs": -1.0
+    },
+    {
+      "id": "smoke_002",
+      "character": "narrator",
+      "display_name": "Narrador",
+      "language": "pt",
+      "text": "O portal finalmente se abriu.",
+      "wav_file": "smoke_002.wav",
+      "duration_sec": 2.966,
+      "sample_rate": 24000,
+      "peak_dbfs": -1.0
+    }
+  ],
+  "errors": []
+}

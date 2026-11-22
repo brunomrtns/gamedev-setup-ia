@@ -21,6 +21,7 @@ Regra permanente: 100% local, somente C:\\ (D:\\ proibido). Nenhuma API externa.
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -28,7 +29,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 WORKER_SCRIPT = Path(__file__).resolve().parent / "tts_xtts_worker.py"
-DEFAULT_WSL_PYTHON = "/home/bruno/Desenvolvimento/brunointegrations/video-generate/.venv/bin/python"
+DEFAULT_WSL_PYTHON = os.getenv(
+    "STUDIO_WSL_TTS_PYTHON",
+    "/home/bruno/Desenvolvimento/brunointegrations/video-generate/.venv/bin/python",
+)
 
 
 def to_wsl_path(raw_path: str) -> str:
