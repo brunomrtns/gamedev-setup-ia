@@ -138,7 +138,7 @@ def main():
         source_mode = "fab3d_run"
     print(f"[fab3d_bridge] GLB selecionado ({source_mode}): {glb_src}")
 
-    # 2. Staging
+    # 2. Staging + Gate 0: glTF-Validator (DOC 3 §3-B)
     out_dir = Path(args.out).resolve() if args.out else \
         ROOT / "unity" / "Assets" / "Game" / "Art" / "Generated" / args.name
     if out_dir.exists():
@@ -146,6 +146,11 @@ def main():
     out_dir.mkdir(parents=True)
     glb_staged = out_dir / glb_src.name
     shutil.copy2(glb_src, glb_staged)
+
+    gltf_val_script = ROOT / "tools" / "validation" / "validate_gltf.py"
+    if gltf_val_script.exists():
+        run([sys.executable, str(gltf_val_script), "--input", str(glb_staged), "--name", args.name],
+            "Gate 0: Khronos glTF-Validator (GLB)")
 
     # 3. Blender WSL: GLB -> FBX canonico + texturas (+ auto-rig opcional)
     bpy_args = ["--input", wsl_path(glb_staged), "--out-dir", wsl_path(out_dir),
@@ -187,12 +192,24 @@ def main():
         json.dumps({"manifest": manifest, "blender_report": report}, indent=2),
         encoding="utf-8")
 
+    fbx_out = out_dir / f"{args.name}.fbx"
+    val_asset_script = ROOT / "tools" / "validation" / "validate_asset.py"
+    val_visual_script = ROOT / "tools" / "validation" / "validate_visual.py"
+    if val_asset_script.exists():
+        run([sys.executable, str(val_asset_script), "--asset", str(fbx_out)],
+            "Gate 1: validate_asset (FBX)")
+    if val_visual_script.exists():
+        run([sys.executable, str(val_visual_script), "--asset", str(fbx_out), "--manifest", str(manifest_path)],
+            "Gate 2: validate_visual (orientacao + budget + texel density + material + escala)")
+
     print(f"""
 [fab3d_bridge] PONTE CONCLUIDA: {out_dir}
-[fab3d_bridge] Proximos passos (ver docs/operations/fab3d-bridge-runbook.md):
-  1. Unity: menu Studio > Fab3D > Import Generated Assets (exit 0 obrigatorio)
-  2. python tools/validation/validate_asset.py --asset {out_dir}/{args.name}.fbx
-  3. Evidencia visual: prefab em cena + captura em evidence/captures/
+[fab3d_bridge] Ordem canonica de gates (DOC 3 §3-B):
+  0. glTF-Validator (GLB) -> APROVADO (evidence/validation/gltf_validator_{args.name}.json)
+  1. validate_asset       -> APROVADO
+  2. validate_visual      -> APROVADO (evidence/validation/validate_visual_{args.name}.json)
+  3. Import no Unity      -> Studio > Fab3D > Import Generated Assets (gera captura datada em evidence/captures/)
+  4. validate_scene + run_unity_tests
 """)
 
 
