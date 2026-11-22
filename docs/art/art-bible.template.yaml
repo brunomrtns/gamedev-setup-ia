@@ -1,0 +1,61 @@
+# art-bible.template.yaml — Bíblia Visual do Jogo (Studio V2)
+#
+# Copie este arquivo para `docs/art/art-bible.yaml` no início de cada jogo novo.
+# Dono: Art Director (.agents/skills/studio-art-director/SKILL.md).
+# Toda geração 2D (ComfyUI), 3D (Fábrica 3D), iluminação e material URP deve
+# obedecer a este documento para garantir 100% de coesão visual.
+
+version: "1.0"
+game_title: "<Nome do Jogo>"
+genre: "<ex.: Aventura 3D isométrica / 3ª pessoa>"
+camera_perspective: "<isometric | third_person | first_person>"
+
+visual_pillars:
+  - "<Pilar 1: ex. Silhuetas escultóricas e legíveis a 12 m de distância>"
+  - "<Pilar 2: ex. Contraste forte entre pedra fria e energia quente/dourada>"
+  - "<Pilar 3: ex. Zero poluição visual no chão para leitura imediata de caminhos>"
+
+style_direction:
+  art_style: "<ex.: Stylized PBR semi-handpainted, proporções chunky>"
+  surface_finish: "<ex.: Bordas chanfradas, desgaste suave nas quinas, rugosidade natural>"
+  scale_reference:
+    hero_height_m: 1.75
+    door_height_m: 2.6
+    tile_unit_m: 2.0
+
+color_palette:
+  primary_environment: ["#2B3440", "#4A5868", "#7A8999"]
+  secondary_accents: ["#D97B29", "#F2B84B"]
+  interactive_signals: ["#38E8C6"]   # reservado para itens/alavancas/portais interativos
+  danger_signals: ["#E63946"]        # reservado para inimigos/armadilhas
+  forbidden_colors: ["magenta puro (#FF00FF)", "preto absoluto (#000000) em albedo"]
+
+lighting_and_atmosphere:
+  time_of_day: "<ex.: Fim de tarde dourado com sombras azuladas>"
+  key_light_color: "#FFE2B8"
+  ambient_shadow_color: "#2C3E5E"
+  fog_enabled: true
+  fog_color: "#3A4B63"
+
+# Prompts-base usados em TODAS as gerações locais (ComfyUI -> Fábrica 3D)
+# para manter identidade visual única entre todos os assets do jogo.
+local_generation_prompts:
+  style_prefix: >
+    stylized 3D game asset, clean chunky silhouette, cohesive PBR materials,
+    isolated on neutral studio gray background, crisp lighting, front three-quarter view
+  style_suffix: >
+    game-ready prop, bold readable forms, no floating parts, no text, no watermark
+  negative_prompt: >
+    photorealistic noise, thin fragile wires, alpha leaf cards, text, watermark,
+    blurry, cluttered background, multiple objects, cut off edges
+
+technical_gates:
+  budgets_source: "docs/art/art-spec.yaml"
+  require_basemap_and_mr: true
+  forbid_native_primitives: true
+  forbid_cloud_generation: true
+
+prohibited_patterns:
+  - "Misturar packs de terceiros com estilos incompatíveis na mesma cena"
+  - "Usar folhagem realista em billboard fino onde o estilo pede copa escultórica"
+  - "Importar GLB print-grade direto no Unity sem passar pela ponte fab3d_bridge.py"

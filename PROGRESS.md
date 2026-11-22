@@ -874,3 +874,21 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
 - [ ] (adiado, NAO bloqueia) front-end de imagem local (ComfyUI + modelo
       destilado) quando houver disco livre; contrato de entrada da ponte
       permanece GLB/imagem
+
+---
+
+## Studio V2 — Fábrica 100% Local de Criação de Games (21/11)
+- **Decisão de ambiente:** disco `D:\` é **defeituoso** e proibido; todo modelo/cache/repo fica somente em `C:\`.
+- **Limpeza Modo 1:** arquivos temporários do `prop_caixote` removidos de `unity/Assets/`; código da ponte, `CapturePreviewBatch`, docs e evidências commitados (`78c921f1`).
+- [x] **Fase 1 — Organização + Roadmap + Agentes:**
+  - `docs/roadmap/studio-v2-local-pipeline.md` (matriz dos 8 pilares 100% locais em `C:\` / RTX 3060 12 GB)
+  - `docs/standards/studio-git-workflow.md` (Studio Core vs. Jogo Novo, Git LFS, Definition of Done)
+  - `docs/art/art-bible.template.yaml` (template de Bíblia Visual + prompts-base)
+  - `.agents/skills/studio-art-director/SKILL.md` (Diretor de Arte)
+  - `.agents/skills/studio-strict-reviewer/SKILL.md` (Revisor Criterioso com poder de veto)
+  - `AGENTS.md` atualizado (Princípio 9)
+- [ ] **Fase 2 — TTS local em `C:\`** (`tools/audio/tts_bridge.py` + Kokoro-82M / F5-TTS)
+- [ ] **Fase 3 — Cutscene Builder declarativo** (Unity Timeline + Cinemachine a partir de YAML)
+- [ ] **Fase 4 — Conceito 2D / Texturas Tileáveis / UI local** (ComfyUI em `C:\` + checkpoint enxuto)
+- [ ] **Fase 5 — Personagens Animados** (`Fab3D → auto_rig.py → animações reutilizáveis`)
+- [ ] **Fase 6 — SFX & Música local** (normalização LUFS + banco CC0/modelo compacto)
