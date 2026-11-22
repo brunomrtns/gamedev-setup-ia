@@ -1,0 +1,24 @@
+{
+  "pack": "smoke_sfx",
+  "kind": "sfx",
+  "ffmpeg_mode": "native",
+  "total_clips": 1,
+  "clips": [
+    {
+      "id": "click_spring",
+      "source": "click_spring.wav",
+      "output_file": "click_spring.wav",
+      "kind": "sfx",
+      "loop": false,
+      "target_lufs": -16.0,
+      "target_tp_dbtp": -1.0,
+      "size_bytes": 192060,
+      "duration_sec": 2.177,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -1.0,
+      "silent": false
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,21 @@
+{
+  "pack": "smoke_music",
+  "kind": "music",
+  "ffmpeg_mode": "native",
+  "total_clips": 1,
+  "clips": [
+    {
+      "id": "oficina_loop",
+      "source": "oficina_loop.wav",
+      "output_file": "oficina_loop.ogg",
+      "kind": "music",
+      "loop": true,
+      "target_lufs": -18.0,
+      "target_tp_dbtp": -1.5,
+      "size_bytes": 38852,
+      "duration_sec": 5.0,
+      "silent": false
+    }
+  ],
+  "errors": []
+}
