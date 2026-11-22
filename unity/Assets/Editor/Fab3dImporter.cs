@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -22,6 +23,11 @@ namespace Studio.Editor
         private const string MaterialsDir = "Assets/Game/Materials/Fab3D";
         private const string PrefabsDir = "Assets/Game/Prefabs/Fab3D";
         private const string ReportPath = "../evidence/art/fab3d-import-report.json";
+        private static readonly string[] UalAnimationPaths =
+        {
+            "Assets/Game/Art/Characters/Quaternius/Animations/UAL1_Standard.fbx",
+            "Assets/Game/Art/Characters/Quaternius/Animations/UAL2_Standard.fbx",
+        };
 
         /// <summary>Espelho exato de fab3d_manifest.json (campos snake_case vêm do fab3d_bridge.py).</summary>
         [Serializable]
@@ -46,6 +52,8 @@ namespace Studio.Editor
             public string generatedAt = DateTime.UtcNow.ToString("o");
             public int assetsProcessed;
             public int animationsImported;
+            public int humanoidAvatarsValid;
+            public int ualClipsBound;
             public List<string> materials = new List<string>();
             public List<string> prefabs = new List<string>();
             public List<string> errors = new List<string>();
@@ -247,15 +255,30 @@ namespace Studio.Editor
             AssetDatabase.CreateAsset(mat, matPath);
             report.materials.Add(matPath);
 
-            // Configura rig/animacao quando personagem rigado (Fase 5)
+            // Configura rig/animacao quando personagem rigado (Fase 5 + Fase 5.1-A Humanoid + UAL)
+            bool isHumanoidValid = false;
             if (manifest.rigged)
             {
                 var modelImp = AssetImporter.GetAtPath(fbxPath) as ModelImporter;
                 if (modelImp != null)
                 {
-                    modelImp.animationType = ModelImporterAnimationType.Generic;
+                    modelImp.animationType = ModelImporterAnimationType.Human;
+                    modelImp.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
                     modelImp.importAnimation = true;
                     modelImp.SaveAndReimport();
+
+                    var avatar = AssetDatabase.LoadAssetAtPath<Avatar>(fbxPath);
+                    if (avatar != null && avatar.isValid && avatar.isHuman)
+                    {
+                        isHumanoidValid = true;
+                        report.humanoidAvatarsValid++;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[Fab3dImporter] {name}: Avatar Humanoid invalido — fallback para Generic");
+                        modelImp.animationType = ModelImporterAnimationType.Generic;
+                        modelImp.SaveAndReimport();
+                    }
                 }
                 foreach (var sub in AssetDatabase.LoadAllAssetsAtPath(fbxPath))
                 {
@@ -276,6 +299,21 @@ namespace Studio.Editor
             foreach (var r in renderers)
             {
                 r.sharedMaterial = mat;
+            }
+
+            // Se Humanoid valido, conecta AnimatorController com clips Quaternius UAL (Fase 5.1-A)
+            if (isHumanoidValid)
+            {
+                var animator = go.GetComponent<Animator>() ?? go.AddComponent<Animator>();
+                animator.avatar = AssetDatabase.LoadAssetAtPath<Avatar>(fbxPath);
+                animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                int ualCount;
+                var ctrl = EnsureUalHumanoidController(out ualCount);
+                if (ctrl != null)
+                {
+                    animator.runtimeAnimatorController = ctrl;
+                    report.ualClipsBound = ualCount;
+                }
             }
 
             if (manifest.collider == "box" && renderers.Length > 0)
@@ -366,6 +404,63 @@ namespace Studio.Editor
             mrImp.SaveAndReimport();
 
             return AssetDatabase.LoadAssetAtPath<Texture2D>(outPath);
+        }
+
+        private static RuntimeAnimatorController EnsureUalHumanoidController(out int clipsBound)
+        {
+            clipsBound = 0;
+            const string ctrlPath = PrefabsDir + "/Fab3D_Humanoid_UAL.controller";
+
+            AnimationClip FindUal(params string[] names)
+            {
+                foreach (var target in names)
+                {
+                    foreach (var p in UalAnimationPaths)
+                    {
+                        if (!File.Exists(p)) continue;
+                        foreach (var a in AssetDatabase.LoadAllAssetsAtPath(p))
+                        {
+                            if (a is AnimationClip c && c.name == target && !c.name.StartsWith("__preview"))
+                                return c;
+                        }
+                    }
+                }
+                return null;
+            }
+
+            var idle = FindUal("Idle_Loop", "Idle");
+            var walk = FindUal("Walk_Loop", "Walk");
+            var run = FindUal("Sprint_Loop", "Jog_Fwd_Loop", "Run_Loop");
+            var jump = FindUal("Jump_Start", "Jump_Loop", "Jump");
+            var hit = FindUal("Hit_Chest", "Hit_A", "Crouch_Idle_Loop");
+
+            var found = new List<(string state, AnimationClip clip)>();
+            if (idle != null) found.Add(("Idle", idle));
+            if (walk != null) found.Add(("Walk", walk));
+            if (run != null) found.Add(("Run", run));
+            if (jump != null) found.Add(("Jump", jump));
+            if (hit != null) found.Add(("Hit", hit));
+            clipsBound = found.Count;
+            if (clipsBound == 0) return null;
+
+            if (AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(ctrlPath) != null)
+                AssetDatabase.DeleteAsset(ctrlPath);
+
+            var ctrl = AnimatorController.CreateAnimatorControllerAtPath(ctrlPath);
+            ctrl.AddParameter("Speed", AnimatorControllerParameterType.Float);
+            ctrl.AddParameter("Jump", AnimatorControllerParameterType.Trigger);
+            ctrl.AddParameter("Hit", AnimatorControllerParameterType.Trigger);
+            var sm = ctrl.layers[0].stateMachine;
+            AnimatorState defaultState = null;
+            foreach (var (stateName, clip) in found)
+            {
+                var st = sm.AddState(stateName);
+                st.motion = clip;
+                if (defaultState == null) defaultState = st;
+            }
+            sm.defaultState = defaultState;
+            AssetDatabase.SaveAssets();
+            return ctrl;
         }
 
         private static void EnsureFolder(string path)

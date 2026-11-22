@@ -1,12 +1,14 @@
 {
-    "generatedAt": "2026-11-22T02:06:46.6425319Z",
+    "generatedAt": "2026-11-22T02:51:43.3489346Z",
     "assetsProcessed": 1,
     "animationsImported": 4,
+    "humanoidAvatarsValid": 1,
+    "ualClipsBound": 5,
     "materials": [
-        "Assets/Game/Materials/Fab3D/Mat_Fab3D_smoke_dragonborn.mat"
+        "Assets/Game/Materials/Fab3D/Mat_Fab3D_smoke_humanoid_ual.mat"
     ],
     "prefabs": [
-        "Assets/Game/Prefabs/Fab3D/smoke_dragonborn.prefab"
+        "Assets/Game/Prefabs/Fab3D/smoke_humanoid_ual.prefab"
     ],
     "errors": []
 }

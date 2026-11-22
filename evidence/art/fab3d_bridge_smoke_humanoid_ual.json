@@ -1,0 +1,55 @@
+{
+  "manifest": {
+    "asset_name": "smoke_humanoid_ual",
+    "category": "player_character",
+    "preset": "character",
+    "texture_size": 1024,
+    "astc": "ASTC_4x4",
+    "collider": "none",
+    "max_tris": 4500,
+    "tris_final": 4500,
+    "rigged": true,
+    "source_mode": "from_glb",
+    "source_glb": "humanoide_dragonborn__pbr_4k.glb"
+  },
+  "blender_report": {
+    "name": "smoke_humanoid_ual",
+    "preset": "character",
+    "uv": {
+      "has_layer": true,
+      "area": 0.124774,
+      "inside01": 1.0,
+      "valid": true
+    },
+    "identity_transform": true,
+    "exported": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_humanoid_ual/smoke_humanoid_ual.fbx",
+    "dimensions": {
+      "x": 1.2858,
+      "y": 0.9961,
+      "z": 1.873
+    },
+    "tris": 4500,
+    "rig": {
+      "applied": true,
+      "bones": 18,
+      "actions": [
+        "Idle",
+        "Jump",
+        "RunCycle",
+        "Slide"
+      ]
+    },
+    "decimate": {
+      "before": 249997,
+      "after": 4500,
+      "applied": true,
+      "final_ratio": 0.018
+    },
+    "textures": {
+      "basecolor": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_humanoid_ual/smoke_humanoid_ual_basecolor.png",
+      "mr": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_humanoid_ual/smoke_humanoid_ual_mr.png"
+    },
+    "source_glb": "humanoide_dragonborn__pbr_4k.glb",
+    "texture_size": 1024
+  }
+}
