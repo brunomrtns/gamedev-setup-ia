@@ -1,0 +1,89 @@
+{
+  "schema": "fab3d-manifest-v2",
+  "asset_name": "prop_caixote",
+  "category": "large_prop_building",
+  "preset": "prop",
+  "platform_profile": "android_urp",
+  "texture_size": 512,
+  "astc": "ASTC_6x6",
+  "collider": "box",
+  "max_tris": 3000,
+  "tris_final": 3000,
+  "rigged": false,
+  "humanoid_bone_map_supported": true,
+  "lods": {
+    "LOD0": {
+      "fbx": "prop_caixote.fbx",
+      "tris_before": 250000,
+      "tris_after": 3000,
+      "max_tris": 3000,
+      "identity_transform": true,
+      "bones_renamed": 0
+    },
+    "LOD1": {
+      "fbx": "prop_caixote_LOD1.fbx",
+      "tris_before": 250000,
+      "tris_after": 1690,
+      "max_tris": 1500,
+      "identity_transform": true,
+      "bones_renamed": 0
+    },
+    "LOD2": {
+      "fbx": "prop_caixote_LOD2.fbx",
+      "tris_before": 250000,
+      "tris_after": 1690,
+      "max_tris": 750,
+      "identity_transform": true,
+      "bones_renamed": 0
+    }
+  },
+  "provenance_seals": {
+    "prop_caixote.fbx": {
+      "sha256": "28da44a1e816b399a1a5234b940f6a5c4596408db7b8cf92419e530eea132d8d",
+      "size_bytes": 489212,
+      "tool": "pack_glb_v2.py (AssetFurnace Apache-2.0 base)",
+      "model": "TRELLIS.2-4B + Hunyuan3D-Paint",
+      "license": "MIT (TRELLIS.2-4B) / AssetFurnace Apache-2.0 packer",
+      "platform_profile": "android_urp",
+      "timestamp_utc": "2026-11-22T17:55:12.541453+00:00"
+    },
+    "prop_caixote_basecolor.png": {
+      "sha256": "749c1e35158031e366ee4cc73189528d96918da06ddb5e09525a09b54d0459c1",
+      "size_bytes": 482845,
+      "tool": "pack_glb_v2.py (AssetFurnace Apache-2.0 base)",
+      "model": "TRELLIS.2-4B + Hunyuan3D-Paint",
+      "license": "MIT (TRELLIS.2-4B) / AssetFurnace Apache-2.0 packer",
+      "platform_profile": "android_urp",
+      "timestamp_utc": "2026-11-22T17:55:12.541453+00:00"
+    },
+    "prop_caixote_LOD1.fbx": {
+      "sha256": "dd123552e1a886cdc017388bf8ed87f3d98fe52c622c26ae4ed5e5f901d964d4",
+      "size_bytes": 334236,
+      "tool": "pack_glb_v2.py (AssetFurnace Apache-2.0 base)",
+      "model": "TRELLIS.2-4B + Hunyuan3D-Paint",
+      "license": "MIT (TRELLIS.2-4B) / AssetFurnace Apache-2.0 packer",
+      "platform_profile": "android_urp",
+      "timestamp_utc": "2026-11-22T17:55:12.541453+00:00"
+    },
+    "prop_caixote_LOD2.fbx": {
+      "sha256": "16a5e8b1f80a9d9eee0fde78f3f65b9946cc4e38b5eb38a6646014c44fed31ea",
+      "size_bytes": 334236,
+      "tool": "pack_glb_v2.py (AssetFurnace Apache-2.0 base)",
+      "model": "TRELLIS.2-4B + Hunyuan3D-Paint",
+      "license": "MIT (TRELLIS.2-4B) / AssetFurnace Apache-2.0 packer",
+      "platform_profile": "android_urp",
+      "timestamp_utc": "2026-11-22T17:55:12.541453+00:00"
+    },
+    "prop_caixote_mr.png": {
+      "sha256": "c2db64289e54150ff656b91355e71cdc85f5d426c96231181f2f99e19065509a",
+      "size_bytes": 374429,
+      "tool": "pack_glb_v2.py (AssetFurnace Apache-2.0 base)",
+      "model": "TRELLIS.2-4B + Hunyuan3D-Paint",
+      "license": "MIT (TRELLIS.2-4B) / AssetFurnace Apache-2.0 packer",
+      "platform_profile": "android_urp",
+      "timestamp_utc": "2026-11-22T17:55:12.541453+00:00"
+    }
+  },
+  "source_glb": "prop_caixote__pbr_4k.glb",
+  "source_glb_sha256": "8ecb094a60e52ec947d0df47fb7196a7100c9ca37dd01ae0b69f9a137a2c6a5e"
+}
