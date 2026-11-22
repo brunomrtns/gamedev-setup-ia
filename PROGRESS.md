@@ -83,3 +83,19 @@
   - `tools/validation/validate_gltf.py` (Khronos `glTF-Validator` Apache-2.0) integrado ao `fab3d_bridge.py` e ao orquestrador `tools/qa/run_visual_gates.py`; documentado em `docs/operations/fab3d-bridge-runbook.md` (`evidence/validation/gltf_validator_smoke_dragonborn.json`).
 - [x] **Item C — Captura Automática Datada Pós-Import (`Fab3dImporter.cs`):**
   - `ImportAll(autoCapture: true)` gera `evidence/captures/fab3d_<nome>_<YYYYMMDD_HHMMSS>.png` em todo import; provado em `evidence/captures/fab3d_smoke_dragonborn_20261122_154155.png` e registrado em `evidence/art/fab3d-import-report.json`.
+- [x] **Item D — `AGENTS.md` (Visibilidade Unity MCP + Institucionalização & BAN LIST):**
+  - Adicionada seção §1.1 com as 4 regras inegociáveis de visibilidade MCP + BAN LIST verbatim (agente de código nunca gera arte final; TripoAI/TripoSR banido permanentemente; arte final só via Fábrica 3D `TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game`; placeholders só de fonte CC0/Kenney; regra anti-improviso exigindo ADR).
+- [x] **Item E — `docs/standards/asset-quality.md`:**
+  - Adicionada seção §9 com texel density world-scale (`1 tile = 1–2 m`, proibido UV `1×1` esticado), orientação canônica `Y-up` `+Z-frente` com branch explícito `is_biped: true/false`, proibição de decimação bruta sem retopo (detalhe em normal-map) e tabela de budgets por classe da `art-spec.yaml`.
+- [x] **Item F — `.agents/skills/studio-scene-director/SKILL.md` (NOVA):**
+  - Método anti-lixo **C1–C5** (C1 Diagrama Top-Down → C2 Greybox Fechado Jogável → C3 Kit CC0 + PBR World-Scale → C4 Composição & Câmeras → C5 Substituição In-Place pelos Props da Fábrica 3D).
+- [x] **Item G — `.agents/skills/studio-strict-reviewer/SKILL.md`:**
+  - Revisão multimodal obrigatória (abertura das capturas PNG + 1 frase descritiva + veto por reconhecimento vs. `art-bible.yaml`, veto por personagem deitado, veto por texel density errada e veto por fundo *void*).
+- [x] **Item H — `LICENSES-ARTE.md` (Raiz):**
+  - Tabela completa de ferramentas e packs da §2 do DOC 3 com licenças verificadas na fonte oficial em 22/11/2026, proveniência CC0 do `Mat_PBR_ConcretePanel` / `Calibration.unity`, modo game da Fábrica 3D (`TRELLIS.2-4B` MIT) e carrimbo explícito no `Hunyuan3D-2`.
+- [x] **Item I — Receita Canônica "Novo Jogo do Zero" (`AGENTS.md` §4):**
+  - Adicionada **Etapa 0** (Unity MCP Rota A→B→C + smoke test de captura verde sobre `Calibration.unity` antes do passo 1) e sequência C1–C5 + nova ordem de gates.
+- [x] **Item J — Higiene de Geradores (`docs/standards/studio-git-workflow.md` §1):**
+  - Checklist permanente proibindo geradores/pesos de terceiros ou scripts experimentais avulsos dentro de `gamedev-setup-ia/tools/art/` (movidos para `C:\Users\Bruno\tools\`).
+- [x] **Smoke Test Final Modo 1 (`prop_caixote`, `is_biped: false`):**
+  - `glTF-Validator` exit 0 (`evidence/validation/gltf_validator_prop_caixote.json`) → `validate_asset` exit 0 → `validate_visual` v1.1.0 exit 0 pelo branch explícito `is_biped: false` (`branch: prop_grounded_uniform_scale`, `evidence/validation/validate_visual_prop_caixote.json`) → `Fab3dImporter` exit 0 com captura automática datada (`evidence/captures/fab3d_prop_caixote_20261122_160228.png`). Arquivos temporários de import limpos de `unity/Assets/`.

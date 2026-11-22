@@ -1,17 +1,17 @@
 {
-    "generatedAt": "2026-11-22T15:41:49.3942516Z",
+    "generatedAt": "2026-11-22T16:02:25.5527295Z",
     "assetsProcessed": 1,
-    "animationsImported": 4,
-    "humanoidAvatarsValid": 1,
-    "ualClipsBound": 5,
+    "animationsImported": 0,
+    "humanoidAvatarsValid": 0,
+    "ualClipsBound": 0,
     "materials": [
-        "Assets/Game/Materials/Fab3D/Mat_Fab3D_smoke_dragonborn.mat"
+        "Assets/Game/Materials/Fab3D/Mat_Fab3D_prop_caixote.mat"
     ],
     "prefabs": [
-        "Assets/Game/Prefabs/Fab3D/smoke_dragonborn.prefab"
+        "Assets/Game/Prefabs/Fab3D/prop_caixote.prefab"
     ],
     "captures": [
-        "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\unity\\..\\evidence\\captures\\fab3d_smoke_dragonborn_20261122_154155.png"
+        "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\unity\\..\\evidence\\captures\\fab3d_prop_caixote_20261122_160228.png"
     ],
     "errors": []
 }

@@ -144,6 +144,12 @@ def validate_visual(
     aspect_vs_torso_depth = h_y / max(torso_d, 1e-5)
 
     if is_biped:
+        applied_orientation_checks = [
+            "identity_transform_uniform_scale",
+            "pivot_grounded_or_centered",
+            "biped_upright_y_major_axis",
+            "biped_vertical_aspect_ratio_min_1.6",
+        ]
         if h_y <= w_x or h_y <= d_z:
             orientation_errors.append(
                 f"ORIENTATION_FAIL: Bípede deitado/tombado — altura Y ({h_y:.3f}m) <= extensão horizontal "
@@ -155,17 +161,32 @@ def validate_visual(
                 f"min_horizontal ({min_horiz:.3f}m) = {aspect_vs_min_horiz:.2f} < {BIPED_ASPECT_MIN:.2f} "
                 f"(modelo deitado, achatado ou rotacionado no eixo errado)."
             )
+    else:
+        applied_orientation_checks = [
+            "pivot_base_grounded_on_floor",
+            "uniform_scale_identity_transform",
+            "prop_exempt_from_biped_vertical_ratio",
+        ]
+
+    applied_all_checks = (
+        applied_orientation_checks
+        + ["no_ngons", "class_tri_budget", "uv_texel_density_world_scale", "material_basemap", "scale_meters"]
+    )
 
     checks["orientation"] = {
         "passed": len(orientation_errors) == 0,
         "details": {
             "is_biped": is_biped,
+            "branch": "biped_vertical_aspect" if is_biped else "prop_grounded_uniform_scale",
+            "applied_checks": applied_orientation_checks,
             "identity_transform": identity_ok,
+            "uniform_scale": identity_ok,
+            "pivot_grounded_on_floor": grounded_ok,
             "grounded_y_min": y_min,
             "bounds_unity_y_up": bounds,
-            "torso_bounds": torso,
-            "aspect_height_over_min_horiz": round(aspect_vs_min_horiz, 3),
-            "aspect_height_over_torso_depth": round(aspect_vs_torso_depth, 3),
+            "torso_bounds": torso if is_biped else None,
+            "aspect_height_over_min_horiz": round(aspect_vs_min_horiz, 3) if is_biped else None,
+            "aspect_height_over_torso_depth": round(aspect_vs_torso_depth, 3) if is_biped else None,
             "required_biped_aspect": BIPED_ASPECT_MIN if is_biped else None,
             "errors": orientation_errors,
         },
@@ -296,11 +317,13 @@ def validate_visual(
 
     payload = {
         "validator": "validate_visual.py",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "asset_name": asset_name,
         "asset_path": asset_path.relative_to(ROOT).as_posix() if asset_path.is_relative_to(ROOT) else str(asset_path),
         "class": resolved_class,
+        "is_biped": is_biped,
+        "applied_checks": applied_all_checks,
         "passed": passed,
         "checks": checks,
         "errors": errors,
