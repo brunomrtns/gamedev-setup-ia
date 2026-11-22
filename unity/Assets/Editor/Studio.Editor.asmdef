@@ -14,6 +14,7 @@
         "Unity.RenderPipelines.Universal.Editor",
         "Unity.RenderPipelines.Core.Runtime",
         "Unity.InputSystem",
+        "Unity.Timeline",
         "PROMETEO"
     ],
     "includePlatforms": [

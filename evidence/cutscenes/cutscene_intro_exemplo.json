@@ -1,0 +1,14 @@
+{
+    "generatedAt": "2026-11-22T01:04:27.0811051Z",
+    "cutscene_id": "intro_exemplo",
+    "total_duration_sec": 7.0,
+    "shot_count": 2,
+    "audio_clips_bound": 0,
+    "timeline_asset": "",
+    "prefab_asset": "",
+    "keyframes": [
+        "evidence/captures/cutscene_intro_exemplo_shot_01_establishing.png",
+        "evidence/captures/cutscene_intro_exemplo_shot_02_reveal.png"
+    ],
+    "errors": []
+}

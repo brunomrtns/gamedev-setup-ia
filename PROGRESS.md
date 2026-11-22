@@ -891,7 +891,11 @@ Ferramentas novas: `SceneInventoryTool.cs` (dump por GEOMETRIA, nunca por nome),
   - `tools/audio/tts_bridge.py` + `tools/audio/tts_xtts_worker.py` (orquestrador Windows stdlib + worker CUDA WSL)
   - `docs/audio/voice-cast.template.json` + `docs/operations/tts-bridge-runbook.md` + `.agents/skills/studio-voice-tts/SKILL.md`
   - Smoke test PT-BR (`smoke_test`, 2 falas, 7.138s total, 24 kHz, `-1.0 dBFS`, `cuda`, `errors: []`): `evidence/audio/tts_bridge_smoke_test.json`
-- [ ] **Fase 3 — Cutscene Builder declarativo** (Unity Timeline + Cinemachine a partir de YAML)
+- [x] **Fase 3 — Cutscene Builder declarativo (Unity Timeline + VO/legendas + keyframes):**
+  - `unity/Assets/Game/Scripts/UI/CutscenePlayer.cs` (runtime: câmera rail suave, letterbox, legendas sincronizadas ao `PlayableDirector`)
+  - `unity/Assets/Editor/CutsceneBuilder.cs` (+ `Unity.Timeline` em `Studio.Editor.asmdef`): compila JSON → `TimelineAsset` (`AudioTrack` ligado ao `vo_manifest.json` da Fase 2) + Prefab + capturas de keyframes sem alterar a cena
+  - `tools/studio/build_cutscene.py`, `docs/narrative/cutscene.template.json`, `docs/operations/cutscene-builder-runbook.md`, `.agents/skills/studio-cutscene-director/SKILL.md`
+  - Smoke test batchmode Unity 6.3 (`intro_exemplo`, 2 shots, 7.0s, exit 0, `errors: []`): `evidence/cutscenes/cutscene_intro_exemplo.json` + `evidence/captures/cutscene_intro_exemplo_*.png`
 - [ ] **Fase 4 — Conceito 2D / Texturas Tileáveis / UI local** (ComfyUI em `C:\` + checkpoint enxuto)
 - [ ] **Fase 5 — Personagens Animados** (`Fab3D → auto_rig.py → animações reutilizáveis`)
 - [ ] **Fase 6 — SFX & Música local** (normalização LUFS + banco CC0/modelo compacto)

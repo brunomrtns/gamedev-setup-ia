@@ -1,0 +1,31 @@
+{
+  "cutscene_id": "intro_exemplo",
+  "scene_path": "Assets/Game/Scenes/NeonDistrict.unity",
+  "vo_manifest_path": "Assets/Game/Audio/VO/intro_exemplo/vo_manifest.json",
+  "shots": [
+    {
+      "id": "shot_01_establishing",
+      "duration_sec": 4.0,
+      "pad_after_sec": 0.4,
+      "vo_line_id": "intro_001",
+      "camera_from": [-74.0, 7.0, 14.0],
+      "camera_to": [-58.0, 5.0, 16.0],
+      "look_at": [-30.0, 2.5, 26.0],
+      "fov": 45.0,
+      "subtitle_speaker": "Narrador",
+      "subtitle_text": "Há mil anos, as ruínas guardam um segredo que ninguém ousou despertar."
+    },
+    {
+      "id": "shot_02_reveal",
+      "duration_sec": 3.0,
+      "pad_after_sec": 0.4,
+      "vo_line_id": "intro_002",
+      "camera_from": [-48.0, 3.0, 19.0],
+      "camera_to": [-42.0, 2.5, 22.0],
+      "look_at": [-20.0, 3.0, 26.0],
+      "fov": 40.0,
+      "subtitle_speaker": "Narrador",
+      "subtitle_text": "O portal finalmente se abriu."
+    }
+  ]
+}
