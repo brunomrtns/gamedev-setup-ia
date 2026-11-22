@@ -1,0 +1,33 @@
+{
+  "validator": "validate_scene.py",
+  "version": "2.1.0",
+  "target_profile": "android_urp",
+  "timestamp": "2026-11-22T17:14:27.535754+00:00",
+  "scene": "tests/fixtures/scene_gate/fixture_scene_overbudget.unity",
+  "passed": false,
+  "structural_ok": true,
+  "android_urp_budget_ok": false,
+  "metrics": {
+    "real_lights": 8,
+    "max_real_lights": 5,
+    "estimated_tris": 210000,
+    "max_total_tris": 150000,
+    "estimated_draw_calls": 135,
+    "max_draw_calls": 120,
+    "estimated_texture_mem_mb": 192.5,
+    "max_texture_mem_mb": 128.0,
+    "mesh_renderers": 135,
+    "skinned_renderers": 0,
+    "static_batched_renderers": 0,
+    "static_batching_ratio": 0.0,
+    "min_static_batching_ratio": 0.5
+  },
+  "errors": [
+    "SCENE_BUDGET_LIGHTS_FAIL: 8 luzes reais ativas excedem o limite Android URP (max 5).",
+    "SCENE_BUDGET_TRIS_FAIL: 210000 tris estimados excedem o limite Android URP (max 150000).",
+    "SCENE_BUDGET_DRAWCALLS_FAIL: 135 draw calls estimados excedem o limite Android URP (max 120).",
+    "SCENE_BUDGET_TEXMEM_FAIL: 192.50 MB de texturas excedem o limite Android URP (max 128.0 MB).",
+    "SCENE_BUDGET_STATIC_BATCHING_FAIL: batching estático em apenas 0.0% (0/135 MeshRenderers) — exigido >= 50% para Android URP."
+  ],
+  "warnings": []
+}
