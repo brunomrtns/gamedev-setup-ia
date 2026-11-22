@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "asset_name": "mcp_mock_caixote_smoke",
+    "category": "small_prop_item",
+    "preset": "prop",
+    "texture_size": 512,
+    "astc": "ASTC_6x6",
+    "collider": "box",
+    "max_tris": 600,
+    "tris_final": 56,
+    "rigged": false,
+    "source_mode": "from_glb",
+    "source_glb": "mcp_mock_caixote_smoke__mock_game.glb"
+  },
+  "blender_report": {
+    "name": "mcp_mock_caixote_smoke",
+    "preset": "prop",
+    "uv": {
+      "has_layer": true,
+      "area": 1.139525,
+      "inside01": 1.0,
+      "valid": true
+    },
+    "identity_transform": true,
+    "exported": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/.studio/mcp_fab3d_jobs/job_mcp_mock_caixote_smoke_9a7ac13c/exported_game_asset/mcp_mock_caixote_smoke.fbx",
+    "dimensions": {
+      "x": 1.1,
+      "y": 1.1,
+      "z": 1.425
+    },
+    "tris": 56,
+    "rig": {
+      "applied": false
+    },
+    "decimate": {
+      "before": 56,
+      "after": 56,
+      "applied": false
+    },
+    "textures": {
+      "basecolor": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/.studio/mcp_fab3d_jobs/job_mcp_mock_caixote_smoke_9a7ac13c/exported_game_asset/mcp_mock_caixote_smoke_basecolor.png",
+      "mr": null,
+      "note": "MR nao encontrado no GLB"
+    },
+    "source_glb": "mcp_mock_caixote_smoke__mock_game.glb",
+    "texture_size": 512
+  }
+}

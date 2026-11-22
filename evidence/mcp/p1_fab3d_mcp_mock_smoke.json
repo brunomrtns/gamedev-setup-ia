@@ -1,0 +1,61 @@
+{
+  "smoke": "P1 — Fab3D MCP Service (MyMeshy MIT base, Mock adapter)",
+  "timestamp": "2026-11-22T17:52:41.701922+00:00",
+  "exposed_tools": [
+    "generate_asset",
+    "image_to_3d",
+    "texture_mesh",
+    "export_asset",
+    "get_job",
+    "wait_for_job",
+    "list_assets",
+    "system_status"
+  ],
+  "system_status": {
+    "service": "studio-fab3d-mcp",
+    "version": "1.0.0",
+    "attribution": "Baseado em MyMeshy (MIT, github.com/felippeomgt/mymeshy)",
+    "adapter_mode": "mock",
+    "adapter_name": "mock_procedural_blender",
+    "default_production_route": "TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game",
+    "gate_bypass_allowed": false,
+    "mandatory_gates": [
+      "glTF-Validator (tools/validation/validate_gltf.py)",
+      "validate_asset (tools/validation/validate_asset.py)",
+      "validate_visual (tools/validation/validate_visual.py)",
+      "Fab3dImporter + captura datada (unity/Assets/Editor/Fab3dImporter.cs)"
+    ],
+    "active_jobs": 0,
+    "timestamp": "2026-11-22T17:52:30.734434+00:00"
+  },
+  "wait_for_job_status": "completed",
+  "get_job_stage": "generate_asset_done",
+  "export_result": {
+    "job_id": "job_mcp_mock_caixote_smoke_9a7ac13c",
+    "asset_name": "mcp_mock_caixote_smoke",
+    "exported": true,
+    "gates_passed": true,
+    "export_dir": "C:\\Users\\Bruno\\workspace\\gamedev-setup-ia\\.studio\\mcp_fab3d_jobs\\job_mcp_mock_caixote_smoke_9a7ac13c\\exported_game_asset",
+    "gate_reports": {
+      "gltf_validator": "evidence/validation/gltf_validator_mcp_mock_caixote_smoke.json",
+      "validate_visual": "evidence/validation/validate_visual_mcp_mock_caixote_smoke.json",
+      "bridge_report": "evidence/art/fab3d_bridge_mcp_mock_caixote_smoke.json"
+    },
+    "exit_code": 0,
+    "error": null
+  },
+  "list_assets": {
+    "count": 1,
+    "assets": [
+      {
+        "job_id": "job_mcp_mock_caixote_smoke_9a7ac13c",
+        "asset_name": "mcp_mock_caixote_smoke",
+        "category": "small_prop_item",
+        "status": "completed",
+        "gates_passed": true,
+        "adapter": "mock_procedural_blender"
+      }
+    ]
+  },
+  "passed": true
+}
