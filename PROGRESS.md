@@ -102,3 +102,18 @@
 - **DOC 3 ENCERRADO E CONSOLIDADO EM `main` (2026-11-22):**
   - Merge commit `bf214100` (`feat/visual-gates` → `main`), tag local institucional **`gates-v1.0`**.
   - Suíte pós-merge re-executada na `main` com 3/3 resultados verificados: `smoke_dragonborn` (`exit 0`, `is_biped: true`), `fixture_biped_deitado` (`exit 1`, exclusivamente `ORIENTATION_FAIL`) e `prop_caixote` (`exit 0`, `is_biped: false`). Sem push.
+
+---
+
+## Programa de Adoção de Infraestrutura — Turno 3 (22/11, sem push)
+- [x] **P1 — Fábrica 3D como serviço MCP (`tools/mcp_fab3d/`, base MyMeshy MIT):**
+  - Expõe as 8 ferramentas MCP (`generate_asset`, `image_to_3d`, `texture_mesh`, `export_asset`, `get_job`, `wait_for_job`, `list_assets`, `system_status`) com `RealFab3DAdapter` (padrão `TRELLIS.2-4B + Hunyuan3D-Paint + pack_glb modo game`) e `MockProceduralAdapter` (sem GPU), **sem bypass de gates** (`glTF-Validator → validate_asset → validate_visual`).
+  - Atribuição registrada em `THIRD-PARTY.md` e `LICENSES-ARTE.md`. Smoke Mock exit 0: `evidence/mcp/p1_fab3d_mcp_mock_smoke.json`.
+- [x] **P2 — `pack_glb` modo game v2 (`tools/art/pack_glb_v2.py`, base AssetFurnace Apache-2.0):**
+  - (a) LODs automáticos (`LOD0`/`LOD1`/`LOD2`), (b) perfil de textura por plataforma (default `android_urp`), (c) mapa de ossos Unity Humanoid (compatível com MoMask/UniRig 5.1-B), (d) selo de proveniência criptográfico (`sha256` + ferramenta + modelo + licença + data) por arquivo no manifesto.
+  - Smoke real sobre `prop_caixote__pbr_4k.glb` exit 0 (`LOD0=3000`, `LOD1=1690`, `LOD2=1690`, 5 selos SHA-256, gates pós-pack verdes): `evidence/art/p2_pack_glb_v2_prop_caixote.json`.
+- [x] **P2b — Classes de AMBIENTE (`env_tile`, `env_structure`, `env_skybox`):**
+  - Registradas em `tools/validation/validate_visual.py` (`is_biped: false`) e documentadas em `docs/standards/asset-quality.md` (smoke `env_structure` exit 0: `evidence/validation/p2b_env_structure_smoke.json`; sincronizadas para `game-concerto` via Protocolo E).
+- [ ] **P3 (Condicional — `validate_anim.py`, base `mixamo-llm-mocap` MIT):** *ADIADO* — não existem fixtures `.bvh`/`.fbx` do Estágio 5.1-B em `evidence/` ainda (somente `motion_smoke_repair_kneel.json`). Implementar assim que 5.1-B publicar os primeiros BVH/FBX de teste.
+- [x] **P4 — Catálogo Unity MCP (`docs/mcp-gap-analysis.md`):**
+  - Comparativo `CoderGamester/mcp-unity` (ativa, MIT) vs `IvanMurzak/Unity-MCP` (Apache-2.0) vs `AnkleBreaker/unity-mcp-server` (MIT) com análise de risco e proposta de absorção leve futura sem trocar a ponte atual.
