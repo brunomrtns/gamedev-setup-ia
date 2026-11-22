@@ -22,7 +22,7 @@
       "valid": true
     },
     "identity_transform": true,
-    "exported": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_dragonborn/smoke_dragonborn.fbx",
+    "exported": "/mnt/c/Users/Bruno/tools/fab3d_samples/staged/smoke_dragonborn/smoke_dragonborn.fbx",
     "dimensions": {
       "x": 1.2858,
       "y": 0.9961,
@@ -46,8 +46,8 @@
       "final_ratio": 0.018
     },
     "textures": {
-      "basecolor": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_dragonborn/smoke_dragonborn_basecolor.png",
-      "mr": "/mnt/c/Users/Bruno/workspace/gamedev-setup-ia/unity/Assets/Game/Art/Generated/smoke_dragonborn/smoke_dragonborn_mr.png"
+      "basecolor": "/mnt/c/Users/Bruno/tools/fab3d_samples/staged/smoke_dragonborn/smoke_dragonborn_basecolor.png",
+      "mr": "/mnt/c/Users/Bruno/tools/fab3d_samples/staged/smoke_dragonborn/smoke_dragonborn_mr.png"
     },
     "source_glb": "humanoide_dragonborn__pbr_4k.glb",
     "texture_size": 1024

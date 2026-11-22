@@ -1,7 +1,7 @@
 {
   "validator": "validate_visual.py",
   "version": "1.1.0",
-  "timestamp": "2026-11-22T16:15:19.070642+00:00",
+  "timestamp": "2026-11-22T16:15:24.515975+00:00",
   "asset_name": "smoke_dragonborn",
   "asset_path": "C:\\Users\\Bruno\\tools\\fab3d_samples\\staged\\smoke_dragonborn\\smoke_dragonborn.fbx",
   "class": "player_character",

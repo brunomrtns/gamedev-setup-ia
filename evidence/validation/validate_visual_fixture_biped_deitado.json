@@ -1,7 +1,7 @@
 {
   "validator": "validate_visual.py",
   "version": "1.1.0",
-  "timestamp": "2026-11-22T16:15:20.215208+00:00",
+  "timestamp": "2026-11-22T16:15:25.434102+00:00",
   "asset_name": "fixture_biped_deitado",
   "asset_path": "tests/fixtures/visual_gate/fixture_biped_deitado/fixture_biped_deitado.fbx",
   "class": "player_character",
